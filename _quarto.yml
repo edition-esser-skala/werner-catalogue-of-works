@@ -7,20 +7,18 @@ book:
   date: 2024-02-11
   chapters:
     - index.qmd
-    - references.qmd
     - part: "Vocal music"
       chapters:
         - works/oratorios.qmd
         - works/masses.qmd
         - works/requiems.qmd
-        - works/offertories.qmd
-        - works/arias.qmd
+        - works/liturgical_works.qmd
+        - works/german_arias.qmd
+        - works/hymns.qmd
         - works/litanies.qmd
         - works/vespers.qmd
-        - works/antiphons.qmd
+        - works/marian_antiphons.qmd
         - works/te_deums.qmd
-        - works/responsories.qmd
-        - works/hymns.qmd
         - works/lamentations.qmd
         - works/profane_cantatas.qmd
     - part: "Instrumental music"
@@ -35,7 +33,7 @@ book:
         - works/spurious.qmd
 
 bibliography: references.bib
-# csl: "apa-6th-edition.csl"
+csl: "apa-6th-edition.csl"
 
 format:
   html:

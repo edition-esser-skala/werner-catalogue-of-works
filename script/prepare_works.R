@@ -1,7 +1,6 @@
 library(tidyverse)
 library(readODS)
 library(fs)
-library(gt)
 
 
 
@@ -109,58 +108,145 @@ rism_entries %>%
 
 # Make work pages ---------------------------------------------------------
 
+available_incipits <-
+  read_csv("data_generated/rism_entries.csv") %>%
+  select(rism_id, work_id) %>%
+  semi_join(read_csv("data_generated/rism_incipits.csv"), by = "work_id") %>%
+  mutate(file = str_glue("../data_generated/rism_incipits/{work_id}-0.svg")) %>%
+  select(!work_id)
+
+catalogue_all_with_rism <-
+  bind_rows(
+    catalogue_all %>%
+      filter(is.na(rism_id_end)) %>%
+      left_join(
+        rism_entries %>% select(!c(title, rism_id_end)),
+        by = join_by(siglum, shelfmark)
+      ),
+    catalogue_all %>%
+      filter(!is.na(rism_id_end)) %>%
+      left_join(
+        rism_entries %>% select(!title),
+        by = join_by(siglum, shelfmark, rism_id_end)
+      )
+  ) %>%
+  select(ID, siglum, shelfmark, rism_id) %>%
+  left_join(available_incipits, by = "rism_id") %>%
+  unite(siglum, shelfmark, col = "source", sep = " ") %>%
+  nest(.by = ID, .key = "sources")
+
+works <-
+  catalogue %>%
+  select(ID:key) %>%
+  left_join(catalogue_all_with_rism, by = "ID") %>%
+  mutate(key = replace_na(key, "–"))
+
+subgroups <-
+  read_ods("data/catalogue.ods", sheet = "overview") %>%
+  fill(file, group) %>%
+  filter(!is.na(subgroup)) %>%
+  select(group:title) %>%
+  nest(subgroups = c(subgroup, title))
+
 work_pages <-
   read_ods("data/catalogue.ods", sheet = "overview") %>%
-  filter(!is.na(file))
+  filter(!is.na(group)) %>%
+  select(file, group, title) %>%
+  left_join(subgroups, by = "group")
+
+
+
 
 page_template <- '---
 page-navigation: false
 ---
 
-# {title}
+# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
-{works}
+{work_list}
+'
+
+subgroup_template <- '
+## [{group}.{subgroup}]{{.header-section-number}} {title} {{.unnumbered}}
+
+{work_list}
 '
 
 work_template <- '
-### {grp}.{no}<br/>{title} {{.unnumbered}}
+### [{group}.{number}]{{.header-section-number}} {title} {{.unnumbered}}
 
 key
 : {key}
 
 sources
-: {sish}
+: {sources}
 
 incipit
-: ![](../data/incipits/{grp}{no}){{width=80%}}
+: {incipit}
 '
 
-make_work_page <- function(file, title, grp) {
-  works <-
-    catalogue %>%
-    select(ID:key) %>%
-    left_join(
-      catalogue_all %>%
-        select(ID, siglum, shelfmark) %>%
-        unite(siglum, shelfmark, col = "sish", sep = " ") %>%
-        summarise(
-          .by = ID,
-          sish = str_flatten(sish, " · ")
-        ),
-      by = "ID"
-    ) %>%
-    filter(grp == {{grp}}) %>%
-    select(!c(ID, grp)) %>%
-    pmap(\(no, title, key, sish) str_glue(work_template)) %>%
-    str_flatten("\n\n")
+make_work_entry <- function(number, group, title, key, sources, ...) {
+  manual_incipit <- str_glue("data/incipits/{group}.{number}.png")
+  if (file_exists(manual_incipit))
+    incipit <- str_glue("../{manual_incipit}")
+  else
+    incipit <-
+      sources$file %>%
+      na.omit() %>%
+      pluck(1)
+  if (is.null(incipit))
+    incipit <- "(none)"
+  else
+    incipit <- str_glue("![]({incipit}){{width=80%}}")
 
+  sources <- pmap(
+    sources,
+    \(source, rism_id, ...)
+      if_else(
+        is.na(rism_id),
+        source,
+        str_glue("[{source}](https://opac.rism.info/search?id={rism_id})")
+      )
+  ) %>%
+    str_flatten(collapse = " · ")
+
+
+  str_glue(work_template)
+}
+
+# make_work_entry("1", "B", "C", "D", catalogue_all_with_rism$sources[[1]])
+# make_work_entry("A", "B", "C", "D", catalogue_all_with_rism$sources[[525]])
+
+
+make_group_page <- function(file, group, title, subgroups) {
+  if (is.null(subgroups)) {
+    work_list <-
+      works %>%
+      filter(group == {{group}}) %>%
+      pmap(make_work_entry) %>%
+      str_flatten("\n\n")
+  } else {
+    work_list <- pmap(
+      subgroups,
+      \(subgroup, title) {
+        work_list <-
+          works %>%
+          filter(group == {{group}}, subgroup == {{subgroup}}) %>%
+          unite(group, subgroup, col = "group", sep = ".") %>%
+          pmap(make_work_entry) %>%
+          str_flatten("\n\n")
+        str_glue(subgroup_template)
+      }
+    ) %>%
+      str_flatten("\n\n")
+  }
   str_glue(page_template) %>%
     write_file(str_glue("works/{file}.qmd"))
 }
 
-# make_grp_page("masses", "Masses", "B")
+# pmap(work_pages[4, ], make_group_page)
+# pmap(work_pages[2, ], make_group_page)
+
 if (dir_exists("works")) dir_delete("works")
 dir_create("works")
-pwalk(work_pages, make_work_page)
-
-
+pwalk(work_pages, make_group_page)

@@ -1,18 +1,74 @@
 # Introduction {.unnumbered}
 
-## Summary
+This page contains an evolving thematic catalogue of Gregor Joseph Werner's works. For general and biographical information on Werner, see @Czernin2020, @Moder1959, @Petermayr2007, and @Unverricht2001.
 
-This page represents an evolving thematic catalogue of Gregor Joseph Werner's works.
 
-In assembling the catalogue, we consulted the following sources:
+## Overview
 
-- @Czernin2020 – sources of Werner's works in Austria
+We classify Werner's works as *Vocal music* (groups A to M) and *instrumental music* (groups N to R); moreover, an appendix contains spurious and uncertain attributions (group Z). Groups D, H, and I are further divided into subgroups to provide a more fine-grained classification and to preserve work numbering if further works are discovered. The catalogue does not cite lost works (with the exception of lost oratorios, whose existence has been sufficiently proven). Within each (sub)group, works are ordered by library and siglum; the more important libraries (H-Bn and A-Ed) appear first, followed by other libraries.
+
+**Vocal music** comprises
+
+- *A. Oratorios*
+- *B. Masses*
+- *C. Requiems, Libera*
+- *D. Short liturgical works*, divided into<br/>
+  (1) motets,<br/>
+  (2) offertories,<br/>
+  (3) responsoria,<br/>
+  (4) rorates, and<br/>
+  (5) miscellaneous works 
+- *E. German church arias*
+- *F. Hymns*
+- *G. Litanies*
+- *H. Vespers*, divided into<br/>
+  (1) complete vespers and<br/>
+  (2) psalms
+- *I. Marian antiphons*, divided into<br/>
+  (1) Alma redemptoris mater,<br/>
+  (2) Ave regina coelorum,<br/>
+  (3) Regina coeli,<br/>
+  (4) Salve regina, and<br/>
+  (5) Sub tuum praesidium
+- *J. Te Deums*
+- *K. Lamentations*
+- *L. Profane cantatas*
+
+**Instrumental music** comprises
+
+- *M. Sonatas*
+- *N. Pastorellas*
+- *O. Partitas*
+- *P. Sinfonias*
+- *Q. Concertos*
+
+Currently, the catalogue contains the following informations for each work: title, key, sources, and one incipit. As the catalogue evolves, detailed information on each work will be added in MEI format.
+
+
+## Methods
+
+We consulted the following sources, which represent partial catalogues of Werner's works:
+
+- @Czernin2020a – sources in Austria
 - @Dopf1956 – masses
 - @Harich1976 – oratorios
 - @Mikusi2020 – sonatas
-- @Muranyi1997 – works in the National Szechenyi Library
+- @Muranyi1997 – works in the National Szechenyi Library Budapest
 - @Petermayr2020 – instrumental works
 - @WinklerKlement2013 – works in the Dommusikarchiv Eisenstadt
 - @WinklerKlement2020 – masses and oratorios
 
-See also @Moder1959 for general information.
+The work list assembled from these sources (`data/catalogue.ods`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via *sru-downloader* (https://github.com/rism-international/sru-downloader) on 2023-01-27, yielding 867 entries:
+
+```bash
+java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=creator=%22Werner,%20Gregor%20Joseph%22&maximumRecords=100"
+```
+In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains MarcXML tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.ipynb` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
+
+Pages for each group were generated automatically from `catalogue.ods`. For each work, one incipit was generated from the Plaine & Easie Code of a selected RISM entry. Data from the RISM Catalogue (https://opac.rism.info) by the Répertoire International des Sources Musicales is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
+
+
+## References
+
+::: {#refs}
+:::
