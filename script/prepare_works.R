@@ -157,11 +157,7 @@ work_pages <-
 
 
 
-page_template <- '---
-page-navigation: false
----
-
-# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
+page_template <- '# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
 {work_list}
 '

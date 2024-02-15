@@ -31,12 +31,14 @@ book:
     - part: "Appendix"
       chapters:
         - works/spurious.qmd
+  page-navigation: false
 
 bibliography: references.bib
 csl: "apa-6th-edition.csl"
 
 format:
   html:
+    toc-depth: 2
     theme:
       light: flatly
       dark: darkly

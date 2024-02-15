@@ -1,11 +1,19 @@
 # Introduction {.unnumbered}
 
-This page contains an evolving thematic catalogue of Gregor Joseph Werner's works. For general and biographical information on Werner, see @Czernin2020, @Moder1959, @Petermayr2007, and @Unverricht2001.
+This website contains an evolving thematic catalogue of Gregor Joseph Werner's works.
+
+::: {.callout-important}
+## Caution
+
+This catalogue is **work-in-progress** and likely contains errors or duplicate entries. Its contents are subject to change as we screen more and more manuscripts.
+:::
+
+For general and biographical information on Werner, see @Czernin2020, @Moder1959, @Petermayr2007, and @Unverricht2001.
 
 
 ## Overview
 
-We classify Werner's works as *Vocal music* (groups A to M) and *instrumental music* (groups N to R); moreover, an appendix contains spurious and uncertain attributions (group Z). Groups D, H, and I are further divided into subgroups to provide a more fine-grained classification and to preserve work numbering if further works are discovered. The catalogue does not cite lost works (with the exception of lost oratorios, whose existence has been sufficiently proven). Within each (sub)group, works are ordered by library and siglum; the more important libraries (H-Bn and A-Ed) appear first, followed by other libraries.
+We classify Werner's works as *Vocal music* (groups A to L) and *instrumental music* (groups M to Q); moreover, an appendix contains spurious and uncertain attributions (group Z). Groups D, H, and I are further divided into subgroups to provide a more fine-grained classification and to preserve work numbering if further works are discovered. The catalogue does not cite lost works, with the exception of lost oratorios, whose existence has been sufficiently proven. Within each (sub)group, works are ordered by library and siglum; the more important libraries (H-Bn and A-Ed) appear first, followed by other libraries.
 
 **Vocal music** comprises
 
@@ -42,15 +50,23 @@ We classify Werner's works as *Vocal music* (groups A to M) and *instrumental mu
 - *P. Sinfonias*
 - *Q. Concertos*
 
-Currently, the catalogue contains the following informations for each work: title, key, sources, and one incipit. As the catalogue evolves, detailed information on each work will be added in MEI format.
+Currently, the catalogue contains the following information for each work:
+
+- title
+- key
+- sources (linked to the respective RISM entry), and
+- one preliminary incipit (i.e., the first incipit of the first source with RISM entry).
+
+As the catalogue matures, we plan to add detailed metadata for each work in MEI format [@MEI2023].
 
 
 ## Methods
 
-We consulted the following sources, which represent partial catalogues of Werner's works:
+We consulted the following sources, which contain partial catalogues of Werner's works:
 
 - @Czernin2020a – sources in Austria
 - @Dopf1956 – masses
+- @Eitner1904 – sources known around 1900
 - @Harich1976 – oratorios
 - @Mikusi2020 – sonatas
 - @Muranyi1997 – works in the National Szechenyi Library Budapest
@@ -58,17 +74,25 @@ We consulted the following sources, which represent partial catalogues of Werner
 - @WinklerKlement2013 – works in the Dommusikarchiv Eisenstadt
 - @WinklerKlement2020 – masses and oratorios
 
-The work list assembled from these sources (`data/catalogue.ods`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via *sru-downloader* (https://github.com/rism-international/sru-downloader) on 2023-01-27, yielding 867 entries:
+The work list assembled from these sources (`data/catalogue.ods`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via [*sru-downloader*](https://github.com/rism-international/sru-downloader) on 2023-01-27, yielding 867 entries:
 
 ```bash
 java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=creator=%22Werner,%20Gregor%20Joseph%22&maximumRecords=100"
 ```
-In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains MarcXML tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.ipynb` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
+In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains [MarcXML](https://www.loc.gov/standards/marcxml/) tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.ipynb` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
 
-Pages for each group were generated automatically from `catalogue.ods`. For each work, one incipit was generated from the Plaine & Easie Code of a selected RISM entry. Data from the RISM Catalogue (https://opac.rism.info) by the Répertoire International des Sources Musicales is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
+Pages for each group of works were generated automatically from `catalogue.ods`. For each work, one incipit was generated from the Plaine & Easie Code of the first source with a RISM entry. Data from the [RISM Catalogue](https://opac.rism.info) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
 
 ## References
 
 ::: {#refs}
 :::
+
+
+## Contact
+
+I would appreciate your feedback! Feel free to reach out to me via [email](mailto:wolfgang@esser-skala.at).
+
+Disclosure (§25 Mediengesetz)
+: This website is privately provided and maintained by Wolfgang Esser-Skala, Wolfgangseestraße 31g, 5023 Koppl.
