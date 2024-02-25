@@ -108,11 +108,17 @@ rism_entries %>%
 
 # Make work pages ---------------------------------------------------------
 
+# incipits extracted from RISM entries
+rism_incipits <-
+  read_csv("data_generated/rism_incipits.csv") %>%
+  distinct(work_id, .keep_all = TRUE) %>%
+  select(!incipit_id)
+
 available_incipits <-
   read_csv("data_generated/rism_entries.csv") %>%
   select(rism_id, work_id) %>%
-  semi_join(read_csv("data_generated/rism_incipits.csv"), by = "work_id") %>%
-  mutate(file = str_glue("../data_generated/rism_incipits/{work_id}-0.svg")) %>%
+  left_join(rism_incipits, by = "work_id") %>%
+  filter(!is.na(label)) %>%
   select(!work_id)
 
 catalogue_all_with_rism <-
@@ -155,8 +161,6 @@ work_pages <-
   left_join(subgroups, by = "group")
 
 
-
-
 page_template <- '# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
 {work_list}
@@ -181,20 +185,35 @@ incipit
 : {incipit}
 '
 
-make_work_entry <- function(number, group, title, key, sources, ...) {
+make_incipit <- function(group, number, sources) {
   manual_incipit <- str_glue("data/incipits/{group}.{number}.png")
   if (file_exists(manual_incipit))
-    incipit <- str_glue("../{manual_incipit}")
-  else
-    incipit <-
-      sources$file %>%
-      na.omit() %>%
-      pluck(1)
-  if (is.null(incipit))
-    incipit <- "(none)"
-  else
-    incipit <- str_glue("![]({incipit}){{width=80%}}")
+    return(str_glue("![](../{manual_incipit}){{width=80%}}"))
 
+  if (is.null(sources))
+    return("(none)")
+
+  incipit <-
+    sources %>%
+    filter(!is.na(label)) %>%
+    head(1)
+  if (nrow(incipit) == 0)
+    return("(none)")
+
+  if (is.na(incipit$text))
+    incipit_text <- ""
+  else
+    incipit_text <- paste0("<br/>\n", incipit$text)
+
+  return(str_glue("{incipit$label}<br/>\n",
+                  "![]({incipit$file}){{width=80%}}",
+                  "{incipit_text}"))
+}
+
+# make_incipit("B", "46", NULL)
+
+make_work_entry <- function(number, group, title, key, sources, ...) {
+  incipit <- make_incipit(group, number, sources)
   sources <- pmap(
     sources,
     \(source, rism_id, ...)
@@ -205,7 +224,6 @@ make_work_entry <- function(number, group, title, key, sources, ...) {
       )
   ) %>%
     str_flatten(collapse = " · ")
-
 
   str_glue(work_template)
 }

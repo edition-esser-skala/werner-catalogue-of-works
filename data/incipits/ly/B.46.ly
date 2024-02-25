@@ -1,5 +1,6 @@
 % lilypond --include=$EES_TOOLS_PATH -dno-point-and-click B.46.ly
 % pdfcrop --margins "0 5 0 0" B.46.pdf B.46.pdf
+% convert -density 300 -background white -alpha remove B.46.pdf B.46.png
 
 \version "2.24.2"
 
