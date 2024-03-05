@@ -1,6 +1,27 @@
 library(tidyverse)
 library(readODS)
 library(fs)
+source("script/utils.R")
+
+library(reticulate)
+reticulate::use_virtualenv("renv/python/virtualenvs/renv-python-3.11")
+verovio <- import("verovio")
+
+
+
+# Initialize verivio ------------------------------------------------------
+
+verovio_tk <- verovio$toolkit()
+verovio_tk$setOptions(r_to_py(list(
+  adjustPageHeight = TRUE,
+  adjustPageWidth = TRUE,
+  header = "none",
+  footer = "none",
+  pageMarginBottom = 0,
+  pageMarginLeft = 0,
+  pageMarginRight = 0,
+  pageMarginTop = 0
+)))
 
 
 
@@ -67,7 +88,7 @@ catalogue_all <-
 
 
 
-# Validation --------------------------------------------------------------
+# Validate data -----------------------------------------------------------
 
 # there is no overlap between works with and without RISM entry
 inner_join(
@@ -106,20 +127,17 @@ rism_entries %>%
 
 
 
-# Make work pages ---------------------------------------------------------
+# Prepare data for group pages --------------------------------------------
+
+## Data frames ----
 
 # incipits extracted from RISM entries
-rism_incipits <-
-  read_csv("data_generated/rism_incipits.csv") %>%
-  distinct(work_id, .keep_all = TRUE) %>%
-  select(!incipit_id)
-
 available_incipits <-
-  read_csv("data_generated/rism_entries.csv") %>%
-  select(rism_id, work_id) %>%
-  left_join(rism_incipits, by = "work_id") %>%
-  filter(!is.na(label)) %>%
-  select(!work_id)
+  read_csv(
+    "data_generated/rism_incipits.csv",
+    col_types = cols(.default = "c")
+  ) %>%
+  distinct(rism_id, .keep_all = TRUE)
 
 catalogue_all_with_rism <-
   bind_rows(
@@ -161,6 +179,8 @@ work_pages <-
   left_join(subgroups, by = "group")
 
 
+## Templates ----
+
 page_template <- '# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
 {work_list}
@@ -185,34 +205,66 @@ incipit
 : {incipit}
 '
 
-make_incipit <- function(group, number, sources) {
-  manual_incipit <- str_glue("data/incipits/{group}.{number}.png")
-  if (file_exists(manual_incipit))
-    return(str_glue("![](../{manual_incipit}){{width=80%}}"))
 
+
+# Generate group pages ----------------------------------------------------
+
+## Functions ----
+
+make_incipit <- function(group, number, sources) {
+  incipit_image <- str_glue("groups/incipits/{group}_{number}.svg")
+
+  # (1) is there a manually created incipit? if so, render to svg
+  manual_incipit <- str_glue("data/incipits/{group}_{number}/main.mei")
+  if (file_exists(manual_incipit)) {
+    verovio_tk$loadFile(manual_incipit)
+    success <- verovio_tk$renderToSVGFile(incipit_image)
+    if (!success)
+      warn("Error rendering {incipit_image}")
+    return(str_glue("![](incipits/{group}_{number}.svg){{width=80%}}"))
+  }
+
+  # (2) no sources -> no incipit
   if (is.null(sources))
     return("(none)")
 
+  # (3) no incipit in RISM -> no incipit
   incipit <-
     sources %>%
-    filter(!is.na(label)) %>%
+    filter(!is.na(work)) %>%
     head(1)
   if (nrow(incipit) == 0)
     return("(none)")
 
+  # (4) render RISM incipit
   if (is.na(incipit$text))
     incipit_text <- ""
   else
     incipit_text <- paste0("<br/>\n", incipit$text)
 
-  return(str_glue("{incipit$label}<br/>\n",
-                  "![]({incipit$file}){{width=80%}}",
+  verovio_tk$loadData(incipit$pae)
+  success <- verovio_tk$renderToSVGFile(incipit_image)
+  if (!success)
+    warn("Error rendering {incipit_image}")
+
+  return(str_glue("{incipit$work}.{incipit$movement}.{incipit$excerpt}<br/>\n",
+                  "![](incipits/{group}_{number}.svg){{width=80%}}",
                   "{incipit_text}"))
 }
 
 # make_incipit("B", "46", NULL)
+#
+# make_incipit(
+#   "B",
+#   "47",
+#   works %>%
+#     filter(group == "B", number == "47") %>%
+#     pull(sources) %>%
+#     pluck(1)
+# )
 
-make_work_entry <- function(number, group, title, key, sources, ...) {
+make_work_entry <- function(group, number, title, key, sources, ...) {
+  info("Writing {group}_{number}")
   incipit <- make_incipit(group, number, sources)
   sources <- pmap(
     sources,
@@ -255,12 +307,15 @@ make_group_page <- function(file, group, title, subgroups) {
       str_flatten("\n\n")
   }
   str_glue(page_template) %>%
-    write_file(str_glue("works/{file}.qmd"))
+    write_file(str_glue("groups/{file}.qmd"))
 }
 
 # pmap(work_pages[4, ], make_group_page)
 # pmap(work_pages[2, ], make_group_page)
 
-if (dir_exists("works")) dir_delete("works")
-dir_create("works")
+
+## Run ----
+
+if (dir_exists("groups")) dir_delete("groups")
+dir_create("groups/incipits")
 pwalk(work_pages, make_group_page)
