@@ -195,6 +195,8 @@ subgroup_template <- '
 work_template <- '
 ### [{group}.{number}]{{.header-section-number}} {title} {{.unnumbered}}
 
+{details}
+
 key
 : {key}
 
@@ -277,10 +279,15 @@ make_work_entry <- function(group, number, title, key, sources, ...) {
   ) %>%
     str_flatten(collapse = " · ")
 
+  details <- ""
+  if (file_exists(str_glue("data/works_html/{group}_{number}.html")))
+    details <- str_glue("[Details](works/{group}_{number}.html)")
+
   str_glue(work_template)
 }
 
 # make_work_entry("1", "B", "C", "D", catalogue_all_with_rism$sources[[1]])
+# make_work_entry("B", "46", "C", "D", catalogue_all_with_rism$sources[[1]])
 # make_work_entry("A", "B", "C", "D", catalogue_all_with_rism$sources[[525]])
 
 
@@ -319,3 +326,6 @@ make_group_page <- function(file, group, title, subgroups) {
 if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups/incipits")
 pwalk(work_pages, make_group_page)
+
+if (dir_exists("_book/works")) dir_delete("_book/works")
+dir_copy("data/works_html", "_book/works")
