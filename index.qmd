@@ -79,6 +79,14 @@ The work list assembled from these sources (`data/catalogue.ods`) was checked ag
 
 ```bash
 java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=creator=%22Werner,%20Gregor%20Joseph%22&maximumRecords=100"
+grep -v "<zs:" output.xml | \
+  grep -v "</zs:" | \
+  grep -v "<marc:collection" | \
+  grep -v "</marc:collection" | \
+  sed '1 a\<marc:collection xmlns:marc="http://www.loc.gov/MARC21/slim">' | \
+  sed '$ a\</marc:collection>' \
+  > rism_entries.xml
+rm output.xml
 ```
 In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains [MarcXML](https://www.loc.gov/standards/marcxml/) tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.ipynb` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
 
