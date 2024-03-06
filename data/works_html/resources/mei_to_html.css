@@ -1,9 +1,12 @@
+@import "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap";
+
 body {
     text-align : left;
     margin : 20px;
-    line-height : 1.4em;
-    font-family: arial, helvetica, sans-serif;
-    font-size: .8em;
+    line-height : 1.5;
+    font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 p {
@@ -19,7 +22,7 @@ table {
 table td {
     vertical-align: top;
     line-height: 1.4em;
-    padding-right: 1em; 
+    padding-right: 1em;
     padding-left: 0;
 }
 
@@ -96,7 +99,7 @@ h2.expression_heading {
 }
 
 .movement_heading {
-    margin-top: 1em;  
+    margin-top: 1em;
 }
 
 .section_heading {
@@ -120,9 +123,6 @@ h2.expression_heading {
     cursor: default;
 }
 
-.fold p {
-    /* margin: 0;*/
-}
 
 .incipit_lowres {
     margin-top : 5px;
@@ -160,9 +160,9 @@ a.work_number_reference {
     border-radius: 4px;
 }
 
-a.work_number_reference:link, 
-a.work_number_reference:active, 
-a.work_number_reference:visited, 
+a.work_number_reference:link,
+a.work_number_reference:active,
+a.work_number_reference:visited,
 a.work_number_reference:hover {
     text-decoration: none;
     white-space: nowrap;
@@ -179,7 +179,7 @@ a.work_number_reference:hover {
 
 a.abbr {
     border-bottom: 1px dashed #666;
-    cursor: help;   
+    cursor: help;
     text-decoration: none;
     color: inherit;
 }
@@ -213,11 +213,11 @@ a:hover.abbr .expan {
     -moz-box-shadow: 7px 7px 10px 5px #333;
     -moz-border-radius: 4px;
     /* For MSIE 6-8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333');
 }
 
-div.perfmedium p { 
+div.perfmedium p {
     margin-top: 0;
 }
 
@@ -294,7 +294,7 @@ ul.single_movement {
     font-size: .8em;
     float:right;
     width: auto;
-    margin-top: 5px;    
+    margin-top: 5px;
 }
 
 table.performances tr td, table.letters tr td {
@@ -321,10 +321,10 @@ table.source_component_list td {
     vertical-align: top;
 }
 
-table.source_component_list td h3, 
+table.source_component_list td h3,
 table.source_component_list td h4,
 table.source_component_list td h5 {
-/* H3, H4, H5 padding set to 0 for vertical alignment with label cell */    
+/* H3, H4, H5 padding set to 0 for vertical alignment with label cell */
     padding-top: 0px;
 }
 
@@ -338,39 +338,16 @@ div.MEI_score {
     border-top: 1px solid #000;
 }
 
-/* Styling the header with the catalogue's name 
-   and the works's number in it. 
+/* Styling the header with the catalogue's name
+   and the works's number in it.
    For series-specific styling, use the series identifier as a class name. */
 .series_header {
     /* shared by all series */
-    background-color : #888;
+    background-color : rgb(44, 62, 80);
     padding: 4px 8px;
     color : white;
     font-weight : bold;
     font-size : 1.5em;
-}
-
-/* Series-specific header colors. */
-/* File collection name is used as class */
-
-.Demo, .TEST {
-    background-color : #466f86;
-}
-
-.CNW {
-    background-color : #556677;
-}
-
-.HartW {
-    background-color : #88292f;
-}
-
-.GW, .NWGW {
-    background-color : #326f3e;
-}
-
-.SchM, .SchT, .SchW {
-    background-color : #866746;
 }
 
 /* SPECIAL SYMBOLS */
@@ -379,29 +356,15 @@ div.MEI_score {
 /* Unicode music symbols font */
 @font-face {
 	font-family: 'Bravura Text';
-	src: url('/resources/css/fonts/BravuraText.eot');
-	src: local('Bravura Text'), 
-	       url('/resources/css/fonts/BravuraText.eot?#iefix') format('embedded-opentype'),
-	       url('/resources/css/fonts/BravuraText.woff') format('woff'), 
-	       url('/resources/css/fonts/BravuraText.svg#BravuraText') format('svg');
-} 
+	src: url('BravuraText.woff');
+}
 
-/* Runic font */
-@font-face {
-	font-family: 'Hnias';
-	src: url('/resources/css/fonts/Hnias.eot');
-	src: local('Hnias Regular'), local('Hnias'), 
-	       url('/resources/css/fonts/Hnias.eot?#iefix') format('embedded-opentype'),
-	       url('/resources/css/fonts/Hnias.ttf') format('truetype'), 
-	       url('/resources/css/fonts/Hnias.woff') format('woff'), 
-	       url('/resources/css/fonts/Hnias.svg#Hnias') format('svg');
-} 
 /* End embedded fonts */
 
 .accidental {
     position: relative;
     top: 0em;
-    font-family: "Arial Unicode MS", sans-serif; 
+    font-family: "Arial Unicode MS", sans-serif;
     font-size:1em;
     padding-left:.0em;
     padding-right:.1em;
@@ -420,7 +383,7 @@ div.MEI_score {
 }
 
 .meter {
-    font-family: 'times new roman', times, serif; 
+    font-family: 'times new roman', times, serif;
     line-height: 1em;
     font-weight: bold;
     vertical-align: middle;
@@ -469,11 +432,8 @@ a.help {
     padding-right : 2px;
     padding-bottom : 1px;
     font-size : .8em;
+    border-radius : .3em .3em .3em .3em;
     -moz-border-radius : .3em .3em .3em .3em;
-    border-radius-topright : .3em;
-    border-radius-topleft : .3em;
-    border-radius-bottomright : .3em;
-    border-radius-bottomleft : .3em;
 }
 a.help span.comment {
     display : inline;
@@ -492,11 +452,8 @@ a.help span.comment {
     border : 1px solid #226622;
     font-weight : normal;
     font-size : 1.2em;
+    border-radius : .3em .3em .3em .3em;
     -moz-border-radius : .3em .3em .3em .3em;
-    border-radius-topright : .3em;
-    border-radius-topleft : .3em;
-    border-radius-bottomright : .3em;
-    border-radius-bottomleft : .3em;
 }
 a:hover.help span.comment {
     visibility : visible;
@@ -508,12 +465,12 @@ a:hover.help span.comment {
     .noprint {
         display : none;
     }
-    
+
     body {
         background-color: #fff;
         font-size: 8pt;
     }
-    
+
     p {
         margin-top : 0.2em;
         margin-bottom : 0em;
@@ -531,10 +488,10 @@ a:hover.help span.comment {
     a.abbr {
         border-bottom: none;
     }
-    
+
     a:link, a:visited, a:active {
         /* color: #000; */
-        text-decoration: none; 
+        text-decoration: none;
     }
 
 }

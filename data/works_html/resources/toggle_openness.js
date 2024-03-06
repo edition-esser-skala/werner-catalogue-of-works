@@ -6,19 +6,19 @@ function toggle(id) {
     if(id in openness && openness[id]) {
 	para.title = "Click to open";
 	img.alt = "+";
-	img.src = "../resources/images/plus.png";
+	img.src = "resources/plus.svg";
 	hide(id);
 	openness[id] = false;
     } else if(id in openness && !openness[id]) {
 	para.title = "Click to close";
 	img.alt = "-";
-	img.src = "../resources/images/minus.png";
+	img.src = "resources/minus.svg";
 	show(id);
 	openness[id] = true;
     } else {
 	para.title = "Click to open";
 	img.alt = "+";
-	img.src = "../resources/images/plus.png";
+	img.src = "resources/plus.svg";
 	show(id);
 	openness[id] = true;
     }
