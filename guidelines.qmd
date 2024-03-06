@@ -1,0 +1,128 @@
+# Guidelines {.unnumbered}
+
+The following instructions apply to preparing metadata in MEI format. They are exemplified using mass B.46.
+
+The name of the XML file is `[group]_[number].xml`.
+
+## Work
+
+- *titles*: title and language
+- *identification*
+  - GJW: number according to this catalogue
+  - Dopf: number in Dopf's thematic catalogue
+  - WK2013: pages in Winkler-Klement's diploma thesis
+  - WK2020: number in Winkler-Klement's catalogue of masses
+- *contributors*: composer with GND ID
+- *language*
+
+![](images/mermeid_work.png)
+
+
+## Music
+
+### Music metadata
+
+Describe the first movement, including
+
+- tempo
+- metre
+- key
+- incipit (4–5 bars, single staff)
+
+![](images/mermeid_music_metadata.png)
+
+
+### Instruments and voices
+
+Use RISM scoring abbreviations and UNIMARC codes:
+
+- ensembles
+  - Soli (cve)
+  - Coro (cmi)
+  - S (vso)
+  - A (val)
+  - T (vte)
+  - B (vbs)
+- instruments and singers
+  - vl (svl)
+  - b (sve)
+  - org (kor)
+  
+![](images/mermeid_music_instruments.png)
+    
+### Components
+
+#### Masses
+
+- *movements* (e.g., Kyrie):
+  - number
+  - title
+  - extent (bars)
+  - incipit (3–5 bars, all instruments, no articulations, no bass figures, system layout as in editorial guidelines, omitted bars indicated by dashed double bar line)
+- *movement parts* (e.g., Qui tollis):
+  - title
+  - tempo
+  - metre
+  - key
+  - extent (bars)
+  - instruments selection
+  - indicate da capos by “da capo of the respective movement in *movement*”
+
+![](images/mermeid_music_components.png)
+
+
+## Sources
+
+### Manuscripts
+
+Enter the following source details:
+
+- *source title*: one of
+  - “Autograph manuscript”
+  - “Manuscript copy”
+- *classification*: add six terms from the predefined list
+
+![](images/mermeid_sources_manuscript_1.png)
+
+Then, add a **single item**:
+
+- location
+  - RISM siglum
+  - URI (link to digitized version)
+  - label (“digitized version”)
+  - shelfmark
+- other identifiers: “RISM” with ID
+- paper details
+  - orientation: “upright” or “oblong”
+  - lines
+  - height (round to the nearest half centimeter)
+  - width
+  - contents: verbal description of the data entered above; for parts, add the original title of each part and its number of pages
+    
+    > Oblong-format manuscript (33 x 23 cm) with 11 staves per page.<br/>
+Parts: Violino Primo conct: (12 p.), Violino Primo Radoppiato (10 p.), Violino Secondo (10 p.), Violino 2:do Radoppiato (9 p.), Soprano (9 p.), Alto (8 p.), Tenore (8 p.), Basso (8 p.), Violone (10 p.), Organo (12 p.)
+  
+  - title page
+  
+    > Missa | Solennis | Post Nubila Phoebus | á | Canto, Alto | Tenore, Basso | Violinis 2bus | Con | Organo é Violone | Del Sigre Gregorio Werner
+
+![](images/mermeid_sources_manuscript_2.png)
+
+
+
+## History
+
+- date and place of composition if available
+
+
+## Bibliography
+
+unused
+
+
+## File
+
+- *series* and *file publication* are prefilled from the template
+- delete *file change history*
+
+![](images/mermeid_file.png)
