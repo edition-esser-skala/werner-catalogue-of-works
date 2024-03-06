@@ -281,7 +281,7 @@ make_work_entry <- function(group, number, title, key, sources, ...) {
 
   details <- ""
   if (file_exists(str_glue("data/works_html/{group}_{number}.html")))
-    details <- str_glue("[Details](works/{group}_{number}.html)")
+    details <- str_glue("[Details](/works/{group}_{number}.html)")
 
   str_glue(work_template)
 }
