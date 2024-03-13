@@ -121,7 +121,7 @@ rism_missing %>%
 
 # all RISM entries are cited in the catalogue
 rism_entries %>%
-  filter(siglum != "A-Wn", siglum != "A-KRB") %>%  # line should evtl be removed
+  filter(siglum != "A-KRB") %>%  # line should evtl be removed
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
   nrow() == 0
 
@@ -193,7 +193,7 @@ subgroup_template <- '
 '
 
 work_template <- '
-### [{group}.{number}]{{.header-section-number}} {title} {{.unnumbered}}
+### [{group}{subgroup}.{number}]{{.header-section-number}} {title} {{.unnumbered}}
 
 {details}
 
@@ -265,9 +265,17 @@ make_incipit <- function(group, number, sources) {
 #     pluck(1)
 # )
 
-make_work_entry <- function(group, number, title, key, sources, ...) {
-  info("Writing {group}_{number}")
-  incipit <- make_incipit(group, number, sources)
+make_work_entry <- function(group, subgroup, number, title, key, sources, ...) {
+  if (!is.na(subgroup)) {
+    group_subgroup <- str_c(group, subgroup, sep = "_")
+    subgroup <- paste0(".", subgroup)
+  } else {
+    group_subgroup <- group
+    subgroup <- ""
+  }
+
+  info("Writing {group_subgroup}_{number}")
+  incipit <- make_incipit(group_subgroup, number, sources)
   sources <- pmap(
     sources,
     \(source, rism_id, ...)
@@ -280,8 +288,8 @@ make_work_entry <- function(group, number, title, key, sources, ...) {
     str_flatten(collapse = " · ")
 
   details <- ""
-  if (file_exists(str_glue("data/works_html/{group}_{number}.html")))
-    details <- str_glue("[Details](/works/{group}_{number}.html)")
+  if (file_exists(str_glue("data/works_html/{group_subgroup}_{number}.html")))
+    details <- str_glue("[Details](/works/{group_subgroup}_{number}.html)")
 
   str_glue(work_template)
 }
@@ -305,7 +313,6 @@ make_group_page <- function(file, group, title, subgroups) {
         work_list <-
           works %>%
           filter(group == {{group}}, subgroup == {{subgroup}}) %>%
-          unite(group, subgroup, col = "group", sep = ".") %>%
           pmap(make_work_entry) %>%
           str_flatten("\n\n")
         str_glue(subgroup_template)
