@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0">
+   <meiHead>
+      <fileDesc>
+         <titleStmt>
+            <title />
+         </titleStmt>
+         <pubStmt>
+            <unpub />
+         </pubStmt>
+      </fileDesc>
+   </meiHead>
+   <music xml:id="mdoe63c1">
+      <body xml:id="b84s7o8">
+         <mdiv xml:id="mvqtwrl2">
+            <score xml:id="sjnlez71">
+               <scoreDef xml:id="sin624i1" meter.count="3" meter.unit="4">
+                  <staffGrp xml:id="s8wzqsm2">
+                     <staffDef xml:id="sam4y75" lines="5" n="1">
+                        <clef xml:id="c8demsg" line="4" shape="C" />
+                        <keySig xml:id="keysig-0000000825367834" sig="3s" />
+                     </staffDef>
+                  </staffGrp>
+               </scoreDef>
+               <section xml:id="s6uqntl1">
+                  <measure xml:id="m5ytcuv1" n="1">
+                     <tempo xml:id="t9t5xqq2" place="above" staff="1" tstamp="1">Arioso</tempo>
+                     <dir xml:id="d6zonhi2" place="below" staff="1" tstamp="1">vlc solo</dir>
+                     <staff xml:id="svcjhn61" n="1">
+                        <layer xml:id="lzwxx6i1" n="1">
+                           <rest xml:id="ru3pakg" dur="4" />
+                           <note xml:id="n7u05vf1" dur="4" oct="4" pname="e" />
+                           <note xml:id="ns9hn9n1" dur="4" oct="4" pname="a" />
+                        </layer>
+                     </staff>
+                     <tie xml:id="t9v0vw4" endid="#no9vvfj1" staff="1" startid="#ns9hn9n1" />
+                  </measure>
+                  <measure xml:id="meeer7n1" right="single">
+                     <staff xml:id="sf0isvs1" n="1">
+                        <layer xml:id="l1hvzqr1" n="1">
+                           <note xml:id="no9vvfj1" dur="4" oct="4" pname="a" />
+                           <beam xml:id="bmemxh1">
+                              <note xml:id="nfjxaxv2" dur="8" oct="4" pname="g">
+                                 <accid xml:id="atl81mo2" accid="s" />
+                              </note>
+                              <note xml:id="nyy5uts2" dur="8" oct="4" pname="f">
+                                 <accid xml:id="awsydoh1" accid="s" />
+                              </note>
+                              <note xml:id="nw9lbo6" dur="8" oct="4" pname="e" />
+                              <note xml:id="nkom1bo1" dur="8" oct="4" pname="d" />
+                           </beam>
+                        </layer>
+                     </staff>
+                  </measure>
+                  <measure xml:id="mmybmgg" right="single">
+                     <staff xml:id="s9rzll6" n="1">
+                        <layer xml:id="l18wv9a1" n="1">
+                           <note xml:id="nplhsd3" dur="4" oct="4" pname="c">
+                              <accid xml:id="aeiv18e1" accid="s" />
+                           </note>
+                           <beam xml:id="bg0e9g6">
+                              <note xml:id="nd4ft88" dur="8" oct="3" pname="b" />
+                              <note xml:id="nia1zd91" dur="8" oct="3" pname="a" />
+                           </beam>
+                           <note xml:id="n3aekyq2" dur="4" oct="4" pname="g">
+                              <accid xml:id="anvyx1t1" accid.ges="s" />
+                           </note>
+                        </layer>
+                     </staff>
+                  </measure>
+                  <measure xml:id="m32yrsn1" right="single">
+                     <staff xml:id="ss65fh61" n="1">
+                        <layer xml:id="lxgftxs1" n="1">
+                           <beam xml:id="bkxdeln1">
+                              <note xml:id="newonuq1" dur="8" oct="4" pname="a" />
+                              <note xml:id="nhotlyd1" dur="8" oct="4" pname="e" />
+                           </beam>
+                           <note xml:id="nlizj75" dur="2" oct="4" pname="d" />
+                        </layer>
+                     </staff>
+                     <trill xml:id="tmll9oa" staff="1" startid="#nlizj75" />
+                  </measure>
+                  <measure xml:id="mm40tp7" right="single">
+                     <staff xml:id="s1q2yse1" n="1">
+                        <layer xml:id="lzkfkdx1" n="1">
+                           <beam xml:id="buh7seq2">
+                              <note xml:id="nngpg2o2" dur="8" oct="4" pname="c">
+                                 <accid xml:id="ae6zbpg1" accid="s" />
+                              </note>
+                              <note xml:id="nkb1ntc1" dur="8" oct="4" pname="d" />
+                           </beam>
+                           <note xml:id="ne5xu7q1" dur="2" oct="4" pname="e" />
+                        </layer>
+                     </staff>
+                  </measure>
+               </section>
+            </score>
+         </mdiv>
+      </body>
+   </music>
+</mei>
