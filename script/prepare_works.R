@@ -337,6 +337,7 @@ pwalk(work_pages, make_group_page)
 
 if (dir_exists("_book/works")) dir_delete("_book/works")
 dir_copy("data/works_html", "_book/works")
+dir_copy("data/works_mei", "_book/works/metadata")
 
 
 
@@ -371,7 +372,8 @@ overview_table_details <-
     WerW =
       dir_ls("data/works_html", type = "file") %>%
       str_extract("works_html/(.*)\\.html$", group = 1),
-    Details = str_glue("[details](/works/{WerW}.html)")
+    Details = str_glue("[details](/works/{WerW}.html)"),
+    Metadata = str_glue("[XML](/works/metadata/{WerW}.xml)"),
   ) %>%
   mutate(WerW = str_replace_all(WerW, "_", "."))
 
@@ -383,9 +385,12 @@ overview_table <-
   mutate(Summary = str_glue("[summary](/groups/{file}.html#work-{WerW})")) %>%
   select(group_name, WerW, Title = title, Summary) %>%
   left_join(overview_table_details, by = "WerW") %>%
-  mutate(Details = replace_na(Details, "")) %>%
+  mutate(
+    Details = replace_na(Details, ""),
+    Metadata = replace_na(Metadata, "")
+  ) %>%
   gt(groupname_col = "group_name") %>%
-  fmt_markdown(columns = c("Details", "Summary")) %>%
+  fmt_markdown(columns = c("Details", "Summary", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90",
