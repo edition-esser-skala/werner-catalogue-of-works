@@ -194,7 +194,7 @@ subgroup_template <- '
 '
 
 work_template <- '
-### [{group}{subgroup}.{number}]{{.header-section-number}} {title} {{.unnumbered}}
+### [{group}{subgroup}.{number}]{{.header-section-number}} {title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {details}
 
@@ -357,20 +357,21 @@ format:
 
 overview_table_groups <-
   work_pages %>%
-  select(group, group_name = title) %>%
+  select(file, group, group_name = title) %>%
   left_join(
     subgroups %>% unnest(subgroups),
     by = "group"
   ) %>%
   unite(group_name, title, col = "group_name", sep = ": ", na.rm = TRUE) %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE)
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  {.}
 
 overview_table_details <-
   tibble(
     WerW =
       dir_ls("data/works_html", type = "file") %>%
       str_extract("works_html/(.*)\\.html$", group = 1),
-    Details = str_glue("[more …](/works/{WerW}.html)")
+    Details = str_glue("[details](/works/{WerW}.html)")
   ) %>%
   mutate(WerW = str_replace_all(WerW, "_", "."))
 
@@ -379,11 +380,12 @@ overview_table <-
   unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
   left_join(overview_table_groups, by = "group") %>%
   unite(group, number, col = "WerW", sep = ".") %>%
-  select(group_name, WerW, Title = title) %>%
+  mutate(Summary = str_glue("[summary](/groups/{file}.html#work-{WerW})")) %>%
+  select(group_name, WerW, Title = title, Summary) %>%
   left_join(overview_table_details, by = "WerW") %>%
   mutate(Details = replace_na(Details, "")) %>%
   gt(groupname_col = "group_name") %>%
-  fmt_markdown(columns = "Details") %>%
+  fmt_markdown(columns = c("Details", "Summary")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90",
