@@ -1,6 +1,7 @@
 library(tidyverse)
 library(readODS)
 library(fs)
+library(gt)
 source("script/utils.R")
 
 library(reticulate)
@@ -336,3 +337,60 @@ pwalk(work_pages, make_group_page)
 
 if (dir_exists("_book/works")) dir_delete("_book/works")
 dir_copy("data/works_html", "_book/works")
+
+
+
+# Generate overview page --------------------------------------------------
+
+overview_template <- '---
+format:
+  html:
+    html-table-processing: none
+---
+
+# Overview of works {{.unnumbered}}
+
+```{{=html}}
+{overview_table}
+```
+'
+
+overview_table_groups <-
+  work_pages %>%
+  select(group, group_name = title) %>%
+  left_join(
+    subgroups %>% unnest(subgroups),
+    by = "group"
+  ) %>%
+  unite(group_name, title, col = "group_name", sep = ": ", na.rm = TRUE) %>%
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE)
+
+overview_table_details <-
+  tibble(
+    WerW =
+      dir_ls("data/works_html", type = "file") %>%
+      str_extract("works_html/(.*)\\.html$", group = 1),
+    Details = str_glue("[more …](/works/{WerW}.html)")
+  ) %>%
+  mutate(WerW = str_replace_all(WerW, "_", "."))
+
+overview_table <-
+  works %>%
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  left_join(overview_table_groups, by = "group") %>%
+  unite(group, number, col = "WerW", sep = ".") %>%
+  select(group_name, WerW, Title = title) %>%
+  left_join(overview_table_details, by = "WerW") %>%
+  mutate(Details = replace_na(Details, "")) %>%
+  gt(groupname_col = "group_name") %>%
+  fmt_markdown(columns = "Details") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    row_group.font.weight =
+  ) %>%
+  as_raw_html(FALSE) %>%
+  {.}
+
+str_glue(overview_template) %>%
+  write_file("groups/overview.qmd")
