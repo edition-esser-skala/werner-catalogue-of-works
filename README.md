@@ -6,8 +6,11 @@
 
 - `_book`: Quarto output
 - `data`:
-  - `catalogue.ods`: spreadsheet with all works and their numbers
+  - `catalogue_overview.csv`: overall structure of the catalogue (groups and subgroups)
+  - `catalogue_works.csv`: all works with WerW numbers and locations (several sigla in a cell are separated by a pipe; if there are several works with an equal siglum, the last three digits of the RISM ID are appended in brackets)
   - `rism_entries.xml`: RISM entries with Werner as author as of 2023-01-27
+  - `works_in_rism.csv`: works listed in RISM as of 2024-01-29 (867 works)
+  - `works_missing_in_rism.csv`: works without RISM entry, manually curated
   - `incipits`: manually curated incipits in MEI format; one subfolder per work (`[group]_[number]`); the incipit `main.mei` is required and will be used on the group overview page; other incipits are imported in MerMEId
   - `works_html`: HTML files exported from the MerMEId HTML preview (`[group]_[number].html`)
     - `resources`: various files required for rendering these pages

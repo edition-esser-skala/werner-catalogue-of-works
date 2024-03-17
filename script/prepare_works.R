@@ -1,5 +1,4 @@
 library(tidyverse)
-library(readODS)
 library(fs)
 library(gt)
 source("script/utils.R")
@@ -29,26 +28,26 @@ verovio_tk$setOptions(r_to_py(list(
 # Load data ---------------------------------------------------------------
 
 # (1) the manually curated catalogue of works
-catalogue <- read_ods(
-  "data/catalogue.ods",
-  sheet = "works",
+catalogue <- read_csv(
+  "data/catalogue_works.csv",
   col_types = cols(ID = "i", .default = "c")
 )
 
 # (2) known individual works/copies
 # (a) RISM entries
 rism_entries <-
-  read_ods("data/catalogue.ods", sheet = "rism") %>%
+  read_csv(
+    "data/works_in_rism.csv",
+    col_types = cols(.default = "c")
+  ) %>%
   select(siglum, shelfmark, title, rism_id) %>%
   mutate(rism_id_end = str_sub(rism_id, -3L))
 
 # (b) works missing in RISM
-rism_missing <-
-  read_ods("data/catalogue.ods", sheet = "missing_in_rism")
+rism_missing <- read_csv("data/works_missing_in_rism.csv")
 
 # (a+b) all known works
-known_works <-
-  bind_rows(rism_entries, rism_missing)
+known_works <- bind_rows(rism_entries, rism_missing)
 
 
 
@@ -167,14 +166,14 @@ works <-
   mutate(key = replace_na(key, "–"))
 
 subgroups <-
-  read_ods("data/catalogue.ods", sheet = "overview") %>%
+  read_csv("data/catalogue_overview.csv") %>%
   fill(file, group) %>%
   filter(!is.na(subgroup)) %>%
   select(group:title) %>%
   nest(subgroups = c(subgroup, title))
 
 work_pages <-
-  read_ods("data/catalogue.ods", sheet = "overview") %>%
+  read_csv("data/catalogue_overview.csv") %>%
   filter(!is.na(group)) %>%
   select(file, group, title) %>%
   left_join(subgroups, by = "group")
