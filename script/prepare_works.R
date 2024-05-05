@@ -30,7 +30,7 @@ verovio_tk$setOptions(r_to_py(list(
 # (1) the manually curated catalogue of works
 catalogue <- read_csv(
   "data/catalogue_works.csv",
-  col_types = cols(ID = "i", .default = "c")
+  col_types = cols(subgroup = "i", number = "i", .default = "c")
 )
 
 # (2) known individual works/copies
@@ -55,9 +55,9 @@ known_works <- bind_rows(rism_entries, rism_missing)
 
 catalogue_siglum <-
   catalogue %>%
-  select(ID, title, `A-Ed`:`H-VEs`) %>%
+  select(group:title, `A-Ed`:`H-VEs`) %>%
   pivot_longer(
-    !c(ID, title),
+    !group:title,
     names_to = "siglum",
     values_to = "shelfmark"
   ) %>%
@@ -66,7 +66,7 @@ catalogue_siglum <-
 
 catalogue_other <-
   catalogue %>%
-  select(ID, title, other) %>%
+  select(group:title, other) %>%
   filter(!is.na(other)) %>%
   separate_longer_delim(other, " | ") %>%
   separate_wider_delim(
@@ -78,7 +78,7 @@ catalogue_other <-
 
 catalogue_all <-
   bind_rows(catalogue_siglum, catalogue_other) %>%
-  arrange(ID) %>%
+  arrange(group, subgroup, number) %>%
   separate_wider_regex(
     shelfmark,
     c(shelfmark = ".*", " \\[", rism_id_end = "\\d\\d\\d", "\\]"),
@@ -154,15 +154,18 @@ catalogue_all_with_rism <-
         by = join_by(siglum, shelfmark, rism_id_end)
       )
   ) %>%
-  select(ID, siglum, shelfmark, rism_id) %>%
+  select(group:number, siglum, shelfmark, rism_id) %>%
   left_join(available_incipits, by = "rism_id") %>%
   unite(siglum, shelfmark, col = "source", sep = " ") %>%
-  nest(.by = ID, .key = "sources")
+  nest(.by = group:number, .key = "sources")
 
 works <-
   catalogue %>%
-  select(ID:key) %>%
-  left_join(catalogue_all_with_rism, by = "ID") %>%
+  select(group:key) %>%
+  left_join(
+    catalogue_all_with_rism,
+    by = join_by(group, subgroup, number)
+  ) %>%
   mutate(key = replace_na(key, "–"))
 
 subgroups <-
