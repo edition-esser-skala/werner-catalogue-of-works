@@ -26,7 +26,7 @@
             </pubStmt>
             <seriesStmt xml:id="seriesStmt_aae599f9">
                 <title xml:id="title_5b95b4f4">Gregor Joseph Werner: A thematic catalogue of his works</title>
-                <identifier type="file_collection" xml:id="identifier_a5b1b137">GJW</identifier>
+                <identifier type="file_collection" xml:id="identifier_a5b1b137">WerW</identifier>
             </seriesStmt>
         </fileDesc>
         <encodingDesc xml:id="encodingDesc_c0f66fa7">
@@ -48,7 +48,7 @@
         </encodingDesc>
         <workList xml:id="workList_4826e601">
             <work xml:id="work_829f001a">
-                <identifier xml:id="identifier_dca83b92" label="GJW">B.46</identifier>
+                <identifier xml:id="identifier_dca83b92" label="WerW">B.46</identifier>
                 <identifier label="Dopf" xml:id="identifier_ff6a4dd5">7</identifier>
                 <identifier label="WK2013" xml:id="identifier_a0a24913">p. 16f</identifier>
                 <identifier label="WK2020" xml:id="identifier_61c29914">40</identifier>
@@ -4346,23 +4346,12 @@
                         <identifier xml:id="identifier_606a140f" label="RISM">600037859</identifier>
                         <physDesc xml:id="physDesc_f93fc607">
                             <titlePage xml:id="titlePage_000eb706">
-                                <p>Missa | Solennis | Post Nubila Phoebus | á | Canto, Alto | Tenore, Basso | Violinis 2<rend rend="underline(2)">bus</rend> | Con | Organo é Violone | Del Sig<rend rend="underline(2)">re</rend> Gregorio Werner</p>
+                                <p>Missa | Solennis | Post Nubila Phoebus | á | Canto, Alto | Tenore, Basso | Violinis 2<rend rend="underline(2)">bus</rend> | Con | Organo é Violone | Del Sig<rend rend="underline(2)">re</rend> Gregorio Werner . At top left corner: “50” in pencil.</p>
                             </titlePage>
-                        </physDesc>
-                        <physDesc type="paper_type" xml:id="physDesc_393df233">
-                            <dimensions xml:id="dimensions_96056faa">
-                                <locusGrp xml:id="locusGrp_af775c8b"/>
-                                <term xml:id="term_c996ec41">upright</term>
-                                <extent quantity="11" xml:id="extent_70f2539e"> lines</extent>
-                                <dimensions type="format" xml:id="dimensions_ad13a1b8">
-                                    <height quantity="33" unit="cm" xml:id="height_8e6b3dd6">33 (height in cm)</height>
-                                    <width quantity="23" unit="cm" xml:id="width_ced19ddc">23 (width in cm)</width>
-                                </dimensions>
-                                <dimensions type="rastral_mirror" xml:id="dimensions_7eac34db"/>
-                            </dimensions>
-                            <watermark type="text" xml:id="watermark_1c1cc290">
-                                <p>Oblong-format manuscript (33 x 23 cm) with 11 staves per page.<lb/>Parts: Violino Primo conct: (12 p.), Violino Primo Radoppiato (10 p.), Violino Secondo (10 p.), Violino 2:do Radoppiato (9 p.), Soprano (9 p.), Alto (8 p.), Tenore (8 p.), Basso (8 p.), Violone (10 p.), Organo (12 p.)</p>
-                            </watermark>
+                            <extent quantity="" xml:id="extent_7e911845">10 parts</extent>
+                            <physMedium xml:id="physMedium_873ac437">
+                                <p>33x23 cm.<lb/>In 2o; upright format. Hand-ruled paper, 11 staves in light brown ink and music in dark brown ink. A clean copy without corrections.</p>
+                            </physMedium>
                         </physDesc>
                         <physLoc xml:id="physLoc_75af404a">
                             <repository xml:id="repository_29298dd7">
@@ -4373,6 +4362,14 @@
                             </repository>
                             <identifier xml:id="identifier_42c27b9a">A 50</identifier>
                         </physLoc>
+                        <notesStmt xml:id="notesStmt_5b91fee5">
+                            <annot type="source_description" xml:id="annot_c09643c9">
+                                <p>Violino Primo conct: (12 p.), Violino Primo Radoppiato (10 p.), Violino Secondo (10 p.), Violino 2:do Radoppiato (9 p.), Soprano (9 p.), Alto (8 p.), Tenore (8 p.), Basso (8 p.), Violone (10 p.), Organo (12 p.).</p>
+                            </annot>
+                            <annot type="links" xml:id="annot_6676b1a7">
+                                <ptr mimetype="" xml:id="ptr_d6e397"/>
+                            </annot>
+                        </notesStmt>
                         <componentList xml:id="componentList_e4f08ccf"/>
                     </item>
                 </itemList>
