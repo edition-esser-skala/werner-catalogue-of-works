@@ -4,9 +4,8 @@ library(gt)
 source("script/utils.R")
 
 library(reticulate)
-reticulate::use_virtualenv("renv/python/virtualenvs/renv-python-3.11")
+reticulate::use_virtualenv("renv/python/virtualenvs/renv-python-3.12")
 verovio <- import("verovio")
-
 
 
 # Initialize verivio ------------------------------------------------------
@@ -217,9 +216,47 @@ incipit
 ## Functions ----
 
 make_incipit <- function(group, number, sources) {
-  incipit_image <- str_glue("groups/incipits/{group}_{number}.svg")
+  render_incipit_with_lilypond <- function(incipit) {
+    # set output paths for main or movement incipits
+    ly_file <- path_file(incipit)
+    if (ly_file == "main.ly")
+      incipit_image <- str_glue("./groups/incipits/{group}_{number}")
+    else
+      incipit_image <- str_glue(
+        "./_book/works/incipits/{path_ext_remove(ly_file)}"
+      )
+    incipit_image <- path_abs(incipit_image)
 
-  # (1) is there a manually created incipit? if so, render to svg
+    suppressWarnings({
+      stdout <- system2(
+        "lilypond",
+        c(
+          "--include=$EES_TOOLS_PATH",
+          paste0("--include=", path_abs("./data/incipits")), # for header.ly
+          "--png",
+          "-dresolution=300",
+          "-dno-point-and-click",
+          "-dcrop",
+          paste0("-o ", incipit_image),
+          incipit
+        ),
+        stderr = TRUE
+      )
+      file_move(
+        paste0(incipit_image, ".cropped.png"),
+        paste0(incipit_image, ".png")
+      )
+    })
+
+    if (is.null(attr(stdout, "status")))
+      info("Rendered '{incipit}'.")
+    else
+      warn("Error rendering {incipit}.")
+  }
+
+  # (1) are there manually created incipits?
+  # (a) yes, the main incipit in MEI format -> render with Verovio
+  incipit_image <- str_glue("groups/incipits/{group}_{number}.svg")
   manual_incipit <- str_glue("data/incipits/{group}_{number}/main.mei")
   if (file_exists(manual_incipit)) {
     verovio_tk$loadFile(manual_incipit)
@@ -227,6 +264,18 @@ make_incipit <- function(group, number, sources) {
     if (!success)
       warn("Error rendering {incipit_image}")
     return(str_glue("![](incipits/{group}_{number}.svg){{width=80%}}"))
+  }
+
+  # (b) yes, in LY format -> render with LilyPond
+  manual_incipits <- str_glue("data/incipits/{group}_{number}")
+  if (dir_exists(manual_incipits)) {
+    ly_incipits <-
+      dir_ls(manual_incipits, glob = "*.ly") %>%
+      path_abs()
+
+    walk(ly_incipits, render_incipit_with_lilypond)
+
+    return(str_glue("![](incipits/{group}_{number}.png){{width=80%}}"))
   }
 
   # (2) no sources -> no incipit
@@ -252,9 +301,7 @@ make_incipit <- function(group, number, sources) {
   if (!success)
     warn("Error rendering {incipit_image}")
 
-  return(str_glue("{incipit$work}.{incipit$movement}.{incipit$excerpt}<br/>\n",
-                  "![](incipits/{group}_{number}.svg){{width=80%}}",
-                  "{incipit_text}"))
+  return(str_glue("![](incipits/{group}_{number}.svg){{width=80%}}"))
 }
 
 # make_incipit("B", "46", NULL)
@@ -335,9 +382,11 @@ make_group_page <- function(file, group, title, subgroups) {
 
 if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups/incipits")
-pwalk(work_pages, make_group_page)
 
 if (dir_exists("_book/works")) dir_delete("_book/works")
+dir_create("_book/works/incipits")
+
+pwalk(work_pages, make_group_page)
 dir_copy("data/works_html", "_book/works")
 dir_copy("data/works_mei", "_book/works/metadata")
 
