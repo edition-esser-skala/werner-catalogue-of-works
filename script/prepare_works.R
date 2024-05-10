@@ -211,17 +211,10 @@ work_template <- '
 ## Functions ----
 
 make_incipit <- function(group, number, sources) {
-  render_incipit_with_lilypond <- function(incipit) {
-    # set output paths for main or movement incipits
-    ly_file <- path_file(incipit)
-    if (ly_file == "main.ly")
-      incipit_image <- str_glue("./groups/incipits/{group}_{number}")
-    else
-      incipit_image <- str_glue(
-        "./_book/works/incipits/{path_ext_remove(ly_file)}"
-      )
-    incipit_image <- path_abs(incipit_image)
-
+  # --- helper functions
+  # converts infile (.ly) to cropped outfile (.png) with given resolution
+  run_lilypond <- function(infile, outfile, resolution) {
+    outfile <- path_abs(outfile)
     suppressWarnings({
       stdout <- system2(
         "lilypond",
@@ -229,26 +222,45 @@ make_incipit <- function(group, number, sources) {
           "--include=$EES_TOOLS_PATH",
           paste0("--include=", path_abs("./data/incipits")), # for header.ly
           "--png",
-          "-dresolution=300",
+          paste0("-dresolution=", resolution),
           "-dno-point-and-click",
           "-dcrop",
-          paste0("-o ", incipit_image),
-          incipit
+          paste0("-o ", outfile),
+          infile
         ),
         stderr = TRUE
       )
       file_move(
-        paste0(incipit_image, ".cropped.png"),
-        paste0(incipit_image, ".png")
+        paste0(outfile, ".cropped.png"),
+        paste0(outfile, ".png")
       )
     })
 
     if (is.null(attr(stdout, "status")))
-      info("Rendered '{incipit}'.")
+      info("Rendered '{infile}' with LilyPond")
     else
-      warn("Error rendering {incipit}.")
+      warn("Error rendering {infile}")
   }
 
+  # creates several PNG files from infile via LilyPond
+  render_incipit_with_lilypond <- function(infile) {
+    # set output paths for main or movement incipits
+    ly_file <-
+      path_file(infile) %>%
+      path_ext_remove()
+    if (ly_file == "main") {
+      # high-res image for group page
+      outfile <- str_glue("./groups/incipits/{group}_{number}")
+      run_lilypond(infile, outfile, resolution = 300)
+    }
+
+    # low-res image for work page
+    outdir <- str_glue("./_book/works/incipits/{group}_{number}")
+    dir_create(outdir)
+    run_lilypond(infile, str_glue("{outdir}/{ly_file}"), resolution = 200)
+  }
+
+  # --- main workflow
   # (1) are there manually created incipits?
   # (a) yes, the main incipit in MEI format -> render with Verovio
   incipit_image <- str_glue("groups/incipits/{group}_{number}.svg")
@@ -256,7 +268,9 @@ make_incipit <- function(group, number, sources) {
   if (file_exists(manual_incipit)) {
     verovio_tk$loadFile(manual_incipit)
     success <- verovio_tk$renderToSVGFile(incipit_image)
-    if (!success)
+    if (success)
+      info("Rendered '{incipit_image}' with Verovio")
+    else
       warn("Error rendering {incipit_image}")
     return(str_glue("![](incipits/{group}_{number}.svg)"))
   }
@@ -275,7 +289,7 @@ make_incipit <- function(group, number, sources) {
 
   # (2) no sources -> no incipit
   if (is.null(sources))
-    return("(none)")
+    return("(no incipit – music unknown)")
 
   # (3) no incipit in RISM -> no incipit
   incipit <-
@@ -283,17 +297,14 @@ make_incipit <- function(group, number, sources) {
     filter(!is.na(work)) %>%
     head(1)
   if (nrow(incipit) == 0)
-    return("(none)")
+    return("(incipit TBD)")
 
   # (4) render RISM incipit
-  if (is.na(incipit$text))
-    incipit_text <- ""
-  else
-    incipit_text <- paste0("<br/>\n", incipit$text)
-
   verovio_tk$loadData(incipit$pae)
   success <- verovio_tk$renderToSVGFile(incipit_image)
-  if (!success)
+  if (success)
+    info("Rendered '{incipit_image}' with Verovio")
+  else
     warn("Error rendering {incipit_image}")
 
   return(str_glue("![](incipits/{group}_{number}.svg)"))
@@ -319,7 +330,7 @@ make_work_entry <- function(group, subgroup, number, title, key, sources, ...) {
     subgroup <- ""
   }
 
-  info("Writing {group_subgroup}_{number}")
+  info("Writing entry for {group_subgroup}_{number}")
   incipit <- make_incipit(group_subgroup, number, sources)
   sources <- pmap(
     sources,
@@ -379,11 +390,10 @@ if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups/incipits")
 
 if (dir_exists("_book/works")) dir_delete("_book/works")
-dir_create("_book/works/incipits")
-
-pwalk(work_pages, make_group_page)
 dir_copy("data/works_html", "_book/works")
 dir_copy("data/works_mei", "_book/works/metadata")
+dir_create("_book/works/incipits")
+pwalk(work_pages, make_group_page)
 
 
 
