@@ -59,6 +59,7 @@ Use RISM scoring abbreviations and UNIMARC codes:
 - indicate missing title by “[no title]”
 - indicate missing tempo indication by “[no tempo]”
 - incipits: 3–5 bars, all instruments, no articulations, no bass figures, system layout as in editorial guidelines, omitted bars indicated by dashed double bar line
+- duration of da capos: “XX bars (incl. YY bars da capo)”
 
 #### Masses
 
@@ -77,6 +78,12 @@ Use RISM scoring abbreviations and UNIMARC codes:
   - indicate da capos by “da capo of the respective movement in *movement*”
 
 ![](images/mermeid_music_components.png)
+
+#### Short sacred works
+
+- like movement parts of masses
+- include incipit only for the first movement part
+
 
 #### Instrumental works
 
@@ -121,9 +128,12 @@ Then, add a **single item**:
   - physical medium
 - general description
 
-See WerW B.46 and Q.2 for short and detailed descriptions, respectively.
-    
-![](images/mermeid_sources_manuscript_3.png)
+
+![Short description (WerW B.46)](images/mermeid_sources_manuscript_3.png)
+
+
+![Detailed description (WerW Q.2)](images/mermeid_sources_manuscript_4.png)
+
 Note: These metadata should eventually be split into their appropriate XML tags; however, the current MerMEId version does not convert many of these tags to HTML.
 
 
