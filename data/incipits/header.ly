@@ -4,7 +4,10 @@
 
 \include "ees.ly"
 #(set-global-staff-size 11.22)
-\paper { oddHeaderMarkup = ##f }
+\paper {
+  oddHeaderMarkup = ##f
+  paper-width = 100\cm
+}
 
 \layout{
   \context {
