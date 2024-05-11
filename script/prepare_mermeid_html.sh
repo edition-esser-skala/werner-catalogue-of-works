@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# adjust a few paths in the HTML file provided as first argument
+# (1) adjust a few paths in the HTML file provided as first argument
 
 # ../style/mei_to_html.css
 # ->
@@ -26,3 +26,7 @@ sed -i 's#\.\./resources/images/html_link\.png#resources/html_link\.svg#g' $1
 # ->
 # resources/verovio-toolkit.js
 sed -i 's#https://www\.verovio\.org/javascript/latest#resources#g' $1
+
+
+# (2) remove the colophon
+xmlstarlet edit --inplace --delete "//_:div[@class='colophon']" $1
