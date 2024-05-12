@@ -248,22 +248,21 @@ make_incipit <- function(group, number, sources) {
     ly_file <-
       path_file(infile) %>%
       path_ext_remove()
-    if (ly_file == "main") {
-      # high-res image for group page
-      outfile <- str_glue("./groups/incipits/{group}_{number}")
-      run_lilypond(infile, outfile, resolution = 300)
-    }
+
+    # high-res image for group page
+    outfile <- str_glue("./incipits/{group}_{number}/{ly_file}")
+    run_lilypond(infile, outfile, resolution = 300)
 
     # low-res image for work page
-    outdir <- str_glue("./_book/works/incipits/{group}_{number}")
-    dir_create(outdir)
-    run_lilypond(infile, str_glue("{outdir}/{ly_file}"), resolution = 200)
+    outfile <- str_glue("./incipits/{group}_{number}/{ly_file}_low")
+    run_lilypond(infile, outfile, resolution = 150)
   }
 
   # --- main workflow
   # (1) are there manually created incipits?
   # (a) yes, the main incipit in MEI format -> render with Verovio
-  incipit_image <- str_glue("groups/incipits/{group}_{number}.svg")
+  dir_create(str_glue("incipits/{group}_{number}"))
+  incipit_image <- str_glue("incipits/{group}_{number}/main.svg")
   manual_incipit <- str_glue("data/incipits/{group}_{number}/main.mei")
   if (file_exists(manual_incipit)) {
     verovio_tk$loadFile(manual_incipit)
@@ -272,7 +271,7 @@ make_incipit <- function(group, number, sources) {
       info("Rendered '{incipit_image}' with Verovio")
     else
       warn("Error rendering {incipit_image}")
-    return(str_glue("![](incipits/{group}_{number}.svg)"))
+    return(str_glue("![](/incipits/{group}_{number}/main.svg)"))
   }
 
   # (b) yes, in LY format -> render with LilyPond
@@ -284,20 +283,24 @@ make_incipit <- function(group, number, sources) {
 
     walk(ly_incipits, render_incipit_with_lilypond)
 
-    return(str_glue("![](incipits/{group}_{number}.png)"))
+    return(str_glue("![](/incipits/{group}_{number}/main.png)"))
   }
 
   # (2) no sources -> no incipit
-  if (is.null(sources))
+  if (is.null(sources)) {
+    info("No incipit for '{incipit_image}' (no sources)")
     return("(no incipit – music unknown)")
+  }
 
   # (3) no incipit in RISM -> no incipit
   incipit <-
     sources %>%
     filter(!is.na(work)) %>%
     head(1)
-  if (nrow(incipit) == 0)
+  if (nrow(incipit) == 0) {
+    info("No incipit for '{incipit_image}' (none in RISM)")
     return("(incipit TBD)")
+  }
 
   # (4) render RISM incipit
   verovio_tk$loadData(incipit$pae)
@@ -387,13 +390,17 @@ make_group_page <- function(file, group, title, subgroups) {
 ## Run ----
 
 if (dir_exists("groups")) dir_delete("groups")
-dir_create("groups/incipits")
-
+if (dir_exists("incipits")) dir_delete("incipits")
+if (dir_exists("_book/incipits")) dir_delete("_book/incipits")
 if (dir_exists("_book/works")) dir_delete("_book/works")
+
+dir_create("groups")
+dir_create("incipits")
 dir_copy("data/works_html", "_book/works")
 dir_copy("data/works_mei", "_book/works/metadata")
-dir_create("_book/works/incipits")
 pwalk(work_pages, make_group_page)
+
+dir_copy("incipits", "_book/incipits")
 
 
 
