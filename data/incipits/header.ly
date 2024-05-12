@@ -9,12 +9,23 @@
   paper-width = 100\cm
 }
 
-\layout{
-  \context {
-    \Staff
-    \override Clef.full-size-change = ##t
-  }
-}
+% \layout{
+%   \context {
+%     \Staff
+%     \override Clef.full-size-change = ##t
+%   }
+% }
+
+partSs = \markup \remark "S solo"
+partAs = \markup \remark "A solo"
+partTs = \markup \remark "T solo"
+partBs = \markup \remark "B solo"
+partSc = \markup \remark "S coro"
+partAc = \markup \remark "A coro"
+partTc = \markup \remark "T coro"
+partBc = \markup \remark "B coro"
+partVi = \markup \remark "vl 1"
+partVii = \markup \remark "vl 2"
 
 gotoBar = #(define-music-function
   (parser location num)

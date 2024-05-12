@@ -4,7 +4,7 @@
 notes = \relative c' {
   \clef soprano
   \key c \major \time 4/4 \tempoMarkup "Allegro" \autoBeamOff
-  r8 g'^\markup \remark "S coro" c g r c e c
+  r8^\partSc g' c g r c e c
   r e g e c e16[ c] g8 e16 g
   e8 c16 e g8 c16 e g8 g, r4
 }
