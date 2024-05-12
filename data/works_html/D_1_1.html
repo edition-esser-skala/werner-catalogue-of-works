@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="resources/mei_to_html.css"/>
     <script type="text/javascript" src="resources/toggle_openness.js">
     	  </script>
+    <script src="/site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+    <link href="/site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+    <link href="/site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
   </head>
   <body>
     <div class="main" id="main_content">
@@ -32,7 +35,7 @@
       <br/>
       <p><span class="label">Key: </span>C major </p>
       <p>
-        <img border="0" style="text-decoration: none;" alt="" src="incipits/D_1_1/main.png"/>
+        <a class="lightbox" href="/incipits/D_1_1/main.png"><img src="/incipits/D_1_1/main_low.png"/></a>
       </p>
       <script type="application/javascript">openness["movementsd4e971"]=false;</script>
       <div class="fold">
@@ -48,7 +51,7 @@
           <p><span class="label">Key: </span>C major </p>
           <p><span class="label">Extent: </span>23 bars.</p>
           <p>
-            <img border="0" style="text-decoration: none;" alt="" src="incipits/D_1_1/1_estote.png"/>
+            <a class="lightbox" href="/incipits/D_1_1/1_estote.png"><img src="/incipits/D_1_1/1_estote_low.png"/></a>
           </p>
           <div class="perfmedium list_block">
             <span class="relation_list"><span class="relation_list">Choir SATB: S, A, T, B</span>2 vl, b, org</span>
@@ -127,5 +130,6 @@
         </div>
       </div>
     </div>
+    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});</script>
   </body>
 </html>
