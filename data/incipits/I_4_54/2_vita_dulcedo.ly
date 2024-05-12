@@ -35,6 +35,12 @@ Organo = {
   }
 }
 
+BassFigures = \figuremode {
+  r2 <4>
+  r q
+  q1
+}
+
 \score {
   <<
     \new ChoirStaff <<
@@ -54,5 +60,6 @@ Organo = {
         \Organo
       }
     >>
+    \new FiguredBass { \BassFigures }
   >>
 }

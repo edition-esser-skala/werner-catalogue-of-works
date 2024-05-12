@@ -153,6 +153,15 @@ Organo = {
   }
 }
 
+BassFigures = \figuremode {
+  r2.
+  r8 <6- 4>2.
+  <5 4->4. <\t 3>4
+  r2.
+  r
+  r
+}
+
 \score {
   <<
     \new Staff \with { \smallStaffDistance } {
@@ -214,5 +223,6 @@ Organo = {
         \Organo
       }
     >>
+    \new FiguredBass { \BassFigures }
   >>
 }
