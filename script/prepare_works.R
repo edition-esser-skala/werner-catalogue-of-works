@@ -310,7 +310,7 @@ make_incipit <- function(group, number, sources) {
   else
     warn("Error rendering {incipit_image}")
 
-  return(str_glue("![](incipits/{group}_{number}.svg)"))
+  return(str_glue("![](/incipits/{group}_{number}/main.svg)"))
 }
 
 # make_incipit("B", "46", NULL)
