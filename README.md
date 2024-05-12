@@ -45,5 +45,5 @@ The root folder contains the usual files required by Quarto. Notably,
 
 1. Run `script/prepare_works.R`.
 2. Render the book with Quarto.
-3. `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata` (not necessary during preview)
+3. `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview)
 4. Call rsync.
