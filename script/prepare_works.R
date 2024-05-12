@@ -197,7 +197,7 @@ subgroup_template <- '
 work_template <- '
 ### [{group}{subgroup}.{number}]{{.header-section-number}} {title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
-{incipit}{{.incipit}}
+{incipit}
 
 **Sources:**&ensp;{sources}
 
@@ -271,7 +271,7 @@ make_incipit <- function(group, number, sources) {
       info("Rendered '{incipit_image}' with Verovio")
     else
       warn("Error rendering {incipit_image}")
-    return(str_glue("![](/incipits/{group}_{number}/main.svg)"))
+    return(str_glue("![](/incipits/{group}_{number}/main.svg){{.incipit}}"))
   }
 
   # (b) yes, in LY format -> render with LilyPond
@@ -283,7 +283,7 @@ make_incipit <- function(group, number, sources) {
 
     walk(ly_incipits, render_incipit_with_lilypond)
 
-    return(str_glue("![](/incipits/{group}_{number}/main.png)"))
+    return(str_glue("![](/incipits/{group}_{number}/main.png){{.incipit}}"))
   }
 
   # (2) no sources -> no incipit
@@ -310,7 +310,7 @@ make_incipit <- function(group, number, sources) {
   else
     warn("Error rendering {incipit_image}")
 
-  return(str_glue("![](/incipits/{group}_{number}/main.svg)"))
+  return(str_glue("![](/incipits/{group}_{number}/main.svg){{.incipit}}"))
 }
 
 # make_incipit("B", "46", NULL)
