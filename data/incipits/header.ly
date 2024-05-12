@@ -26,6 +26,7 @@ partTc = \markup \remark "T coro"
 partBc = \markup \remark "B coro"
 partVi = \markup \remark "vl 1"
 partVii = \markup \remark "vl 2"
+partVlcSolo = \markup \remark "vlc solo"
 
 gotoBar = #(define-music-function
   (parser location num)
