@@ -7,7 +7,7 @@ notes = \relative c' {
   r4^\partVi g b d g b
   r g b d g b
   r a, c fis a c
-  \clef soprano \autoBeamOff r2^\partAs d,, d4 e8([ fis)]
+  \clef alto \autoBeamOff r2^\partAs d,, d4 e8([ fis)]
   g1 \afterGrace g2( { a8[ b]) }
 }
 

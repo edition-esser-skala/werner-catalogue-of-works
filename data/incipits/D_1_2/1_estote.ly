@@ -26,7 +26,7 @@ ViolinoII = {
 
 Soprano = {
   \relative c' {
-    \clef treble
+    \clef soprano
     \key f \major \time 4/4 \tempoMarkup "Andante" \autoBeamOff
     R1*2 \gotoBar "9"
     r2 r4 r8 a'16[^\solo b16]
@@ -43,7 +43,7 @@ SopranoLyrics = \lyricmode {
 
 Alto = {
   \relative c' {
-    \clef treble
+    \clef alto
     \key f \major \time 4/4 \tempoMarkup "Andante" \autoBeamOff
     R1*2 \gotoBar "9"
     R1*3
