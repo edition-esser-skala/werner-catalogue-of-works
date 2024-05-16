@@ -19,7 +19,8 @@ verovio_tk$setOptions(r_to_py(list(
   pageMarginBottom = 0,
   pageMarginLeft = 0,
   pageMarginRight = 0,
-  pageMarginTop = 0
+  pageMarginTop = 0,
+  scale = 33
 )))
 
 
@@ -283,7 +284,7 @@ make_incipit <- function(group, number, sources) {
 
     walk(ly_incipits, render_incipit_with_lilypond)
 
-    return(str_glue("![](/incipits/{group}_{number}/main.png){{.incipit}}"))
+    return(str_glue("![](/incipits/{group}_{number}/main_low.png){{.incipit}}"))
   }
 
   # (2) no sources -> no incipit
