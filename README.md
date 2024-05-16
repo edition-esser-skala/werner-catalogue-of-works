@@ -43,7 +43,7 @@ The root folder contains the usual files required by Quarto. Notably,
 
 ## How to create the webpage
 
-1. Run `script/prepare_works.R`.
-2. Render the book with Quarto.
-3. `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview)
-4. Call rsync.
+1. Prepare webpages and images: `script/prepare_works.R`.
+2. Render the book with Quarto: `quarto render`.
+3. Move generated files into the site folder: `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview)
+4. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
