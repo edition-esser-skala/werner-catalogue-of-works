@@ -161,12 +161,11 @@ catalogue_all_with_rism <-
 
 works <-
   catalogue %>%
-  select(group:key) %>%
+  select(group:title) %>%
   left_join(
     catalogue_all_with_rism,
     by = join_by(group, subgroup, number)
-  ) %>%
-  mutate(key = replace_na(key, "–"))
+  )
 
 subgroups <-
   read_csv("data/catalogue_overview.csv") %>%
@@ -325,7 +324,7 @@ make_incipit <- function(group, number, sources) {
 #     pluck(1)
 # )
 
-make_work_entry <- function(group, subgroup, number, title, key, sources, ...) {
+make_work_entry <- function(group, subgroup, number, title, sources, ...) {
   if (!is.na(subgroup)) {
     group_subgroup <- str_c(group, subgroup, sep = "_")
     subgroup <- paste0(".", subgroup)

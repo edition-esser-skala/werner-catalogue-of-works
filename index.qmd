@@ -57,7 +57,6 @@ We classify Werner's works as *Vocal music* (groups A to L) and *instrumental mu
 Currently, the catalogue contains the following information for each work:
 
 - title
-- key
 - sources (linked to the respective RISM entry), and
 - one preliminary incipit (i.e., the first incipit of the first source with RISM entry).
 
@@ -83,7 +82,7 @@ We consulted the following sources, of which some contain partial catalogues of 
 - @WinklerKlement2013 – works in the Dommusikarchiv Eisenstadt
 - @WinklerKlement2020 – masses and oratorios
 
-The work list assembled from these sources (`data/catalogue.ods`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via [*sru-downloader*](https://github.com/rism-international/sru-downloader) on 2023-01-27, yielding 867 entries:
+The work list assembled from these sources (`data/catalogue_works.csv`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via [*sru-downloader*](https://github.com/rism-international/sru-downloader) on 2024-01-27, yielding 867 entries:
 
 ```bash
 java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=creator=%22Werner,%20Gregor%20Joseph%22&maximumRecords=100"
@@ -98,7 +97,7 @@ rm output.xml
 ```
 In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains [MarcXML](https://www.loc.gov/standards/marcxml/) tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.py` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
 
-Pages for each group of works were generated automatically from `catalogue.ods` (via `script/prepare_works.R` and `utils.R`). For each work, one incipit was generated from the Plaine & Easie Code of the first source with a RISM entry. Data from the [RISM Catalogue](https://opac.rism.info) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
+Pages for each group of works were generated automatically from `catalogue_works.csv` (via `script/prepare_works.R` and `utils.R`). For each work, one incipit was generated from the Plaine & Easie Code of the first source with a RISM entry. Data from the [RISM Catalogue](https://opac.rism.info) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
 Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were prepared with [MuseScore](https://musescore.org) and polished with [mei-friend](https://mei-friend.mdw.ac.at). HTML pages were exported from MerMEId and post-processed (`sed -i 's/.png/.svg/g' work.html`). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and [Verovio](https://www.verovio.org).
 
