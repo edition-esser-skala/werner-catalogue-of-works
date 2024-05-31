@@ -100,7 +100,7 @@ In the resulting XML file, all tags in the `zs` namespace were removed, yielding
 
 Pages for each group of works were generated automatically from `catalogue_works.csv` (via `script/prepare_works.R` and `utils.R`). For each work, one incipit was generated from the Plaine & Easie Code of the first source with a RISM entry. Data from the [RISM Catalogue](https://opac.rism.info) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
-Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were prepared with [MuseScore](https://musescore.org) and polished with [mei-friend](https://mei-friend.mdw.ac.at). HTML pages were exported from MerMEId and post-processed (`sed -i 's/.png/.svg/g' work.html`). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and [Verovio](https://www.verovio.org).
+Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org) and polished with [mei-friend](https://mei-friend.mdw.ac.at), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). HTML and XML files were exported from MerMEId and post-processed (via `script/prepare_mermeid_html.sh` and `script/prepare_mermeid_xml.sh`, respectively). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and [Verovio](https://www.verovio.org).
 
 
 ## References
