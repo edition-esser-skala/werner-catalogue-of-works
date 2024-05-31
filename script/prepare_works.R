@@ -40,8 +40,7 @@ rism_entries <-
     "data/works_in_rism.csv",
     col_types = cols(.default = "c")
   ) %>%
-  select(siglum, shelfmark, title, rism_id) %>%
-  mutate(rism_id_end = str_sub(rism_id, -3L))
+  select(siglum, shelfmark, title, rism_id)
 
 # (b) works missing in RISM
 rism_missing <- read_csv("data/works_missing_in_rism.csv")
@@ -81,7 +80,7 @@ catalogue_all <-
   arrange(group, subgroup, number) %>%
   separate_wider_regex(
     shelfmark,
-    c(shelfmark = ".*", " \\[", rism_id_end = "\\d\\d\\d", "\\]"),
+    c(shelfmark = ".*", " \\[", rism_id = "\\d+", "\\]"),
     too_few = "align_start",
     cols_remove = TRUE
   )
@@ -100,15 +99,15 @@ inner_join(
 
 # all catalogue entries with unique siglum are in the list of known works
 catalogue_all %>%
-  filter(is.na(rism_id_end)) %>%
+  filter(is.na(rism_id)) %>%
   anti_join(known_works, by = join_by(siglum, shelfmark)) %>%
   arrange(siglum, shelfmark) %>%
   nrow() == 0
 
 # all catalogue entries with shared siglum are in RISM
 catalogue_all %>%
-  filter(!is.na(rism_id_end)) %>%
-  anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id_end)) %>%
+  filter(!is.na(rism_id)) %>%
+  anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id)) %>%
   nrow() == 0
 
 # all known works not in RISM are cited in the catalogue
@@ -142,16 +141,17 @@ available_incipits <-
 catalogue_all_with_rism <-
   bind_rows(
     catalogue_all %>%
-      filter(is.na(rism_id_end)) %>%
+      filter(is.na(rism_id)) %>%
+      select(!rism_id) %>%
       left_join(
-        rism_entries %>% select(!c(title, rism_id_end)),
+        rism_entries %>% select(!title),
         by = join_by(siglum, shelfmark)
       ),
     catalogue_all %>%
-      filter(!is.na(rism_id_end)) %>%
+      filter(!is.na(rism_id)) %>%
       left_join(
         rism_entries %>% select(!title),
-        by = join_by(siglum, shelfmark, rism_id_end)
+        by = join_by(siglum, shelfmark, rism_id)
       )
   ) %>%
   select(group:number, siglum, shelfmark, rism_id) %>%
