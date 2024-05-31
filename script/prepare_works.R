@@ -120,7 +120,6 @@ rism_missing %>%
 
 # all RISM entries are cited in the catalogue
 rism_entries %>%
-  filter(siglum != "A-KRB") %>%  # line should evtl be removed
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
   nrow() == 0
 
