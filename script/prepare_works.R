@@ -182,7 +182,11 @@ work_pages <-
 
 ## Templates ----
 
-page_template <- '# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
+page_template <- '---
+lightbox: true
+---
+
+# [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
 {work_list}
 '
@@ -282,7 +286,18 @@ make_incipit <- function(group, number, sources) {
 
     walk(ly_incipits, render_incipit_with_lilypond)
 
-    return(str_glue("![](/incipits/{group}_{number}/main_low.png){{.incipit}}"))
+    # Quarto currently does not support lightbox images with a different zoomed
+    # image; hence, we create HTML code that shows the first orchestral incipit
+    # of the work (1_*.ly) after clicking on the main incipit
+    full_incipit <-
+      dir_ls(manual_incipits) %>%
+      path_file() %>%
+      path_filter("1*") %>%
+      path_ext_remove()
+    return(str_glue('<a href="/incipits/{group}_{number}/{full_incipit}.png" ',
+                    'class="lightbox">',
+                    '<img src="/incipits/{group}_{number}/main_low.png" ',
+                    'class="incipit img-fluid"></a>'))
   }
 
   # (2) no sources -> no incipit
