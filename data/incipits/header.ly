@@ -24,8 +24,10 @@ partSc = \markup \remark "S coro"
 partAc = \markup \remark "A coro"
 partTc = \markup \remark "T coro"
 partBc = \markup \remark "B coro"
+partClni = \markup \remark "clno 1, 2"
 partVi = \markup \remark "vl 1"
 partVii = \markup \remark "vl 2"
+partVla = \markup \remark "vla"
 partVlcSolo = \markup \remark "vlc solo"
 
 gotoBar = #(define-music-function
