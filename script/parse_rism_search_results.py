@@ -15,6 +15,7 @@ verovio_tk.setOptions({
     "pageMarginLeft" :0,
     "pageMarginRight" :0,
     "pageMarginTop" :0,
+    "scale": 33
 
 })
 
