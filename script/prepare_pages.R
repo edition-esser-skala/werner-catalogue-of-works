@@ -3,168 +3,19 @@ library(fs)
 library(gt)
 source("script/utils.R")
 
-library(reticulate)
-reticulate::use_virtualenv("renv/python/virtualenvs/renv-python-3.12")
-verovio <- import("verovio")
-
-
-# Initialize verivio ------------------------------------------------------
-
-verovio_tk <- verovio$toolkit()
-verovio_tk$setOptions(r_to_py(list(
-  adjustPageHeight = TRUE,
-  adjustPageWidth = TRUE,
-  header = "none",
-  footer = "none",
-  pageMarginBottom = 0,
-  pageMarginLeft = 0,
-  pageMarginRight = 0,
-  pageMarginTop = 0,
-  scale = 33
-)))
-
 
 
 # Load data ---------------------------------------------------------------
 
-# (1) the manually curated catalogue of works
-catalogue <- read_csv(
-  "data/catalogue_works.csv",
-  col_types = cols(subgroup = "i", number = "i", .default = "c")
-)
-
-# (2) known individual works/copies
-# (a) RISM entries
-rism_entries <-
-  read_csv(
-    "data/works_in_rism.csv",
-    col_types = cols(.default = "c")
-  ) %>%
-  select(siglum, shelfmark, title, rism_id)
-
-# (b) works missing in RISM
-rism_missing <- read_csv("data/works_missing_in_rism.csv")
-
-# (a+b) all known works
-known_works <- bind_rows(rism_entries, rism_missing)
-
-
-
-# Create catalogue in long form -------------------------------------------
-
-catalogue_siglum <-
-  catalogue %>%
-  select(group:title, `A-Ed`:`H-VEs`) %>%
-  pivot_longer(
-    !group:title,
-    names_to = "siglum",
-    values_to = "shelfmark"
-  ) %>%
-  filter(!is.na(shelfmark)) %>%
-  separate_longer_delim(shelfmark, " | ")
-
-catalogue_other <-
-  catalogue %>%
-  select(group:title, other) %>%
-  filter(!is.na(other)) %>%
-  separate_longer_delim(other, " | ") %>%
-  separate_wider_delim(
-    other,
-    " ",
-    names = c("siglum", "shelfmark"),
-    too_many = "merge"
-  )
-
-catalogue_all <-
-  bind_rows(catalogue_siglum, catalogue_other) %>%
-  arrange(group, subgroup, number) %>%
-  separate_wider_regex(
-    shelfmark,
-    c(shelfmark = ".*", " \\[", rism_id = "\\d+", "\\]"),
-    too_few = "align_start",
-    cols_remove = TRUE
-  )
-
-
-
-# Validate data -----------------------------------------------------------
-
-# there is no overlap between works with and without RISM entry
-inner_join(
-  rism_entries,
-  rism_missing,
-  by = join_by(siglum, shelfmark)
-) %>%
-  nrow() == 0
-
-# all catalogue entries with unique siglum are in the list of known works
-catalogue_all %>%
-  filter(is.na(rism_id)) %>%
-  anti_join(known_works, by = join_by(siglum, shelfmark)) %>%
-  arrange(siglum, shelfmark) %>%
-  nrow() == 0
-
-# all catalogue entries with shared siglum are in RISM
-catalogue_all %>%
-  filter(!is.na(rism_id)) %>%
-  anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id)) %>%
-  nrow() == 0
-
-# all known works not in RISM are cited in the catalogue
-# NOTE: A-Wn entries are currently ignored,
-#       since the Fonds Moder has not been screened!
-rism_missing %>%
-  anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
-  filter(siglum != "A-Wn") %>%  # line should eventually be removed
-  nrow() == 0
-
-# all RISM entries are cited in the catalogue
-rism_entries %>%
-  anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
-  nrow() == 0
+works <-
+  read_csv("data_generated/works.csv") %>%
+  nest(.by = group:title, .key = "sources")
 
 
 
 # Prepare data for group pages --------------------------------------------
 
 ## Data frames ----
-
-# incipits extracted from RISM entries
-available_incipits <-
-  read_csv(
-    "data_generated/rism_incipits.csv",
-    col_types = cols(.default = "c")
-  ) %>%
-  distinct(rism_id, .keep_all = TRUE)
-
-catalogue_all_with_rism <-
-  bind_rows(
-    catalogue_all %>%
-      filter(is.na(rism_id)) %>%
-      select(!rism_id) %>%
-      left_join(
-        rism_entries %>% select(!title),
-        by = join_by(siglum, shelfmark)
-      ),
-    catalogue_all %>%
-      filter(!is.na(rism_id)) %>%
-      left_join(
-        rism_entries %>% select(!title),
-        by = join_by(siglum, shelfmark, rism_id)
-      )
-  ) %>%
-  select(group:number, siglum, shelfmark, rism_id) %>%
-  left_join(available_incipits, by = "rism_id") %>%
-  unite(siglum, shelfmark, col = "source", sep = " ") %>%
-  nest(.by = group:number, .key = "sources")
-
-works <-
-  catalogue %>%
-  select(group:title) %>%
-  left_join(
-    catalogue_all_with_rism,
-    by = join_by(group, subgroup, number)
-  )
 
 subgroups <-
   read_csv("data/catalogue_overview.csv") %>%
@@ -213,15 +64,13 @@ work_template <- '
 
 ## Functions ----
 
-make_incipit <- function(group, number, sources) {
+make_incipit <- function(group, number) {
   target_dir <- str_glue("incipits/{group}_{number}")
-  dir_create(target_dir)
 
-  # (1) use manually created incipits
-  # (a) in PNG format
+  # (1) PNG incipit available
   incipit_image <- str_glue("{target_dir}/main.png")
   if (file_exists(incipit_image)) {
-    info("Found '{incipit_image}'")
+    info("  … found '{incipit_image}'")
     # Quarto currently does not support lightbox images with a different zoomed
     # image; hence, we create HTML code that shows the first orchestral incipit
     # of the work (1_*.ly) after clicking on the main incipit
@@ -238,51 +87,18 @@ make_incipit <- function(group, number, sources) {
                     'class="incipit img-fluid"></a>'))
   }
 
-  # (b) in SVG format
+  # (2) SVG incipit available
   incipit_image <- str_glue("{target_dir}/main.svg")
   if (file_exists(incipit_image)) {
-    info("Found '{incipit_image}'")
+    info("  … found '{incipit_image}'")
     return(str_glue("![](/{target_dir}/main.svg){{.incipit}}"))
   }
 
-  # (2) omit incipit
-  # (a) no sources
-  if (is.null(sources)) {
-    info("No incipit for '{incipit_image}' (no sources)")
-    return("(no incipit – music unknown)")
-  }
-
-  # (b) no incipit in RISM
-  incipit <-
-    sources %>%
-    filter(!is.na(work)) %>%
-    head(1)
-  if (nrow(incipit) == 0) {
-    info("No incipit for '{incipit_image}' (none in RISM)")
-    return("(incipit TBD)")
-  }
-
-  # (3) use incipit from RISM
-  verovio_tk$loadData(incipit$pae)
-  success <- verovio_tk$renderToSVGFile(incipit_image)
-  if (success)
-    info("Rendered '{incipit_image}' with Verovio")
-  else
-    warn("Error rendering {incipit_image}")
-
-  return(str_glue("![](/{target_dir}/main.svg){{.incipit}}"))
+  # (3) no incipit available
+  info("  … no incipit available")
+  return("(incipit TBD)")
 }
 
-# make_incipit("B", "46", NULL)
-#
-# make_incipit(
-#   "B",
-#   "47",
-#   works %>%
-#     filter(group == "B", number == "47") %>%
-#     pull(sources) %>%
-#     pluck(1)
-# )
 
 make_work_entry <- function(group, subgroup, number, title, sources, ...) {
   if (!is.na(subgroup)) {
@@ -294,7 +110,7 @@ make_work_entry <- function(group, subgroup, number, title, sources, ...) {
   }
 
   info("Writing entry for {group_subgroup}_{number}")
-  incipit <- make_incipit(group_subgroup, number, sources)
+  incipit <- make_incipit(group_subgroup, number)
   sources <- pmap(
     sources,
     \(source, rism_id, ...)
@@ -312,10 +128,6 @@ make_work_entry <- function(group, subgroup, number, title, sources, ...) {
 
   str_glue(work_template)
 }
-
-# make_work_entry("1", "B", "C", "D", catalogue_all_with_rism$sources[[1]])
-# make_work_entry("B", "46", "C", "D", catalogue_all_with_rism$sources[[1]])
-# make_work_entry("A", "B", "C", "D", catalogue_all_with_rism$sources[[525]])
 
 
 make_group_page <- function(file, group, title, subgroups) {
@@ -342,9 +154,6 @@ make_group_page <- function(file, group, title, subgroups) {
   str_glue(page_template) %>%
     write_file(str_glue("groups/{file}.qmd"))
 }
-
-# pmap(work_pages[4, ], make_group_page)
-# pmap(work_pages[2, ], make_group_page)
 
 
 ## Run ----
