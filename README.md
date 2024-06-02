@@ -16,6 +16,7 @@
   - `works_missing_in_rism.csv`: works without RISM entry, manually curated
   - `incipits`:
     - manually curated incipits in MEI format
+    - `header.ly` is required by LY incipits
     - one subfolder per work (`[group]_[number]`)
     - the incipit `main.mei` or `main.ly` is required and will be used on the group overview page
     - other incipits are imported in MerMEId
@@ -43,7 +44,9 @@ The root folder contains the usual files required by Quarto. Notably,
 
 ## How to create the webpage
 
-1. Prepare webpages and images: `script/prepare_works.R`.
-2. Render the book with Quarto: `quarto render`.
-3. Move generated files into the site folder: `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview)
-4. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
+1. Create the catalogue: `script/make_catalogue.R`.
+2. Create incipits: `make -f script/make_incipits.mk` and `script/copy_rism_incipits.R`.
+3. Prepare webpages: `script/prepare_pages.R`.
+4. Render with Quarto: `quarto render`.
+5. Move generated files into the site folder: `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview).
+6. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
