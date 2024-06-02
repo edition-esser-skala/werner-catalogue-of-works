@@ -8,7 +8,7 @@ source("script/utils.R")
 # Load data ---------------------------------------------------------------
 
 works <-
-  read_csv("data_generated/works.csv") %>%
+  read_csv("data_generated/works.csv", col_types = cols(.default = "c")) %>%
   nest(.by = group:title, .key = "sources")
 
 
