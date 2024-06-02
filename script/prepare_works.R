@@ -214,99 +214,45 @@ work_template <- '
 ## Functions ----
 
 make_incipit <- function(group, number, sources) {
-  # --- helper functions
-  # converts infile (.ly) to cropped outfile (.png) with given resolution
-  run_lilypond <- function(infile, outfile, resolution) {
-    outfile <- path_abs(outfile)
-    suppressWarnings({
-      stdout <- system2(
-        "lilypond",
-        c(
-          "--include=$EES_TOOLS_PATH",
-          paste0("--include=", path_abs("./data/incipits")), # for header.ly
-          "--png",
-          paste0("-dresolution=", resolution),
-          "-dno-point-and-click",
-          "-dcrop",
-          paste0("-o ", outfile),
-          infile
-        ),
-        stderr = TRUE
-      )
-      file_move(
-        paste0(outfile, ".cropped.png"),
-        paste0(outfile, ".png")
-      )
-    })
+  target_dir <- str_glue("incipits/{group}_{number}")
+  dir_create(target_dir)
 
-    if (is.null(attr(stdout, "status")))
-      info("Rendered '{infile}' with LilyPond")
-    else
-      warn("Error rendering {infile}")
-  }
-
-  # creates several PNG files from infile via LilyPond
-  render_incipit_with_lilypond <- function(infile) {
-    # set output paths for main or movement incipits
-    ly_file <-
-      path_file(infile) %>%
-      path_ext_remove()
-
-    # high-res image for group page
-    outfile <- str_glue("./incipits/{group}_{number}/{ly_file}")
-    run_lilypond(infile, outfile, resolution = 300)
-
-    # low-res image for work page
-    outfile <- str_glue("./incipits/{group}_{number}/{ly_file}_low")
-    run_lilypond(infile, outfile, resolution = 150)
-  }
-
-  # --- main workflow
-  # (1) are there manually created incipits?
-  # (a) yes, the main incipit in MEI format -> render with Verovio
-  dir_create(str_glue("incipits/{group}_{number}"))
-  incipit_image <- str_glue("incipits/{group}_{number}/main.svg")
-  manual_incipit <- str_glue("data/incipits/{group}_{number}/main.mei")
-  if (file_exists(manual_incipit)) {
-    verovio_tk$loadFile(manual_incipit)
-    success <- verovio_tk$renderToSVGFile(incipit_image)
-    if (success)
-      info("Rendered '{incipit_image}' with Verovio")
-    else
-      warn("Error rendering {incipit_image}")
-    return(str_glue("![](/incipits/{group}_{number}/main.svg){{.incipit}}"))
-  }
-
-  # (b) yes, in LY format -> render with LilyPond
-  manual_incipits <- str_glue("data/incipits/{group}_{number}")
-  if (dir_exists(manual_incipits)) {
-    ly_incipits <-
-      dir_ls(manual_incipits, glob = "*.ly") %>%
-      path_abs()
-
-    walk(ly_incipits, render_incipit_with_lilypond)
-
+  # (1) use manually created incipits
+  # (a) in PNG format
+  incipit_image <- str_glue("{target_dir}/main.png")
+  if (file_exists(incipit_image)) {
+    info("Found '{incipit_image}'")
     # Quarto currently does not support lightbox images with a different zoomed
     # image; hence, we create HTML code that shows the first orchestral incipit
     # of the work (1_*.ly) after clicking on the main incipit
     full_incipit <-
-      dir_ls(manual_incipits) %>%
+      dir_ls(target_dir) %>%
       path_file() %>%
+      path_ext_remove() %>%
       path_filter("1*") %>%
-      path_ext_remove()
-    return(str_glue('<a href="/incipits/{group}_{number}/{full_incipit}.png" ',
+      path_filter("*_low", invert = TRUE)
+
+    return(str_glue('<a href="/{target_dir}/{full_incipit}.png" ',
                     'class="lightbox">',
-                    '<img src="/incipits/{group}_{number}/main_low.png" ',
+                    '<img src="/{target_dir}/main_low.png" ',
                     'class="incipit img-fluid"></a>'))
   }
 
-  # (2) no sources -> no incipit
+  # (b) in SVG format
+  incipit_image <- str_glue("{target_dir}/main.svg")
+  if (file_exists(incipit_image)) {
+    info("Found '{incipit_image}'")
+    return(str_glue("![](/{target_dir}/main.svg){{.incipit}}"))
+  }
+
+  # (2) omit incipit
+  # (a) no sources
   if (is.null(sources)) {
     info("No incipit for '{incipit_image}' (no sources)")
     return("(no incipit – music unknown)")
   }
 
-  # (3) no incipit in RISM -> no incipit
+  # (b) no incipit in RISM
   incipit <-
     sources %>%
     filter(!is.na(work)) %>%
@@ -316,7 +262,7 @@ make_incipit <- function(group, number, sources) {
     return("(incipit TBD)")
   }
 
-  # (4) render RISM incipit
+  # (3) use incipit from RISM
   verovio_tk$loadData(incipit$pae)
   success <- verovio_tk$renderToSVGFile(incipit_image)
   if (success)
@@ -324,7 +270,7 @@ make_incipit <- function(group, number, sources) {
   else
     warn("Error rendering {incipit_image}")
 
-  return(str_glue("![](/incipits/{group}_{number}/main.svg){{.incipit}}"))
+  return(str_glue("![](/{target_dir}/main.svg){{.incipit}}"))
 }
 
 # make_incipit("B", "46", NULL)
@@ -404,12 +350,10 @@ make_group_page <- function(file, group, title, subgroups) {
 ## Run ----
 
 if (dir_exists("groups")) dir_delete("groups")
-if (dir_exists("incipits")) dir_delete("incipits")
 if (dir_exists("_book/incipits")) dir_delete("_book/incipits")
 if (dir_exists("_book/works")) dir_delete("_book/works")
 
 dir_create("groups")
-dir_create("incipits")
 dir_copy("data/works_html", "_book/works")
 dir_copy("data/works_mei", "_book/works/metadata")
 pwalk(work_pages, make_group_page)
