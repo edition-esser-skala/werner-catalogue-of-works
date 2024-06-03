@@ -68,6 +68,8 @@ Works in the catalogue should be cited by the abbreviation “WerW”, followed 
 
 ## Methods
 
+### Sources
+
 We consulted the following sources, of which some contain partial catalogues of Werner's works:
 
 - @Czernin2020a – sources in Austria
@@ -83,7 +85,10 @@ We consulted the following sources, of which some contain partial catalogues of 
 - @WinklerKlement2013 – works in the Dommusikarchiv Eisenstadt
 - @WinklerKlement2020 – masses and oratorios
 
-The work list assembled from these sources (`data/catalogue_works.csv`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via [*sru-downloader*](https://github.com/rism-international/sru-downloader) on 2024-01-27, yielding 867 entries:
+
+### Analysis
+
+The work list assembled from these sources (`data/catalogue_works.csv`) was checked against and supplemented by RISM entries. To this end, entries were downloaded via [*sru-downloader*](https://github.com/rism-international/sru-downloader) on 2024-01-27, yielding 867 entries. In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains [MarcXML](https://www.loc.gov/standards/marcxml/) tags:
 
 ```bash
 java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=creator=%22Werner,%20Gregor%20Joseph%22&maximumRecords=100"
@@ -96,11 +101,16 @@ grep -v "<zs:" output.xml | \
   > rism_entries.xml
 rm output.xml
 ```
-In the resulting XML file, all tags in the `zs` namespace were removed, yielding the XML file `data/rism_entries.xml`, which only contains [MarcXML](https://www.loc.gov/standards/marcxml/) tags. From this file, searchable HTML tables were created via `script/parse_rism_search_results.py` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
+From this file, searchable HTML tables were created via `script/parse_rism_search_results.py` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
 
-Pages for each group of works were generated automatically from `catalogue_works.csv` (via `script/prepare_works.R` and `utils.R`). For each work, one incipit was generated from the Plaine & Easie Code of the first source with a RISM entry. Data from the [RISM Catalogue](https://opac.rism.info) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
+Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
-Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org) and polished with [mei-friend](https://mei-friend.mdw.ac.at), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). HTML and XML files were exported from MerMEId and post-processed (via `script/prepare_mermeid_html.sh` and `script/prepare_mermeid_xml.sh`, respectively). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and [Verovio](https://www.verovio.org).
+Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org), polished with [mei-friend](https://mei-friend.mdw.ac.at), and rendered with [Verovio](https://www.verovio.org), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). HTML and XML files were exported from MerMEId and post-processed. These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and Verovio.
+
+
+### Data and code availability
+
+Datasets and code used for preparing this catalogue are available from [GitHub](https://github.com/edition-esser-skala/werner-catalogue-of-works).
 
 
 ## References
