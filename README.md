@@ -15,10 +15,11 @@
   - `works_in_rism.csv`: works listed in RISM as of 2024-01-27 (867 works)
   - `works_missing_in_rism.csv`: works without RISM entry, manually curated
   - `incipits`:
-    - manually curated incipits in MEI format
+    - manually curated incipits in LY or MEI format
     - `header.ly` is required by LY incipits
     - one subfolder per work (`[group]_[number]`)
-    - the incipit `main.mei` or `main.ly` is required and will be used on the group overview page
+    - the incipit `main.ly` or `main.mei` is required and will be used on the group overview page
+    - the incipit `1_[label].ly` is displayed when clicking on the main incipit on a group page
     - other incipits are imported in MerMEId
   - `works_html`:
     - HTML files exported from the MerMEId HTML preview (`[group]_[number].html`)
