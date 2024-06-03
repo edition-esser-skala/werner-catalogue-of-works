@@ -49,7 +49,7 @@ subgroup_template <- '
 '
 
 work_template <- '
-### [{group}{subgroup}.{number}]{{.header-section-number}} {title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+### [{group}{subgroup}.{number}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {incipit}
 
