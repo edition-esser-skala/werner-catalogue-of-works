@@ -39,7 +39,11 @@ lightbox: true
 
 # [{group}]{{.chapter-number}} {title} {{.unnumbered}}
 
+Click on an incipit to see an incipit comprising all instruments and voices.
+
 {work_list}
+
+![](../images/empty.png)
 '
 
 subgroup_template <- '
@@ -91,7 +95,8 @@ make_incipit <- function(group, number) {
   incipit_image <- str_glue("{target_dir}/main.svg")
   if (file_exists(incipit_image)) {
     info("  … found '{incipit_image}'")
-    return(str_glue("![](/{target_dir}/main.svg){{.incipit}}"))
+    return(str_glue('<img src="/{target_dir}/main.svg" ',
+                    'class="incipit img-fluid">'))
   }
 
   # (3) no incipit available
