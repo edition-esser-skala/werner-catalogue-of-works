@@ -1,0 +1,82 @@
+# Changelog {.unnumbered}
+
+## 0.4.0 – 2024-06-16
+
+### Added
+
+- manual incipits for WerW C.5, D.3.4, D.5.4/7, E.1/38, F.15/16/18/60/61, G.2/10, H.1.8/9/11, I.1.2/13/27/31/32, I.2.6/8/12/15/16, I.3.7/10/15/21, I.4.15-17/45/46, I.5.5/7/10/24, J.3, N.2, O.2, and Z.5/6/15–17
+- group H.3 (magnificats)
+- work D.3.6
+- sitemap, which is indexed by Google
+- reference Harich 1932
+- changelog as webpage
+
+### Changed
+
+- rendering of incipits, so that all of them have the same size
+- clicking on an incipit opens the full-score incipit as lightbox
+- work numbers
+  - D.3.6 -> D.3.7
+  - E.38 -> Z.17
+  - E.39–41 -> E.38–40
+- appearance of the index, with title block banner
+- works list CSV now contains full RISM IDs for distinguishing works with same shelfmark
+- technical workflow:
+  1. assemble catalogue
+  2. create RISM PAE incipits
+  3. use GNU Make for engraving all incipits
+  4. prepare pages
+  
+### Fixed
+
+- work titles, notably of oratorios
+
+### Removed
+
+- column 'key' in works list CSV
+
+
+## 0.3.0 – 2024-05-12
+
+### Added
+
+- support for LilyPond incipits
+- details for WerW D.1.2 to D.1.4 and Q.2
+- bash scripts for MerMEId HTML and XML post-processing
+- favicon
+
+### Changed
+
+- format of group page (now only contains incipit and sources)
+- format of work details page (lightbox support for incipit images)
+- work numbers: D.2.9 -> Z.16, D.2.10 -> D.2.9
+- updated guidelines
+
+### Removed
+
+- column 'ID' in works list CSV
+
+
+## 0.2.0 – 2024-03-17
+
+### Added
+
+- guidelines for compiling metadata
+- catalogue abbreviation “WerW”
+- page with overview table
+- sources Riedel 1979 and Harich 1975
+- links to work detail pages
+- manual incipits for WerW B.46, D.2.9, G.22, O.2, Q.2, Q.3, and Q.4
+- MEI metadata for WerW B.46
+
+### Changed
+
+- group page and incipit generation
+- catalogue is now provided in CSV format
+
+
+## 0.1.0 – 2024-02-25
+
+### Added
+
+- initial release
