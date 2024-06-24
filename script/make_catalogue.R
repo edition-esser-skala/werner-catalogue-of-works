@@ -137,3 +137,14 @@ works <-
 # Save data ---------------------------------------------------------------
 
 works %>% write_csv("data_generated/works.csv")
+
+works %>%
+  separate_wider_delim(
+    source,
+    delim = " ",
+    names = c("siglum", "shelfmark"),
+    too_many = "merge"
+  ) %>%
+  filter(!is.na(siglum)) %>%
+  {split(., .$siglum)} %>%
+  save_table("data_generated/works_by_library.xlsx")
