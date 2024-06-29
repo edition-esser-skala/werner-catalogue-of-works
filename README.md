@@ -18,9 +18,9 @@
     - manually curated incipits in LY or MEI format
     - `header.ly` is required by LY incipits
     - one subfolder per work (`[group]_[number]`)
-    - the incipit `main.ly` or `main.mei` is required and will be used on the group overview page
-    - the incipit `1_[label].ly` is displayed when clicking on the main incipit on a group page
-    - other incipits are imported in MerMEId
+    - At least one main incipit (`main_1.ly` or `main.mei`) is required and will be used on the group overview page. If there are additional main incipits (`main_2.ly` etc), all of them will be included.
+    - Incipits `1_[label].ly` and, if available, `2_[label].ly` etc are displayed when clicking on the main incipit(s) on a group page.
+    - Incipits are also imported in MerMEId.
   - `works_html`:
     - HTML files exported from the MerMEId HTML preview (`[group]_[number].html`)
     - process with `script/prepare_mermeid_html.sh`

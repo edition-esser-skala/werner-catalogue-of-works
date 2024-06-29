@@ -71,24 +71,39 @@ work_template <- '
 make_incipit <- function(group, number) {
   target_dir <- str_glue("incipits/{group}_{number}")
 
-  # (1) PNG incipit available
-  incipit_image <- str_glue("{target_dir}/main.png")
+  # (1) PNG incipits available
+  incipit_image <- str_glue("{target_dir}/main_1.png")
   if (file_exists(incipit_image)) {
-    info("  … found '{incipit_image}'")
-    # Quarto currently does not support lightbox images with a different zoomed
-    # image; hence, we create HTML code that shows the first orchestral incipit
-    # of the work (1_*.ly) after clicking on the main incipit
-    full_incipit <-
+    main_incipits <-
       dir_ls(target_dir) %>%
       path_file() %>%
       path_ext_remove() %>%
-      path_filter("1*") %>%
+      path_filter("main*low")
+    info("  … found {length(main_incipits)} incipits '{incipit_image}' etc")
+
+    # Quarto currently does not support lightbox images with a different zoomed
+    # image; hence, we create HTML code that shows the first orchestral incipit
+    # of the work (1_*.ly) after clicking on the main incipit
+    full_incipits <-
+      dir_ls(target_dir) %>%
+      path_file() %>%
+      path_ext_remove() %>%
+      path_filter(regexp = "^\\d+") %>%
       path_filter("*_low", invert = TRUE)
 
-    return(str_glue('<a href="/{target_dir}/{full_incipit}.png" ',
-                    'class="lightbox">',
-                    '<img src="/{target_dir}/main_low.png" ',
-                    'class="incipit img-fluid"></a>'))
+    html_images <-
+      map2_chr(
+        main_incipits,
+        full_incipits,
+        \(m, f) str_glue('<a href="/{target_dir}/{f}.png" ',
+                         'class="lightbox">',
+                         '<img src="/{target_dir}/{m}.png" ',
+                         'class="incipit img-fluid"></a>')
+
+      ) %>%
+      str_flatten("\n\n")
+
+    return(html_images)
   }
 
   # (2) SVG incipit available
