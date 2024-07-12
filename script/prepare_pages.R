@@ -2,6 +2,7 @@ library(tidyverse)
 library(fs)
 library(gt)
 source("script/utils.R")
+source("script/parse_mei.R")
 
 
 
@@ -143,8 +144,8 @@ make_work_entry <- function(group, subgroup, number, title, sources, ...) {
     str_flatten(collapse = " · ")
 
   details <- ""
-  if (file_exists(str_glue("data/works_html/{group_subgroup}_{number}.html")))
-    details <- str_glue("[Details](/works/{group_subgroup}_{number}.html)")
+  if (file_exists(str_glue("data/works_mei/{group_subgroup}_{number}.xml")))
+    details <- get_work_details(str_glue("{group_subgroup}_{number}"))
 
   str_glue(work_template)
 }
