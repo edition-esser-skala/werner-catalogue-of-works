@@ -26,12 +26,7 @@ The name of the XML file is `[group]_[number].xml`.
 
 ### Music metadata
 
-Describe the first movement, including
-
-- tempo
-- metre
-- key
-- incipit (4–5 bars, single staff)
+- add an incipit for each movement (4–5 bars, single staff)
 
 ![](images/mermeid_music_metadata.png)
 
@@ -41,8 +36,8 @@ Describe the first movement, including
 Use RISM scoring abbreviations and UNIMARC codes:
 
 - ensembles
-  - Soli (cve)
-  - Coro (cmi)
+  - soli (cve)
+  - coro (cmi)
   - S (vso)
   - A (val)
   - T (vte)
@@ -65,7 +60,7 @@ Use RISM scoring abbreviations and UNIMARC codes:
 
 - indicate missing title by “[no title]”
 - indicate missing tempo indication by “[no tempo]”
-- incipits: 3–5 bars, all instruments, no articulations, no bass figures, system layout as in editorial guidelines, omitted bars indicated by dashed double bar line
+- incipits: 5–10 bars, all instruments, system layout as in editorial guidelines, omitted bars indicated by dashed double bar line
 - duration of da capos: “XX bars (incl. YY bars da capo)”
 
 #### Masses
@@ -73,25 +68,38 @@ Use RISM scoring abbreviations and UNIMARC codes:
 - *movements* (e.g., Kyrie):
   - number
   - title
-  - extent (bars)
+  - tempo
+  - meter
+  - key
+  - total extent (bars)
+  - instruments selection
   - incipit 
 - *movement parts* (e.g., Qui tollis):
   - title
   - tempo
-  - metre
+  - meter
   - key
   - extent (bars)
   - instruments selection
   - notes: indicate da capos by, e.g.
     - “da capo of the respective movement in *movement*”
     - “da capo of the first *xx* bars”
+- example: WerW B.46
 
 ![](images/mermeid_music_components.png)
 
 #### Short sacred works
 
-- like movement parts of masses
-- include incipit only for the first movement part
+- like a single mass movement
+- add movement parts if necessary
+- example: WerW D.1.1
+
+
+#### Long sacred works
+
+- like several mass movements
+- add movement parts if necessary
+- example: WerW I.4.54
 
 
 #### Instrumental works
@@ -100,7 +108,7 @@ Use RISM scoring abbreviations and UNIMARC codes:
   - number
   - title
   - tempo
-  - metre
+  - meter
   - key
   - extent (bars)
   - instruments selection
@@ -124,26 +132,32 @@ Then, add a **single item**:
 
 - location
   - RISM siglum
-  - URI (link to digitized version)
-  - label (“digitized version”)
+  - URI (link to digitized version or catalogue entry)
+  - label (“digitized version” or “catalogue entry”)
   - shelfmark
 - other identifiers: “RISM” with ID
 
 ![](images/mermeid_sources_manuscript_2.png)
 
-- title page (only if there is a single title page for the complete work or all parts)
+If a full score or all parts are described, enter the following information on the item level:
+
+- title page with label (like “[fol. 1r, by Kiesewetter]”, “[wrapper]”, “[on binding]” etc)
+  - use multiple title pages if appropriate
 - physical description
-  - extent (number of parts)
+  - extent (number of parts or number of folios/pages for full scores)
+  - dimensions (height and width)
   - physical medium
 - general description
 
+Add individual parts as components.
 
-![Short description (WerW B.46)](images/mermeid_sources_manuscript_3.png)
+- extent (mandatory, like ”2 p.“)
+- title page and physical description (optional)
 
+
+![Short description (WerW D.1.1)](images/mermeid_sources_manuscript_3.png)
 
 ![Detailed description (WerW Q.2)](images/mermeid_sources_manuscript_4.png)
-
-Note: These metadata should eventually be split into their appropriate XML tags; however, the current MerMEId version does not convert many of these tags to HTML.
 
 
 ## History
