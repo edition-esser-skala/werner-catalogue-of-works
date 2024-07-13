@@ -20,6 +20,7 @@ Scoring
 ### Sources
 {sources}
 
+[Download metadata](/works/metadata/{work_id}.xml)
 :::'
 
 
@@ -403,7 +404,8 @@ get_work_details <- function(work_id) {
     identifiers = identifiers,
     work_scoring = work_scoring,
     movements = movements,
-    sources = sources
+    sources = sources,
+    work_id = work_id
   )
 }
 
