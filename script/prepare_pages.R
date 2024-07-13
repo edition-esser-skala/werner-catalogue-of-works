@@ -184,7 +184,6 @@ if (dir_exists("_book/incipits")) dir_delete("_book/incipits")
 if (dir_exists("_book/works")) dir_delete("_book/works")
 
 dir_create("groups")
-dir_copy("data/works_html", "_book/works")
 dir_copy("data/works_mei", "_book/works/metadata")
 pwalk(work_pages, make_group_page)
 
@@ -215,15 +214,13 @@ overview_table_groups <-
     by = "group"
   ) %>%
   unite(group_name, title, col = "group_name", sep = ": ", na.rm = TRUE) %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
-  {.}
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE)
 
 overview_table_details <-
   tibble(
     WerW =
-      dir_ls("data/works_html", type = "file") %>%
-      str_extract("works_html/(.*)\\.html$", group = 1),
-    Details = str_glue("[details](/works/{WerW}.html)"),
+      dir_ls("data/works_mei", type = "file") %>%
+      str_extract("works_mei/(.*)\\.xml$", group = 1),
     Metadata = str_glue("[XML](/works/metadata/{WerW}.xml)"),
   ) %>%
   mutate(WerW = str_replace_all(WerW, "_", "."))
@@ -233,22 +230,21 @@ overview_table <-
   unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
   left_join(overview_table_groups, by = "group") %>%
   unite(group, number, col = "WerW", sep = ".") %>%
-  mutate(Summary = str_glue("[summary](/groups/{file}.html#work-{WerW})")) %>%
-  select(group_name, WerW, Title = title, Summary) %>%
   left_join(overview_table_details, by = "WerW") %>%
   mutate(
-    Details = replace_na(Details, ""),
+    label = if_else(is.na(Metadata), "summary", "summary & details"),
+    Description = str_glue("[{label}](/groups/{file}.html#work-{WerW})"),
     Metadata = replace_na(Metadata, "")
   ) %>%
+  select(group_name, WerW, Title = title, Description, Metadata) %>%
   gt(groupname_col = "group_name") %>%
-  fmt_markdown(columns = c("Details", "Summary", "Metadata")) %>%
+  fmt_markdown(columns = c("Description", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90",
     row_group.font.weight =
   ) %>%
-  as_raw_html(FALSE) %>%
-  {.}
+  as_raw_html(FALSE)
 
 str_glue(overview_template) %>%
   write_file("groups/overview.qmd")
