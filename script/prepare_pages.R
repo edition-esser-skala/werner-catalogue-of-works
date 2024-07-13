@@ -108,10 +108,10 @@ make_incipit <- function(group, number) {
   }
 
   # (2) SVG incipit available
-  incipit_image <- str_glue("{target_dir}/main.svg")
+  incipit_image <- str_glue("{target_dir}/main_1.svg")
   if (file_exists(incipit_image)) {
     info("  … found '{incipit_image}'")
-    return(str_glue('<img src="/{target_dir}/main.svg" ',
+    return(str_glue('<img src="/{target_dir}/main_1.svg" ',
                     'class="incipit img-fluid">'))
   }
 

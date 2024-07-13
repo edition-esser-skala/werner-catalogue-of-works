@@ -41,7 +41,7 @@ write_pae_incipit <- function(group, subgroup, number, sources, ...) {
   outdir <- dir_create(str_glue("{TARGET_DIR}/{work_id}"))
   write_file(
     incipit_pae,
-    str_glue("{outdir}/main.pae")
+    str_glue("{outdir}/main_1.pae")
   )
 }
 
