@@ -1,5 +1,27 @@
 # Changelog {.unnumbered}
 
+## 0.6.0 – 2024-07-13
+
+### Added
+
+- acknowledgements
+- conversion of MEI metadata to markdown, so that work details are now included on the group page in a collapsed callout block
+
+### Changed
+
+- guidelines
+- incipits for WerW B.46 are now in LY format
+
+### Removed
+
+- HTML files exported from MerMEId
+- `prepare_mermeid_html.sh`, since that script became obsolete
+
+### Fixed
+
+- generation of only necessary RISM incipits (previously, all RISM incipits were rendered since they were still named “main”)
+
+
 ## 0.5.0 – 2024-06-30
 
 ### Added
