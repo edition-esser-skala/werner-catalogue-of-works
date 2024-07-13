@@ -21,10 +21,6 @@
     - At least one main incipit (`main_1.ly` or `main.mei`) is required and will be used on the group overview page. If there are additional main incipits (`main_2.ly` etc), all of them will be included.
     - Incipits `1_[label].ly` and, if available, `2_[label].ly` etc are displayed when clicking on the main incipit(s) on a group page.
     - Incipits are also imported in MerMEId.
-  - `works_html`:
-    - HTML files exported from the MerMEId HTML preview (`[group]_[number].html`)
-    - process with `script/prepare_mermeid_html.sh`
-    - `resources`: various files required for rendering these pages
   - `works_mei`:
     - work metadata in MEI format exported from MerMEId (`[group]_[number].xml`)
     - download files from http://localhost:8080/apps/eXide/index.html
@@ -50,5 +46,5 @@ The root folder contains the usual files required by Quarto. Notably,
 3. Engrave all incipits: `make -f script/make_incipits.mk`.
 4. Prepare webpages: `Rscript script/prepare_pages.R`.
 5. Render with Quarto: `quarto render`.
-6. Move generated files into the site folder: `cp -r data/works_html _book/works && cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview).
+6. Move generated files into the site folder: `cp -r data/works_mei _book/works/metadata && cp -r incipits _book` (not necessary during preview).
 7. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
