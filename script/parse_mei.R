@@ -25,7 +25,7 @@ Scoring
 
 
 MOVEMENT_TEMPLATE <- '
-#### {title}
+#### {number} {title}
 
 |||
 |-|-|
@@ -189,6 +189,7 @@ format_section <- function(s) {
 }
 
 format_movement <- function(m, work_id) {
+  number <- attr(m, "n", exact = TRUE) %||% ""
   title <- m$title[[1]]
   info("movement {title}")
 
@@ -227,6 +228,7 @@ format_movement <- function(m, work_id) {
 
   use_template(
     MOVEMENT_TEMPLATE,
+    number = number,
     title = title,
     tempo = tempo,
     meter = meter,
@@ -397,7 +399,7 @@ get_work_details <- function(work_id) {
   info("sources")
   sources <-
     map_chr(data_sources, format_source) %>%
-    str_flatten("\n")
+    str_flatten("\n\n")
 
   use_template(
     DETAILS_TEMPLATE,
