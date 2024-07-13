@@ -26,20 +26,15 @@ Scoring
 MOVEMENT_TEMPLATE <- '
 #### {title}
 
-Tempo
-: {tempo}
+|||
+|-|-|
+|*Tempo*|{tempo}|
+|*Key*|{key}|
+|*Meter*|{meter}|
+|*Extent*|{extent}|
+|*Scoring*|{scoring}|
 
-Meter
-: {meter}
-
-Key
-: {key}
-
-Extent
-: {extent}
-
-Scoring
-: {scoring}
+: {{tbl-colwidths="[10,90]" .movement-details}}
 
 {incipit}
 
@@ -117,15 +112,18 @@ format_mei_text <- function(xml_data) {
 }
 
 format_meter <- function(m) {
+  res <- NULL
   if (is.null(attr(m, "sym"))) {
-    paste0(attr(m, "count"), "/", attr(m, "unit"))
+    res <- str_glue("${attr(m, 'count')} \\atop {attr(m, 'unit')}$")
   } else if (attr(m, "sym") == "common") {
-    "\U1d134"
+    res <- "\U1d134"
   } else if (attr(m, "sym") == "cut") {
-    "\U1d135"
-  } else {
-    stop("Illegal meter")
+    res <- "\U1d135"
   }
+
+  if (is.null(res))
+    stop("Illegal meter")
+  res
 }
 
 format_key <- function(k) {
@@ -182,11 +180,11 @@ format_section <- function(s) {
   info("  section {title}")
 
   tempo <- s$tempo[[1]]
-  meter <- format_meter(s$meter)
   key <- format_key(s$key)
+  meter <- format_meter(s$meter)
   extent <- s$extent[[1]]
   scoring <- format_scoring(s$perfMedium$perfResList)
-  paste("", title, tempo, meter, key, extent, scoring, "", sep = "|")
+  paste("", title, tempo, key, meter, extent, scoring, "", sep = "|")
 }
 
 format_movement <- function(m, work_id) {
@@ -214,11 +212,15 @@ format_movement <- function(m, work_id) {
   sections <-
     map_chr(m$componentList, format_section) %>%
     str_flatten("\n")
+
   if (sections != "")
     sections <- paste(
-      "|Section|Tempo|Meter|Key|Extent|Scoring|",
+      "|Section|Tempo|Key|Meter|Extent|Scoring|",
       "|-|-|-|-|-|-|",
       sections,
+      "",
+      ': {tbl-colwidths="[20,20,10,10,10,30]" .section-details}',
+      "",
       sep = "\n"
     )
 
@@ -412,4 +414,3 @@ get_work_details <- function(work_id) {
 # get_work_details("D_1_4")
 # get_work_details("I_4_54")
 # get_work_details("Q_2")
-
