@@ -51,7 +51,7 @@
     <workList xml:id="workList_4826e601">
       <work xml:id="work_829f001a">
         <identifier xml:id="identifier_dca83b92" label="WerW">D.1.2</identifier>
-        <identifier label="WK2013" xml:id="identifier_00cd5c0e">75</identifier>
+        <identifier label="WK2013" xml:id="identifier_00cd5c0e">p. 75</identifier>
         <title xml:lang="la" xml:id="title_64b30d70">Estote fortes in bello</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
@@ -69,11 +69,8 @@
           <expression xml:id="expression_97c4f1b6">
             <title xml:lang="en" xml:id="title_1a20b4d5"/>
             <incip xml:id="incip_e6f61ce3">
-              <graphic target="main.png" targettype="lowres" xml:id="graphic_484bffc4"/>
+              <graphic target="main_1.png" targettype="lowres" xml:id="graphic_484bffc4"/>
             </incip>
-            <tempo xml:id="tempo_0e43c544">Andante</tempo>
-            <key pname="f" mode="major" xml:id="key_c8513d5c"/>
-            <meter sym="common" xml:id="meter_f0beb0a1"/>
             <creation xml:id="creation_f1f8af89">
               <date xml:id="date_10057330"/>
               <geogName role="" xml:id="geogName_51b5ff43"/>
@@ -82,7 +79,7 @@
             <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_05489552">
               <perfResList xml:id="perfResList_993416a2">
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_d06cd726">
-                  <head xml:lang="en" xml:id="head_e165cab8_0">Soli</head>
+                  <head xml:lang="en" xml:id="head_e165cab8_0_0">soli</head>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_3564cf8a">S</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_0a6730aa">A</perfRes>
                 </perfResList>
@@ -113,10 +110,10 @@
                 <meter xml:id="meter_df1cb419" sym="common"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_7fc2e2af">
                   <perfResList xml:id="perfResList_15a2e50d">
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_fef37544" n="perfResList_d06cd726">
-                      <head xml:lang="en" xml:id="head_e165cab8_1">Soli</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_c8af79fb" n="perfRes_3564cf8a">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_2b0b6060" n="perfRes_0a6730aa">A</perfRes>
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_da5f1f36" n="perfResList_d06cd726">
+                      <head xml:lang="en" xml:id="head_e165cab8_0_1">soli</head>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_00376476" n="perfRes_3564cf8a">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_7ee8c873" n="perfRes_0a6730aa">A</perfRes>
                     </perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_7b5e314e">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_d97b5771">b</perfRes>
@@ -147,11 +144,11 @@
         <classification xml:id="classification_2d1b5efb">
           <termList xml:id="termList_c6c8ae02">
             <term xml:id="term_66e8bead">Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
+            <term xml:id="term_7967a302">Manuscript</term>
+            <term xml:id="term_834a0d46">Copy</term>
+            <term xml:id="term_15804f5f">Parts</term>
+            <term xml:id="term_d25a2017">Fair copy</term>
+            <term xml:id="term_5b8ccd89">Complete</term>
           </termList>
         </classification>
         <itemList xml:id="itemList_99898119">
@@ -178,13 +175,38 @@
             <notesStmt xml:id="notesStmt_60284627">
               <annot type="source_description" xml:id="annot_c2a98ee3">
                 <p>Works D.1.2 and D.1.3 are archived under a single shelfmark. The title page only refers to D.1.3, since it describes a motet for four voices. Yet, D.1.3 was likely added at a later point in time, as evident from the org part: Its first page, as well as staves 1&#x2013;4 of the second page contain music for D.1.2, while music for D.1.3 is written on staves 5&#x2013;12 in a darker ink.</p>
-                <p>Violino Primo (1 p.), Violino Secondo (1 p.), Canto Concto: (2 p.), Alto Concto. (2 p.), Organo (2 p.).</p>
               </annot>
               <annot type="links" xml:id="annot_56f51c12">
                 <ptr mimetype="" xml:id="ptr_d6e397"/>
               </annot>
             </notesStmt>
-            <componentList xml:id="componentList_fd21d898"/>
+            <componentList xml:id="componentList_fd21d898">
+              <item label="Violino Primo" xml:id="item_7a2e172e">
+                <physDesc xml:id="physDesc_63e25c07">
+                  <extent quantity="" xml:id="extent_afa3e5d8">1 p.</extent>
+                </physDesc>
+              </item>
+              <item label="Violono Secondo" xml:id="item_dd59ffa7">
+                <physDesc xml:id="physDesc_2cdb5737">
+                  <extent quantity="" xml:id="extent_badce9ea">1 p.</extent>
+                </physDesc>
+              </item>
+              <item label="Canto Concto:" xml:id="item_927bbd85">
+                <physDesc xml:id="physDesc_8603e5ed">
+                  <extent quantity="" xml:id="extent_e84750a3">2 p.</extent>
+                </physDesc>
+              </item>
+              <item label="Alto Concto." xml:id="item_ba00f435">
+                <physDesc xml:id="physDesc_63887263">
+                  <extent quantity="" xml:id="extent_1f894153">2 p.</extent>
+                </physDesc>
+              </item>
+              <item label="Organo" xml:id="item_bd964c13">
+                <physDesc xml:id="physDesc_93956c15">
+                  <extent quantity="" xml:id="extent_3b28f1b5">2 p.</extent>
+                </physDesc>
+              </item>
+            </componentList>
           </item>
         </itemList>
         <componentList xml:id="componentList_fee64288"/>
