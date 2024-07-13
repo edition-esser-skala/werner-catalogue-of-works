@@ -12,16 +12,7 @@ Identification
 : {identifiers}
 
 Scoring
-: {main_scoring}
-
-Tempo
-: {main_tempo}
-
-Metre
-: {main_meter}
-
-Key
-: {main_key}
+: {work_scoring}
 
 ### Music
 {movements}
@@ -35,8 +26,20 @@ Key
 MOVEMENT_TEMPLATE <- '
 #### {title}
 
+Tempo
+: {tempo}
+
+Meter
+: {meter}
+
+Key
+: {key}
+
 Extent
 : {extent}
+
+Scoring
+: {scoring}
 
 {incipit}
 
@@ -55,21 +58,63 @@ Location
 RISM
 : {rism_id}
 
-Extent
-: {extent}
-
 Title page
 : {title_page}
 
-Physical medium
-: {dimensions}{physical_medium}
+Physical description
+: {physdesc}
 
 Source description
-: {source_description}'
+: {source_description}
+
+##### Components
+
+{components}
+'
+
+
+COMPONENT_TEMPLATE <- '
+###### {label}
+
+{title_page}
+
+Physical description
+: {physdesc}'
 
 
 
 # Functions ---------------------------------------------------------------
+
+use_template <- function(template, ...) {
+  glue::glue_data(list(...), template, .null = "", .na = "") %>%
+    as.character()
+}
+
+format_mei_text <- function(xml_data) {
+  xpath <-
+    c(
+      "//d1:titlePage/d1:p",
+      "//d1:physMedium/d1:p",
+      "//d1:annot/d1:p"
+    ) %>%
+    str_c(collapse = " | ")
+
+  walk(
+    xml_data %>% xml_find_all(xpath),
+    \(n) {
+      new_text <-
+        as.character(n) %>%
+        str_replace_all(c(
+          "<p>" = "",
+          "</p>" = "",
+          "<lb/>" = "<br/>",
+          "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
+        ))
+      xml_parent(n) %>%
+        xml_set_attr("markdown_text", new_text)
+    }
+  )
+}
 
 format_meter <- function(m) {
   if (is.null(attr(m, "sym"))) {
@@ -84,8 +129,17 @@ format_meter <- function(m) {
 }
 
 format_key <- function(k) {
-  paste(
+  accidentals <- c(
+    n = "",
+    f = "♭",
+    s = "♯"
+  )
+  a <- attr(k, "accid") %||% "n"
+
+  paste0(
     attr(k, "pname") %>% str_to_upper(),
+    accidentals[a],
+    " ",
     attr(k, "mode")
   )
 }
@@ -139,7 +193,11 @@ format_movement <- function(m, work_id) {
   title <- m$title[[1]]
   info("movement {title}")
 
+  tempo <- m$tempo[[1]]
+  meter <- format_meter(m$meter)
+  key <- format_key(m$key)
   extent <- m$extent[[1]]
+  scoring <- format_scoring(m$perfMedium$perfResList)
 
   incipit_file <- attr(m$incip$graphic, "target")
   if (is.null(incipit_file))
@@ -158,29 +216,72 @@ format_movement <- function(m, work_id) {
     str_flatten("\n")
   if (sections != "")
     sections <- paste(
-      "|Section|Tempo|Metre|Key|Extent|Scoring|",
+      "|Section|Tempo|Meter|Key|Extent|Scoring|",
       "|-|-|-|-|-|-|",
       sections,
       sep = "\n"
     )
 
-  glue::glue(MOVEMENT_TEMPLATE, .null = "", .na = "") %>%
-    as.character()
+  use_template(
+    MOVEMENT_TEMPLATE,
+    title = title,
+    tempo = tempo,
+    meter = meter,
+    key = key,
+    extent = extent,
+    scoring = scoring,
+    incipit = incipit,
+    sections = sections
+  )
 }
 
 format_dimensions <- function(d) {
   if (is.null(d))
-    return("")
+    return(NA_character_)
+
   h <- attr(d$height, "quantity")
   hu <- attr(d$height, "unit")
   w <- attr(d$width, "quantity")
   wu <- attr(d$width, "unit")
 
   if (hu == wu)
-    res <- paste(h, "×", w, wu)
+    paste(h, "×", w, wu)
   else
-    res <- paste(h, hu, "×", w, wu)
-  paste0(res, "<br/>")
+    paste(h, hu, "×", w, wu)
+}
+
+format_titlepage <- function(p) {
+  names(p) %>%
+    str_which("titlePage") %>%
+    map_chr(\(i) {
+      label <- attr(p[[i]], "label")
+      if (is.null(label))
+        label <- "[no label]"
+      label <- paste0("*", label, "*")
+
+      paste(
+        label,
+        '<div class="title-page-contents">',
+        attr(p[[i]], "markdown_text"),
+        '</div>',
+        sep = "\n"
+      )
+    }) %>%
+    str_flatten("\n")
+}
+
+format_physdesc <- function(p) {
+  extent <- p$extent[[1]] %||% NA
+
+  dimensions <- format_dimensions(p$dimensions)
+
+  physical_medium <- attr(p$physMedium, "markdown_text") %||% NA
+
+  str_flatten(
+    c(extent, dimensions, physical_medium),
+    collapse = "<br/>",
+    na.rm = TRUE
+  )
 }
 
 format_source <- function(s) {
@@ -203,38 +304,69 @@ format_source <- function(s) {
   else
     link <- str_glue("([{url_label}]({url}))")
 
-  rism_id <- s$itemList$item$identifier[[1]]
+  rism_id <- pluck(s$itemList$item$identifier, 1)
+  if (is.null(rism_id))
+    rism_id <- "–"
+  else
+    rism_id <- str_glue("[{rism_id}]",
+                        "(https://opac.rism.info/search?id={rism_id})")
 
-  extent <- s$itemList$item$physDesc$extent[[1]]
+  title_page <- format_titlepage(s$itemList$item$physDesc)
+  if (title_page == "")
+    title_page <- "–"
 
-  title_page <-
-    s$itemList$item$physDesc$titlePage[[1]] %>%
-    keep(is.character) %>%
-    str_flatten("<br/>")
-
-  dimensions <- format_dimensions(s$itemList$item$physDesc$dimensions)
-
-  physical_medium <-
-    s$itemList$item$physDesc$physMedium$p %>%
-    keep(is.character) %>%
-    str_flatten("<br/>")
+  physdesc <- format_physdesc(s$itemList$item$physDesc)
 
   source_description <-
-    s$itemList$item$notesStmt[[1]]$p %>%
-    keep(is.character) %>%
-    str_flatten("<br/>")
+    attr(s$itemList$item$notesStmt[[1]], "markdown_text") %||% "–"
 
-  glue::glue(SOURCE_TEMPLATE, .null = "", .na = "") %>%
-    as.character()
+  components <-
+    map_chr(s$itemList$item$componentList, format_item_component) %>%
+    str_flatten("\n\n")
+  if (components == "")
+    components <- "–"
+
+  use_template(
+    SOURCE_TEMPLATE,
+    title = title,
+    classification = classification,
+    siglum = siglum,
+    shelfmark = shelfmark,
+    link = link,
+    rism_id = rism_id,
+    title_page = title_page,
+    physdesc = physdesc,
+    source_description = source_description,
+    components = components
+  )
 }
+
+format_item_component <- function(c) {
+  label <- attr(c, "label")
+
+  title_page <- format_titlepage(c$physDesc)
+  if (title_page != "")
+    title_page <- paste0("Title page\n: ", title_page)
+
+  physdesc <- format_physdesc(c$physDesc)
+
+  use_template(
+    COMPONENT_TEMPLATE,
+    label = label,
+    title_page = title_page,
+    physdesc = physdesc
+  )
+}
+
 
 
 # Main workflow -----------------------------------------------------------
 
 get_work_details <- function(work_id) {
+  data <- read_xml(str_glue("data/works_mei/{work_id}.xml"))
+  format_mei_text(data)
   data <-
-    read_xml(str_glue("data/works_mei/{work_id}.xml")) %>%
-    as_list() %>%
+    as_list(data) %>%
     pluck("mei", "meiHead")
 
   data_work <- data$workList$work
@@ -252,10 +384,7 @@ get_work_details <- function(work_id) {
     ) %>%
       str_flatten("<br/>")
 
-  main_tempo <- data_music$tempo[[1]]
-  main_key <- format_key(data_music$key)
-  main_meter <- format_meter(data_music$meter)
-  main_scoring <- format_scoring(data_music$perfMedium$perfResList)
+  work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
   info("movements")
   movements <-
@@ -267,8 +396,13 @@ get_work_details <- function(work_id) {
     map_chr(data_sources, format_source) %>%
     str_flatten("\n")
 
-  glue::glue(DETAILS_TEMPLATE, .null = "", .na = "") %>%
-    as.character()
+  use_template(
+    DETAILS_TEMPLATE,
+    identifiers = identifiers,
+    work_scoring = work_scoring,
+    movements = movements,
+    sources = sources
+  )
 }
 
 # get_work_details("B_46")
@@ -278,3 +412,4 @@ get_work_details <- function(work_id) {
 # get_work_details("D_1_4")
 # get_work_details("I_4_54")
 # get_work_details("Q_2")
+
