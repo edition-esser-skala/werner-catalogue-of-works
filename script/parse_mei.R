@@ -20,7 +20,7 @@ Scoring
 ### Sources
 {sources}
 
-[Download metadata](/works/metadata/{work_id}.xml)
+[Download metadata](/metadata/{work_id}.xml)
 :::'
 
 

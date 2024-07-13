@@ -181,10 +181,10 @@ make_group_page <- function(file, group, title, subgroups) {
 
 if (dir_exists("groups")) dir_delete("groups")
 if (dir_exists("_book/incipits")) dir_delete("_book/incipits")
-if (dir_exists("_book/works")) dir_delete("_book/works")
+if (dir_exists("_book/metadata")) dir_delete("_book/metadata")
 
 dir_create("groups")
-dir_copy("data/works_mei", "_book/works/metadata")
+dir_copy("data/works_mei", "_book/metadata")
 pwalk(work_pages, make_group_page)
 
 dir_copy("incipits", "_book/incipits")
@@ -221,7 +221,7 @@ overview_table_details <-
     WerW =
       dir_ls("data/works_mei", type = "file") %>%
       str_extract("works_mei/(.*)\\.xml$", group = 1),
-    Metadata = str_glue("[XML](/works/metadata/{WerW}.xml)"),
+    Metadata = str_glue("[XML](/metadata/{WerW}.xml)"),
   ) %>%
   mutate(WerW = str_replace_all(WerW, "_", "."))
 
