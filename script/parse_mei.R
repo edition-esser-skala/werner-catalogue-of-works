@@ -5,7 +5,9 @@ source("script/utils.R")
 
 # Templates ---------------------------------------------------------------
 
-DETAILS_TEMPLATE <- '::: {{.callout-note collapse="true"}}
+## Details ----
+
+DETAILS_TEMPLATE <- '::: {{.callout-note collapse="true" .column-page-right}}
 # Details
 
 Identification
