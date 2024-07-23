@@ -88,12 +88,6 @@ RISM_TEMPLATE <- "[{rism_id}](https://opac.rism.info/search?id={rism_id})"
 
 # Functions ---------------------------------------------------------------
 
-# fill in a glue string, ensure that NAs and NULLs are not printed
-use_template <- function(template, ...) {
-  glue::glue_data(list(...), template, .null = "", .na = "") %>%
-    as.character()
-}
-
 # add an attribute "markdown_text" to each XML node with rich text,
 # which contains the node contents with markdown formatting instead
 # of the MEI formatting nodes

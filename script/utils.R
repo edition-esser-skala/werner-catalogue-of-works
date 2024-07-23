@@ -55,3 +55,13 @@ save_table <- function(tables, filename, sheet_name = "Sheet1") {
 
   saveWorkbook(wb, filename, overwrite = TRUE)
 }
+
+
+
+# Templates ---------------------------------------------------------------
+
+# fill in a glue string, ensure that NAs and NULLs are not printed
+use_template <- function(template, ...) {
+  glue::glue_data(list(...), template, .null = "", .na = "") %>%
+    as.character()
+}
