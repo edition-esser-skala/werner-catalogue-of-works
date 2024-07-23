@@ -172,7 +172,7 @@ BassFigures = \figuremode {
         }
       >>
     >>
-    \new ChoirStaff \with { \setGroupDistance #18 #18 } <<
+    \new ChoirStaff <<
       \new Staff {
         \set Staff.instrumentName = "S"
         \new Voice = "Soprano" { \dynamicUp \Soprano }
