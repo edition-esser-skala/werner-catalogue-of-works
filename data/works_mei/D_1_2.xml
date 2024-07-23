@@ -51,20 +51,25 @@
     <workList xml:id="workList_4826e601">
       <work xml:id="work_829f001a">
         <identifier xml:id="identifier_dca83b92" label="WerW">D.1.2</identifier>
-        <identifier label="WK2013" xml:id="identifier_00cd5c0e">p. 75</identifier>
         <title xml:lang="la" xml:id="title_64b30d70">Estote fortes in bello</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
           <corpName role="" xml:id="corpName_f5099b49"/>
         </contributor>
         <creation xml:id="creation_d0359332">
-          <date xml:id="date_3ff93a34"/>
-          <geogName role="" xml:id="geogName_4b0c4d10"/>
+          <date xml:id="date_3ff93a34" isodate="1750-01-01">mid 18th century</date>
+          <geogName role="" xml:id="geogName_4b0c4d10">Eisenstadt (?)</geogName>
         </creation>
         <history xml:id="history_bc2e8caa"/>
         <langUsage xml:id="langUsage_b726fa14">
           <language xml:id="language_d4e54" xml:lang="la"/>
         </langUsage>
+        <biblList xml:id="biblList_4bc873b7">
+          <head xml:id="head_75fb3767">Bibliography</head>
+          <bibl xml:id="bibl_d4e61">
+            <ref target="@WinklerKlement2013 [p. 75]" label=""/>
+          </bibl>
+        </biblList>
         <expressionList xml:id="expressionList_2946a3c4">
           <expression xml:id="expression_97c4f1b6">
             <title xml:lang="en" xml:id="title_1a20b4d5"/>
@@ -137,10 +142,12 @@
     </workList>
     <manifestationList xml:id="manifestationList_ccee73d1">
       <manifestation xml:id="manifestation_caede3e2">
-        <identifier xml:id="identifier_343d8f1e"/>
         <titleStmt xml:id="titleStmt_586135dc">
           <title xml:id="title_936ef72e">Manuscript copy</title>
         </titleStmt>
+        <pubStmt xml:id="pubStmt_99919717">
+          <date isodate="1750-01-01" xml:id="date_8268a9f3">mid 18th century</date>
+        </pubStmt>
         <classification xml:id="classification_2d1b5efb">
           <termList xml:id="termList_c6c8ae02">
             <term xml:id="term_66e8bead">Notated music</term>
@@ -157,10 +164,27 @@
             <physDesc xml:id="physDesc_24da2dae">
               <extent quantity="" xml:id="extent_7c78d180">5 parts</extent>
               <titlePage xml:id="titlePage_68439395">
-                <p>[none, since the title page for this shelfmark exclusively describes work D.1.3.]</p>
+                <p>[none, since the title page for this shelfmark exclusively describes work D.1.3]</p>
               </titlePage>
+              <dimensions xml:id="dimensions_37818327">
+                <locusGrp xml:id="locusGrp_e820aa83">
+                  <locus xml:id="locus_bd78fa4b"/>
+                </locusGrp>
+                <height quantity="32" unit="cm" xml:id="height_fea9305f">32 (height in cm)</height>
+                <width quantity="21" unit="cm" xml:id="width_91b39450">21 (height in cm)</width>
+                <term xml:id="term_16b5ef12"/>
+                <extent quantity="" xml:id="extent_9e5cce9c"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_d20a261f">
+                  <height quantity="" unit="cm" xml:id="height_da6ed3ce"/>
+                  <width quantity="" unit="cm" xml:id="width_848b1d10"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_f05d3b7e">
+                  <height quantity="" unit="cm" xml:id="height_0a67e970"/>
+                  <width quantity="" unit="cm" xml:id="width_24c5f2df"/>
+                </dimensions>
+              </dimensions>
               <physMedium xml:id="physMedium_3d6716e0">
-                <p>In 2o; upright format. Hand-ruled paper, 12 staves in light brown ink and music in dark brown ink. A clean copy without corrections.</p>
+                <p>hand-ruled paper, 12 staves</p>
               </physMedium>
             </physDesc>
             <physLoc xml:id="physLoc_7ff5c88f">
@@ -174,45 +198,14 @@
             </physLoc>
             <notesStmt xml:id="notesStmt_60284627">
               <annot type="source_description" xml:id="annot_c2a98ee3">
+                <p>S solo (2), A solo (2), vl 1 (1), vl 2 (1), org (2)</p>
                 <p>Works D.1.2 and D.1.3 are archived under a single shelfmark. The title page only refers to D.1.3, since it describes a motet for four voices. Yet, D.1.3 was likely added at a later point in time, as evident from the org part: Its first page, as well as staves 1&#x2013;4 of the second page contain music for D.1.2, while music for D.1.3 is written on staves 5&#x2013;12 in a darker ink.</p>
               </annot>
-              <annot type="links" xml:id="annot_56f51c12">
-                <ptr mimetype="" xml:id="ptr_d6e397"/>
-              </annot>
             </notesStmt>
-            <componentList xml:id="componentList_fd21d898">
-              <item label="Violino Primo" xml:id="item_7a2e172e">
-                <physDesc xml:id="physDesc_63e25c07">
-                  <extent quantity="" xml:id="extent_afa3e5d8">1 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Violono Secondo" xml:id="item_dd59ffa7">
-                <physDesc xml:id="physDesc_2cdb5737">
-                  <extent quantity="" xml:id="extent_badce9ea">1 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Canto Concto:" xml:id="item_927bbd85">
-                <physDesc xml:id="physDesc_8603e5ed">
-                  <extent quantity="" xml:id="extent_e84750a3">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Alto Concto." xml:id="item_ba00f435">
-                <physDesc xml:id="physDesc_63887263">
-                  <extent quantity="" xml:id="extent_1f894153">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Organo" xml:id="item_bd964c13">
-                <physDesc xml:id="physDesc_93956c15">
-                  <extent quantity="" xml:id="extent_3b28f1b5">2 p.</extent>
-                </physDesc>
-              </item>
-            </componentList>
+            <componentList xml:id="componentList_fd21d898"/>
           </item>
         </itemList>
         <componentList xml:id="componentList_fee64288"/>
-        <relationList xml:id="relationList_a6615cdf">
-          <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
-        </relationList>
       </manifestation>
     </manifestationList>
   </meiHead>

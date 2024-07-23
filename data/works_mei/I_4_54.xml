@@ -58,12 +58,21 @@
         </contributor>
         <creation xml:id="creation_d0359332">
           <date xml:id="date_3ff93a34" isodate="1729-12-13">1729-12-13</date>
-          <geogName role="" xml:id="geogName_4b0c4d10">[Eisenstadt]</geogName>
+          <geogName role="" xml:id="geogName_4b0c4d10">Eisenstadt (?)</geogName>
         </creation>
         <history xml:id="history_bc2e8caa"/>
         <langUsage xml:id="langUsage_b726fa14">
           <language xml:id="language_d4e54" xml:lang="la"/>
         </langUsage>
+        <biblList xml:id="biblList_3e08d999">
+          <head xml:id="head_4958f16f">Bibliography</head>
+          <bibl xml:id="bibl_d4e60">
+            <ref target="@Stefan1985 [p. 267]" label=""/>
+          </bibl>
+          <bibl xml:id="bibl_d4e62">
+            <ref target="@Kiesewetter1847 [p. 90]" label=""/>
+          </bibl>
+        </biblList>
         <expressionList xml:id="expressionList_2946a3c4">
           <expression xml:id="expression_97c4f1b6">
             <title xml:lang="en" xml:id="title_1a20b4d5"/>
@@ -375,10 +384,12 @@
     </workList>
     <manifestationList xml:id="manifestationList_ccee73d1">
       <manifestation xml:id="manifestation_caede3e2">
-        <identifier xml:id="identifier_343d8f1e"/>
         <titleStmt xml:id="titleStmt_586135dc">
           <title xml:id="title_936ef72e">Manuscript copy</title>
         </titleStmt>
+        <pubStmt xml:id="pubStmt_967ac17f">
+          <date isodate="1729-12-13" xml:id="date_eb7c541e">1729-12-13</date>
+        </pubStmt>
         <classification xml:id="classification_2d1b5efb">
           <termList xml:id="termList_c6c8ae02">
             <term xml:id="term_670b99c1">Notated music</term>
@@ -393,7 +404,7 @@
           <item xml:id="item_a0c3b7eb">
             <identifier xml:id="identifier_5ee09b28" label="RISM">1001054545</identifier>
             <physDesc xml:id="physDesc_3d787033">
-              <extent quantity="" xml:id="extent_93e8dfd5">14 folios</extent>
+              <extent quantity="" xml:id="extent_93e8dfd5">14 fol.</extent>
               <titlePage label="[fol. 1r, by Kiesewetter]" xml:id="titlePage_f214a14b">
                 <p>Salve Regina | a quattro voci concert.&#xB0; | con | Violini, Viola di Alto, | Oboe obligato | ed Organo, | di | Gregorio Giuseppe Werner, | Maestro di Capp. di S. A. | il Principe Esterhazy, | (Predecessore di Gius. Hayden.) [several additions by two different hands]</p>
               </titlePage>
@@ -427,7 +438,7 @@
                 <dim quantity="" xml:id="dim_eb7e7383"/>
               </dimensions>
               <physMedium xml:id="physMedium_5e72c561">
-                <p>In 2o; upright format, originally consisting of nested bifolios; title page (fol. 1r), page with a short biography of Werner (fol. 1v), music (fol. 2r&#x2013;13r), blank folio with staves (fol. 13v), wrapper (fol. 14). Hand-ruled paper, 17 staves in dark brown ink and music in dark brown ink. A clean copy by Johann Georg Thonner, with annotations by Raphael Georg Kiesewetter in red ink. Folios 2&#x2013;13 have been paginated with pencil at the upper outer corner. Below the single system on fol. 11v, Thonner included the date of composition: "Die 13. Xbris. 1729". Violas are written separately on fol. 12r&#x2013;13r.</p>
+                <p>hand-ruled paper, 17 staves</p>
               </physMedium>
             </physDesc>
             <physLoc xml:id="physLoc_b5f76716">
@@ -440,23 +451,23 @@
               <identifier xml:id="identifier_28195fe7">Mus.2461-E-1</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_65404a31">
-              <annot type="links" xml:id="annot_4f3b9ff0">
-                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
+              <annot type="source_description" xml:id="annot_6625d58b">
+                <p>An authentic copy by Johann Georg Thonner, with annotations by Raphael Georg Kiesewetter in red ink. Below the single system on fol. 11v, Thonner wrote "Die 13. Xbris. 1729", which most likely is the date of composition. Violas are written separately on fol. 12r&#x2013;13r.</p>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_bf9dd0ea"/>
           </item>
         </itemList>
         <componentList xml:id="componentList_fee64288"/>
-        <relationList xml:id="relationList_a6615cdf">
-          <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
-        </relationList>
       </manifestation>
       <manifestation xml:id="manifestation_bb663bae">
         <identifier xml:id="identifier_afb9fee4"/>
         <titleStmt xml:id="titleStmt_4b3b8dec">
           <title xml:id="title_720ee718">Manuscript copy</title>
         </titleStmt>
+        <pubStmt xml:id="pubStmt_bcf4be6a">
+          <date isodate="1800-01-01" xml:id="date_969ecaab">1st half 19th century</date>
+        </pubStmt>
         <classification xml:id="classification_84e6f06c">
           <termList xml:id="termList_ec10c2ed">
             <term xml:id="term_ee5c8b38">Notated music</term>
@@ -502,7 +513,7 @@
                 <dim quantity="" xml:id="dim_3a8e5e98"/>
               </dimensions>
               <physMedium xml:id="physMedium_caa58a7b">
-                <p>Bound in red marbled paper&#xA0;with front and end flyleaves. Hand-ruled paper, 16 staves (7 mm) in brown ink and music in the same ink. Pages 2 to 36 are paginated with ink in the top outer corner.</p>
+                <p>hand-ruled paper, 16 staves (7 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc xml:id="physLoc_b66cfcf1">
@@ -516,19 +527,56 @@
             </physLoc>
             <notesStmt xml:id="notesStmt_e297c6c6">
               <annot type="source_description" xml:id="annot_f1f934ac">
-                <p>A clean copy by Raphael Kiesewetter, most likely copied from Thonner's copy.</p>
-              </annot>
-              <annot type="links" xml:id="annot_0ee7f53a">
-                <ptr mimetype="" xml:id="ptr_d6e397_1"/>
+                <p>A copy by Raphael Kiesewetter, most likely copied from Thonner's copy.</p>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_09afad70"/>
           </item>
         </itemList>
         <componentList xml:id="componentList_16f4723e"/>
-        <relationList xml:id="relationList_abc54ea4">
-          <relation rel="isEmbodimentOf" xml:id="relation_2f5fa84b"/>
-        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_1a1d072a">
+        <identifier xml:id="identifier_1f05f0f7"/>
+        <titleStmt xml:id="titleStmt_be6f6ee3">
+          <title xml:id="title_cc9593fa">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_8d138d64">
+          <date isodate="1750-01-01" xml:id="date_5aacd4be">1st half 18th century</date>
+        </pubStmt>
+        <classification xml:id="classification_84d24651">
+          <termList xml:id="termList_1d1f4e7c">
+            <term xml:id="term_c822e1a1">Notated music</term>
+            <term xml:id="term_7e8640ca">Manuscript</term>
+            <term xml:id="term_8e9fd7e2">Copy</term>
+            <term xml:id="term_79b84ce6">Parts</term>
+            <term xml:id="term_153765cc">Fair copy</term>
+            <term xml:id="term_c805a759">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_5767ef70">
+          <item xml:id="item_20208f25">
+            <identifier xml:id="identifier_a1a7bf23" label="RISM">550268626</identifier>
+            <physDesc xml:id="physDesc_1c5ce0c9">
+              <extent quantity="" xml:id="extent_4ee59dc9">11 parts</extent>
+            </physDesc>
+            <physLoc xml:id="physLoc_d651c23d">
+              <repository xml:id="repository_77ac3a8a">
+                <corpName xml:id="corpName_e7922415" role=""/>
+                <geogName xml:id="geogName_4aeb5b99" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_fc417b2b">CZ-Pak</identifier>
+              </repository>
+              <identifier xml:id="identifier_abe18a44">1346</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_a384b820">
+              <annot type="source_description" xml:id="annot_358c015f">
+                <p>S, A, T, B, vl 1, vl 2, ob, a-trb, t-trb, b-trb, org</p>
+                <p>catalogued according to RISM entry</p>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_4ea9fe8e"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_cfb224a7"/>
       </manifestation>
     </manifestationList>
   </meiHead>

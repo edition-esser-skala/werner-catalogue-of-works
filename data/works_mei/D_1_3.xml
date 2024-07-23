@@ -57,13 +57,16 @@
           <corpName role="" xml:id="corpName_f5099b49"/>
         </contributor>
         <creation xml:id="creation_d0359332">
-          <date xml:id="date_3ff93a34"/>
-          <geogName role="" xml:id="geogName_4b0c4d10"/>
+          <date xml:id="date_3ff93a34" isodate="1750-01-01">mid 18th century</date>
+          <geogName role="" xml:id="geogName_4b0c4d10">Eisenstadt (?)</geogName>
         </creation>
         <history xml:id="history_bc2e8caa"/>
         <langUsage xml:id="langUsage_b726fa14">
           <language xml:id="language_d4e54" xml:lang="la"/>
         </langUsage>
+        <biblList xml:id="biblList_ebeb435b">
+          <head xml:id="head_fb9f118f">Bibliography</head>
+        </biblList>
         <expressionList xml:id="expressionList_2946a3c4">
           <expression xml:id="expression_97c4f1b6">
             <title xml:lang="en" xml:id="title_1a20b4d5"/>
@@ -268,6 +271,9 @@
         <titleStmt xml:id="titleStmt_586135dc">
           <title xml:id="title_936ef72e">Manuscript copy</title>
         </titleStmt>
+        <pubStmt xml:id="pubStmt_0b20a94c">
+          <date isodate="1750-01-01" xml:id="date_70aac209">mid 18th century</date>
+        </pubStmt>
         <classification xml:id="classification_2d1b5efb">
           <termList xml:id="termList_c6c8ae02">
             <term xml:id="term_670b99c1">Notated music</term>
@@ -286,8 +292,6 @@
                 <locusGrp xml:id="locusGrp_e820aa83">
                   <locus xml:id="locus_bd78fa4b"/>
                 </locusGrp>
-                <height quantity="21" unit="cm" xml:id="height_fea9305f">21 (height in cm)</height>
-                <width quantity="32" unit="cm" xml:id="width_91b39450">32 (height in cm)</width>
                 <term xml:id="term_16b5ef12"/>
                 <extent quantity="" xml:id="extent_9e5cce9c"> lines</extent>
                 <dimensions type="format" xml:id="dimensions_d20a261f">
@@ -304,7 +308,7 @@
               </titlePage>
               <extent quantity="" xml:id="extent_f499f569">8 parts</extent>
               <physMedium xml:id="physMedium_b45cfcb5">
-                <p>vl 1, vl 2, org: in 2o; upright format; hand-ruled paper, 12 staves in light brown ink and music in dark brown ink. S, A, T, B, vlne: in 4o; oblong format; hand-ruled paper, 6 staves in light brown ink and music in dark brown ink. A clean copy without corrections.</p>
+                <p>vl 1, vl 2, org: hand-ruled paper, 12 staves, upright format (32 x 21 cm)<lb/>S, A, T, B, vlne: hand-ruled paper, 6 staves, oblong format (17 x 22 cm)</p>
               </physMedium>
             </physDesc>
             <physLoc xml:id="physLoc_2b9ff737">
@@ -318,57 +322,14 @@
             </physLoc>
             <notesStmt xml:id="notesStmt_a0a69781">
               <annot type="source_description" xml:id="annot_9295a3de">
+                <p>S coro (1), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (1), vl 2 (1), vlne (2), org (2)</p>
                 <p>Works D.1.2 and D.1.3 are archived under a single shelfmark. The title page only refers to D.1.3, since it describes a motet for four voices. Yet, D.1.3 was likely added at a later point in time, as evident from the org part: Its first page, as well as staves 1&#x2013;4 of the second page contain music for D.1.2, while music for D.1.3 is written on staves 5&#x2013;12 in a darker ink.</p>
               </annot>
             </notesStmt>
-            <componentList xml:id="componentList_a954ba61">
-              <item label="Violino Primo" xml:id="item_54af6fe5">
-                <physDesc xml:id="physDesc_933a9c2e">
-                  <extent quantity="" xml:id="extent_1ae9d137">1 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Violino Secondo" xml:id="item_d3873974">
-                <physDesc xml:id="physDesc_e1e137fb">
-                  <extent quantity="" xml:id="extent_8b1f96f7">1 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Canto" xml:id="item_7b40622b">
-                <physDesc xml:id="physDesc_69d3889e">
-                  <extent quantity="" xml:id="extent_ee8a4e69">1 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Alto" xml:id="item_dd8dddb3">
-                <physDesc xml:id="physDesc_5e3295f8">
-                  <extent quantity="" xml:id="extent_0b197641">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Tenore" xml:id="item_842fd74e">
-                <physDesc xml:id="physDesc_896e175a">
-                  <extent quantity="" xml:id="extent_9175a1eb">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Basso" xml:id="item_126248ee">
-                <physDesc xml:id="physDesc_595ca470">
-                  <extent quantity="" xml:id="extent_a79dc62f">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Violone" xml:id="item_50568132">
-                <physDesc xml:id="physDesc_b5abe76e">
-                  <extent quantity="" xml:id="extent_41820603">2 p.</extent>
-                </physDesc>
-              </item>
-              <item label="Organo" xml:id="item_82f5411c">
-                <physDesc xml:id="physDesc_e5a07e04">
-                  <extent quantity="" xml:id="extent_a2158326">2 p.</extent>
-                </physDesc>
-              </item>
-            </componentList>
+            <componentList xml:id="componentList_a954ba61"/>
           </item>
         </itemList>
         <componentList xml:id="componentList_fee64288"/>
-        <relationList xml:id="relationList_a6615cdf">
-          <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
-        </relationList>
       </manifestation>
     </manifestationList>
   </meiHead>
