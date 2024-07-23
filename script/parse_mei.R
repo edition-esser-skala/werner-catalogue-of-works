@@ -3,6 +3,7 @@ library(tidyverse)
 source("script/utils.R")
 
 
+
 # Templates ---------------------------------------------------------------
 
 ## Details ----
@@ -16,6 +17,12 @@ Identification
 Scoring
 : {work_scoring}
 
+Place and date of composition
+: {creation}
+
+Bibliography
+: {bibliography}
+
 ### Music
 {movements}
 
@@ -25,6 +32,8 @@ Scoring
 [Download metadata](/metadata/{work_id}.xml)
 :::'
 
+
+## Movement ----
 
 MOVEMENT_TEMPLATE <- '
 #### {number} {title}
@@ -44,6 +53,8 @@ MOVEMENT_TEMPLATE <- '
 {sections}'
 
 
+## Source ----
+
 SOURCE_TEMPLATE <- '
 #### {title}
 
@@ -56,64 +67,68 @@ Location
 RISM
 : {rism_id}
 
-Title page
-: {title_page}
+Dating
+: {dating}
+
+Title page(s)
+: {title_pages}
 
 Physical description
 : {physdesc}
 
-Source description
+Components and notes
 : {source_description}
-
-##### Components
-
-{components}
 '
 
+## RISM ----
 
-COMPONENT_TEMPLATE <- '
-###### {label}
-
-{title_page}
-
-Physical description
-: {physdesc}'
+RISM_TEMPLATE <- "[{rism_id}](https://opac.rism.info/search?id={rism_id})"
 
 
 
 # Functions ---------------------------------------------------------------
 
+# fill in a glue string, ensure that NAs and NULLs are not printed
 use_template <- function(template, ...) {
   glue::glue_data(list(...), template, .null = "", .na = "") %>%
     as.character()
 }
 
+# add an attribute "markdown_text" to each XML node with rich text,
+# which contains the node contents with markdown formatting instead
+# of the MEI formatting nodes
 format_mei_text <- function(xml_data) {
   xpath <-
     c(
-      "//d1:titlePage/d1:p",
-      "//d1:physMedium/d1:p",
-      "//d1:annot/d1:p"
+      "//d1:titlePage",
+      "//d1:physMedium",
+      "//d1:annot"
     ) %>%
     str_c(collapse = " | ")
 
-  walk(
+  res <- map_chr(
     xml_data %>% xml_find_all(xpath),
     \(n) {
       new_text <-
-        as.character(n) %>%
+        xml_children(n) %>%  # get all <p> nodes
+        map_chr(as.character) %>%
+        str_flatten("<br/><br/>") %>%
         str_replace_all(c(
           "<p>" = "",
           "</p>" = "",
           "<lb/>" = "<br/>",
+          "<rend fontstyle=\"italic\">(.+?)</rend>" = "<i>\\1</i>",
           "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
         ))
-      xml_parent(n) %>%
-        xml_set_attr("markdown_text", new_text)
+      xml_set_attr(n, "markdown_text", new_text)
     }
   )
+
+  # map() with invisible return instead of walk() to allow debugging
+  invisible(res)
 }
 
+# format the time signature with common/cut time symbols or fraction
 format_meter <- function(m) {
   res <- NULL
   if (is.null(attr(m, "sym"))) {
@@ -129,6 +144,7 @@ format_meter <- function(m) {
   res
 }
 
+# format the key signature
 format_key <- function(k) {
   accidentals <- c(
     n = "",
@@ -178,6 +194,32 @@ format_scoring <- function(s) {
     str_flatten_comma()
 }
 
+format_creation <- function(c) {
+  if (is.null(c))
+    return("–")
+
+  date <- c$date[[1]] %||% NA
+  place <- c$geogName[[1]] %||% NA
+  str_flatten_comma(c(place, date), na.rm = TRUE)
+}
+
+format_bibliography <- function(b) {
+  if (is.null(b))
+    return("–")
+
+  res <-
+    map_chr(
+      names(b) %>% str_which("bibl"),
+      \(i) attr(b[[i]]$ref, "target")
+    ) %>%
+    str_sort() %>%
+    str_flatten_comma()
+  if (res == "")
+    res <- "–"
+
+  res
+}
+
 format_section <- function(s) {
   title <- s$title[[1]]
   info("  section {title}")
@@ -187,7 +229,8 @@ format_section <- function(s) {
   meter <- format_meter(s$meter)
   extent <- s$extent[[1]]
   scoring <- format_scoring(s$perfMedium$perfResList)
-  paste("", title, tempo, key, meter, extent, scoring, "", sep = "|")
+  notes <- attr(s$notesStmt[[1]], "markdown_text") %||% ""
+  paste("", title, tempo, key, meter, extent, scoring, notes, "", sep = "|")
 }
 
 format_movement <- function(m, work_id) {
@@ -219,11 +262,11 @@ format_movement <- function(m, work_id) {
 
   if (sections != "")
     sections <- paste(
-      "|Section|Tempo|Key|Meter|Extent|Scoring|",
-      "|-|-|-|-|-|-|",
+      "|Section|Tempo|Key|Meter|Extent|Scoring|Notes|",
+      "|-|-|-|-|-|-|-|",
       sections,
       "",
-      ': {tbl-colwidths="[20,20,10,10,10,30]" .section-details}',
+      ': {tbl-colwidths="[15,15,8,4,8,25,25]" .section-details}',
       "",
       sep = "\n"
     )
@@ -315,23 +358,18 @@ format_source <- function(s) {
   if (is.null(rism_id))
     rism_id <- "–"
   else
-    rism_id <- str_glue("[{rism_id}]",
-                        "(https://opac.rism.info/search?id={rism_id})")
+    rism_id <- use_template(RISM_TEMPLATE, rism_id = rism_id)
 
-  title_page <- format_titlepage(s$itemList$item$physDesc)
-  if (title_page == "")
-    title_page <- "–"
+  dating <- pluck(s, "pubStmt", "date", 1) %||% "–"
+
+  title_pages <- format_titlepage(s$itemList$item$physDesc)
+  if (title_pages == "")
+    title_pages <- "–"
 
   physdesc <- format_physdesc(s$itemList$item$physDesc)
 
   source_description <-
     attr(s$itemList$item$notesStmt[[1]], "markdown_text") %||% "–"
-
-  components <-
-    map_chr(s$itemList$item$componentList, format_item_component) %>%
-    str_flatten("\n\n")
-  if (components == "")
-    components <- "–"
 
   use_template(
     SOURCE_TEMPLATE,
@@ -341,27 +379,10 @@ format_source <- function(s) {
     shelfmark = shelfmark,
     link = link,
     rism_id = rism_id,
-    title_page = title_page,
+    dating = dating,
+    title_pages = title_pages,
     physdesc = physdesc,
-    source_description = source_description,
-    components = components
-  )
-}
-
-format_item_component <- function(c) {
-  label <- attr(c, "label")
-
-  title_page <- format_titlepage(c$physDesc)
-  if (title_page != "")
-    title_page <- paste0("Title page\n: ", title_page)
-
-  physdesc <- format_physdesc(c$physDesc)
-
-  use_template(
-    COMPONENT_TEMPLATE,
-    label = label,
-    title_page = title_page,
-    physdesc = physdesc
+    source_description = source_description
   )
 }
 
@@ -393,6 +414,10 @@ get_work_details <- function(work_id) {
 
   work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
+  creation <- format_creation(data_work$creation)
+
+  bibliography <- format_bibliography(data_work$biblList)
+
   info("movements")
   movements <-
     map_chr(data_movements, \(m) format_movement(m, work_id)) %>%
@@ -407,6 +432,8 @@ get_work_details <- function(work_id) {
     DETAILS_TEMPLATE,
     identifiers = identifiers,
     work_scoring = work_scoring,
+    creation = creation,
+    bibliography = bibliography,
     movements = movements,
     sources = sources,
     work_id = work_id
