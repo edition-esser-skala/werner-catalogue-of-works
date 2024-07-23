@@ -286,7 +286,7 @@ format_movement <- function(m, work_id) {
 }
 
 format_dimensions <- function(d) {
-  if (is.null(d))
+  if (is.null(d) || is.null(d$height) || is.null(d$width))
     return(NA_character_)
 
   h <- attr(d$height, "quantity")
