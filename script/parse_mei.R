@@ -82,7 +82,7 @@ Components and notes
 
 ## RISM ----
 
-RISM_TEMPLATE <- "[{rism_id}](https://opac.rism.info/search?id={rism_id})"
+RISM_TEMPLATE <- "[{label}](https://opac.rism.info/search?id={rism_id})"
 
 
 
@@ -352,7 +352,7 @@ format_source <- function(s) {
   if (is.null(rism_id))
     rism_id <- "–"
   else
-    rism_id <- use_template(RISM_TEMPLATE, rism_id = rism_id)
+    rism_id <- use_template(RISM_TEMPLATE, label = rism_id, rism_id = rism_id)
 
   dating <- pluck(s, "pubStmt", "date", 1) %||% "–"
 
