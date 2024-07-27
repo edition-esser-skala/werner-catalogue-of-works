@@ -6,17 +6,20 @@ source("script/parse_mei.R")
 
 
 
+# Parameters --------------------------------------------------------------
+
+# columns names in the works table with catalogue of works numbers
+cols_identifiers <- c("Dopf", "WK")
+
+
+
 # Load data ---------------------------------------------------------------
 
-works <-
-  read_csv("data_generated/works.csv", col_types = cols(.default = "c")) %>%
-  nest(.by = group:title, .key = "sources")
+works <- read_rds("data_generated/works.rds")
 
 
 
 # Prepare data for group pages --------------------------------------------
-
-## Data frames ----
 
 subgroups <-
   read_csv("data/catalogue_overview.csv") %>%
@@ -32,9 +35,12 @@ work_pages <-
   left_join(subgroups, by = "group")
 
 
-## Templates ----
 
-page_template <- '---
+# Templates ---------------------------------------------------------------
+
+## Page ----
+
+PAGE_TEMPLATE <- '---
 lightbox: true
 ---
 
@@ -42,25 +48,34 @@ lightbox: true
 
 Click on an incipit to see an incipit comprising all instruments and voices.
 
-{work_list}
+{page_contents}
 
 ![](../images/empty.png)
 '
 
-subgroup_template <- '
+## Subgroup ----
+
+SUBGROUP_TEMPLATE <- '
 ## [{group}.{subgroup}]{{.header-section-number}} {title} {{.unnumbered}}
 
 {work_list}
 '
 
-work_template <- '
+## Work (overview) ----
+
+WORK_TEMPLATE_OVERVIEW <- '
 ### [{group}{subgroup}.{number}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
-{incipit}
+{incipits}
 
-**Sources:**&ensp;{sources}
+|||
+|-|-|
+|*Identifiers*|{identification}|
+|*Sources*|{sources}|
+|*Notes*|{notes}|
+|*Literature*|{literature}|
 
-{details}
+: {{tbl-colwidths="[12,87]" .movement-details}}
 '
 
 
@@ -69,8 +84,9 @@ work_template <- '
 
 ## Functions ----
 
-make_incipit <- function(group, number) {
-  target_dir <- str_glue("incipits/{group}_{number}")
+make_incipits <- function(group, subgroup, number) {
+  work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
+  target_dir <- str_glue("incipits/{work_id}")
 
   # (1) PNG incipits available
   incipit_image <- str_glue("{target_dir}/main_1.png")
@@ -80,7 +96,7 @@ make_incipit <- function(group, number) {
       path_file() %>%
       path_ext_remove() %>%
       path_filter("main*low")
-    info("  … found {length(main_incipits)} incipits '{incipit_image}' etc")
+    info("  found {length(main_incipits)} incipits '{incipit_image}' etc")
 
     # Quarto currently does not support lightbox images with a different zoomed
     # image; hence, we create HTML code that shows the first orchestral incipit
@@ -110,69 +126,99 @@ make_incipit <- function(group, number) {
   # (2) SVG incipit available
   incipit_image <- str_glue("{target_dir}/main_1.svg")
   if (file_exists(incipit_image)) {
-    info("  … found '{incipit_image}'")
+    info("  found '{incipit_image}'")
     return(str_glue('<img src="/{target_dir}/main_1.svg" ',
                     'class="incipit img-fluid">'))
   }
 
   # (3) no incipit available
-  info("  … no incipit available")
-  return("(incipit TBD)")
+  info("  no incipit available")
+  "(no incipit available)"
 }
 
 
-make_work_entry <- function(group, subgroup, number, title, sources, ...) {
-  if (!is.na(subgroup)) {
-    group_subgroup <- str_c(group, subgroup, sep = "_")
-    subgroup <- paste0(".", subgroup)
+make_work_entry <- function(group, subgroup, number, sources, ...) {
+  metadata <- list(...)
+  work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
+
+  if (file_exists(str_glue("data/works_mei/{work_id}.xml"))) {
+    info("Writing detailed entry for {work_id}")
+    get_work_details(group, subgroup, number)
   } else {
-    group_subgroup <- group
-    subgroup <- ""
+    info("Writing overview entry for {work_id}")
+
+    incipits <- make_incipits(group, subgroup, number)
+
+    identification <-
+      map_chr(
+        cols_identifiers,
+        \(catalogue) str_c(catalogue, pluck(metadata, catalogue), sep = " ")
+      ) %>%
+      str_flatten(" · ", na.rm = TRUE)
+
+    sources <-
+      pmap_chr(
+        sources,
+        \(source, rism_id, ...)
+        if_else(
+          is.na(rism_id),
+          source,
+          use_template(RISM_TEMPLATE, label = source, rism_id = rism_id)
+        )
+      ) %>%
+      str_flatten(" · ")
+
+    use_template(
+      WORK_TEMPLATE_OVERVIEW,
+      group = group,
+      subgroup = str_flatten(c(".", subgroup)),
+      number = number,
+      title = metadata$title,
+      incipits = incipits,
+      identification = identification,
+      sources = sources,
+      notes = metadata$notes,
+      literature = str_sort(metadata$literature)
+    )
   }
-
-  info("Writing entry for {group_subgroup}_{number}")
-  incipit <- make_incipit(group_subgroup, number)
-  sources <- pmap(
-    sources,
-    \(source, rism_id, ...)
-      if_else(
-        is.na(rism_id),
-        source,
-        str_glue("[{source}](https://opac.rism.info/search?id={rism_id})")
-      )
-  ) %>%
-    str_flatten(collapse = " · ")
-
-  details <- ""
-  if (file_exists(str_glue("data/works_mei/{group_subgroup}_{number}.xml")))
-    details <- get_work_details(str_glue("{group_subgroup}_{number}"))
-
-  str_glue(work_template)
 }
 
 
 make_group_page <- function(file, group, title, subgroups) {
   if (is.null(subgroups)) {
-    work_list <-
+    page_contents <-
       works %>%
       filter(group == {{group}}) %>%
-      pmap(make_work_entry) %>%
+      pmap_chr(make_work_entry) %>%
       str_flatten("\n\n")
   } else {
-    work_list <- pmap(
-      subgroups,
-      \(subgroup, title) {
-        work_list <-
-          works %>%
-          filter(group == {{group}}, subgroup == {{subgroup}}) %>%
-          pmap(make_work_entry) %>%
-          str_flatten("\n\n")
-        str_glue(subgroup_template)
-      }
-    ) %>%
+    page_contents <-
+      pmap_chr(
+        subgroups,
+        \(subgroup, title) {
+          work_list <-
+            works %>%
+            filter(group == {{group}}, subgroup == {{subgroup}}) %>%
+            pmap_chr(make_work_entry) %>%
+            str_flatten("\n\n")
+          use_template(
+            SUBGROUP_TEMPLATE,
+            group = group,
+            subgroup = subgroup,
+            title = title,
+            work_list = work_list
+          )
+        }
+      ) %>%
       str_flatten("\n\n")
   }
-  str_glue(page_template) %>%
+
+  use_template(
+    PAGE_TEMPLATE,
+    group = group,
+    title = title,
+    page_contents = page_contents
+  ) %>%
     write_file(str_glue("groups/{file}.qmd"))
 }
 

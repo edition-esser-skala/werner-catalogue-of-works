@@ -6,9 +6,16 @@ source("script/utils.R")
 
 # Templates ---------------------------------------------------------------
 
-## Details ----
+## Work (detailed) ----
 
-DETAILS_TEMPLATE <- '::: {{.callout-note collapse="true" .column-page-right}}
+WORK_TEMPLATE_DETAILED <- '
+### [{group}{subgroup}.{number}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+
+{incipits}
+
+*Sources*&emsp;{sources_short}
+
+::: {{.callout-note collapse="true" .column-page-right}}
 # Details
 
 Identification
@@ -155,6 +162,36 @@ format_key <- function(k) {
   )
 }
 
+# format incipits (lightbox expanding to orchestral incipit)
+format_incipits <- function(incipit_list, work_id) {
+  target_dir <- str_glue("incipits/{work_id}")
+
+  map_chr(
+    incipit_list,
+    \(i) {
+      main_incipit <-
+        attr(i, "target") %>%
+        path_ext_remove()
+
+      n <- str_extract(main_incipit, "\\d+")
+
+      full_incipit <-
+        dir_ls(target_dir) %>%
+        path_file() %>%
+        path_ext_remove() %>%
+        path_filter(paste0(n, "*")) %>%
+        path_filter("*_low", invert = TRUE)
+
+      str_glue('<a href="/{target_dir}/{full_incipit}.png" ',
+               'class="lightbox">',
+               '<img src="/{target_dir}/{main_incipit}_low.png" ',
+               'class="incipit img-fluid"></a>')
+    }
+  ) %>%
+    str_flatten("\n\n")
+}
+
+# format list of instruments
 format_instrument <- function(i) {
   name <- i[[1]]
   count <- attr(i, "count")
@@ -166,6 +203,7 @@ format_instrument <- function(i) {
   name
 }
 
+# format list of ensembles
 format_ensemble <- function(e) {
   head <- e$head[[1]]
   e[-1]
@@ -173,6 +211,7 @@ format_ensemble <- function(e) {
   paste0(head, " (", instruments, ")")
 }
 
+# format the total scoring
 format_scoring <- function(s) {
   music_ensembles <- map_chr(
     names(s) %>% str_which("perfResList"),
@@ -188,6 +227,7 @@ format_scoring <- function(s) {
     str_flatten_comma()
 }
 
+# format date and place of creation/composition
 format_creation <- function(c) {
   if (is.null(c))
     return("–")
@@ -197,6 +237,7 @@ format_creation <- function(c) {
   str_flatten_comma(c(place, date), na.rm = TRUE)
 }
 
+# format bibliography (PanDoc style)
 format_bibliography <- function(b) {
   if (is.null(b))
     return("–")
@@ -214,9 +255,10 @@ format_bibliography <- function(b) {
   res
 }
 
+# format a section of a movement
 format_section <- function(s) {
   title <- s$title[[1]]
-  info("  section {title}")
+  info("      section {title}")
 
   tempo <- s$tempo[[1]]
   key <- format_key(s$key)
@@ -227,10 +269,11 @@ format_section <- function(s) {
   paste("", title, tempo, key, meter, extent, scoring, notes, "", sep = "|")
 }
 
+# format a movement
 format_movement <- function(m, work_id) {
   number <- attr(m, "n", exact = TRUE) %||% ""
   title <- m$title[[1]]
-  info("movement {title}")
+  info("    movement {title}")
 
   tempo <- m$tempo[[1]]
   meter <- format_meter(m$meter)
@@ -294,6 +337,7 @@ format_dimensions <- function(d) {
     paste(h, hu, "×", w, wu)
 }
 
+# format the titlepages of a source
 format_titlepage <- function(p) {
   names(p) %>%
     str_which("titlePage") %>%
@@ -314,6 +358,7 @@ format_titlepage <- function(p) {
     str_flatten("\n")
 }
 
+# format the pysical description
 format_physdesc <- function(p) {
   extent <- p$extent[[1]] %||% NA
 
@@ -328,31 +373,47 @@ format_physdesc <- function(p) {
   )
 }
 
-format_source <- function(s) {
-  title <- s$titleStmt$title[[1]]
-  info("source {title}")
-
-  classification <-
-    s$classification$termList %>%
-    map_chr(\(t) t[[1]]) %>%
-    str_flatten_comma()
-
+# get siglum, shelfmark, link to digitized version, and RISM ID of a source
+get_source_location <- function(s) {
   siglum <- s$itemList$item$physLoc$repository$identifier[[1]]
-
   shelfmark <- s$itemList$item$physLoc$identifier[[1]]
+  source <- paste(siglum, shelfmark)
 
-  url <- s$itemList$item$physLoc$repository$ptr %>% attr("target")
-  url_label <- s$itemList$item$physLoc$repository$ptr %>% attr("label")
+  url <- attr(s$itemList$item$physLoc$repository$ptr, "target")
+  url_label <- attr(s$itemList$item$physLoc$repository$ptr, "label")
   if (is.null(url))
     link <- ""
   else
     link <- str_glue("([{url_label}]({url}))")
 
   rism_id <- pluck(s$itemList$item$identifier, 1)
-  if (is.null(rism_id))
+  if (is.null(rism_id)) {
     rism_id <- "–"
-  else
+  } else {
+    source <- use_template(RISM_TEMPLATE, label = source, rism_id = rism_id)
     rism_id <- use_template(RISM_TEMPLATE, label = rism_id, rism_id = rism_id)
+  }
+
+  list(
+    siglum = siglum,
+    shelfmark = shelfmark,
+    link = link,
+    rism_id = rism_id,
+    source = source
+  )
+}
+
+# format a source
+format_source <- function(s) {
+  title <- s$titleStmt$title[[1]]
+  info("    source {title}")
+
+  classification <-
+    s$classification$termList %>%
+    map_chr(\(t) t[[1]]) %>%
+    str_flatten_comma()
+
+  location <- get_source_location(s)
 
   dating <- pluck(s, "pubStmt", "date", 1) %||% "–"
 
@@ -369,10 +430,10 @@ format_source <- function(s) {
     SOURCE_TEMPLATE,
     title = title,
     classification = classification,
-    siglum = siglum,
-    shelfmark = shelfmark,
-    link = link,
-    rism_id = rism_id,
+    siglum = location$siglum,
+    shelfmark = location$shelfmark,
+    link = location$link,
+    rism_id = location$rism_id,
     dating = dating,
     title_pages = title_pages,
     physdesc = physdesc,
@@ -384,7 +445,8 @@ format_source <- function(s) {
 
 # Main workflow -----------------------------------------------------------
 
-get_work_details <- function(work_id) {
+get_work_details <- function(group, subgroup, number) {
+  work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
   data <- read_xml(str_glue("data/works_mei/{work_id}.xml"))
   format_mei_text(data)
   data <-
@@ -395,6 +457,17 @@ get_work_details <- function(work_id) {
   data_music <- data$workList$work$expressionList$expression
   data_movements <- data$workList$work$expressionList$expression$componentList
   data_sources <- data$manifestationList
+
+  title <- data_work$title[[1]]
+
+  incipits <- format_incipits(data_music$incip, work_id)
+
+  sources_short <-
+    map_chr(
+      data_sources,
+      \(s) get_source_location(s)$source
+    ) %>%
+    str_flatten(" · ")
 
   identifiers <-
     map_chr(
@@ -412,18 +485,24 @@ get_work_details <- function(work_id) {
 
   bibliography <- format_bibliography(data_work$biblList)
 
-  info("movements")
+  info("  movements")
   movements <-
     map_chr(data_movements, \(m) format_movement(m, work_id)) %>%
     str_flatten("\n")
 
-  info("sources")
+  info("  sources")
   sources <-
     map_chr(data_sources, format_source) %>%
     str_flatten("\n\n")
 
   use_template(
-    DETAILS_TEMPLATE,
+    WORK_TEMPLATE_DETAILED,
+    group = group,
+    subgroup = str_flatten(c(".", subgroup)),
+    number = number,
+    title = title,
+    incipits = incipits,
+    sources_short = sources_short,
     identifiers = identifiers,
     work_scoring = work_scoring,
     creation = creation,
@@ -434,10 +513,10 @@ get_work_details <- function(work_id) {
   )
 }
 
-# get_work_details("B_46")
-# get_work_details("D_1_1")
-# get_work_details("D_1_2")
-# get_work_details("D_1_3")
-# get_work_details("D_1_4")
-# get_work_details("I_4_54")
-# get_work_details("Q_2")
+# get_work_details("B", NA, "46")
+# get_work_details("D", "1", "1")
+# get_work_details("D", "1", "2")
+# get_work_details("D", "1", "3")
+# get_work_details("D", "1", "4")
+# get_work_details("I", "4", "54")
+# get_work_details("Q", NA, "2")

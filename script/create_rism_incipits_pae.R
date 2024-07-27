@@ -8,9 +8,7 @@ source("script/utils.R")
 
 TARGET_DIR <- "data_generated/rism_incipits_pae"
 
-works <-
-  read_csv("data_generated/works.csv", col_types = cols(.default = "c")) %>%
-  nest(.by = group:title, .key = "sources")
+works <- read_rds("data_generated/works.rds")
 
 rism_incipits <-
   read_csv("data_generated/rism_incipits.csv") %>%
