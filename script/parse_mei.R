@@ -169,9 +169,7 @@ format_incipits <- function(incipit_list, work_id) {
   map_chr(
     incipit_list,
     \(i) {
-      main_incipit <-
-        attr(i, "target") %>%
-        path_ext_remove()
+      main_incipit <- attr(i, "target")
 
       n <- str_extract(main_incipit, "\\d+")
 
@@ -283,7 +281,6 @@ format_movement <- function(m, work_id) {
   if (is.null(incipit_file))
     incipit <- "(incipit missing)"
   else {
-    incipit_file <- str_remove(incipit_file, "\\.png$")
     incipit <- str_glue(
       "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit}}"
     )
