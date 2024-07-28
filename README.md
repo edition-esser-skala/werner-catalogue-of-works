@@ -42,7 +42,7 @@ The root folder contains the usual files required by Quarto. Notably,
 ## How to create the webpage
 
 1. Create the catalogue: `Rscript script/make_catalogue.R`.
-2. Create PAE sources for RISM incipits: `Rscript script/create_rism_incipits_pae.R`.
+2. Create PAE sources for RISM incipits: `Rscript script/create_rism_incipits.R`.
 3. Engrave all incipits: `make -f script/make_incipits.mk`.
 4. Prepare webpages: `Rscript script/prepare_pages.R`.
 5. Render with Quarto: `quarto render`.

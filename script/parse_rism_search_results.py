@@ -2,22 +2,6 @@
 """Parse RISM entries from MARCXML."""
 import pandas as pd
 from pymarc import Field, parse_xml_to_array
-import verovio # type: ignore[import-untyped]
-
-# %%
-verovio_tk = verovio.toolkit()
-verovio_tk.setOptions({
-    "adjustPageHeight": True,
-    "adjustPageWidth": True,
-    "header": "none",
-    "footer": "none",
-    "pageMarginBottom" :0,
-    "pageMarginLeft" :0,
-    "pageMarginRight" :0,
-    "pageMarginTop" :0,
-    "scale": 33
-
-})
 
 # %%
 records = parse_xml_to_array("../data/rism_entries.xml")
@@ -71,16 +55,6 @@ df_incipits = pd.DataFrame.from_records(
     incipits,
     columns=["rism_id", "work", "movement", "excerpt", "instrument", "key", "text", "pae"]
 )
-
-# %%
-for incipit in df_incipits.itertuples():
-    verovio_tk.loadData(incipit.pae)
-    outfile = (f"../data_generated/rism_incipits/"
-               f"{incipit.rism_id}-{incipit.work}-"
-               f"{incipit.movement}-{incipit.excerpt}.svg")
-    success = verovio_tk.renderToSVGFile(outfile)
-    if not success:
-        print(outfile, "failed", sep=" ")
 
 # %%
 df_works.to_csv("../data_generated/rism_entries.csv", index=False)

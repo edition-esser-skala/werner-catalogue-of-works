@@ -30,10 +30,10 @@ SOURCES_LY := $(SOURCES_LY:data/incipits/%.ly=%)
 SOURCES_MEI := $(shell find data/incipits -type f -name "*.mei")
 SOURCES_MEI := $(SOURCES_MEI:data/incipits/%.mei=%)
 
-# all PAE files in data_generated/rism_incipits_pae,
-# e.g. data_generated/rism_incipits_pae/A_5/main_1.pae -> A_5/main_1
-SOURCES_RISM := $(shell find data_generated/rism_incipits_pae -type f -name "*.pae")
-SOURCES_RISM := $(SOURCES_RISM:data_generated/rism_incipits_pae/%.pae=%)
+# all PAE files in data_generated/rism_incipits,
+# e.g. data_generated/rism_incipits/A_5/main_1.pae -> A_5/main_1
+SOURCES_RISM := $(shell find data_generated/rism_incipits -type f -name "*.pae")
+SOURCES_RISM := $(SOURCES_RISM:data_generated/rism_incipits/%.pae=%)
 
 # remove incipits for which a manually curated version is available
 SOURCES_RISM := $(filter-out $(SOURCES_LY),$(SOURCES_RISM))
@@ -76,7 +76,7 @@ $(TARGETS_MEI): incipits/%.svg: data/incipits/%.mei
 >script/svg_process_pae.sh $@
 
 # how to engrave SVGs from PAE
-$(TARGETS_RISM): incipits/%.svg: data_generated/rism_incipits_pae/%.pae
+$(TARGETS_RISM): incipits/%.svg: data_generated/rism_incipits/%.pae
 >mkdir -p $(@D)
 >$(VEROVIO) -o $@ $<
 >script/svg_process_pae.sh $@

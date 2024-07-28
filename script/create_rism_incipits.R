@@ -6,7 +6,7 @@ source("script/utils.R")
 
 # Load data ---------------------------------------------------------------
 
-TARGET_DIR <- "data_generated/rism_incipits_pae"
+TARGET_DIR <- "data_generated/rism_incipits"
 
 works <- read_rds("data_generated/works.rds")
 

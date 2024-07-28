@@ -104,7 +104,6 @@ grep -v "<zs:" output.xml | \
   > rism_entries.xml
 rm output.xml
 ```
-From this file, searchable HTML tables were created via `script/parse_rism_search_results.py` and `make_rism_tables.R` and stored in `data_generated/rism_tables/`.
 
 Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
