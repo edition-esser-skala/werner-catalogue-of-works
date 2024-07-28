@@ -16,3 +16,7 @@ h=`echo "$h * $sf" | bc`
 
 # replace values in the svg file
 sed -i -r "s/width=\"[0-9]+\" height=\"[0-9]+\"/width=\"$w\" height=\"$h\"/" $1
+
+# add a white background to an SVG file, i.e.,
+# add a white-filled <rect> element before the first <defs> tag
+sed -i '0,/<defs/s/<defs/<rect width="100%" height="100%" fill="#ffffff" rx="5"\/>\n<defs/' $1

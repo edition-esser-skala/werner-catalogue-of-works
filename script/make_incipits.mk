@@ -65,8 +65,7 @@ $(TARGETS_LY): incipits/%.svg: data/incipits/%.ly data/incipits/header.ly
 >target_name=$(basename $@ .svg)
 >$(LILYPOND) -o $${target_name} $<
 >pdftocairo $${target_name}.cropped.pdf -svg $${target_name}.svg
->script/svg_scale.sh $${target_name}.svg
->script/svg_add_white_bg.sh $${target_name}.svg
+>script/svg_process_ly.sh $${target_name}.svg
 >svgo $${target_name}.svg
 >rm $${target_name}.cropped.* $${target_name}.pdf
 
@@ -74,10 +73,10 @@ $(TARGETS_LY): incipits/%.svg: data/incipits/%.ly data/incipits/header.ly
 $(TARGETS_MEI): incipits/%.svg: data/incipits/%.mei
 >mkdir -p $(@D)
 >$(VEROVIO) -o $@ $<
->script/svg_add_white_bg.sh $@
+>script/svg_process_pae.sh $@
 
 # how to engrave SVGs from PAE
 $(TARGETS_RISM): incipits/%.svg: data_generated/rism_incipits_pae/%.pae
 >mkdir -p $(@D)
 >$(VEROVIO) -o $@ $<
->script/svg_add_white_bg.sh $@
+>script/svg_process_pae.sh $@
