@@ -178,13 +178,11 @@ format_incipits <- function(incipit_list, work_id) {
       full_incipit <-
         dir_ls(target_dir) %>%
         path_file() %>%
-        path_ext_remove() %>%
-        path_filter(paste0(n, "*")) %>%
-        path_filter("*_low", invert = TRUE)
+        path_filter(paste0(n, "*"))
 
-      str_glue('<a href="/{target_dir}/{full_incipit}.png" ',
+      str_glue('<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
-               '<img src="/{target_dir}/{main_incipit}_low.png" ',
+               '<img src="/{target_dir}/{main_incipit}.svg" ',
                'class="incipit img-fluid"></a>')
     }
   ) %>%
@@ -287,9 +285,7 @@ format_movement <- function(m, work_id) {
   else {
     incipit_file <- str_remove(incipit_file, "\\.png$")
     incipit <- str_glue(
-      '<a href="/incipits/{work_id}/{incipit_file}.png" class="lightbox">',
-      '<img src="/incipits/{work_id}/{incipit_file}_low.png" ',
-      'class="incipit img-fluid"></a>'
+      "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit}}"
     )
   }
 

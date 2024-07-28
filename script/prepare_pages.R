@@ -88,52 +88,50 @@ make_incipits <- function(group, subgroup, number) {
   work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
   target_dir <- str_glue("incipits/{work_id}")
 
-  # (1) PNG incipits available
-  incipit_image <- str_glue("{target_dir}/main_1.png")
-  if (file_exists(incipit_image)) {
-    main_incipits <-
-      dir_ls(target_dir) %>%
-      path_file() %>%
-      path_ext_remove() %>%
-      path_filter("main*low")
-    info("  found {length(main_incipits)} incipits '{incipit_image}' etc")
+  # no incipit available
+  incipit_image <- str_glue("{target_dir}/main_1.svg")
+  if (!file_exists(incipit_image)) {
+    info("  no incipit available")
+    return("(no incipit available)")
+  }
 
-    # Quarto currently does not support lightbox images with a different zoomed
-    # image; hence, we create HTML code that shows the first orchestral incipit
-    # of the work (1_*.ly) after clicking on the main incipit
-    full_incipits <-
-      dir_ls(target_dir) %>%
-      path_file() %>%
-      path_ext_remove() %>%
-      path_filter(regexp = "^\\d+") %>%
-      path_filter("*_low", invert = TRUE)
+  main_incipits <-
+    dir_ls(target_dir) %>%
+    path_file() %>%
+    path_filter("main*")
+  info("  found {length(main_incipits)} incipits")
 
+  full_incipits <-
+    dir_ls(target_dir) %>%
+    path_file() %>%
+    path_filter(regexp = "^\\d+")
+  info("  found {length(full_incipits)} orchestral incipits")
+
+  if (length(full_incipits) == 0) {
+    html_images <-
+      map_chr(
+        main_incipits,
+        \(m) str_glue("![](/{target_dir}/{m}){{.incipit}}")
+      ) %>%
+      str_flatten("\n\n")
+  } else {
+    # Quarto does not support lightbox images with a different zoomed image;
+    # hence, we create HTML code that shows the corresponding orchestral
+    # incipit (1_*.ly) after clicking on the main incipit (main_1.ly)
     html_images <-
       map2_chr(
         main_incipits,
         full_incipits,
-        \(m, f) str_glue('<a href="/{target_dir}/{f}.png" ',
+        \(m, f) str_glue('<a href="/{target_dir}/{f}" ',
                          'class="lightbox">',
-                         '<img src="/{target_dir}/{m}.png" ',
+                         '<img src="/{target_dir}/{m}" ',
                          'class="incipit img-fluid"></a>')
 
       ) %>%
       str_flatten("\n\n")
-
-    return(html_images)
   }
 
-  # (2) SVG incipit available
-  incipit_image <- str_glue("{target_dir}/main_1.svg")
-  if (file_exists(incipit_image)) {
-    info("  found '{incipit_image}'")
-    return(str_glue('<img src="/{target_dir}/main_1.svg" ',
-                    'class="incipit img-fluid">'))
-  }
-
-  # (3) no incipit available
-  info("  no incipit available")
-  "(no incipit available)"
+  html_images
 }
 
 
