@@ -13,7 +13,7 @@ cols_library <- c(
 
 # columns that contain other metadata,
 # e.g., title, catalogue of works numbers, references, notes
-cols_metadata <- c("title", "Dopf", "WK", "literature", "notes")
+cols_metadata <- c("title", "Dopf", "WK", "Pet15", "literature", "notes")
 
 
 

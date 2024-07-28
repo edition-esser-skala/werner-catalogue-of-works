@@ -9,7 +9,7 @@ source("script/parse_mei.R")
 # Parameters --------------------------------------------------------------
 
 # columns names in the works table with catalogue of works numbers
-cols_identifiers <- c("Dopf", "WK")
+cols_identifiers <- c("Dopf", "WK", "Pet15")
 
 
 
