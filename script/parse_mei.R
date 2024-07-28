@@ -9,7 +9,7 @@ source("script/utils.R")
 ## Work (detailed) ----
 
 WORK_TEMPLATE_DETAILED <- '
-### [{group}{subgroup}.{number}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {incipits}
 
@@ -451,6 +451,12 @@ get_work_details <- function(group, subgroup, number) {
   data_movements <- data$workList$work$expressionList$expression$componentList
   data_sources <- data$manifestationList
 
+  number_formatted <- number
+  if (str_starts(number, "S"))
+    number_formatted <- str_glue("[{number}]{{.text-danger}}")
+  if (str_starts(number, "L"))
+    number_formatted <- str_glue("[{number}]{{.text-warning}}")
+
   title <- data_work$title[[1]]
 
   incipits <- format_incipits(data_music$incip, work_id)
@@ -493,6 +499,7 @@ get_work_details <- function(group, subgroup, number) {
     group = group,
     subgroup = str_flatten(c(".", subgroup)),
     number = number,
+    number_formatted = number_formatted,
     title = title,
     incipits = incipits,
     sources_short = sources_short,

@@ -22,7 +22,7 @@ cols_metadata <- c("title", "Dopf", "WK", "literature", "notes")
 # (1) the manually curated catalogue of works
 catalogue <- read_csv(
   "data/catalogue_works.csv",
-  col_types = cols(subgroup = "i", number = "i", .default = "c")
+  col_types = cols(.default = "c")
 )
 
 # (2) known individual works/copies

@@ -64,7 +64,7 @@ SUBGROUP_TEMPLATE <- '
 ## Work (overview) ----
 
 WORK_TEMPLATE_OVERVIEW <- '
-### [{group}{subgroup}.{number}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {incipits}
 
@@ -147,6 +147,12 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
 
     incipits <- make_incipits(group, subgroup, number)
 
+    number_formatted <- number
+    if (str_starts(number, "S"))
+      number_formatted <- str_glue("[{number}]{{.text-danger}}")
+    if (str_starts(number, "L"))
+      number_formatted <- str_glue("[{number}]{{.text-warning}}")
+
     identification <-
       map_chr(
         cols_identifiers,
@@ -171,6 +177,7 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
       group = group,
       subgroup = str_flatten(c(".", subgroup)),
       number = number,
+      number_formatted = number_formatted,
       title = metadata$title,
       incipits = incipits,
       identification = identification,
@@ -273,16 +280,24 @@ overview_table <-
   works %>%
   unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
   left_join(overview_table_groups, by = "group") %>%
-  unite(group, number, col = "WerW", sep = ".") %>%
+  unite(group, number, col = "WerW", sep = ".", remove = FALSE) %>%
   left_join(overview_table_details, by = "WerW") %>%
   mutate(
+    number = case_when(
+      str_starts(number, "S") ~
+        str_glue('<span class="text-danger">{number}</span>'),
+      str_starts(number, "L") ~
+        str_glue('<span class="text-warning">{number}</span>'),
+      .default = number
+    ),
     label = if_else(is.na(Metadata), "summary", "summary & details"),
     Description = str_glue("[{label}](/groups/{file}.html#work-{WerW})"),
     Metadata = replace_na(Metadata, "")
   ) %>%
+  unite(group, number, col = "WerW", sep = ".") %>%
   select(group_name, WerW, Title = title, Description, Metadata) %>%
   gt(groupname_col = "group_name") %>%
-  fmt_markdown(columns = c("Description", "Metadata")) %>%
+  fmt_markdown(columns = c("WerW", "Description", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90",
