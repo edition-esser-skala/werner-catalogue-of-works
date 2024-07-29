@@ -272,12 +272,50 @@ format:
     html-table-processing: none
 ---
 
+Currently, the catalogue describes {n_works} works, comprising
+
+- [{n_ascertained} works]{{.text-info}} with *ascertained or likely* authorship
+- [{n_lost} works]{{.text-warning}} that have been *lost* but whose existence is sufficiently supported by literature
+- [{n_spurious} works]{{.text-danger}} with *uncertain or spurious* attribution
+
+
 # Overview of works {{.unnumbered}}
 
 ```{{=html}}
 {overview_table}
 ```
 '
+
+n_works <- nrow(works)
+n_lost <-
+  works %>%
+  filter(str_starts(number, "L")) %>%
+  nrow()
+n_spurious <-
+  works %>%
+  filter(str_starts(number, "S")) %>%
+  nrow()
+n_ascertained <-
+  n_works - n_lost - n_spurious
+
+overview_table_count <-
+  works %>%
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  summarise(
+    .by = group,
+    n = n(),
+    l = sum(str_starts(number, "L")),
+    s = sum(str_starts(number, "S")),
+    a = n - l -s,
+  ) %>%
+  mutate(
+    work_count = str_glue(
+      '{n} works: <span class="text-info">{a}</span> + ',
+      '<span class="text-warning">{l}</span> + ',
+      '<span class="text-danger">{s}</span>'
+    )
+  ) %>%
+  select(group, work_count)
 
 overview_table_groups <-
   work_pages %>%
@@ -286,8 +324,13 @@ overview_table_groups <-
     subgroups %>% unnest(subgroups),
     by = "group"
   ) %>%
+  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  left_join(
+    overview_table_count,
+    by = "group"
+  ) %>%
   unite(group_name, title, col = "group_name", sep = ": ", na.rm = TRUE) %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE)
+  mutate(group_name = str_glue("**{group_name}** ({work_count})"))
 
 overview_table_details <-
   tibble(
@@ -318,7 +361,7 @@ overview_table <-
   ) %>%
   unite(group, number, col = "WerW", sep = ".") %>%
   select(group_name, WerW, Title = title, Description, Metadata) %>%
-  gt(groupname_col = "group_name") %>%
+  gt(groupname_col = "group_name", process_md = TRUE) %>%
   fmt_markdown(columns = c("WerW", "Description", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
@@ -327,5 +370,12 @@ overview_table <-
   ) %>%
   as_raw_html(FALSE)
 
-str_glue(overview_template) %>%
+use_template(
+  overview_template,
+  n_works = n_works,
+  n_ascertained = n_ascertained,
+  n_lost = n_lost,
+  n_spurious = n_spurious,
+  overview_table = overview_table
+) %>%
   write_file("groups/overview.qmd")
