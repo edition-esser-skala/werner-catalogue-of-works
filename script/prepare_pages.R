@@ -8,8 +8,15 @@ source("script/parse_mei.R")
 
 # Parameters --------------------------------------------------------------
 
-# columns names in the works table with catalogue of works numbers
-cols_identifiers <- c("Dopf", "WK", "Pet15")
+# names: column names in the works table with catalogue of works numbers
+# values: respective references
+cols_identifiers <- c(
+  Dopf = "Dopf1956",
+  WinMa = "WinklerKlement2020",
+  PetWe = "Petermayr2015",
+  PetSi = "Petermayr2020",
+  HarIn = "Harich1975"
+)
 
 
 
