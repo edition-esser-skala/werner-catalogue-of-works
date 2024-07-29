@@ -137,7 +137,6 @@ catalogue_all_with_rism <-
         by = join_by(siglum, shelfmark, rism_id)
       )
   ) %>%
-  select(group:number, siglum, shelfmark, rism_id) %>%
   unite(siglum, shelfmark, col = "source", sep = " ")
 
 works <-
