@@ -85,6 +85,10 @@ WORK_TEMPLATE_OVERVIEW <- '
 : {{tbl-colwidths="[12,87]" .movement-details}}
 '
 
+## Identifier ----
+
+IDENTIFIER_TEMPLATE <- '<span class="citation" data-cites="{ref}"><a href="#ref-{ref}" role="doc-biblioref" aria-expanded="false">{catalogue}</a> {id}</span>'
+
 
 
 # Generate group pages ----------------------------------------------------
@@ -161,9 +165,20 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
       number_formatted <- str_glue("[{number}]{{.text-warning}}")
 
     identification <-
-      map_chr(
+      imap_chr(
         cols_identifiers,
-        \(catalogue) str_c(catalogue, pluck(metadata, catalogue), sep = " ")
+        \(ref, catalogue) {
+          id <- pluck(metadata, catalogue)
+          # stop("Id is <", id, ">")
+          if (is.null(id) || is.na(id))
+            return(NA)
+          use_template(
+            IDENTIFIER_TEMPLATE,
+            ref = ref,
+            catalogue = catalogue,
+            id = id
+          )
+        }
       ) %>%
       str_flatten(" · ", na.rm = TRUE)
 
