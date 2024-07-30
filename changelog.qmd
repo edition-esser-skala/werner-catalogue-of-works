@@ -1,5 +1,38 @@
 # Changelog {.unnumbered}
 
+## 0.7.0 – 2024-07-30
+
+### Added
+
+- manual incipits for WerW B.48, F.19/20/43, I.1.1, I.2.4, I.4.35, and Q.4.
+- additional MEI metadata: dating, bibliography, and notes
+- references: Kiesewetter 1847, Mayer 2020, Meyer 2020, Mitterschiffthaler 1997, Paczkowski 2019, Pernerstorfer 2020, Petermayr 2015, Petermayr 2022, Pohl 1875, Rovátkay 2020, Schlader 2020, Schubert 2007, Sherman 2001, Štefan 1985, Zelenka 1739, and Petermayr's draft catalogue of works 
+- The catalogue now also comprises spurious and lost works (with incipits where known).
+- The catalogue now comprises four reference columns: HarIn (Hárich 1975), PetWe (Petermayr 2015), PetSi (Petermayr 2020), and WinMa (Winkler-Klement 2020). These are linked to the bibliography.
+- The overview table now includes the number of total, ascertained, lost, and spurious works in each group.
+- A new chapter now describes the scope of work metadata. This chapter complements the more technical guidelines, which have thus been moved to the appendix.
+
+### Changed
+
+- Partitas from the Instrumental-Calender now have separate entries WerW O.1 to O.12.
+- Accordingly, WerW O.2 was renumbered to O.13.
+- Incipits are now always displayed in SVG format (white background with rounded corners), which greatly improves their appearance on high-resolution displays.
+- If MEI metadata is available for a work, all data displayed on the group page are taken from this file.
+- Incipits are now specified without file extension in MEI files.
+- Work details are now wider to accommodate wide tables.
+- The following groups were renamed: E (German church arias -> German sacred music), I (Marian antiphons -> Marian hymns), and L (Profane cantatas -> Profane vocal music).
+- The bibliography now appears on a separate page.
+
+### Fixed
+
+- Parsing of dimensions in MEI metadata is now more robust.
+
+### Removed
+
+- `data/incipits A-KN.odt` and
+- `scripts/make_rism_tables.R` (both files are now obsolete)
+
+
 ## 0.6.0 – 2024-07-13
 
 ### Added
@@ -12,14 +45,14 @@
 - guidelines
 - incipits for WerW B.46 are now in LY format
 
+### Fixed
+
+- generation of only necessary RISM incipits (previously, all RISM incipits were rendered since they were still named “main”)
+
 ### Removed
 
 - HTML files exported from MerMEId
 - `prepare_mermeid_html.sh`, since that script became obsolete
-
-### Fixed
-
-- generation of only necessary RISM incipits (previously, all RISM incipits were rendered since they were still named “main”)
 
 
 ## 0.5.0 – 2024-06-30
