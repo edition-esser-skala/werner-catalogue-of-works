@@ -39,6 +39,9 @@ Identification
 Scoring
 : {work_scoring}
 
+Genre
+: {genre}
+
 Place and date of composition
 : {creation}
 
@@ -270,6 +273,16 @@ format_scoring <- function(s) {
   )
 
   c(music_ensembles, music_instruments) %>%
+    str_flatten_comma()
+}
+
+# format genre(s)
+format_classification <- function(c) {
+  if (is.null(c))
+    stop("Classification missing.")
+
+  c$termList %>%
+    map_chr(\(t) t[[1]]) %>%
     str_flatten_comma()
 }
 
@@ -536,6 +549,8 @@ get_work_details <- function(group, subgroup, number) {
 
   work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
+  genre <- format_classification(data_work$classification)
+
   creation <- format_creation(data_work$creation)
 
   bibliography <- format_bibliography(data_work$biblList)
@@ -561,6 +576,7 @@ get_work_details <- function(group, subgroup, number) {
     sources_short = sources_short,
     identifiers = identifiers,
     work_scoring = work_scoring,
+    genre = genre,
     creation = creation,
     bibliography = bibliography,
     movements = movements,
