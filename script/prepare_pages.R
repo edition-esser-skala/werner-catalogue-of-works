@@ -6,20 +6,6 @@ source("script/parse_mei.R")
 
 
 
-# Parameters --------------------------------------------------------------
-
-# names: column names in the works table with catalogue of works numbers
-# values: respective references
-cols_identifiers <- c(
-  Dopf = "Dopf1956",
-  WinMa = "WinklerKlement2020",
-  PetWe = "Petermayr2015",
-  PetSi = "Petermayr2020",
-  HarIn = "Harich1975"
-)
-
-
-
 # Load data ---------------------------------------------------------------
 
 works <- read_rds("data_generated/works.rds")
@@ -84,10 +70,6 @@ WORK_TEMPLATE_OVERVIEW <- '
 
 : {{tbl-colwidths="[12,87]" .movement-details}}
 '
-
-## Identifier ----
-
-IDENTIFIER_TEMPLATE <- '<span class="citation" data-cites="{ref}"><a href="#ref-{ref}" role="doc-biblioref" aria-expanded="false">{catalogue}</a> {id}</span>'
 
 
 
@@ -164,23 +146,7 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
     if (str_starts(number, "L"))
       number_formatted <- str_glue("[{number}]{{.text-warning}}")
 
-    identification <-
-      imap_chr(
-        cols_identifiers,
-        \(ref, catalogue) {
-          id <- pluck(metadata, catalogue)
-          # stop("Id is <", id, ">")
-          if (is.null(id) || is.na(id))
-            return(NA)
-          use_template(
-            IDENTIFIER_TEMPLATE,
-            ref = ref,
-            catalogue = catalogue,
-            id = id
-          )
-        }
-      ) %>%
-      str_flatten(" · ", na.rm = TRUE)
+    identification <- format_identifiers(metadata, sep = " · ")
 
     sources <-
       pmap_chr(

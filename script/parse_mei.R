@@ -4,6 +4,21 @@ source("script/utils.R")
 
 
 
+# Parameters --------------------------------------------------------------
+
+# names: column names in the works table with catalogue of works numbers
+# values: respective references (empty string if no reference should be linked)
+cols_identifiers <- c(
+  WerW = "",
+  Dopf = "Dopf1956",
+  HarIn = "Harich1975",
+  PetSi = "Petermayr2020",
+  PetWe = "Petermayr2015",
+  WinMa = "WinklerKlement2020"
+)
+
+
+
 # Templates ---------------------------------------------------------------
 
 ## Work (detailed) ----
@@ -90,6 +105,12 @@ Components and notes
 ## RISM ----
 
 RISM_TEMPLATE <- "[{label}](https://opac.rism.info/search?id={rism_id})"
+
+
+## Identifier ----
+
+IDENTIFIER_TEMPLATE <- '<span class="citation" data-cites="{ref}"><a href="#ref-{ref}" role="doc-biblioref" aria-expanded="false">{catalogue}</a> {id}</span>'
+IDENTIFIER_TEMPLATE_NOLINK <- '{catalogue} {id}'
 
 
 
@@ -185,6 +206,35 @@ format_incipits <- function(incipit_list, work_id) {
     }
   ) %>%
     str_flatten("\n\n")
+}
+
+# format identifiers as links to bibliography
+# id_list: named vector (catalogue = id)
+# sep: separator between identifiers
+format_identifiers <- function(id_list, sep) {
+  imap_chr(
+    cols_identifiers,
+    \(ref, catalogue) {
+      id <- pluck(id_list, catalogue)
+      if (is.null(id) || is.na(id))
+        return(NA)
+      if (ref == "") {
+        use_template(
+          IDENTIFIER_TEMPLATE_NOLINK,
+          catalogue = catalogue,
+          id = id
+        )
+      } else {
+        use_template(
+          IDENTIFIER_TEMPLATE,
+          ref = ref,
+          catalogue = catalogue,
+          id = id
+        )
+      }
+    }
+  ) %>%
+    str_flatten(sep, na.rm = TRUE)
 }
 
 # format list of instruments
@@ -468,15 +518,21 @@ get_work_details <- function(group, subgroup, number) {
     ) %>%
     str_flatten(" · ")
 
-  identifiers <-
-    map_chr(
-      names(data_work) %>% str_which("identifier"),
-      \(i) paste(
-        attr(data_work[[i]], "label"),
-        data_work[[i]][[1]]
-      )
-    ) %>%
-      str_flatten("<br/>")
+  identifier_indices <-
+    names(data_work) %>%
+    str_which("identifier")
+  identifier_ids <- map_chr(
+    identifier_indices,
+    \(i) data_work[[i]][[1]]
+  )
+  identifier_catalogues <- map_chr(
+    identifier_indices,
+    \(i) attr(data_work[[i]], "label")
+  )
+  identifiers <- format_identifiers(
+    set_names(identifier_ids, identifier_catalogues),
+    sep = "<br/>"
+  )
 
   work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
