@@ -42,7 +42,7 @@ SopranoLyrics = \lyricmode {
   lei -- _ son, e --
   lei -- son, e -- lei --
   son, e -- lei --
-  _ "-"
+  _ \hy
 }
 
 Alto = {
@@ -62,7 +62,7 @@ AltoLyrics = \lyricmode {
   lei -- son,
   e -- lei -- son, e --
   lei -- _ son,
-  e -- lei -- _ "-"
+  e -- lei -- _ \hy
 }
 
 Tenore = {
@@ -82,7 +82,7 @@ TenoreLyrics = \lyricmode {
   lei -- son,
   e -- lei -- son, e --
   lei -- _ son, e --
-  lei -- _ _ "-"
+  lei -- _ _ \hy
 }
 
 Basso = {
@@ -102,7 +102,7 @@ BassoLyrics = \lyricmode {
   lei -- _ son,
   e -- lei -- son, e --
   lei -- _ son, e --
-  lei -- _ _ _ "-"
+  lei -- _ _ _ \hy
 }
 
 Organo = {

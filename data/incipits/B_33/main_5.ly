@@ -12,7 +12,7 @@ notes = \relative c {
 text = \lyricmode {
   Be -- ne -- di -- ctus, qui
   ve -- nit, qui ve -- nit in
-  no -- _ _ "-"
+  no -- _ _ \hy
 }
 
 \score {

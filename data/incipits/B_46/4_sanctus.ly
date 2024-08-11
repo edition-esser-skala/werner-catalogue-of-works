@@ -47,7 +47,7 @@ SopranoLyrics = \lyricmode {
   _
   _
   _
-  "-"
+  \hy
 }
 
 Alto = {
@@ -70,7 +70,7 @@ AltoLyrics = \lyricmode {
   _
   _
   _
-  "-"
+  \hy
 }
 
 Tenore = {
@@ -114,7 +114,7 @@ BassoLyrics = \lyricmode {
   _
   _
   _
-  "-"
+  \hy
 }
 
 Organo = {

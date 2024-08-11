@@ -38,7 +38,7 @@ Soprano = {
 SopranoLyrics = \lyricmode {
   E --
   sto -- te for -- tes in bel -- lo, et pu --
-  gna -- _ _ "-"
+  gna -- _ _ \hy
 }
 
 Alto = {

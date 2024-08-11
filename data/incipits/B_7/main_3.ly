@@ -13,7 +13,7 @@ notes = \relative c' {
 text = \lyricmode {
   San -- _ _
   _ _ _ _ _
-  ctus, san -- _ "-"
+  ctus, san -- _ \hy
 }
 
 \score {

@@ -14,7 +14,7 @@ text = \lyricmode {
   Ky --  E --
   lei -- son, e --
   lei -- son, e --
-  lei -- _ "-"
+  lei -- _ \hy
 }
 
 \score {
