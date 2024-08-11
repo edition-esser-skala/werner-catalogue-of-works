@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# remove the revision description
+# remove the revision description and rename files
 
-xmlstarlet edit --inplace --delete "//_:revisionDesc" WerW_$1.xml
-mv WerW_$1.xml $1.xml
+for s in `ls WerW*`; do
+  t=`echo $s | sed "s/[^_]*_//"`
+  echo "Processing $s to $t"
+  xmlstarlet edit --inplace --delete "//_:revisionDesc" $s
+  mv $s $t
+done
