@@ -12,7 +12,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 7 { \skip 8 }
+  \skips 7
   Be -- _ _ ne --
   di -- ctus, qui
   ve -- _ nit in

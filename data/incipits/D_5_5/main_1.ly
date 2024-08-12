@@ -11,8 +11,8 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 11 { \skip 8 }
-  Fu -- ri -- ae vos di -- vae a -- bys -- si vo -- %10
+  \skips 11
+  Fu -- ri -- ae vos di -- vae a -- bys -- si vo --
   la -- te, pro -- pe --
   ra -- te, pro -- "pe -"
 }

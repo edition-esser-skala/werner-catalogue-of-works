@@ -67,7 +67,7 @@ Basso = {
 }
 
 BassoLyrics = \lyricmode {
-  \repeat unfold 10 { \skip 8 }
+  \skips 10
   fa --
   cto -- rem
 }

@@ -12,7 +12,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 22 { \skip 8 }
+  \skips 22
   Ad te "cla -"
   Ad te "cla -"
   Ad te "cla -"

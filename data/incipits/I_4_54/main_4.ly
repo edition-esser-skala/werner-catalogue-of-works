@@ -14,7 +14,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 10 { \skip 4 }
+  \skips 10
   Ad te
   su --
   spi --

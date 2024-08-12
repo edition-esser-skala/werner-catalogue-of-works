@@ -11,7 +11,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 31 { \skip 8 }
+  \skips 31
   Ky -- ri -- e e -- lei -- son,
   Ky -- ri -- e e -- lei -- son,
 }

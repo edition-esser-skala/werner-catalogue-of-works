@@ -14,8 +14,11 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 3 { \skip 8 }
-  "Sal -"
+  \skips 3
+  Sal --
+  _
+  _
+  _ \hy
 }
 
 \score {

@@ -11,7 +11,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 16 { \skip 8 }
+  \skips 16
   Ky -- ri -- e e -- lei -- son, e --
   lei -- son, e -- lei -- son, Ky -- "ri -"
 }

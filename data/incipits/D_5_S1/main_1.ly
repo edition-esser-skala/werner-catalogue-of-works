@@ -12,7 +12,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 18 { \skip 8 }
+  \skips 18
   Da -- te ro -- sas,
   da -- _ te flo -- res,
 }

@@ -10,7 +10,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 18 { \skip 4 }
+  \skips 18
   E -- ia, e -- ia er -- go, ad -- "vo -"
 }
 

@@ -12,7 +12,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 28 { \skip8 }
+  \skips 28
   E --
   sto -- te for -- tes in bel -- lo, et "pu -"
 }

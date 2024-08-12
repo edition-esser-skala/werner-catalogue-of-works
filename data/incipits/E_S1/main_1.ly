@@ -13,7 +13,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 6 { \skip8 }
+  \skips 6
   Wann __ der
   Him -- mel
   laſ -- ſet

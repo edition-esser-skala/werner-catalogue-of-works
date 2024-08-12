@@ -11,7 +11,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
-  \repeat unfold 24 { \skip 8 }
+  \skips 24
   Re -- gi -- na coe -- li, lae --
   ta -- re, lae -- "ta -"
 }
