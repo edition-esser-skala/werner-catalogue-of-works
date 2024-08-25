@@ -374,7 +374,7 @@
                     </incip>
                     <tempo xml:id="tempo_bcf746d0">Largo &#x2013; Tempo giusto</tempo>
                     <key xml:id="key_08bdb84f" pname="c" mode="major"/>
-                    <meter xml:id="meter_f193089b" sym="common">and 3/4</meter>
+                    <meter xml:id="meter_f193089b" sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_f0b87868">
                       <perfResList xml:id="perfResList_761bbacd">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_35dc50e2" n="perfResList_5c628dc4">
@@ -397,7 +397,9 @@
                     </perfMedium>
                     <extent quantity="" xml:id="extent_004e7abc">45 bars</extent>
                     <notesStmt xml:id="notesStmt_21b670ec">
-                      <annot xml:id="annot_b53f036f"/>
+                      <annot xml:id="annot_b53f036f">
+                        <p>time signature of bars 3&#x2013;45 (Tempo giusto): 3/4</p>
+                      </annot>
                     </notesStmt>
                     <componentList xml:id="componentList_a863a4c8"/>
                     <relationList xml:id="relationList_773fb838">
@@ -1325,7 +1327,7 @@
                 <p>catalogued according to RISM entry and @Muranyi1997</p>
               </annot>
               <annot type="links" xml:id="annot_1873663d">
-                <ptr mimetype="" xml:id="ptr_d6e397"/>
+                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_efcd745f"/>
@@ -1334,6 +1336,83 @@
         <componentList xml:id="componentList_0d77adfb"/>
         <relationList xml:id="relationList_1e3bf945">
           <relation rel="isEmbodimentOf" xml:id="relation_aa1b1388"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_ab1cbc11">
+        <identifier xml:id="identifier_9afae920"/>
+        <titleStmt xml:id="titleStmt_732e3ade">
+          <title xml:id="title_6ca36aac">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_15acb161">
+          <publisher xml:id="publisher_bb50e68c"/>
+          <pubPlace xml:id="pubPlace_ced29756"/>
+          <date isodate="1750-01-01" xml:id="date_ebbf610c">ca. 1750</date>
+        </pubStmt>
+        <classification xml:id="classification_cc4511fe">
+          <termList xml:id="termList_9220fd96">
+            <term xml:id="term_87291b39">Notated music</term>
+            <term xml:id="term_5087ffac">Manuscript</term>
+            <term xml:id="term_5168bc81">Copy</term>
+            <term xml:id="term_54765b2f">Parts</term>
+            <term xml:id="term_1b345853">Fair copy</term>
+            <term xml:id="term_0e30f2dd">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_47e1c980">
+          <item xml:id="item_318b53eb">
+            <physDesc xml:id="physDesc_13a8dec2">
+              <dimensions xml:id="dimensions_900d9884">
+                <locusGrp xml:id="locusGrp_bd63255c">
+                  <locus xml:id="locus_1e13f30c"/>
+                </locusGrp>
+                <term xml:id="term_31d8708f"/>
+                <extent quantity="" xml:id="extent_370d8121"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_09ecf36c">
+                  <height quantity="" unit="cm" xml:id="height_91ae4f0e"/>
+                  <width quantity="" unit="cm" xml:id="width_7d8f76ef"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_a1dd976b">
+                  <height quantity="" unit="cm" xml:id="height_cbbafc22"/>
+                  <width quantity="" unit="cm" xml:id="width_46ee28b4"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[wrapper]" xml:id="titlePage_6aabb488">
+                <p>Mi&#x17F;sa Solennis | St: Trinitatis. Ex C | Canto. Alto. | Tenor. Ba&#x17F;so | Violinis 2. | Clarinis 2. | Tympano. | con | Organo. [by different hand:] &#xE8; Violone. | Auth<rend rend="underline(2)">re</rend> Sig<rend rend="underline(2)">re</rend> Werner.<lb/>[above last line by different hand:] NB omne tulit punctum qui miscuit utile dulci: | aut certa modulos natur&#xE6;, lege ligavit. [the first line is verse 343 of the <rend fontstyle="italic">Ars poetica</rend> by Quintus Horatius Flaccus]</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_ac95bf07">11 parts</extent>
+              <dimensions xml:id="dimensions_604dc5c6">
+                <height quantity="" xml:id="height_e284fc23"/>
+                <width quantity="" xml:id="width_40dfd7c7"/>
+                <depth quantity="" xml:id="depth_c40e678c"/>
+                <dim quantity="" xml:id="dim_4c18707c"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_aa4e0786">
+                <p>hand-ruled paper, 10&#x2013;11 staves</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_9e8f5756">
+              <repository xml:id="repository_90b01620">
+                <corpName xml:id="corpName_1af122ef" role=""/>
+                <geogName xml:id="geogName_e356374e" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_c3323160">A-Ed</identifier>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/725.html" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
+              </repository>
+              <identifier xml:id="identifier_a0b94aa6">A 74</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_c70974b1">
+              <annot type="source_description" xml:id="annot_51abf93b">
+                <p>S solo and coro (8), A solo and coro (8), T solo and coro (8), B solo and coro (10), clno 1 (4), clno 2 (4), timp (4), vl 1 (13), vl 2 (10), vlne (10), org (12)</p>
+              </annot>
+              <annot type="links" xml:id="annot_dd4b24f8">
+                <ptr mimetype="" xml:id="ptr_d6e397_1"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_0638211a"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_1cc80785"/>
+        <relationList xml:id="relationList_4548266a">
+          <relation rel="isEmbodimentOf" xml:id="relation_490ae6b5"/>
         </relationList>
       </manifestation>
     </manifestationList>
