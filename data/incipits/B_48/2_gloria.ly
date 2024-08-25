@@ -9,7 +9,7 @@ ViolinoI = {
     a16( cis) cis( h) h( a) a( gis) gis( fis) fis( e) e( d) d( cis)
     cis8\trill d32( e fis g) a16( g) g( fis) fis8.\trill gis32 a h16( a) a( gis)
     gis8.\trill a32 h cis16( h) h( a) a h cis8 cis16( h) h( a)
-    gis( a) gis( a) \tuplet 3/2 8 { gis^\critnote a h } a8 gis e' fis, dis'\trill
+    gis( a) gis( a) \tuplet 3/2 8 { gis a h } a8 gis e' fis, dis'\trill
     e, gis16(\p fis) fis( e) e( dis) dis8.\trill e32 fis h,4
   }
 }
