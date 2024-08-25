@@ -321,7 +321,7 @@ overview_table <-
         str_glue('<span class="text-warning">{number}</span>'),
       .default = number
     ),
-    label = if_else(is.na(Metadata), "summary", "summary & details"),
+    label = if_else(is.na(Metadata), "summary", "details"),
     Description = str_glue("[{label}](/groups/{file}.html#work-{WerW})"),
     Metadata = replace_na(Metadata, "")
   ) %>%
