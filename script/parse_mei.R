@@ -244,21 +244,27 @@ format_identifiers <- function(id_list, sep) {
 # format list of instruments
 format_instrument <- function(i) {
   name <- i[[1]]
-  count <- attr(i, "count")
-  solo <- attr(i, "solo")
+
+  count <- attr(i, "count") %||% "1"
   if (count != "1")
     name <- paste(count, name)
+
+  solo <- attr(i, "solo") %||% "false"
   if (solo == "true")
     name <- paste(name, "(solo)")
+
   name
 }
 
 # format list of ensembles
 format_ensemble <- function(e) {
   head <- e$head[[1]]
-  e[-1]
-  instruments <- map_chr(e[-1], \(i) i[[1]]) %>% str_flatten_comma()
-  paste0(head, " (", instruments, ")")
+  instruments <- map_chr(e[-1], format_instrument)
+  if (length(instruments) == 1
+      & head == "soli"
+      & !str_detect(instruments[1], "^\\d"))
+    head <- "solo"
+  paste0(head, " (", str_flatten_comma(instruments), ")")
 }
 
 # format the total scoring
