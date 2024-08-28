@@ -70,6 +70,7 @@ MOVEMENT_TEMPLATE <- '
 |*Meter*|{meter}|
 |*Extent*|{extent}|
 |*Scoring*|{scoring}|
+{notes}
 
 : {{tbl-colwidths="[10,90]" .movement-details}}
 
@@ -340,6 +341,10 @@ format_movement <- function(m, work_id) {
   extent <- m$extent[[1]]
   scoring <- format_scoring(m$perfMedium$perfResList)
 
+  notes <- attr(m$notesStmt[[1]], "markdown_text") %||% ""
+  if (notes != "")
+    notes <- str_glue("|*Notes*|{notes}|")
+
   incipit_file <- attr(m$incip$graphic, "target")
   if (is.null(incipit_file))
     incipit <- "(incipit missing)"
@@ -373,6 +378,7 @@ format_movement <- function(m, work_id) {
     key = key,
     extent = extent,
     scoring = scoring,
+    notes = notes,
     incipit = incipit,
     sections = sections
   )
