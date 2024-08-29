@@ -33,6 +33,8 @@ WORK_TEMPLATE_DETAILED <- '
 ::: {{.callout-note collapse="true" .column-page-right}}
 # Details
 
+{work_description}
+
 Identification
 : {identifiers}
 
@@ -543,6 +545,11 @@ get_work_details <- function(group, subgroup, number) {
     ) %>%
     str_flatten(" · ")
 
+  data_work$notesStmt <-
+    data_work$notesStmt %>%
+    keep(\(annot) attr(annot, "type") == "general_description")
+  work_description <- attr(data_work$notesStmt[[1]], "markdown_text") %||% ""
+
   identifier_indices <-
     names(data_work) %>%
     str_which("identifier")
@@ -586,6 +593,7 @@ get_work_details <- function(group, subgroup, number) {
     title = title,
     incipits = incipits,
     sources_short = sources_short,
+    work_description = work_description,
     identifiers = identifiers,
     work_scoring = work_scoring,
     genre = genre,
