@@ -1,21 +1,17 @@
 library(tidyverse)
+library(yaml)
 source("script/utils.R")
 
 
 
 # Parameters --------------------------------------------------------------
 
-# columns in data/catalogue_works.csv with that correspond to a library
-cols_library <- c(
-  "A-Ed", "A-El", "A-GÖ", "A-HE", "A-KN", "A-Wgm", "A-WIL", "A-Wn",
-  "CZ-Pak", "D-B", "H-Bn", "H-Gk", "H-VEs"
+params <- read_yaml("script/config.yml")
+cols_library <- params$catalogue_columns$library
+cols_metadata <- c(
+  params$catalogue_columns$metadata,
+  names(params$catalogue_columns$identifiers)
 )
-
-# columns that contain other metadata,
-# e.g., title, catalogue of works numbers, references, notes
-cols_metadata <- c("title",
-                   "Dopf", "WinMa", "PetWe", "PetSi", "HarIn",
-                   "literature", "notes")
 
 
 
@@ -141,7 +137,7 @@ catalogue_all_with_rism <-
 
 works <-
   catalogue %>%
-  select(group:number, all_of(cols_metadata)) %>%
+  select(group:number, any_of(cols_metadata)) %>%
   left_join(
     catalogue_all_with_rism %>%
       nest(.by = group:number, .key = "sources"),

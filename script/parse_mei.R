@@ -1,4 +1,5 @@
 library(xml2)
+library(yaml)
 library(tidyverse)
 source("script/utils.R")
 
@@ -6,16 +7,10 @@ source("script/utils.R")
 
 # Parameters --------------------------------------------------------------
 
-# names: column names in the works table with catalogue of works numbers
-# values: respective references (empty string if no reference should be linked)
-cols_identifiers <- c(
-  WerW = "",
-  Dopf = "Dopf1956",
-  HarIn = "Harich1975",
-  PetSi = "Petermayr2020",
-  PetWe = "Petermayr2015",
-  WinMa = "WinklerKlement2020"
-)
+params <- read_yaml("script/config.yml")
+cols_identifiers <-
+  params$catalogue_columns$identifiers %>%
+  list_simplify()
 
 
 

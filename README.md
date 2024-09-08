@@ -30,7 +30,7 @@
 - `images`: images used on the webpage
 - `incipits`: incipit images in SVG format generated from PAE code in RISM entries or from manual MEI/LY incipit source code; one subfolder per work (`[group]_[number]`)
 - `renv`: R environment data
-- `script`: bash, Python, and R scripts
+- `script`: bash, Python, and R scripts, as well as a YAML file for configuring these scripts
 
 The root folder contains the usual files required by Quarto. Notably,
 

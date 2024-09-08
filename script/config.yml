@@ -1,0 +1,33 @@
+catalogue_columns:
+  # columns in data/catalogue_works.csv that contain general metadata
+  metadata:
+    - title
+    - literature
+    - notes
+
+  # columns that correspond to a library
+  library:
+    - A-Ed
+    - A-El
+    - A-GÖ
+    - A-HE
+    - A-KN
+    - A-Wgm
+    - A-WIL
+    - A-Wn
+    - CZ-Pak
+    - D-B
+    - H-Bn
+    - H-Gk
+    - H-VEs
+
+  # names: column names in the works table with catalogue of works numbers
+  # values: their references (empty string if no reference should be linked)
+  identifiers:
+    WerW: ""
+    Dopf: Dopf1956
+    HarIn: Harich1975
+    PetSi: Petermayr2020
+    PetWe: Petermayr2015
+    WinMa: WinklerKlement2020
+
