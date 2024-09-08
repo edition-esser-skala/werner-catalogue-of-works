@@ -36,6 +36,8 @@ Identification
 Scoring
 : {work_scoring}
 
+{roles}
+
 Genre
 : {genre}
 
@@ -288,6 +290,17 @@ format_classification <- function(c) {
   c$termList %>%
     map_chr(\(t) t[[1]]) %>%
     str_flatten_comma()
+}
+
+# format roles
+format_roles <- function(roles) {
+  if (is.null(roles))
+    return("")
+
+  roles <-
+    map_chr(roles, \(r) str_glue("{r$role$name[[1]]} ({r$perfRes[[1]]})")) %>%
+    str_flatten_comma()
+  return(paste0("Roles\n: ", roles))
 }
 
 # format date and place of creation/composition
@@ -563,6 +576,8 @@ get_work_details <- function(group, subgroup, number) {
 
   work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
+  roles <- format_roles(data_music$perfMedium$castList)
+
   genre <- format_classification(data_work$classification)
 
   creation <- format_creation(data_work$creation)
@@ -591,6 +606,7 @@ get_work_details <- function(group, subgroup, number) {
     work_description = work_description,
     identifiers = identifiers,
     work_scoring = work_scoring,
+    roles = roles,
     genre = genre,
     creation = creation,
     bibliography = bibliography,
