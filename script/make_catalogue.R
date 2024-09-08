@@ -33,7 +33,7 @@ rism_entries <-
   select(siglum, shelfmark, title, rism_id)
 
 # (b) works missing in RISM
-rism_missing <- read_csv("data/works_missing_in_rism.csv")
+rism_missing <- read_csv("data/works_missing_in_rism.csv", comment = "#")
 
 # (a+b) all known works
 known_works <- bind_rows(rism_entries, rism_missing)
@@ -101,11 +101,8 @@ catalogue_all %>%
   {stopifnot(nrow(.) == 0)}
 
 # all known works not in RISM are cited in the catalogue
-# NOTE: A-Wn entries are currently ignored,
-#       since the Fonds Moder has not been screened!
 rism_missing %>%
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
-  filter(siglum != "A-Wn") %>%  # line should eventually be removed
   {stopifnot(nrow(.) == 0)}
 
 # all RISM entries are cited in the catalogue
