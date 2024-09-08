@@ -116,6 +116,11 @@ IDENTIFIER_TEMPLATE <- '<span class="citation" data-cites="{ref}"><a href="#ref-
 IDENTIFIER_TEMPLATE_NOLINK <- '{catalogue} {id}'
 
 
+## Subtitle ----
+
+SUBTITLE_TEMPLATE <- "[{title}]{{.other-title}}"
+
+
 
 # Functions ---------------------------------------------------------------
 
@@ -184,6 +189,22 @@ format_key <- function(k) {
     " ",
     attr(k, "mode")
   )
+}
+
+# formats titles
+format_title <- function(d) {
+  title_indices <-
+    names(d) %>%
+    str_which("title")
+
+  main_title <- d[[title_indices[1]]][[1]]
+  other_titles <- map_chr(
+    title_indices[-1],
+    \(i) use_template(SUBTITLE_TEMPLATE, title = d[[i]][[1]])
+  )
+
+  c(main_title, other_titles) %>%
+    str_flatten("<br/>")
 }
 
 # format incipits (lightbox expanding to orchestral incipit)
@@ -544,7 +565,7 @@ get_work_details <- function(group, subgroup, number) {
   if (str_starts(number, "L"))
     number_formatted <- str_glue("[{number}]{{.text-warning}}")
 
-  title <- data_work$title[[1]]
+  title <- format_title(data_work)
 
   incipits <- format_incipits(data_music$incip, work_id)
 
