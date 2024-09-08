@@ -268,10 +268,12 @@ format_ensemble <- function(e) {
 
 # format the total scoring
 format_scoring <- function(s) {
-  music_ensembles <- map_chr(
-    names(s) %>% str_which("perfResList"),
-    \(i) format_ensemble(s[[i]])
-  )
+  music_ensembles <-
+    map_chr(
+      names(s) %>% str_which("perfResList"),
+      \(i) format_ensemble(s[[i]])
+    ) %>%
+    str_sort(decreasing = TRUE) # ensures that "solo" comes before "coro"
 
   music_instruments <- map_chr(
     names(s) %>% str_which("perfRes$"),
