@@ -1,5 +1,35 @@
 # Changelog {.unnumbered}
 
+## 0.8.0 – 2024-09-08
+
+### Added
+
+- manual incipits for WerW B.1/7/33/38/40/42/47/51/52/58/S6, B.48 (Agnus Dei), D.1.8, D.3.7, E.34, J.S1, K.3, and P.3 
+- metadata for WerW B.1/7/33/38/40/42/47/48/51/52/58/70/S6, C.S3, D.1.5–8/10/11, D.2.5/6, D.3.7, E.1/34/38/S1, J.S1, K.3, and P.3
+- new sources for WerW I.3.3 (A-Wn F100.Moder.1/2), I.3.21 (A-Wn F100.Moder.2), I.5.20 (A-Wn F100.Moder.1/1), and P.S1 (St Peter inventory)
+- a macro `\hy` to the LY incipit header, which prints a hyphen in lyrics
+- a macro `\skips` to the LY incipit header, which skips notes for lyrics
+- Identifiers in works details are now links to the respective reference.
+- The following metadata fields are now also supported and thus included in the work details: several work titles, genre, general notes on the work level, number of voices in vocal ensemble, roles, and notes for movements.
+- acknowledgements for A-GÖ
+- information on currently undiscoverable A-HE sources (WerW G.11/14, I.4.2/53, and J.3)
+
+### Changed
+
+- The XML preparation script now converts and renames all XML files in the folder. It requires a first argument which corresponds to the catalogue of works abbreviation. Thus, `WerW_B_1.xml` is processed and renamed to `B_1.xml`.
+- Parameters for R scripts are now in a YAML file (`script/config.yml`). Thereby, only this file has to be changed if the code base is reused for different projects.
+- Group C has been renamed (Requiems, Libera -> Requiems). Accordingly, WerW C.5 has been renumbered to D.3.6, which has shifted former D.3.6/7 to D.3.7/8.
+- WerW B.75 has been reclassified as spurious work and thus has been renumbered to B.S6. Accordingly, WerW B.76–78 have been renumbered to WerW B.75–77.
+- WerW D.1.5 has been reclassified as offertory and thus has been renumbered to D.2.6. Accordingly, the following works have been renumbered: WerW D.1.6–17 to 5–16, and D.2.6–9 to 7–10.
+- WerW D.1.8 has been renamed and thus could be merged with D.2.L7. Accordingly, WerW D.2.L8/9 have been renumbered to D.2.L7/8.
+- WerW J.6 has been reclassified as spurious work and thus has been renumbered to J.S1. Accordingly, WerW J.7 has been renumbered to WerW J.6.
+
+### Fixed
+
+- identifiers in metadata of WerW B.46 and Q.2
+- Ensembles are now correctly sorted (soli always before coro). Moreover, the soli ensemble is renamed to solo if only a single voice participates in a movement.
+
+
 ## 0.7.0 – 2024-07-30
 
 ### Added
