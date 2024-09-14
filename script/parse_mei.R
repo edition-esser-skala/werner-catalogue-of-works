@@ -44,8 +44,7 @@ Genre
 Place and date of composition
 : {creation}
 
-Bibliography
-: {bibliography}
+{bibliography}
 
 ### Music
 {movements}
@@ -341,17 +340,49 @@ format_bibliography <- function(b) {
   if (is.null(b))
     return("–")
 
-  res <-
-    map_chr(
-      names(b) %>% str_which("bibl"),
-      \(i) attr(b[[i]]$ref, "target")
-    ) %>%
-    str_sort() %>%
-    str_flatten_comma()
-  if (res == "")
-    res <- "–"
+  entries_ref <-
+    b %>%
+    keep(\(x) !is.null(x$genre) && x$genre == "reference") %>%
+    map_chr(\(i) attr(i$ptr, "target")) %>%
+    str_sort()
 
-  res
+  entries_score <-
+    b %>%
+    keep(\(x) !is.null(x$genre) && x$genre == "score") %>%
+    map_chr(\(i) {
+      imprint <-
+        c(i$imprint$publisher, i$imprint$pubPlace, i$imprint$date) %>%
+        str_flatten_comma()
+
+      if (is.null(i$editor))
+        editor <- NA
+      else
+        editor <- paste("Edited by", i$editor)
+
+      if (is.null(i$ptr))
+        url <- NA
+      else
+        url <- str_glue("[{attr(i$ptr, 'label')}]({attr(i$ptr, 'target')})")
+
+      c(i$composer, i$title, editor, i$identifier, imprint, url) %>%
+        str_flatten(". ")
+    })
+
+  str_flatten(
+    c(
+      if_else(
+        length(entries_ref) > 0,
+        paste("Bibliography\n:", str_flatten_comma(entries_ref)),
+        ""
+      ),
+      if_else(
+        length(entries_score) > 0,
+        paste("Editions\n:", str_flatten(entries_score, "<br/>")),
+        ""
+      )
+    ),
+    "\n\n"
+  )
 }
 
 # format a section of a movement

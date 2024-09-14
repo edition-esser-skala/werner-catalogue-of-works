@@ -190,25 +190,41 @@ If a full score or all parts are described, enter the following information on t
 
 ## Bibliography
 
-- add a single bibliography with default header “Bibliography”
-- manually add bibliographic references as XML code: one `<bibl>` element per reference, which contains one `<ref>` element whose `target` attribute points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html))
+- Add a single bibliography with default header “Bibliography”.
+- Manually add bibliographic references as XML code. Each entry is represented by a `<bibl>` element, containing a `<genre>` tag and other tags as described below.
+  - *References* contain one `<ptr>` element, whose `target` attribute points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html)).
 
-Example (from WerW Q.2):
-
-```xml
-<biblList xml:id="biblList_10e3710e">
-  <head xml:id="head_9c298f42">Bibliography</head>
-  <bibl>
-    <ref target="@Petermayr2020 [p. 23]"/>
-  </bibl>
-  <bibl>
-    <ref target="@Mikusi2020"/>
-  </bibl>
-  <bibl>
-    <ref target="@WinklerKlement2013 [p. 50]"/>
-  </bibl>
-</biblList>
-```
+    ```xml
+    <bibl>
+      <genre>reference</genre>
+      <ptr target="@Petermayr2020 [p. 23]" targettype="pandoc-citation"/>
+    </bibl>
+    <bibl>
+      <genre>reference</genre>
+      <ptr target="@Mikusi2020" targettype="pandoc-citation"/>
+    </bibl>
+    <bibl>
+      <genre>reference</genre>
+      <ptr target="@WinklerKlement2013 [p. 50]" targettype="pandoc-citation"/>
+    </bibl>
+    ```
+    - *Editions* are described with MEI XML tags:
+    
+    ```xml
+    <bibl>
+      <genre>score</genre>
+      <composer>Gregor Joseph Werner</composer>
+      <title level="m">Kleine Hirtenmusik</title>
+      <editor>Ernst Fritz Schmid</editor>
+      <identifier>Bärenreiter-Ausgabe 1597</identifier>
+      <imprint>
+        <publisher>Bärenreiter</publisher>
+        <pubPlace>Kassel</pubPlace>
+        <date isodate="1940-01-01">1940</date>
+      </imprint>
+      <ptr target="https://imslp.org/wiki/Pastorella_(Werner%2C_Gregor_Joseph)" label="digitized version"/>
+    </bibl>
+    ```
 
 
 ## File
