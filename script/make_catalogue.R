@@ -79,36 +79,44 @@ catalogue_all <-
 
 # Validate data -----------------------------------------------------------
 
+check_empty <- function(df) {
+  if (nrow(df) != 0) {
+    print(df)
+    stop("The table above should be empty")
+  }
+  invisible(df)
+}
+
 # there is no overlap between works with and without RISM entry
 inner_join(
   rism_entries,
   rism_missing,
   by = join_by(siglum, shelfmark)
 ) %>%
-  {stopifnot(nrow(.) == 0)}
+  check_empty()
 
 # all catalogue entries with unique siglum are in the list of known works
 catalogue_all %>%
   filter(is.na(rism_id)) %>%
   anti_join(known_works, by = join_by(siglum, shelfmark)) %>%
   arrange(siglum, shelfmark) %>%
-  {stopifnot(nrow(.) == 0)}
+  check_empty()
 
 # all catalogue entries with shared siglum are in RISM
 catalogue_all %>%
   filter(!is.na(rism_id)) %>%
   anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id)) %>%
-  {stopifnot(nrow(.) == 0)}
+  check_empty()
 
 # all known works not in RISM are cited in the catalogue
 rism_missing %>%
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
-  {stopifnot(nrow(.) == 0)}
+  check_empty()
 
 # all RISM entries are cited in the catalogue
 rism_entries %>%
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
-  {stopifnot(nrow(.) == 0)}
+  check_empty()
 
 
 
