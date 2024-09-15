@@ -179,3 +179,31 @@ catalogue_all_with_rism %>%
   filter(!is.na(siglum)) %>%
   {split(., .$siglum)} %>%
   save_table("data_generated/works_by_library.xlsx")
+
+table_work_list <-
+  catalogue %>%
+  distinct(group, subgroup, number) %>%
+  left_join(
+    catalogue_all_with_rism %>%
+      separate_wider_delim(
+        source,
+        delim = " ",
+        names = c("siglum", "shelfmark"),
+        too_many = "merge"
+      ),
+    by = join_by(group, subgroup, number)
+  ) %>%
+  filter(!is.na(siglum))
+
+gray_rows <-
+  table_work_list %>%
+  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+  mutate(same = id == lag(id)) %>%
+  pull(same) %>%
+  which()
+
+save_table(
+  table_work_list,
+  "data_generated/works_list.xlsx",
+  gray_rows = gray_rows
+)

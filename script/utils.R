@@ -24,8 +24,12 @@ warn <- function(..., .envir = parent.frame()) {
 
 # Tables ------------------------------------------------------------------
 
-save_table <- function(tables, filename, sheet_name = "Sheet1") {
+save_table <- function(tables,
+                       filename,
+                       sheet_name = "Sheet1",
+                       gray_rows = NULL) {
   wb <- createWorkbook()
+  style_gray <- createStyle(fontColour = "gray50")
 
   # ensure that tables is a named list
   if (inherits(tables, "list")) {
@@ -48,6 +52,9 @@ save_table <- function(tables, filename, sheet_name = "Sheet1") {
         table,
         headerStyle = createStyle(textDecoration = "bold")
       )
+      if (!is.null(gray_rows))
+        addStyle(wb, sheet_name, style = style_gray,
+                 rows = gray_rows + 1, cols = 1:ncol(table), gridExpand = TRUE)
       freezePane(wb, sheet_name, firstRow = TRUE)
       setColWidths(wb, sheet_name, 1:ncol(table), "auto")
     }
