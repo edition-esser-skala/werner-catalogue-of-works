@@ -87,6 +87,20 @@ check_empty <- function(df) {
   invisible(df)
 }
 
+# numbers are consecutive within group, subgroup, and type
+catalogue %>%
+  separate_wider_regex(
+    number,
+    c(type = "[LS]?", number = "\\d+")
+  ) %>%
+  mutate(
+    .after = number,
+    .by = group:type,
+    running_number = row_number()
+  ) %>%
+  filter(number != running_number) %>%
+  check_empty()
+
 # there is no overlap between works with and without RISM entry
 inner_join(
   rism_entries,
