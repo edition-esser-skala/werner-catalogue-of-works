@@ -11,6 +11,12 @@ params <- read_yaml("script/config.yml")
 cols_identifiers <-
   params$catalogue_columns$identifiers %>%
   list_simplify()
+catalogue_prefix <- params$catalogue_prefix
+
+work_page_names <-
+  read_csv("data/catalogue_overview.csv") %>%
+  distinct(group, file) %>%
+  deframe()
 
 
 
@@ -126,7 +132,28 @@ SUBTITLE_TEMPLATE <- "[{title}]{{.other-title}}"
 # add an attribute "markdown_text" to each XML node with rich text,
 # which contains the node contents with markdown formatting instead
 # of the MEI formatting nodes
+# add hyperlinks when referencing other works or RISM entries
 format_mei_text <- function(xml_data) {
+  pattern_work <- paste(catalogue_prefix, "([A-Z])(\\.[\\dSL]+)?(\\.[\\dSL]+)")
+  pattern_rism <- "RISM (\\d+)"
+
+  link_work <- function(s) {
+    ref <- str_match(s, pattern_work)[1,]
+    link_text <- ref[1]
+    group <- ref[2]
+    work_id <- str_flatten(ref[-1], na.rm = TRUE)
+
+    str_glue(
+      "[{link_text}]",
+      "(/groups/{work_page_names[group]}.qmd#work-{work_id})"
+    )
+  }
+
+  link_rism <- function(s) {
+    ref <- str_match(s, pattern_rism)[1,]
+    use_template(RISM_TEMPLATE, label = ref[1], rism_id = ref[2])
+  }
+
   xpath <-
     c(
       "//d1:titlePage",
@@ -148,7 +175,9 @@ format_mei_text <- function(xml_data) {
           "<lb/>" = "<br/>",
           "<rend fontstyle=\"italic\">(.+?)</rend>" = "<i>\\1</i>",
           "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
-        ))
+        )) %>%
+        str_replace_all(pattern_work, link_work) %>%
+        str_replace_all(pattern_rism, link_rism)
       xml_set_attr(n, "markdown_text", new_text)
     }
   )
@@ -670,10 +699,12 @@ get_work_details <- function(group, subgroup, number) {
   )
 }
 
+
+
+# Testing -----------------------------------------------------------------
+
+# data <- read_xml("data/works_mei/D_3_7.xml")
 # get_work_details("B", NA, "46")
 # get_work_details("D", "1", "1")
-# get_work_details("D", "1", "2")
-# get_work_details("D", "1", "3")
-# get_work_details("D", "1", "4")
 # get_work_details("I", "4", "54")
 # get_work_details("Q", NA, "2")
