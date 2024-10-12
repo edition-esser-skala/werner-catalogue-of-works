@@ -1,5 +1,40 @@
 # Changelog {.unnumbered}
 
+## 0.9.0 – 2024-10-12
+
+### Added
+
+- works: WerW B.78/S7, G.S2, and P.L4–7
+- manual incipits for WerW B.54, D.2.7, G.S1, H.2.11/12, and N.2
+- metadata for WerW B.54, D.3.1/3–7/S1, D.2.7, G.S1, H.2.11/12, and N.2
+- all missing short incipits (except for oratorios)
+- sources:
+  - fonds Moder: 3–5 and 10 (checked); 19, 25, 28, 29/2, 49, 54, 85/5, 102, 158/6, 160, and 120 (from @WinklerKlement2013; still need to be verified)
+  - A-SEI: E VIII 3 e and f, FXXI 6 a and b, F XXII 7 a and b
+- references: Baker 2013, Bogati 1936, Brtnice Inventory, Czernin 2018, Farkas 1994, Jones 1996, Lindner 2010, Moder 1985, Pausch 1975, Rempe 1991, Rovatkay 2005, Schlader 2019, Somfai 1963, Stein 1957, Strakova 1963, 1965, Walter 1976, and Warner 1965
+- acknowledgements for A-Sd, A-SEI, A-WIL, A-Wps, and H-P
+- support for (modern) editions in the bibliography of work details
+- a check for running catalogue of work numbers
+- export of a table that lists all works (`data_generated/work_list.xlsx`)
+
+### Changed
+
+- XML syntax for references in MEI metadata now accomodates both normal references and modern editions.
+- WerW numbers and RISM IDs in metadata text are now formatted as hyperlinks.
+- WerW M.24 has been renumbered to M.23.
+- Group H (“Vespers”) has been renamed to “Vespers and psalms”.
+- WerW D.4.7 has been split into D.4.7. and D.4.8.
+- WerW G.22 has been reclassified as spurious work and thus has been renumbered to G.S3.
+- WerW I.1.30 has been reclassified as spurious work and thus has been renumbered to I.1.S1. Accordingly, I.1.31/32 have been renumbered to I.1.30/31.
+- WerW I.5.11 and 13 have been merged. Consequently, I.5.14-27 have been renumbered to I.5.13-26.
+- Guidelines now also specify where to put performance dates.
+- In the work details, the work description is now printed below the bibliography.
+
+### Fixed
+
+- If the bibliography in work metadata is empty, it is now completely omitted from the printed work details. (Previously, a dash was printed.)
+
+
 ## 0.8.0 – 2024-09-08
 
 ### Added
