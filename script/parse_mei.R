@@ -367,7 +367,7 @@ format_creation <- function(c) {
 # format bibliography (PanDoc style)
 format_bibliography <- function(b) {
   if (is.null(b))
-    return("–")
+    return("")
 
   entries_ref <-
     b %>%
