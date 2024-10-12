@@ -34,8 +34,6 @@ WORK_TEMPLATE_DETAILED <- '
 ::: {{.callout-note collapse="true" .column-page-right}}
 # Details
 
-{work_description}
-
 Identification
 : {identifiers}
 
@@ -51,6 +49,8 @@ Place and date of composition
 : {creation}
 
 {bibliography}
+
+{work_description}
 
 ### Music
 {movements}
@@ -414,6 +414,15 @@ format_bibliography <- function(b) {
   )
 }
 
+# format work description
+format_work_description <- function(n) {
+  notes <- attr(n[[1]], "markdown_text")
+  if (is.null(notes))
+    ""
+  else
+    paste("Notes\n:", notes)
+}
+
 # format a section of a movement
 format_section <- function(s) {
   title <- s$title[[1]]
@@ -639,7 +648,6 @@ get_work_details <- function(group, subgroup, number) {
   data_work$notesStmt <-
     data_work$notesStmt %>%
     keep(\(annot) attr(annot, "type") == "general_description")
-  work_description <- attr(data_work$notesStmt[[1]], "markdown_text") %||% ""
 
   identifier_indices <-
     names(data_work) %>%
@@ -667,6 +675,8 @@ get_work_details <- function(group, subgroup, number) {
 
   bibliography <- format_bibliography(data_work$biblList)
 
+  work_description <- format_work_description(data_work$notesStmt)
+
   info("  movements")
   movements <-
     map_chr(data_movements, \(m) format_movement(m, work_id)) %>%
@@ -686,13 +696,13 @@ get_work_details <- function(group, subgroup, number) {
     title = title,
     incipits = incipits,
     sources_short = sources_short,
-    work_description = work_description,
     identifiers = identifiers,
     work_scoring = work_scoring,
     roles = roles,
     genre = genre,
     creation = creation,
     bibliography = bibliography,
+    work_description = work_description,
     movements = movements,
     sources = sources,
     work_id = work_id
