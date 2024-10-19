@@ -44,6 +44,7 @@ gotoBar = #(define-music-function
                         time-signature))
   #})
 
+hA = \once \override Accidental.stencil = ##f
 hy = \markup { \override #'(thickness . 1.25) \raise #.52 \draw-line #'(.5 . 0) }
 
 skips = #(define-music-function
