@@ -18,6 +18,13 @@ work_page_names <-
   distinct(group, file) %>%
   deframe()
 
+SOURCE_TYPES <- c(
+  "Autograph manuscript" = "A",
+  "Partly autograph manuscript" = "A",
+  "Manuscript copy" = "C",
+  "Print" = "P"
+)
+
 
 
 # Templates ---------------------------------------------------------------
@@ -29,7 +36,7 @@ WORK_TEMPLATE_DETAILED <- '
 
 {incipits}
 
-*Sources*&emsp;{sources_short}
+{sources_short}
 
 ::: {{.callout-note collapse="true" .column-page-right}}
 # Details
@@ -258,6 +265,36 @@ format_incipits <- function(incipit_list, work_id) {
     }
   ) %>%
     str_flatten("\n\n")
+}
+
+# format the short sources as table
+format_sources_short <- function(ss) {
+  sources <-
+    map(ss, \(s) get_source_location(s) %>% as_tibble_row()) %>%
+    list_rbind() %>%
+    arrange(type, siglum, shelfmark) %>%
+    summarise(
+      .by = type,
+      sources = str_flatten(source, " · "),
+      end = ""
+    ) %>%
+    add_column(
+      .before = 1,
+      label = c("|*Sources*", rep("|", times = nrow(.) - 1))
+    ) %>%
+    unite(everything(), col = "tbl", sep = "|") %>%
+    pull(tbl) %>%
+    str_flatten("\n")
+
+  paste(
+    "||||",
+    "|-|-|-|",
+    sources,
+    "",
+    ': {tbl-colwidths="[10,4,86]" .movement-details}',
+    "",
+    sep = "\n"
+  )
 }
 
 # format identifiers as links to bibliography
@@ -543,8 +580,14 @@ format_physdesc <- function(p) {
   )
 }
 
-# get siglum, shelfmark, link to digitized version, and RISM ID of a source
+# get type, siglum, shelfmark, link to digitized version,
+# and RISM ID of a source
 get_source_location <- function(s) {
+  type_long <- s$titleStmt$title[[1]]
+  type <- SOURCE_TYPES[type_long]
+  if (is.na(type))
+    stop("Unknown source type: ", type_long)
+
   siglum <- s$itemList$item$physLoc$repository$identifier[[1]]
   shelfmark <- s$itemList$item$physLoc$identifier[[1]]
   source <- paste(siglum, shelfmark)
@@ -565,6 +608,7 @@ get_source_location <- function(s) {
   }
 
   list(
+    type = type,
     siglum = siglum,
     shelfmark = shelfmark,
     link = link,
@@ -638,12 +682,7 @@ get_work_details <- function(group, subgroup, number) {
 
   incipits <- format_incipits(data_music$incip, work_id)
 
-  sources_short <-
-    map_chr(
-      data_sources,
-      \(s) get_source_location(s)$source
-    ) %>%
-    str_flatten(" · ")
+  sources_short <- format_sources_short(data_sources)
 
   data_work$notesStmt <-
     data_work$notesStmt %>%
