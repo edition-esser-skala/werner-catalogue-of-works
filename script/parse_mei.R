@@ -7,6 +7,19 @@ source("script/utils.R")
 
 # Parameters --------------------------------------------------------------
 
+GLOBAL_instruments <- c()
+GLOBAL_sigla <- c()
+
+SOURCE_TYPES <- c(
+  "Autograph manuscript" = "A",
+  "Partly autograph manuscript" = "A",
+  "Manuscript copy" = "C",
+  "Print" = "P"
+)
+
+
+## Config file ----
+
 params <- read_yaml("data/config.yml")
 cols_identifiers <-
   params$catalogue_columns$identifiers %>%
@@ -18,15 +31,21 @@ work_page_names <-
   distinct(group, file) %>%
   deframe()
 
-SOURCE_TYPES <- c(
-  "Autograph manuscript" = "A",
-  "Partly autograph manuscript" = "A",
-  "Manuscript copy" = "C",
-  "Print" = "P"
-)
 
-GLOBAL_instruments <- c()
-GLOBAL_sigla <- c()
+## Available editions ----
+
+get_available_editions <- function() {
+  tmp_dir <- dir_create(path_temp("cw"))
+
+  if (dir_exists(tmp_dir)) dir_delete(tmp_dir)
+  system(paste("git clone", params$edition$repo, tmp_dir))
+
+  paste0(tmp_dir, "/works") %>%
+    dir_ls() %>%
+    path_file()
+}
+
+AVAILABLE_EDITIONS <- get_available_editions()
 
 
 
@@ -134,6 +153,11 @@ IDENTIFIER_TEMPLATE_NOLINK <- '{catalogue} {id}'
 ## Subtitle ----
 
 SUBTITLE_TEMPLATE <- "[{title}]{{.other-title}}"
+
+
+## EES edition link ----
+
+EDITION_LINK_TEMPLATE <- "[![](../images/ees_link.svg)]({link})"
 
 
 
@@ -409,17 +433,11 @@ format_creation <- function(c) {
 }
 
 # format bibliography (PanDoc style)
+# also adds a link to the EES edition if available
 # returns a list containing the markdown-formatted bibliography
 # as well as the raw entries
-format_bibliography <- function(b) {
-  if (is.null(b))
-    return(
-      list(
-        markdown = "",
-        entries_ref = "",
-        entries_score = ""
-      )
-    )
+format_bibliography <- function(b, work_id) {
+  b <- b %||% list()
 
   entries_ref <-
     b %>%
@@ -448,6 +466,18 @@ format_bibliography <- function(b) {
       c(i$composer, i$title, editor, i$identifier, imprint, url) %>%
         str_flatten(". ")
     })
+
+
+  if (work_id %in% AVAILABLE_EDITIONS) {
+    link <- paste0(
+      params$edition$url,
+      str_to_lower(work_id) %>% str_replace_all("_", "-")
+    )
+    entries_score <- c(
+      entries_score,
+      use_template(EDITION_LINK_TEMPLATE, link = link)
+    )
+  }
 
   markdown <- str_flatten(
     c(
@@ -805,7 +835,7 @@ get_work_details <- function(group,
 
   creation <- format_creation(data_work$creation)
 
-  bibliography <- format_bibliography(data_work$biblList)
+  bibliography <- format_bibliography(data_work$biblList, work_id)
 
   work_description <- format_work_description(data_work$notesStmt)
 
