@@ -66,25 +66,25 @@
         </langUsage>
         <biblList xml:id="biblList_f0bbf524">
           <head xml:id="head_8e127ff7">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@Rostetter2023 [p. 1405f, no. W/17]" targettype="pandoc-citation"/>
+            <ptr target="@Rostetter2023 [p. 1405f, no. W/17]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
-          <bibl>
+          <bibl xml:id="bibl_d4e66">
             <genre>reference</genre>
-            <ptr target="@Warner1965" targettype="pandoc-citation"/>
+            <ptr target="@Warner1965" targettype="pandoc-citation" xml:id="ptr_d6e68"/>
           </bibl>
-          <bibl>
+          <bibl xml:id="bibl_d4e69">
             <genre>reference</genre>
-            <ptr target="@Schlader2019" targettype="pandoc-citation"/>
+            <ptr target="@Schlader2019" targettype="pandoc-citation" xml:id="ptr_d6e71"/>
           </bibl>
-          <bibl>
+          <bibl xml:id="bibl_d4e72">
             <genre>reference</genre>
-            <ptr target="@Schlader2020" targettype="pandoc-citation"/>
+            <ptr target="@Schlader2020" targettype="pandoc-citation" xml:id="ptr_d6e74"/>
           </bibl>
-          <bibl>
+          <bibl xml:id="bibl_d4e75">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 85]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 85]" targettype="pandoc-citation" xml:id="ptr_d6e77"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_6115aae6">
@@ -553,7 +553,7 @@
                 <p>catalogued according to RISM entry and @Muranyi1997</p>
               </annot>
               <annot type="links" xml:id="annot_7c15d0e7">
-                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
+                <ptr mimetype="" xml:id="ptr_d6e397_0_0"/>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_bfff9662"/>
@@ -633,7 +633,7 @@
                 <p>S solo and coro (4), A solo and coro (3), T solo and coro (3), B solo and coro (3), chalumeau 1 (1), chalumeau 2 (1), clno 1 (2), clno 2 (1), timp (1), vl 1 (3), vl 2 (3), vlne (4), org (4)</p>
               </annot>
               <annot type="links" xml:id="annot_ed7971d1">
-                <ptr mimetype="" xml:id="ptr_d6e397_1"/>
+                <ptr mimetype="" xml:id="ptr_d6e397_1_0"/>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_a297fed8"/>
@@ -714,7 +714,7 @@
                 <p>as of 2024-07, source is undiscoverable</p>
               </annot>
               <annot type="links" xml:id="annot_bf05bc8d">
-                <ptr mimetype="" xml:id="ptr_d6e397"/>
+                <ptr mimetype="" xml:id="ptr_d6e397_0_1"/>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_b3d7e66a"/>
@@ -723,6 +723,88 @@
         <componentList xml:id="componentList_2a429494"/>
         <relationList xml:id="relationList_987b2457">
           <relation rel="isEmbodimentOf" xml:id="relation_fe2e6dc3"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_399a45d0">
+        <identifier xml:id="identifier_94f1172f"/>
+        <titleStmt xml:id="titleStmt_def43860">
+          <title xml:id="title_05da6738">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_b25b1b23">
+          <publisher xml:id="publisher_1d5f9bb1"/>
+          <pubPlace xml:id="pubPlace_ba5bb86c"/>
+          <date isodate="1800-01-01" xml:id="date_9e32c414">1st half 19th century</date>
+        </pubStmt>
+        <classification xml:id="classification_8553b225">
+          <termList xml:id="termList_ac9c4a2c">
+            <term xml:id="term_e0d1ba90">Notated music</term>
+            <term xml:id="term_d017c89f">Manuscript</term>
+            <term xml:id="term_f0ccfb9d">Copy</term>
+            <term xml:id="term_2ad325e6">Parts</term>
+            <term xml:id="term_528f62f0">Fair copy</term>
+            <term xml:id="term_9dbcc667">Excerpt</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_64d7fcea">
+          <item xml:id="item_75631d72">
+            <identifier xml:id="identifier_b9fe4b4f" label="RISM">530001327</identifier>
+            <physDesc xml:id="physDesc_8d19e6c1">
+              <titlePage label="[warpper]" xml:id="titlePage_4057c835">
+                <p>Offertorium In te Domine speravi &#xE0; 4 voci con organo</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_b21a089e">5 parts</extent>
+              <dimensions xml:id="dimensions_d3955c8d">
+                <locusGrp xml:id="locusGrp_f6e17772">
+                  <locus xml:id="locus_35ea75ad"/>
+                </locusGrp>
+                <height quantity="31" unit="cm" xml:id="height_27660d6f">31 (height in cm)</height>
+                <width quantity="24" unit="cm" xml:id="width_f82fd546">24 (height in cm)</width>
+                <term xml:id="term_f128b37c"/>
+                <extent quantity="" xml:id="extent_06aee1ad"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_bd26a63d">
+                  <height quantity="" unit="cm" xml:id="height_6a91fb83"/>
+                  <width quantity="" unit="cm" xml:id="width_f7a707d9"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_0fcf15a9">
+                  <height quantity="" unit="cm" xml:id="height_dfaf66fd"/>
+                  <width quantity="" unit="cm" xml:id="width_3d2c1cdc"/>
+                </dimensions>
+              </dimensions>
+              <dimensions xml:id="dimensions_d2db8e64">
+                <height quantity="" xml:id="height_e64a6272"/>
+                <width quantity="" xml:id="width_e2fd770a"/>
+                <depth quantity="" xml:id="depth_7079a6b3"/>
+                <dim quantity="" xml:id="dim_75dfd1ac"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_6fa23ada">
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_513daf47">
+              <repository xml:id="repository_7b3cf4e6">
+                <corpName xml:id="corpName_7c69ad2a" role=""/>
+                <geogName xml:id="geogName_4b1162ef" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_9fe315ee">H-VEs</identifier>
+              </repository>
+              <identifier xml:id="identifier_716c4b0c">Off.122/2</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_10b3b7fb">
+              <annot type="source_description" xml:id="annot_e1bdf9cd">
+                <p>S coro, A coro, T coro, B coro, org</p>
+                <p>comprises <rend fontstyle="italic">Non confundar</rend>
+                                </p>
+                <p>catalogued according to RISM entry and @Rostetter2023</p>
+              </annot>
+              <annot type="links" xml:id="annot_f560be5e">
+                <ptr mimetype="" xml:id="ptr_d6e397_1_1"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_8e8703d6"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_16f0e7a1"/>
+        <relationList xml:id="relationList_9786fda6">
+          <relation rel="isEmbodimentOf" xml:id="relation_59f0e426"/>
         </relationList>
       </manifestation>
     </manifestationList>

@@ -66,9 +66,9 @@
         </langUsage>
         <biblList xml:id="biblList_12768007">
           <head xml:id="head_0b3663b1">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@Rostetter2023 [p. 1426, no. W/48]" targettype="pandoc-citation"/>
+            <ptr target="@Rostetter2023 [p. 1426, no. W/48]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_2f8dbbd4">
@@ -309,6 +309,83 @@
         <componentList xml:id="componentList_fee64288"/>
         <relationList xml:id="relationList_a6615cdf">
           <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_0619a069">
+        <identifier xml:id="identifier_ea4dfbf3"/>
+        <titleStmt xml:id="titleStmt_833802e1">
+          <title xml:id="title_30d3573b">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_56fc17d7">
+          <publisher xml:id="publisher_b51f19e9"/>
+          <pubPlace xml:id="pubPlace_e586267d"/>
+          <date isodate="1850-01-01" xml:id="date_4841d2a0">2nd half 19th century</date>
+        </pubStmt>
+        <classification xml:id="classification_b9ca336d">
+          <termList xml:id="termList_072cfca3">
+            <term xml:id="term_a9fc2570">Notated music</term>
+            <term xml:id="term_5a11c016">Manuscript</term>
+            <term xml:id="term_b3b5517a">Copy</term>
+            <term xml:id="term_5c5256d9">Parts</term>
+            <term xml:id="term_73847a2d">Fair copy</term>
+            <term xml:id="term_b855c8d5">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_07ab41f4">
+          <item xml:id="item_5d21ac80">
+            <identifier xml:id="identifier_560b19e2"/>
+            <physDesc xml:id="physDesc_4d5c417b">
+              <dimensions xml:id="dimensions_659d797a">
+                <locusGrp xml:id="locusGrp_3f0f14f1">
+                  <locus xml:id="locus_94a019bb"/>
+                </locusGrp>
+                <height quantity="33" unit="cm" xml:id="height_a740d07a">33 (height in cm)</height>
+                <width quantity="25" unit="cm" xml:id="width_72cf7cad">25 (height in cm)</width>
+                <term xml:id="term_a0aa45d9"/>
+                <extent quantity="" xml:id="extent_28054ac0"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_7c734803">
+                  <height quantity="" unit="cm" xml:id="height_bed12874"/>
+                  <width quantity="" unit="cm" xml:id="width_805c5d64"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_de976a32">
+                  <height quantity="" unit="cm" xml:id="height_0a59548b"/>
+                  <width quantity="" unit="cm" xml:id="width_547283fb"/>
+                </dimensions>
+              </dimensions>
+              <extent quantity="" xml:id="extent_de703278">9 parts, 1 score</extent>
+              <dimensions xml:id="dimensions_65fd7d66">
+                <height quantity="" xml:id="height_f5487183"/>
+                <width quantity="" xml:id="width_6577b486"/>
+                <depth quantity="" xml:id="depth_600ee669"/>
+                <dim quantity="" xml:id="dim_42d8316c"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_e85a89b5">
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_6735f36d">
+              <repository xml:id="repository_ac7c113c">
+                <corpName xml:id="corpName_2cf9179f" role=""/>
+                <geogName xml:id="geogName_26067a63" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_c66e5c87">H-VEs</identifier>
+              </repository>
+              <identifier xml:id="identifier_b976090d">Rorate 6</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_a73a7a64">
+              <annot type="source_description" xml:id="annot_5586e2a2">
+                <p>S coro, A coro, T coro, B coro, 3 vl, vlne, org<lb/>full score (4 p.)</p>
+                <p>catalogued according to @Rostetter2023</p>
+              </annot>
+              <annot type="links" xml:id="annot_06847d04">
+                <ptr mimetype="" xml:id="ptr_d6e397"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_126096d1"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_3ebc984c"/>
+        <relationList xml:id="relationList_45c52aa7">
+          <relation rel="isEmbodimentOf" xml:id="relation_43f2e4e4"/>
         </relationList>
       </manifestation>
     </manifestationList>

@@ -66,9 +66,9 @@
         </langUsage>
         <biblList xml:id="biblList_dfea823f">
           <head xml:id="head_20cdf7ed">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 83]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 83]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
         </biblList>
         <notesStmt xml:id="notesStmt_f75f5d4b">
@@ -434,7 +434,7 @@
                 <corpName xml:id="corpName_a8ebb2b9" role=""/>
                 <geogName xml:id="geogName_3f3d48ff" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_a0f84dab">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/790.html" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/790.html" mimetype="" label="digitized version" xml:id="ptr_d6e381_0"/>
               </repository>
               <identifier xml:id="identifier_f9c80845">B 61</identifier>
             </physLoc>
@@ -452,6 +452,55 @@
         <componentList xml:id="componentList_2e34432d"/>
         <relationList xml:id="relationList_e6959cf4">
           <relation rel="isEmbodimentOf" xml:id="relation_b01f904a"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_dacf7efc">
+        <identifier xml:id="identifier_5c540d2e"/>
+        <titleStmt xml:id="titleStmt_d22f6ab8">
+          <title xml:id="title_2ba590af">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_f34075d6">
+          <publisher xml:id="publisher_e5c2a520"/>
+          <pubPlace xml:id="pubPlace_354b818b"/>
+          <date isodate="1950-01-01" xml:id="date_de32b5a7">2nd half 20th century</date>
+        </pubStmt>
+        <classification xml:id="classification_94213e72">
+          <termList xml:id="termList_e44b2aef">
+            <term xml:id="term_779fdb29">Notated music</term>
+            <term xml:id="term_8bd8e2a6">Manuscript</term>
+            <term xml:id="term_d4b79497">Copy</term>
+            <term xml:id="term_c70ef4ef">Score and parts</term>
+            <term xml:id="term_5a7444f2">Fair copy</term>
+            <term xml:id="term_0afb8e16">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_e742bd88">
+          <item xml:id="item_1bf37962">
+            <identifier xml:id="identifier_c7c7581c"/>
+            <physDesc xml:id="physDesc_606de6d2"/>
+            <physLoc xml:id="physLoc_f207048e">
+              <repository xml:id="repository_dedc143e">
+                <corpName xml:id="corpName_f42d165d" role=""/>
+                <geogName xml:id="geogName_866368b9" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_fa6449b2">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14308513" mimetype="" label="catalogue entry" xml:id="ptr_d6e381_1"/>
+              </repository>
+              <identifier xml:id="identifier_e6aed180">F100.Moder.3</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_4dd9c71b">
+              <annot type="source_description" xml:id="annot_f9c5af97">
+                <p>a copy by Richard Moder</p>
+              </annot>
+              <annot type="links" xml:id="annot_4c298871">
+                <ptr mimetype="" xml:id="ptr_d6e397"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_7157ab9b"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_617f75a4"/>
+        <relationList xml:id="relationList_d6e10970">
+          <relation rel="isEmbodimentOf" xml:id="relation_1e8e4aa4"/>
         </relationList>
       </manifestation>
     </manifestationList>

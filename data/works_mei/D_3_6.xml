@@ -184,7 +184,7 @@
                 <corpName xml:id="corpName_b083c1dd" role=""/>
                 <geogName xml:id="geogName_e4cc4ed9" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_d82027c3">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/899.html" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/899.html" mimetype="" label="digitized version" xml:id="ptr_d6e381_0"/>
               </repository>
               <identifier xml:id="identifier_e6c2351f">G 13/1 (D 13)</identifier>
             </physLoc>
@@ -194,7 +194,7 @@
                 <p>This manuscript is currently archived under shelfmark G 13 (together with the lamentation WerW K.3), but has been recorded with shelfmark D 13 in the inventory of 1837.</p>
               </annot>
               <annot type="links" xml:id="annot_c40c33bd">
-                <ptr mimetype="" xml:id="ptr_d6e397"/>
+                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
               </annot>
             </notesStmt>
             <componentList xml:id="componentList_cb30ad80"/>
@@ -203,6 +203,55 @@
         <componentList xml:id="componentList_fee64288"/>
         <relationList xml:id="relationList_a6615cdf">
           <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_5a18e5b6">
+        <identifier xml:id="identifier_2d620f39"/>
+        <titleStmt xml:id="titleStmt_07170ee1">
+          <title xml:id="title_bf54a8fa">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_551707d1">
+          <publisher xml:id="publisher_fba8798c"/>
+          <pubPlace xml:id="pubPlace_74f45e0d"/>
+          <date isodate="1950-01-01" xml:id="date_abf1880a">2nd half 20th century</date>
+        </pubStmt>
+        <classification xml:id="classification_2ff2c00d">
+          <termList xml:id="termList_b207a227">
+            <term xml:id="term_84e38dcb">Notated music</term>
+            <term xml:id="term_93625059">Manuscript</term>
+            <term xml:id="term_029988b8">Copy</term>
+            <term xml:id="term_496ceb2e">Score and parts</term>
+            <term xml:id="term_ced0b9a8">Fair copy</term>
+            <term xml:id="term_bc076399">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_0c08b77b">
+          <item xml:id="item_30c17962">
+            <identifier xml:id="identifier_19e03f32"/>
+            <physDesc xml:id="physDesc_fa7efbf7"/>
+            <physLoc xml:id="physLoc_b4d24068">
+              <repository xml:id="repository_137d2855">
+                <corpName xml:id="corpName_f439644b" role=""/>
+                <geogName xml:id="geogName_867d63eb" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_588f9521">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14308543" mimetype="" label="catalogue entry" xml:id="ptr_d6e381_1"/>
+              </repository>
+              <identifier xml:id="identifier_34bcbfa7">F100.Moder.76/2</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_8a4a3de9">
+              <annot type="source_description" xml:id="annot_e4c17463">
+                <p>a copy by Richard Moder</p>
+              </annot>
+              <annot type="links" xml:id="annot_1b8b5520">
+                <ptr mimetype="" xml:id="ptr_d6e397_1"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_84980443"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_63ce3cd8"/>
+        <relationList xml:id="relationList_14142895">
+          <relation rel="isEmbodimentOf" xml:id="relation_d6522b70"/>
         </relationList>
       </manifestation>
     </manifestationList>
