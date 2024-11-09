@@ -10,9 +10,6 @@ ViolinoI = {
     g a h a g h
     a d, fis a d a
     h g, r h'2 g4
-    cis a, r cis'2 a4
-    d h a a a2
-    a8 fis a g fis4 e d e
   }
 }
 
@@ -25,9 +22,6 @@ ViolinoII = {
     h d2 fis4 d g
     fis2 d2. d4
     d h e2. e4
-    e cis fis2. fis4
-    d e cis d2 cis4
-    d fis8 e d4 cis a cis
   }
 }
 
@@ -40,9 +34,6 @@ Soprano = {
     d4 d8 d d2. d4
     d2 d2. d4
     d h e2. e4
-    e cis fis2. fis4
-    d e cis d d cis
-    d2 r r
   }
 }
 
@@ -52,9 +43,6 @@ SopranoLyrics = \lyricmode {
   ru -- sa -- lem, Do -- mi --
   num, lau -- da,
   lau -- da, lau -- da,
-  lau -- da, lau -- da
-  De -- um tu -- um, Sy -- _
-  on.
 }
 
 Alto = {
@@ -66,9 +54,6 @@ Alto = {
     g a8 a g4 fis g2
     fis fis4 fis a fis
     d g2 g4 h g
-    e a2 a4 a a
-    fis g e fis e2
-    fis r r
   }
 }
 
@@ -77,10 +62,7 @@ AltoLyrics = \lyricmode {
   ru -- sa -- lem, lau -- da, Ie --
   ru -- sa -- lem, Do -- _ mi --
   num, lau -- da, lau -- _
-  da, lau -- da, lau -- _
-  da, lau -- da, lau -- da
-  De -- um tu -- um, Sy --
-  on.
+  da, lau -- da, "lau -"
 }
 
 Tenore = {
@@ -92,9 +74,6 @@ Tenore = {
     h a8 a h4 a h2
     a a2. a4
     h2 h h4 h
-    cis2 cis cis4 d
-    d h a a a2
-    a r r
   }
 }
 
@@ -104,9 +83,6 @@ TenoreLyrics = \lyricmode {
   ru -- sa -- lem, Do -- _ mi --
   num, lau -- da,
   lau -- da, lau -- da,
-  lau -- da, lau -- da
-  De -- um tu -- um, Sy --
-  on.
 }
 
 Basso = {
@@ -118,9 +94,6 @@ Basso = {
     g fis8 fis g4 d h g
     d'2 d4 d fis d
     g2. e8[ fis] g4 e
-    a2. fis8[ g] a4 fis
-    h g a d, a2
-    d r r
   }
 }
 
@@ -130,9 +103,6 @@ BassoLyrics = \lyricmode {
   ru -- sa -- lem, Do -- _ mi -- _
   num, lau -- da, lau -- da,
   lau -- _ _ da,
-  lau -- _ _ da,
-  De -- um tu -- um, Sy --
-  on.
 }
 
 Organo = {
@@ -144,9 +114,6 @@ Organo = {
     g fis g d h g
     d' fis8 e d4 d' fis, d
     g, g'8 fis g4 e8 fis g4 e
-    a, a'8 g a4 fis8 g a4 fis
-    h g a d, a2
-    d r4 a' fis a
   }
 }
 
@@ -156,9 +123,6 @@ BassFigures = \figuremode {
   r1.
   r
   r2 <6>1
-  <_+>2 <6\\>2. <6>4
-  r2 <_+> <4>4 <_+>
-  r2. <_+>4 <6> <_+>
 }
 
 \score {
