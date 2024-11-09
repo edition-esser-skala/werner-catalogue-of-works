@@ -25,6 +25,9 @@ SOURCE_TYPES <- c(
   "Print" = "P"
 )
 
+GLOBAL_instruments <- c()
+GLOBAL_sigla <- c()
+
 
 
 # Templates ---------------------------------------------------------------
@@ -327,8 +330,11 @@ format_identifiers <- function(id_list, sep) {
 }
 
 # format list of instruments
+# also write instrument name to global variable
+# for assembling a list of abbreviations later
 format_instrument <- function(i) {
   name <- i[[1]]
+  GLOBAL_instruments <<- c(GLOBAL_instruments, name)
 
   count <- attr(i, "count") %||% "1"
   if (count != "1")
@@ -582,6 +588,8 @@ format_physdesc <- function(p) {
 
 # get type, siglum, shelfmark, link to digitized version,
 # and RISM ID of a source
+# also write siglum to global variable
+# for assembling a list of abbreviations later
 get_source_location <- function(s) {
   type_long <- s$titleStmt$title[[1]]
   type <- SOURCE_TYPES[type_long]
@@ -589,6 +597,7 @@ get_source_location <- function(s) {
     stop("Unknown source type: ", type_long)
 
   siglum <- s$itemList$item$physLoc$repository$identifier[[1]]
+  GLOBAL_sigla <<- c(GLOBAL_sigla, siglum)
   shelfmark <- s$itemList$item$physLoc$identifier[[1]]
   source <- paste(siglum, shelfmark)
 

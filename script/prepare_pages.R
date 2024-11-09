@@ -151,13 +151,16 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
     sources <-
       pmap_chr(
         sources,
-        \(source, rism_id, ...)
-        if_else(
-          is.na(rism_id),
-          source,
-          use_template(RISM_TEMPLATE, label = source, rism_id = rism_id)
-        )
+        \(source, rism_id, ...) {
+          GLOBAL_sigla <<- c(GLOBAL_sigla, str_split_1(source, " ")[1])
+          if_else(
+            is.na(rism_id),
+            source,
+            use_template(RISM_TEMPLATE, label = source, rism_id = rism_id)
+          )
+        }
       ) %>%
+      str_sort() %>%
       str_flatten(" · ")
 
     use_template(
@@ -345,3 +348,82 @@ use_template(
   overview_table = overview_table
 ) %>%
   write_file("groups/overview.qmd")
+
+
+
+# Generate list of abbreviations ------------------------------------------
+
+abbreviations_template <- '# Abbreviations {{.unnumbered}}
+
+## Instrument names
+
+Generally, scoring abbreviations as defined by
+[RISM](https://opac.rism.info/scoring-abbreviations) are used.
+
+{instruments}
+
+## Libraries
+
+Generally, library sigla as defined by
+[RISM](https://rism.info/community/sigla.html) are used.
+
+{sigla}'
+
+instruments <-
+  GLOBAL_instruments %>%
+  str_remove("\\d+$") %>%
+  str_trim() %>%
+  unique() %>%
+  as_tibble_col("abbreviation") %>%
+  left_join(
+    read_csv("data/instrument_abbreviations.csv"),
+    by = "abbreviation"
+  ) %>%
+  arrange(abbreviation, .locale = "en") %>%
+  pmap_chr(
+    \(abbreviation, name) {
+      str_glue("|*{abbreviation}*|{name}|")
+    }
+  ) %>%
+  str_flatten("\n")
+
+instruments <-
+  paste(
+    "|||",
+    "|-|-|",
+    instruments,
+    "",
+    ': {tbl-colwidths="[15,85]" .movement-details}',
+    "",
+    sep = "\n"
+  )
+
+sigla <-
+  GLOBAL_sigla %>%
+  unique() %>%
+  as_tibble_col("siglum") %>%
+  left_join(
+    read_csv("data/library_sigla.csv"),
+    by = "siglum"
+  ) %>%
+  arrange(siglum) %>%
+  pmap_chr(
+    \(siglum, name, rism, url) {
+      if (!is.na(url))
+        url <- str_glue("[website]({url})")
+      if (!is.na(rism))
+        rism <- str_glue("[RISM](https://rism.online/institutions/{rism})")
+      links <- str_flatten_comma(c(url, rism), na.rm = TRUE)
+      if (links != "")
+        links <- paste0("(", links, ")")
+      str_glue("{siglum}\n: {name} {links}")
+    }
+  ) %>%
+  str_flatten("\n\n")
+
+use_template(
+  abbreviations_template,
+  instruments = instruments,
+  sigla = sigla
+) %>%
+  write_file(str_glue("abbreviations.qmd"))
