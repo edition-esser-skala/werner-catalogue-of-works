@@ -11,6 +11,7 @@
     - all works with WerW numbers and locations
     - several sigla in a cell are separated by a pipe
     - if there are several works with an equal siglum, the last three digits of the RISM ID are appended in brackets
+  - `config.yml`: script configuration
   - `instrument_abbreviations.csv`: table of instrument abbreviations and long names
   - `library_sigla.csv`: table of library sigla, names, and links
   - `rism_entries.xml`: RISM entries with Werner as author as of 2024-01-27
@@ -32,7 +33,7 @@
 - `images`: images used on the webpage
 - `incipits`: incipit images in SVG format generated from PAE code in RISM entries or from manual MEI/LY incipit source code; one subfolder per work (`[group]_[number]`)
 - `renv`: R environment data
-- `script`: bash, Python, and R scripts, as well as a YAML file for configuring these scripts
+- `script`: bash, Python, and R scripts
 
 The root folder contains the usual files required by Quarto. Notably,
 

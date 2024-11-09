@@ -7,7 +7,7 @@ source("script/utils.R")
 
 # Parameters --------------------------------------------------------------
 
-params <- read_yaml("script/config.yml")
+params <- read_yaml("data/config.yml")
 cols_identifiers <-
   params$catalogue_columns$identifiers %>%
   list_simplify()
