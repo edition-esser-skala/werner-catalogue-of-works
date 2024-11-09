@@ -134,7 +134,7 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
 
   if (file_exists(str_glue("data/works_mei/{work_id}.xml"))) {
     info("Writing detailed entry for {work_id}")
-    get_work_details(group, subgroup, number)
+    get_work_details(group, subgroup, number, metadata, sources)
   } else {
     info("Writing overview entry for {work_id}")
 
