@@ -2,6 +2,7 @@ library(xml2)
 library(yaml)
 library(tidyverse)
 source("script/utils.R")
+options(readr.show_col_types = FALSE)
 
 
 

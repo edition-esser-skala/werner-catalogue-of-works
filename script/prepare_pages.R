@@ -3,6 +3,7 @@ library(fs)
 library(gt)
 source("script/utils.R")
 source("script/parse_mei.R")
+options(readr.show_col_types = FALSE)
 
 
 

@@ -1,6 +1,7 @@
 library(tidyverse)
 library(yaml)
 source("script/utils.R")
+options(readr.show_col_types = FALSE)
 
 
 
