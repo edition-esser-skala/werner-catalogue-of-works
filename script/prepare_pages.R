@@ -236,6 +236,8 @@ dir_copy("incipits", "_book/incipits")
 
 # Generate overview page --------------------------------------------------
 
+info("Generating overview table")
+
 overview_template <- '---
 format:
   html:
@@ -353,6 +355,8 @@ use_template(
 
 
 # Generate list of abbreviations ------------------------------------------
+
+info("Generating list of abbreviations")
 
 abbreviations_template <- '# Abbreviations {{.unnumbered}}
 
