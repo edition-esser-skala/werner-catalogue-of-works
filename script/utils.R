@@ -6,7 +6,13 @@ library(fs)
 
 # Logging -----------------------------------------------------------------
 
-default_logger <- log4r::logger(threshold = "DEBUG")
+default_logger <- log4r::logger(
+  threshold = "DEBUG",
+  appenders = list(
+    log4r::console_appender(),
+    log4r::file_appender("catalogue.log", append = FALSE)
+  )
+)
 
 debug <- function(..., .envir = parent.frame()) {
   log4r::debug(default_logger, glue::glue(..., .envir = .envir))
@@ -18,6 +24,11 @@ info <- function(..., .envir = parent.frame()) {
 
 warn <- function(..., .envir = parent.frame()) {
   log4r::warn(default_logger, glue::glue(..., .envir = .envir))
+}
+
+error <- function(..., .envir = parent.frame()) {
+  log4r::error(default_logger, glue::glue(..., .envir = .envir))
+  stop()
 }
 
 
