@@ -15,7 +15,8 @@ SOURCE_TYPES <- c(
   "Autograph manuscript" = "A",
   "Partly autograph manuscript" = "A",
   "Manuscript copy" = "C",
-  "Print" = "P"
+  "Print" = "P",
+  "Lost manuscript" = "L"
 )
 
 
@@ -139,6 +140,23 @@ Physical description
 Components and notes
 : {source_description}
 '
+
+
+## Lost source ----
+
+LOST_SOURCE_TEMPLATE <- '
+#### {title}
+
+Classification
+: {classification}
+
+Location
+: {siglum} {shelfmark} {link}
+
+Components and notes
+: {source_description}
+'
+
 
 ## RISM ----
 
@@ -679,8 +697,7 @@ format_source <- function(s) {
 
   classification <-
     s$classification$termList %>%
-    map_chr(\(t) t[[1]]) %>%
-    str_flatten_comma()
+    map_chr(\(t) t[[1]])
 
   location <- get_source_location(s)
 
@@ -695,10 +712,23 @@ format_source <- function(s) {
   source_description <-
     attr(s$itemList$item$notesStmt[[1]], "markdown_text") %||% "–"
 
+  if (classification[6] == "Lost")
+    return(
+      use_template(
+        LOST_SOURCE_TEMPLATE,
+        title = title,
+        classification = str_flatten_comma(classification),
+        siglum = location$siglum,
+        shelfmark = location$shelfmark,
+        link = location$link,
+        source_description = source_description
+      )
+    )
+
   use_template(
     SOURCE_TEMPLATE,
     title = title,
-    classification = classification,
+    classification = str_flatten_comma(classification),
     siglum = location$siglum,
     shelfmark = location$shelfmark,
     link = location$link,
