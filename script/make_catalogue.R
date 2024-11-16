@@ -18,6 +18,8 @@ cols_metadata <- c(
 
 # Load data ---------------------------------------------------------------
 
+info("Loading data")
+
 # (1) the manually curated catalogue of works
 catalogue <- read_csv(
   "data/catalogue_works.csv",
@@ -88,7 +90,8 @@ check_empty <- function(df) {
   invisible(df)
 }
 
-# numbers are consecutive within group, subgroup, and type
+info("Validating data")
+info("- numbers are consecutive within group, subgroup, and type")
 catalogue %>%
   separate_wider_regex(
     number,
@@ -102,7 +105,7 @@ catalogue %>%
   filter(number != running_number) %>%
   check_empty()
 
-# there is no overlap between works with and without RISM entry
+info("- there is no overlap between works with and without RISM entry")
 inner_join(
   rism_entries,
   rism_missing,
@@ -110,25 +113,25 @@ inner_join(
 ) %>%
   check_empty()
 
-# all catalogue entries with unique siglum are in the list of known works
+info("- all catalogue entries with unique siglum are in the list of known works")
 catalogue_all %>%
   filter(is.na(rism_id)) %>%
   anti_join(known_works, by = join_by(siglum, shelfmark)) %>%
   arrange(siglum, shelfmark) %>%
   check_empty()
 
-# all catalogue entries with shared siglum are in RISM
+info("- all catalogue entries with shared siglum are in RISM")
 catalogue_all %>%
   filter(!is.na(rism_id)) %>%
   anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id)) %>%
   check_empty()
 
-# all known works not in RISM are cited in the catalogue
+info("- all known works not in RISM are cited in the catalogue")
 rism_missing %>%
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
   check_empty()
 
-# all RISM entries are cited in the catalogue
+info("- all RISM entries are cited in the catalogue")
 rism_entries %>%
   anti_join(catalogue_all, by = join_by(siglum, shelfmark)) %>%
   check_empty()
@@ -167,6 +170,8 @@ works <-
 
 
 # Save data ---------------------------------------------------------------
+
+info("Saving data")
 
 works %>% write_rds("data_generated/works.rds")
 
@@ -208,3 +213,5 @@ save_table(
   "data_generated/works_list.xlsx",
   gray_rows = gray_rows
 )
+
+info("Done!")
