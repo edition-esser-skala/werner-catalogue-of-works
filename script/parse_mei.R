@@ -42,9 +42,14 @@ get_available_editions <- function() {
   if (dir_exists(tmp_dir)) dir_delete(tmp_dir)
   system(paste("git clone", params$edition$repo, tmp_dir))
 
+  ignored_works <-
+    read_lines(paste0(tmp_dir, "/ignored_works")) %>%
+    str_subset("^#", negate = TRUE)
+
   paste0(tmp_dir, "/works") %>%
     dir_ls() %>%
-    path_file()
+    path_file() %>%
+    setdiff(ignored_works)
 }
 
 AVAILABLE_EDITIONS <- get_available_editions()
