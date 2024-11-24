@@ -536,6 +536,8 @@ format_work_description <- function(n) {
 }
 
 # format a section of a movement
+# returns a tibble row with the number of bars (extent)
+# and the string for the table (table_row)
 format_section <- function(s) {
   title <- s$title[[1]]
   info("      section {title}")
@@ -546,7 +548,16 @@ format_section <- function(s) {
   extent <- s$extent[[1]]
   scoring <- format_scoring(s$perfMedium$perfResList)
   notes <- attr(s$notesStmt[[1]], "markdown_text") %||% ""
-  paste("", title, tempo, key, meter, extent, scoring, notes, "", sep = "|")
+
+  tibble_row(
+    extent =
+      extent %>%
+      str_extract("\\d+") %>%
+      as.integer(),
+    table_row =
+      paste("", title, tempo, key, meter, extent, scoring, notes, "",
+            sep = "|")
+  )
 }
 
 # format a movement
@@ -575,19 +586,30 @@ format_movement <- function(m, work_id) {
   }
 
   sections <-
-    map_chr(m$componentList, format_section) %>%
-    str_flatten("\n")
+    map(m$componentList, format_section) %>%
+    list_rbind()
 
-  if (sections != "")
+  if (nrow(sections) > 0) {
+    # ensure that number of bars in sections
+    # sums up to number of bars in movement
+    movement_extent <- str_extract(extent, "\\d+") %>% as.integer()
+    section_extent <- sum(sections$extent)
+    if (movement_extent != section_extent)
+      error("    sum of section extent ({section_extent}) ",
+            "must be equal to movement extent ({movement_extent})")
+
     sections <- paste(
       "|Section|Tempo|Key|Meter|Extent|Scoring|Notes|",
       "|-|-|-|-|-|-|-|",
-      sections,
+      str_flatten(sections$table_row, "\n"),
       "",
       ': {tbl-colwidths="[15,15,8,4,8,25,25]" .section-details}',
       "",
       sep = "\n"
     )
+  } else {
+    sections <- ""
+  }
 
   use_template(
     MOVEMENT_TEMPLATE,
