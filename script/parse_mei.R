@@ -256,7 +256,7 @@ format_meter <- function(m) {
   }
 
   if (is.null(res))
-    stop("Illegal meter")
+    error("Illegal meter")
   res
 }
 
@@ -428,7 +428,7 @@ format_scoring <- function(s) {
 # format genre(s)
 format_classification <- function(c) {
   if (is.null(c))
-    stop("Classification missing.")
+    error("Classification missing.")
 
   c$termList %>%
     map_chr(\(t) t[[1]]) %>%
@@ -685,7 +685,7 @@ get_source_location <- function(s) {
   type_long <- s$titleStmt$title[[1]]
   type <- SOURCE_TYPES[type_long]
   if (is.na(type))
-    stop("Unknown source type: ", type_long)
+    error("Unknown source type: ", type_long)
 
   siglum <- pluck(s$itemList$item$physLoc$repository$identifier, 1)
   if (is.null(siglum)) {
@@ -816,7 +816,6 @@ validate_metadata <- function(group,
       return()
     if (loglevel == "error") {
       error(msg)
-      stop()
     }
     warn(msg)
   }
