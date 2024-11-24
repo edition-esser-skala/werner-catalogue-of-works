@@ -679,10 +679,13 @@ get_source_location <- function(s) {
 
   url <- attr(s$itemList$item$physLoc$repository$ptr, "target")
   url_label <- attr(s$itemList$item$physLoc$repository$ptr, "label")
-  if (is.null(url))
+  if (is.null(url)) {
     link <- ""
-  else
+  } else {
+    if (!url_label %in% params$location_link_labels)
+      error("Unknown link label: ", url_label)
     link <- str_glue("([{url_label}]({url}))")
+  }
 
   rism_id <- pluck(s$itemList$item$identifier, 1)
   if (is.null(rism_id)) {
