@@ -665,8 +665,15 @@ get_source_location <- function(s) {
   if (is.na(type))
     stop("Unknown source type: ", type_long)
 
-  siglum <- s$itemList$item$physLoc$repository$identifier[[1]]
-  GLOBAL_sigla <<- c(GLOBAL_sigla, siglum)
+  siglum <- pluck(s$itemList$item$physLoc$repository$identifier, 1)
+  if (is.null(siglum)) {
+    siglum <- s$itemList$item$physLoc$repository$corpName[[1]]
+    validation_ignore <- TRUE
+  } else {
+    GLOBAL_sigla <<- c(GLOBAL_sigla, siglum)
+    validation_ignore <- FALSE
+  }
+
   shelfmark <- s$itemList$item$physLoc$identifier[[1]]
   source <- paste(siglum, shelfmark)
 
@@ -686,6 +693,7 @@ get_source_location <- function(s) {
   }
 
   list(
+    validation_ignore = validation_ignore,
     type = type,
     siglum = siglum,
     shelfmark = shelfmark,
@@ -813,7 +821,11 @@ validate_metadata <- function(group,
 
   # sources
   mei_sources <-
-    map(sources, \(s) get_source_location(s) %>% as_tibble_row()) %>%
+    map(sources,
+        \(s) get_source_location(s) %>%
+          as_tibble_row() %>%
+          filter(!validation_ignore)
+    ) %>%
     list_rbind() %>%
     mutate(
       source = str_c(siglum, shelfmark, sep = " "),
