@@ -397,32 +397,52 @@ format_instrument <- function(i) {
 }
 
 # format list of ensembles
+# returns a table row with the pipe-separated scoring (scoring)
+# and the markdown-formatted ensemble (markdown)
 format_ensemble <- function(e) {
   head <- e$head[[1]]
   instruments <- map_chr(e[-1], format_instrument)
+  scoring <-
+    instruments %>%
+    str_c("_", head) %>%
+    str_flatten("|")
+
   if (length(instruments) == 1
       & head == "soli"
       & !str_detect(instruments[1], "^\\d"))
     head <- "solo"
-  paste0(head, " (", str_flatten_comma(instruments), ")")
+
+  tibble_row(
+    scoring = scoring,
+    markdown = paste0(head, " (", str_flatten_comma(instruments), ")")
+  )
 }
 
 # format the total scoring
+# returns a list with the pipe-separated scoring (scoring)
+# and the markdown-formatted scoring (markdown)
 format_scoring <- function(s) {
   music_ensembles <-
-    map_chr(
+    map(
       names(s) %>% str_which("perfResList"),
       \(i) format_ensemble(s[[i]])
     ) %>%
-    str_sort(decreasing = TRUE) # ensures that "solo" comes before "coro"
+    list_rbind()
 
   music_instruments <- map_chr(
     names(s) %>% str_which("perfRes$"),
     \(i) format_instrument(s[[i]])
   )
 
-  c(music_ensembles, music_instruments) %>%
-    str_flatten_comma()
+  list(
+    scoring =
+      c(music_ensembles$scoring, music_instruments) %>%
+      str_flatten("|"),
+    markdown =  # ↓ ensures that "solo" comes before "coro"
+      str_sort(music_ensembles$markdown, decreasing = TRUE) %>%
+      c(music_instruments) %>%
+      str_flatten_comma()
+  )
 }
 
 # format genre(s)
@@ -536,8 +556,9 @@ format_work_description <- function(n) {
 }
 
 # format a section of a movement
-# returns a tibble row with the number of bars (extent)
-# and the string for the table (table_row)
+# returns a table row with the number of bars (extent),
+# the section's pipe-separated scoring (scoring),
+# and the markdown-formatted section data (markdown)
 format_section <- function(s) {
   title <- s$title[[1]]
   info("      section {title}")
@@ -554,13 +575,17 @@ format_section <- function(s) {
       extent %>%
       str_extract("\\d+") %>%
       as.integer(),
-    table_row =
-      paste("", title, tempo, key, meter, extent, scoring, notes, "",
+    scoring =
+      scoring$scoring,
+    markdown =
+      paste("", title, tempo, key, meter, extent, !!scoring$markdown, notes, "",
             sep = "|")
   )
 }
 
 # format a movement
+# returns a table row with the movement's pipe-separated scoring (scoring)
+# and the markdown-formatted movement data (markdown)
 format_movement <- function(m, work_id) {
   number <- attr(m, "n", exact = TRUE) %||% ""
   title <- m$title[[1]]
@@ -598,10 +623,14 @@ format_movement <- function(m, work_id) {
       error("    sum of section extent ({section_extent}) ",
             "must be equal to movement extent ({movement_extent})")
 
+    # ensure that the scoring of sections
+    # sums up to the scoring of the movement
+    check_scoring(scoring$scoring, sections$scoring)
+
     sections <- paste(
       "|Section|Tempo|Key|Meter|Extent|Scoring|Notes|",
       "|-|-|-|-|-|-|-|",
-      str_flatten(sections$table_row, "\n"),
+      str_flatten(sections$markdown, "\n"),
       "",
       ': {tbl-colwidths="[15,15,8,4,8,25,25]" .section-details}',
       "",
@@ -611,18 +640,22 @@ format_movement <- function(m, work_id) {
     sections <- ""
   }
 
-  use_template(
-    MOVEMENT_TEMPLATE,
-    number = number,
-    title = title,
-    tempo = tempo,
-    meter = meter,
-    key = key,
-    extent = extent,
-    scoring = scoring,
-    notes = notes,
-    incipit = incipit,
-    sections = sections
+  tibble_row(
+    scoring =
+      scoring$scoring,
+    markdown = use_template(
+      MOVEMENT_TEMPLATE,
+      number = number,
+      title = title,
+      tempo = tempo,
+      meter = meter,
+      key = key,
+      extent = extent,
+      scoring = !!scoring$markdown,
+      notes = notes,
+      incipit = incipit,
+      sections = sections
+    )
   )
 }
 
@@ -782,6 +815,34 @@ format_source <- function(s) {
 
 # Validation --------------------------------------------------------------
 
+# check that all instruments in the scoring of a lower level (e.g., movement)
+# also appear in the scoring of a higher level (e.g., work)
+# ignores instrument counts (thus, '2 vl' == 'vl')
+# and voice numbers (thus, 'T 1' == 'T 2' == 'T')
+check_scoring <- function(sc_top, sc_parts) {
+  sc_top <-
+    sc_top %>%
+    str_split_1("\\|") %>%
+    str_remove("^\\d+\\s") %>%
+    str_replace("\\s\\d+_", "_")
+  sc_parts <-
+    sc_parts %>%
+    str_split("\\|") %>%
+    list_c() %>%
+    str_remove("^\\d+\\s") %>%
+    str_replace("\\s\\d+_", "_")
+
+  only_in_top <- setdiff(sc_parts, sc_top)
+  only_in_parts <- setdiff(sc_top, sc_parts)
+
+  if (length(only_in_top) != 0)
+    error("The following instruments are missing on the upper level: ",
+          str_flatten_comma(only_in_top))
+  if (length(only_in_parts) != 0)
+    error("The following instruments are missing on the lower levels: ",
+          str_flatten_comma(only_in_parts))
+}
+
 # stops the script if two strings are not equal
 check_equal_string <- function(a, b) {
   if (a == b) return()
@@ -927,8 +988,10 @@ get_work_details <- function(group,
 
   info("  movements")
   movements <-
-    map_chr(data_movements, \(m) format_movement(m, work_id)) %>%
-    str_flatten("\n")
+    data_movements %>%
+    map(\(m) format_movement(m, work_id)) %>%
+    list_rbind()
+  check_scoring(work_scoring$scoring, movements$scoring)
 
   info("  sources")
   sources <-
@@ -959,13 +1022,13 @@ get_work_details <- function(group,
     incipits = incipits,
     sources_short = sources_short,
     identifiers = identifiers,
-    work_scoring = work_scoring,
+    work_scoring = work_scoring$markdown,
     roles = roles,
     genre = genre,
     creation = creation,
     bibliography = bibliography$markdown,
     work_description = work_description,
-    movements = movements,
+    movements = movements$markdown %>% str_flatten("\n"),
     sources = sources,
     work_id = work_id
   )

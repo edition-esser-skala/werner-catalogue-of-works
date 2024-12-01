@@ -68,7 +68,7 @@
           <head xml:id="head_052af7d6">Bibliography</head>
           <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 76]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 76]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_cabcc7c6">
@@ -87,7 +87,7 @@
               <geogName role="" xml:id="geogName_51b5ff43"/>
             </creation>
             <history xml:id="history_d4d92340"/>
-            <perfMedium xml:id="perfMedium_05489552">
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_05489552">
               <perfResList xml:id="perfResList_993416a2">
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_6d7affa0">
                   <head xml:lang="en" xml:id="head_63bb097d_0_0_0">soli</head>
@@ -127,12 +127,14 @@
                 <tempo xml:id="tempo_98ea956d">Allegro</tempo>
                 <key pname="c" mode="major" xml:id="key_519eb195"/>
                 <meter sym="common" xml:id="meter_f784104b"/>
-                <perfMedium xml:id="perfMedium_e1dfec36">
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_e1dfec36">
                   <perfResList xml:id="perfResList_b52dccff">
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" n="perfResList_6d7affa0" xml:id="perfResList_bb50e862">
                       <head xml:lang="en" xml:id="head_36cfcd2e">soli</head>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_4ada36a9" xml:id="perfRes_9f6b815f">B</perfRes>
                     </perfResList>
+                    <perfRes codedval="bcl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_8c919180">clno</perfRes>
+                    <perfRes codedval="pti" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_94d1327d">timp</perfRes>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_33ed7eca">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_5cc93f6c">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_a2881566">org</perfRes>
@@ -163,7 +165,7 @@
                     <tempo xml:id="tempo_4e8acbb5">Allegro</tempo>
                     <key xml:id="key_5bb0af2f" pname="c" mode="major"/>
                     <meter xml:id="meter_c10ed50b" sym="common"/>
-                    <perfMedium xml:id="perfMedium_da3512a5">
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_da3512a5">
                       <perfResList xml:id="perfResList_422fad13">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="Mixed choir (SATB)" xml:id="perfResList_e7ba97c7" n="perfResList_3942ec5c">
                           <head xml:lang="en" xml:id="head_1f83dfde_1">coro</head>
@@ -203,7 +205,7 @@
                     <tempo xml:id="tempo_2c8c3359">[no tempo]</tempo>
                     <key xml:id="key_c938d87a" pname="c" mode="major"/>
                     <meter xml:id="meter_a9e6c373" count="6" unit="8"/>
-                    <perfMedium xml:id="perfMedium_386d9ebe">
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_386d9ebe">
                       <perfResList xml:id="perfResList_60acb90a">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="Mixed choir (SATB)" xml:id="perfResList_01766c55" n="perfResList_3942ec5c">
                           <head xml:lang="en" xml:id="head_1f83dfde_0_1">coro</head>
@@ -241,7 +243,7 @@
                     <tempo xml:id="tempo_28e78dac">Adagio</tempo>
                     <key xml:id="key_6dc70aa8" pname="a" mode="minor"/>
                     <meter xml:id="meter_e98bf08d" sym="common"/>
-                    <perfMedium xml:id="perfMedium_0814571e">
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_0814571e">
                       <perfResList xml:id="perfResList_c5adf165">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_1a2df840" n="perfResList_6d7affa0">
                           <head xml:lang="en" xml:id="head_63bb097d_0_1">soli</head>
@@ -276,7 +278,7 @@
                     <tempo xml:id="tempo_46cde241">Allegro non molto</tempo>
                     <key xml:id="key_9e2dd369" pname="a" mode="minor"/>
                     <meter xml:id="meter_ec918949" sym="common"/>
-                    <perfMedium xml:id="perfMedium_68695393">
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_68695393">
                       <perfResList xml:id="perfResList_8e7365fc">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" xml:id="perfResList_a9e3a33b" n="perfResList_6d7affa0">
                           <head xml:lang="en" xml:id="head_63bb097d_0_0_1">soli</head>
@@ -311,7 +313,7 @@
                     <tempo xml:id="tempo_dd6a3f46">Allegro</tempo>
                     <key xml:id="key_5a9cfdc6" pname="c" mode="major"/>
                     <meter xml:id="meter_8b4cb62e" count="3" unit="2"/>
-                    <perfMedium xml:id="perfMedium_0d0da9e6">
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_0d0da9e6">
                       <perfResList xml:id="perfResList_04b91b0d">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="Mixed choir (SATB)" xml:id="perfResList_7f1cf37f" n="perfResList_3942ec5c">
                           <head xml:lang="en" xml:id="head_1f83dfde_0_0_1">coro</head>
