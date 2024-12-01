@@ -52,6 +52,7 @@
       <work xml:id="work_829f001a">
         <identifier xml:id="identifier_dca83b92" label="WerW">B.33</identifier>
         <identifier label="Dopf" xml:id="identifier_68bd5787">15</identifier>
+        <identifier label="HarCa" xml:id="identifier_e9572003">I.B.58</identifier>
         <identifier label="WinMa" xml:id="identifier_a8101698">19</identifier>
         <title xml:lang="la" xml:id="title_64b30d70">Missa festivalis in honorem Divi Peregrini</title>
         <contributor xml:id="contributor_f5043ab9">
@@ -69,11 +70,11 @@
         <biblList xml:id="biblList_61110732">
           <head xml:id="head_3ed865db">Bibliography</head>
           <bibl xml:id="bibl_d4e67">
-            <genre>reference</genre>
+            <genre xml:id="genre_3da3aad8">reference</genre>
             <ptr target="@Meyer2020 [p. 90f]" targettype="pandoc-citation" xml:id="ptr_d6e69"/>
           </bibl>
           <bibl xml:id="bibl_d4e69">
-            <genre>reference</genre>
+            <genre xml:id="genre_2db5721d">reference</genre>
             <ptr target="@WinklerKlement2013 [p. 70]" targettype="pandoc-citation" xml:id="ptr_d6e72"/>
           </bibl>
         </biblList>
@@ -977,7 +978,7 @@
           <termList xml:id="termList_c6c8ae02">
             <term xml:id="term_670b99c1">Notated music</term>
             <term xml:id="term_6e489b97">Manuscript</term>
-            <term>Partly autograph</term>
+            <term xml:id="term_f252e486">Partly autograph</term>
             <term xml:id="term_5881c0c5">Parts</term>
             <term xml:id="term_c6b8e506">Fair copy</term>
             <term xml:id="term_eb06f5f5">Complete</term>
