@@ -121,26 +121,33 @@ MOVEMENT_TEMPLATE <- '
 SOURCE_TEMPLATE <- '
 #### {title}
 
-Classification
-: {classification}
+##### Classification
 
-Location
-: {siglum} {shelfmark} {link}
+{classification}
 
-RISM
-: {rism_id}
+##### Location
 
-Dating
-: {dating}
+{siglum} {shelfmark} {link}
 
-Title page(s)
-: {title_pages}
+##### RISM
 
-Physical description
-: {physdesc}
+{rism_id}
 
-Components and notes
-: {source_description}
+##### Dating
+
+{dating}
+
+##### Title page(s)
+
+{title_pages}
+
+##### Physical description
+
+{physdesc}
+
+##### Components and notes
+
+{source_description}
 '
 
 
@@ -149,14 +156,17 @@ Components and notes
 LOST_SOURCE_TEMPLATE <- '
 #### {title}
 
-Classification
-: {classification}
+##### Classification
 
-Location
-: {siglum} {shelfmark} {link}
+{classification}
 
-Components and notes
-: {source_description}
+##### Location
+
+{siglum} {shelfmark} {link}
+
+##### Components and notes
+
+{source_description}
 '
 
 
@@ -217,23 +227,37 @@ format_mei_text <- function(xml_data) {
     ) %>%
     str_c(collapse = " | ")
 
+  make_markdown <- function(n, as_list = FALSE) {
+    if (as_list)
+      sep <- "\n- "
+    else
+      sep <- "<br/><br/>"
+
+    res <-
+      xml_children(n) %>%  # get all <p> nodes
+      map_chr(as.character) %>%
+      str_flatten(sep) %>%
+      str_replace_all(c(
+        "<p>" = "",
+        "</p>" = "",
+        "<lb/>" = "<br/>",
+        "<rend fontstyle=\"italic\">(.+?)</rend>" = "<i>\\1</i>",
+        "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
+      )) %>%
+      str_replace_all(pattern_work, link_work) %>%
+      str_replace_all(pattern_rism, link_rism)
+
+    if (as_list)
+      res <- paste0("- ", res)
+
+    res
+  }
+
   res <- map_chr(
     xml_data %>% xml_find_all(xpath),
     \(n) {
-      new_text <-
-        xml_children(n) %>%  # get all <p> nodes
-        map_chr(as.character) %>%
-        str_flatten("<br/><br/>") %>%
-        str_replace_all(c(
-          "<p>" = "",
-          "</p>" = "",
-          "<lb/>" = "<br/>",
-          "<rend fontstyle=\"italic\">(.+?)</rend>" = "<i>\\1</i>",
-          "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
-        )) %>%
-        str_replace_all(pattern_work, link_work) %>%
-        str_replace_all(pattern_rism, link_rism)
-      xml_set_attr(n, "markdown_text", new_text)
+      xml_set_attr(n, "markdown_text", make_markdown(n))
+      xml_set_attr(n, "markdown_list", make_markdown(n, as_list = TRUE))
     }
   )
 
@@ -706,11 +730,16 @@ format_physdesc <- function(p) {
 
   physical_medium <- attr(p$physMedium, "markdown_text") %||% NA
 
-  str_flatten(
+  res <- str_flatten(
     c(extent, dimensions, physical_medium),
     collapse = "<br/>",
     na.rm = TRUE
   )
+
+  if (res == "")
+    res <- "–"
+
+  res
 }
 
 # get type, siglum, shelfmark, link to digitized version,
@@ -786,14 +815,14 @@ format_source <- function(s) {
   physdesc <- format_physdesc(s$itemList$item$physDesc)
 
   source_description <-
-    attr(s$itemList$item$notesStmt[[1]], "markdown_text") %||% "–"
+    attr(s$itemList$item$notesStmt[[1]], "markdown_list") %||% "–"
 
   if (classification[6] == "lost")
     return(
       use_template(
         LOST_SOURCE_TEMPLATE,
         title = title,
-        classification = str_flatten_comma(classification),
+        classification = str_flatten(classification, " · "),
         siglum = location$siglum,
         shelfmark = location$shelfmark,
         link = location$link,
@@ -804,7 +833,7 @@ format_source <- function(s) {
   use_template(
     SOURCE_TEMPLATE,
     title = title,
-    classification = str_flatten_comma(classification),
+    classification = str_flatten(classification, " · "),
     siglum = location$siglum,
     shelfmark = location$shelfmark,
     link = location$link,

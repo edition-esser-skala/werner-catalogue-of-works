@@ -10,7 +10,7 @@ h3 {
 }
 
 .title-page-contents {
-  margin-left: 20px;
+  margin-left: 2rem;
 }
 
 .other-title {
@@ -41,4 +41,16 @@ table.section-details {
 table.section-details td {
   border: 0;
   padding: 4px;
+}
+
+h5 {
+  opacity: 1;
+  margin: 0;
+  font-weight: 700;
+  font-size: .9rem;
+  line-height: var(--bs-body-line-height);
+}
+
+section.level5 p {
+  margin-bottom: .5rem;
 }
