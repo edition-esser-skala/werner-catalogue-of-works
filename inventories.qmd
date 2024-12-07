@@ -89,6 +89,34 @@ fonds_data %>%
   tab_options(
     column_labels.font.weight = "bold",
     table_body.hlines.style = "none"
+  )
+```
+
+
+## Hárich's thematic catalogue
+
+The following table reproduces the table of contents of the unfinished catalogue of Werner's works by @Harich1990. Here, we refer to entries in this catalogue by work groups and the (probably final) work numbers, which appear in broad red ink in the top left corner of each card.
+
+```{r}
+#| echo: false
+#| output: asis
+
+read_csv("data/harich_catalogue.csv") %>% 
+  fill(super_number, super_title) %>% 
+  unite(super_number, super_title, col = "super", sep = ". ") %>% 
+  gt(groupname_col = "super") %>%
+  cols_label(number = "", sub = "") %>% 
+  sub_missing(missing_text = "") %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold"),
+      cell_borders("top", color = "#d3d3d3", weight = "2px")
+    ),
+    locations = cells_body(rows = 34)
   ) %>%
-  {.} 
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
 ```
