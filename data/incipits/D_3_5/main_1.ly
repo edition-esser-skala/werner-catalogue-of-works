@@ -2,22 +2,21 @@
 \include "header.ly"
 
 notes = \relative c' {
-  \clef alto
-  \key c \major \time 4/2 \autoBeamOff \tempoMarkup "[no tempo]"
+  \clef bass
+  \key d \dorian \time 4/2 \tempoMarkup "Alla breve" \autoBeamOff
     \set Staff.timeSignatureFraction = 2/2
-  c1^\partAc g'
-  e2 a1 g2
-  f f e1
-  \clef soprano g^\partSc c
-  h2 e1 d2
+    \set Score.caesuraType = #'((breath . chanthalfbar))
+  \time 13/4 d,\breve*1/8^\partBc d c d f e d e f d c d d \bar "||"
+  \time 4/2 \clef soprano d'1^\partSc e
+  f2 fis g a
+  b1 a
 }
 
 text = \lyricmode {
-  O sa --
-  lu -- ta -- ris
-  ho -- sti -- a,
-  O sa --
-  lu -- ta -- ris
+  Li -- be -- _ ra me, Do -- _ _ _ _ mi -- _ ne,
+  De mor --
+  te ae -- ter -- _
+  _ na,
 }
 
 \score {

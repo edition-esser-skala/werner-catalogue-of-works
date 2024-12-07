@@ -3,23 +3,19 @@
 
 notes = \relative c' {
   \clef soprano
-  \key b \major \time 4/2 \autoBeamOff \tempoMarkup "Molto tarde"
+  \key b \major \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
     \set Staff.timeSignatureFraction = 2/2
-  d'\breve^\partSc
-  d1 cis
-  d\breve
-  es1. es2
-  d d1 c2
-  b
+  d'1.^\partSc d2
+  c2. c4 b1
+  b1. es2
+  a,1 b2 h
 }
 
 text = \lyricmode {
-  Ec --
-  _ _
-  ce
-  quo -- mo --
-  do mo -- ri --
-  tur
+  Ec -- ce
+  vi -- di -- mus
+  e -- _
+  um non "ha -"
 }
 
 \score {

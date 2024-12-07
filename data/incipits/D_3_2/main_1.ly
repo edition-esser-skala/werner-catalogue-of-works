@@ -2,25 +2,20 @@
 \include "header.ly"
 
 notes = \relative c' {
-  \clef soprano
-  \key f \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-  a'\breve*1/2^\partSc
-  g1
-  r2 a~
-  a4 a a2
-  b1~
-  b2 a
-  a1
+  \clef tenor
+  \key d \minor \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+    \set Staff.timeSignatureFraction = 2/2
+  a1^\partTc a
+  \clef soprano a'1^\partSc a
+  d,2 d'1 c2
+  b1 a2 d
 }
 
 text = \lyricmode {
-  Ec --
-  ce
-  quo --
-  mo -- do
-  mo --
-  ri --
-  tur
+  In "mon -"
+  In mon --
+  te o -- li --
+  ve -- ti, "o -"
 }
 
 \score {

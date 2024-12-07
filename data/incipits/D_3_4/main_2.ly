@@ -3,17 +3,20 @@
 
 notes = \relative c' {
   \clef soprano
-  \key g \dorian \time 4/2 \autoBeamOff \tempoMarkup "Alla capella"
-    \set Staff.timeSignatureFraction = 2/2
-  b'2.^\partSc b4 a1
-  g2 r b2. a4
-  g2. a8[ b] c4 g c b
+  \key d \minor \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+  a'2^\partSc f' e
+  d1 cis2
+  d d,2. e4
+  f2 e e
+  d1 r2 %5
 }
 
 text = \lyricmode {
-  Ve -- lum tem --
-  pli scis -- _
-  _ _ _ _ sum, _
+  Da pa -- cem,
+  Do -- mi --
+  ne, pa -- _
+  cem, Do -- mi --
+  ne,
 }
 
 \score {
