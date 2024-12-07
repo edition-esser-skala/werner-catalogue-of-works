@@ -33,6 +33,11 @@ work_page_names <-
   distinct(group, file) %>%
   deframe()
 
+instruments_unimarc <-
+  read_csv("data/instrument_abbreviations.csv") %>%
+  select(abbreviation, unimarc) %>%
+  deframe()
+
 
 ## Available editions ----
 
@@ -383,6 +388,8 @@ format_identifiers <- function(id_list, sep, add_links = TRUE) {
 # for assembling a list of abbreviations later
 format_instrument <- function(i) {
   name <- i[[1]]
+  codedval <- attr(i, "codedval")
+  check_instrument(name, codedval)
   GLOBAL_instruments <<- c(GLOBAL_instruments, name)
 
   count <- attr(i, "count") %||% "1"
@@ -401,6 +408,10 @@ format_instrument <- function(i) {
 # and the markdown-formatted ensemble (markdown)
 format_ensemble <- function(e) {
   head <- e$head[[1]]
+  codedval <- attr(e, "codedval")
+  check_instrument(head, codedval)
+  GLOBAL_instruments <<- c(GLOBAL_instruments, head)
+
   instruments <- map_chr(e[-1], format_instrument)
   scoring <-
     instruments %>%
@@ -841,6 +852,22 @@ check_scoring <- function(sc_top, sc_parts) {
   if (length(only_in_parts) != 0)
     error("The following instruments are missing on the lower levels: ",
           str_flatten_comma(only_in_parts))
+}
+
+# checks whether an instrument abbreviation is known
+# and paired with the correct UNIMARC term
+# ignores voice numbers (thus, 'T 1' == 'T')
+check_instrument <- function(name, codedval) {
+  name <- str_replace(name, "\\s\\d+$", "")
+  codedval_expected <- instruments_unimarc[name]
+
+  if (is.na(codedval_expected))
+    error("      instrument '{name}' unknown")
+
+  if (codedval_expected != codedval)
+    error("      instrument '{name}': ",
+          "expected UNIMARC code '{codedval_expected}', ",
+          "found '{codedval}'")
 }
 
 # stops the script if two strings are not equal

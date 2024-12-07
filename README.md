@@ -12,7 +12,7 @@
     - several sigla in a cell are separated by a pipe
     - if there are several works with an equal siglum, the last three digits of the RISM ID are appended in brackets
   - `config.yml`: script configuration
-  - `instrument_abbreviations.csv`: table of instrument abbreviations and long names
+  - `instrument_abbreviations.csv`: table of instrument abbreviations, long names, and UNIMARC terms
   - `library_sigla.csv`: table of library sigla, names, and links
   - `rism_entries.xml`: RISM entries with Werner as author as of 2024-01-27
   - `works_in_rism.csv`: works listed in RISM as of 2024-01-27 (867 works)
