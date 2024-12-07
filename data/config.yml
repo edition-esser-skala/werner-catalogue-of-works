@@ -42,6 +42,14 @@ edition:
   url: https://edition.esser-skala.at/scores/gregor-joseph-werner/#work-werw-
 
 validation:
+  # allowed source types and their abbreviations
+  source_types:
+    Autograph manuscript: A
+    Partly autograph manuscript: A
+    Manuscript copy: C
+    Print: P
+    Lost manuscript: L
+
   # allowed labels for the link to the source location
   location_link_labels:
     - digitized version

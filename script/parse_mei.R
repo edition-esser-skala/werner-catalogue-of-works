@@ -11,14 +11,6 @@ options(readr.show_col_types = FALSE)
 GLOBAL_instruments <- c()
 GLOBAL_sigla <- c()
 
-SOURCE_TYPES <- c(
-  "Autograph manuscript" = "A",
-  "Partly autograph manuscript" = "A",
-  "Manuscript copy" = "C",
-  "Print" = "P",
-  "Lost manuscript" = "L"
-)
-
 
 ## Config file ----
 
@@ -727,8 +719,8 @@ format_physdesc <- function(p) {
 # for assembling a list of abbreviations later
 get_source_location <- function(s) {
   type_long <- s$titleStmt$title[[1]]
-  type <- SOURCE_TYPES[type_long]
-  if (is.na(type))
+  type <- params$validation$source_types[type_long]
+  if (is.null(type))
     error("Unknown source type: ", type_long)
 
   siglum <- pluck(s$itemList$item$physLoc$repository$identifier, 1)
