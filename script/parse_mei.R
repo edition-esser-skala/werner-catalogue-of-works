@@ -520,24 +520,21 @@ format_bibliography <- function(b, work_id) {
     b %>%
     keep(\(x) !is.null(x$genre) && x$genre == "score") %>%
     map_chr(\(i) {
+      res <- str_glue("{i$composer}: *{i$title}*.")
+
+      if (!is.null(i$editor))
+        res <- str_glue("{res} Edited by {i$editor}.")
+
       imprint <-
         c(i$imprint$publisher, i$imprint$pubPlace, i$imprint$date) %>%
         str_flatten_comma()
+      res <- str_glue("{res}<br/>&emsp;{i$identifier}. {imprint}.")
 
-      if (is.null(i$editor))
-        editor <- NA
-      else
-        editor <- paste("Edited by", i$editor)
+      if (!is.null(i$ptr))
+        res <- str_glue("{res} [{attr(i$ptr, 'label')}]({attr(i$ptr, 'target')})")
 
-      if (is.null(i$ptr))
-        url <- NA
-      else
-        url <- str_glue("[{attr(i$ptr, 'label')}]({attr(i$ptr, 'target')})")
-
-      c(i$composer, i$title, editor, i$identifier, imprint, url) %>%
-        str_flatten(". ")
+      res
     })
-
 
   if (work_id %in% AVAILABLE_EDITIONS) {
     link <- paste0(
