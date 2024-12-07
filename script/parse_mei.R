@@ -462,7 +462,7 @@ format_classification <- function(c) {
     error("Classification missing.")
 
   c$termList %>%
-    map_chr(\(t) t[[1]]) %>%
+    map_chr(\(t) check_genre(t[[1]])) %>%
     str_flatten_comma()
 }
 
@@ -748,7 +748,7 @@ get_source_location <- function(s) {
   if (is.null(url)) {
     link <- ""
   } else {
-    if (!url_label %in% params$location_link_labels)
+    if (!url_label %in% params$validation$location_link_labels)
       error("Unknown link label: ", url_label)
     link <- str_glue("([{url_label}]({url}))")
   }
@@ -868,6 +868,14 @@ check_instrument <- function(name, codedval) {
     error("      instrument '{name}': ",
           "expected UNIMARC code '{codedval_expected}', ",
           "found '{codedval}'")
+}
+
+# checks whether the genre is known
+# returns the genre if valid
+check_genre <- function(genre) {
+  if (!genre %in% params$validation$genres)
+    error(" genre '{genre}' unknown")
+  genre
 }
 
 # stops the script if two strings are not equal
