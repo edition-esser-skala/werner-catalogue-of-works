@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0" xml:id="mei_cb48f0fd">
+  <meiHead xml:id="meiHead_539ba085">
+    <fileDesc xml:id="fileDesc_d687f9cf">
+      <titleStmt xml:id="titleStmt_ff0197eb">
+        <title xml:id="title_545090d5"/>
+      </titleStmt>
+      <pubStmt xml:id="pubStmt_2e43fb17">
+        <respStmt xml:id="respStmt_6d99ff02">
+          <resp xml:id="resp_be00543f">Publisher</resp>
+          <corpName role="" xml:id="corpName_d7e80e82">
+            <abbr xml:id="abbr_77e38960"/>
+            <expan xml:id="expan_eb46979f"/>
+            <address xml:id="address_f2bb939d">
+              <addrLine xml:id="addrLine_27cb8b84"/>
+              <addrLine xml:id="addrLine_9e6c5db9">
+                <ptr xml:id="ptr_d6e15"/>
+              </addrLine>
+            </address>
+          </corpName>
+          <persName role="editor" xml:id="persName_c8af4ccd">Wolfgang Esser-Skala</persName>
+        </respStmt>
+        <date xml:id="date_daddcce3"/>
+        <availability xml:id="availability_a0b54440">
+          <useRestrict xml:id="useRestrict_cca14c60">CC BY-SA 4.0</useRestrict>
+        </availability>
+      </pubStmt>
+      <seriesStmt xml:id="seriesStmt_aae599f9">
+        <title xml:id="title_5b95b4f4">Gregor Joseph Werner: A thematic catalogue of his works</title>
+        <identifier type="file_collection" xml:id="identifier_a5b1b137">WerW</identifier>
+      </seriesStmt>
+    </fileDesc>
+    <encodingDesc xml:id="encodingDesc_c0f66fa7">
+      <appInfo xml:id="appInfo_2048806a">
+        <application version="v2.0.0" xml:id="application_b0a50907">
+          <name xml:id="name_fd2a5f19">MerMEId</name>
+        </application>
+      </appInfo>
+      <projectDesc xml:id="projectDesc_b784d4aa"/>
+      <classDecls xml:id="classDecls_4af81770">
+        <taxonomy xml:id="DcmSourceClassification">
+          <category xml:id="DcmContentClass"/>
+          <category xml:id="DcmPresentationClass"/>
+          <category xml:id="DcmAuthorityClass"/>
+          <category xml:id="DcmScoringClass"/>
+          <category xml:id="DcmStateClass"/>
+          <category xml:id="DcmCompletenessClass"/>
+        </taxonomy>
+      </classDecls>
+    </encodingDesc>
+    <workList xml:id="workList_4826e601">
+      <work xml:id="work_829f001a">
+        <identifier xml:id="identifier_dca83b92" label="WerW">I.2.16</identifier>
+        <title xml:lang="la" xml:id="title_64b30d70">Ave Regina coelorum</title>
+        <contributor xml:id="contributor_f5043ab9">
+          <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
+          <corpName role="" xml:id="corpName_f5099b49"/>
+        </contributor>
+        <creation xml:id="creation_d0359332">
+          <date xml:id="date_3ff93a34" isodate="1750-01-01">ca. 1750</date>
+          <geogName role="" xml:id="geogName_4b0c4d10">Eisenstadt (?)</geogName>
+        </creation>
+        <history xml:id="history_bc2e8caa"/>
+        <langUsage xml:id="langUsage_b726fa14">
+          <language xml:id="language_d4e54" xml:lang="la"/>
+        </langUsage>
+        <biblList xml:id="biblList_fe8bdc2c">
+          <head xml:id="head_5acc5d24">Bibliography</head>
+          <bibl xml:id="bibl_d4e67">
+            <genre>reference</genre>
+            <ptr target="@WinklerKlement2013 [p. 130]" targettype="pandoc-citation" xml:id="ptr_d6e69"/>
+          </bibl>
+        </biblList>
+        <classification xml:id="classification_f12af0c1">
+          <termList xml:id="termList_f8d19cd7">
+            <term xml:id="term_b94f8973">Marian antiphon</term>
+          </termList>
+        </classification>
+        <expressionList xml:id="expressionList_2946a3c4">
+          <expression xml:id="expression_97c4f1b6">
+            <title xml:lang="en" xml:id="title_1a20b4d5"/>
+            <incip xml:id="incip_e6f61ce3">
+              <graphic target="main_1" targettype="lowres" xml:id="graphic_99ce14c9"/>
+            </incip>
+            <creation xml:id="creation_f1f8af89">
+              <date xml:id="date_10057330"/>
+              <geogName role="" xml:id="geogName_51b5ff43"/>
+            </creation>
+            <history xml:id="history_d4d92340"/>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_05489552">
+              <perfResList xml:id="perfResList_993416a2">
+                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_288ae136">vl</perfRes>
+                <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_8940cede">vlne</perfRes>
+                <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_e2be300e">org</perfRes>
+                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" xml:id="perfResList_5e930426">
+                  <head xml:lang="en" xml:id="head_959579bc_0_0_0_0">coro</head>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_11ca1ea5">S</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_1423fef3">A</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_f5424faf">T</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" xml:id="perfRes_672c95b0">B</perfRes>
+                </perfResList>
+              </perfResList>
+            </perfMedium>
+            <classification xml:id="classification_da800246">
+              <termList xml:id="termList_4c58d0be">
+                <term xml:id="term_3b47508f"/>
+              </termList>
+            </classification>
+            <componentList xml:id="componentList_24984666">
+              <expression n="1" xml:id="expression_bed7d432">
+                <title xml:lang="la" xml:id="title_d0ea3c40">Ave Regina coelorum</title>
+                <contributor xml:id="contributor_d123a1d0">
+                  <persName role="" xml:id="persName_17b8cb2e"/>
+                </contributor>
+                <incip xml:id="incip_9ba39218">
+                  <incipText xml:id="incipText_e6759e1c">
+                    <p xml:lang="en" xml:id="p_02aca080"/>
+                  </incipText>
+                  <graphic targettype="lowres" target="1_ave" xml:id="graphic_f066a417"/>
+                </incip>
+                <tempo xml:id="tempo_01580901">Allegro</tempo>
+                <key pname="a" mode="minor" xml:id="key_5512f66a"/>
+                <meter sym="cut" xml:id="meter_bfea2d9f"/>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_af1da9e3">
+                  <perfResList xml:id="perfResList_79b11c54">
+                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_5b8f854d">vl</perfRes>
+                    <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_8ad0384b">vlne</perfRes>
+                    <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_8ab0e65c">org</perfRes>
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_5e930426" xml:id="perfResList_8fd5efeb">
+                      <head xml:lang="en" xml:id="head_9868cd5d">coro</head>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_11ca1ea5" xml:id="perfRes_149e2fb4">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_1423fef3" xml:id="perfRes_57f2561d">A</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_f5424faf" xml:id="perfRes_21732155">T</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_672c95b0" xml:id="perfRes_47bfaf23">B</perfRes>
+                    </perfResList>
+                  </perfResList>
+                </perfMedium>
+                <extent quantity="" xml:id="extent_19dbe86f">54 bars</extent>
+                <notesStmt xml:id="notesStmt_7c94a776">
+                  <annot xml:id="annot_8eef15fe"/>
+                </notesStmt>
+                <componentList xml:id="componentList_c99dab03">
+                  <expression xml:id="expression_ac6f5c1a">
+                    <title xml:lang="la" xml:id="title_4ee0a6f3">Ave Regina coelorum</title>
+                    <contributor xml:id="contributor_3dabeb85">
+                      <persName role="" xml:id="persName_22e88a24"/>
+                    </contributor>
+                    <incip xml:id="incip_ad281101">
+                      <incipText xml:id="incipText_627735dc">
+                        <p xml:lang="en" xml:id="p_634abbc1"/>
+                      </incipText>
+                    </incip>
+                    <tempo xml:id="tempo_d4a05415">Allegro</tempo>
+                    <key pname="a" mode="minor" xml:id="key_f3a38214"/>
+                    <meter sym="cut" xml:id="meter_bd740a0d"/>
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_43c5861b">
+                      <perfResList xml:id="perfResList_308602e8">
+                        <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_fbd54b64">vl</perfRes>
+                        <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_d5eefac6">vlne</perfRes>
+                        <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_587af6fb">org</perfRes>
+                        <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_5e930426" xml:id="perfResList_67742dfc">
+                          <head xml:lang="en" xml:id="head_ffe3d6a0">coro</head>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_11ca1ea5" xml:id="perfRes_353178ae">S</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_1423fef3" xml:id="perfRes_d08437d9">A</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_f5424faf" xml:id="perfRes_21d295e1">T</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_672c95b0" xml:id="perfRes_4e3d094b">B</perfRes>
+                        </perfResList>
+                      </perfResList>
+                    </perfMedium>
+                    <extent quantity="" xml:id="extent_840d0488">34 bars</extent>
+                    <notesStmt xml:id="notesStmt_45494966">
+                      <annot xml:id="annot_97d73d61"/>
+                    </notesStmt>
+                    <componentList xml:id="componentList_e80e3f60"/>
+                    <relationList xml:id="relationList_dea4a3c2">
+                      <relation rel="hasReproduction" xml:id="relation_50a1c3c1"/>
+                    </relationList>
+                  </expression>
+                  <expression xml:id="expression_f604800a">
+                    <title xml:lang="la" xml:id="title_51c9710a">Vale o valde</title>
+                    <contributor xml:id="contributor_a4d5a218">
+                      <persName role="" xml:id="persName_d3fa1a19"/>
+                    </contributor>
+                    <incip xml:id="incip_9d9c5e1d">
+                      <incipText xml:id="incipText_3e8b4e00">
+                        <p xml:lang="en" xml:id="p_7b71accb"/>
+                      </incipText>
+                    </incip>
+                    <tempo xml:id="tempo_20669070">[no tempo]</tempo>
+                    <key xml:id="key_c491e146" pname="a" mode="minor"/>
+                    <meter xml:id="meter_515ab810" count="3" unit="2"/>
+                    <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_67be56f2">
+                      <perfResList xml:id="perfResList_dfe64222">
+                        <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_ddff8d04">vl</perfRes>
+                        <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_63cbeef2">vlne</perfRes>
+                        <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_c7be0604">org</perfRes>
+                        <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" xml:id="perfResList_5efcdc79" n="perfResList_5e930426">
+                          <head xml:lang="en" xml:id="head_959579bc_0_0_0_1">coro</head>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_371095bf" n="perfRes_11ca1ea5">S</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_70f40088" n="perfRes_1423fef3">A</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_3d4e0e1d" n="perfRes_f5424faf">T</perfRes>
+                          <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" xml:id="perfRes_45c4545c" n="perfRes_672c95b0">B</perfRes>
+                        </perfResList>
+                      </perfResList>
+                    </perfMedium>
+                    <extent quantity="" xml:id="extent_67a631f1">20 bars</extent>
+                    <notesStmt xml:id="notesStmt_ad02e2dd">
+                      <annot xml:id="annot_8c6d4155"/>
+                    </notesStmt>
+                    <componentList xml:id="componentList_b9e5cb42"/>
+                    <relationList xml:id="relationList_b5145c74">
+                      <relation rel="hasReproduction" xml:id="relation_4ae3ac3f"/>
+                    </relationList>
+                  </expression>
+                </componentList>
+                <relationList xml:id="relationList_5d64c932">
+                  <relation rel="hasReproduction" xml:id="relation_6e521a45"/>
+                </relationList>
+              </expression>
+            </componentList>
+            <relationList xml:id="relationList_6938a5fd"/>
+          </expression>
+        </expressionList>
+      </work>
+    </workList>
+    <manifestationList xml:id="manifestationList_ccee73d1">
+      <manifestation xml:id="manifestation_521ea1a8">
+        <identifier xml:id="identifier_e7627220"/>
+        <titleStmt xml:id="titleStmt_c3c7f728">
+          <title xml:id="title_0e88c6fc">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_90234d9c">
+          <publisher xml:id="publisher_b096fbfb"/>
+          <pubPlace xml:id="pubPlace_17bcee4a"/>
+          <date isodate="1750-01-01" xml:id="date_cae31747">mid 18th century</date>
+        </pubStmt>
+        <classification xml:id="classification_7c7f65b4">
+          <termList xml:id="termList_b55262ff">
+            <term xml:id="term_dd724364">Notated music</term>
+            <term xml:id="term_083a7d76">Manuscript</term>
+            <term xml:id="term_a15434f4">Copy</term>
+            <term xml:id="term_82c21ea8">Parts</term>
+            <term xml:id="term_e781f7ca">Fair copy</term>
+            <term xml:id="term_8ca172f5">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_1203572d">
+          <item xml:id="item_005d969c">
+            <identifier xml:id="identifier_db252cf5" label="RISM">600038507</identifier>
+            <physDesc xml:id="physDesc_bc6188f7">
+              <extent quantity="" xml:id="extent_51508220">8 parts</extent>
+              <titlePage label="[wrapper]" xml:id="titlePage_30d33fbb">
+                <p>Ave Regina. | &#xE2; | Canto Alto | Tenore Ba&#x17F;so. | 2<rend rend="underline(2)">bus</rend> Violinis | Con | Organo &#xE9; Violone | Del Gregorio Werner.</p>
+              </titlePage>
+              <dimensions xml:id="dimensions_bdcb23e6">
+                <locusGrp xml:id="locusGrp_4adf50ba">
+                  <locus xml:id="locus_c5f6a149"/>
+                </locusGrp>
+                <height quantity="17" xml:id="height_e618b9ac" unit="cm">17 (height in cm)</height>
+                <width quantity="22" xml:id="width_758b3fd0" unit="cm">22 (width in cm)</width>
+                <term xml:id="term_8f7d51af"/>
+                <extent quantity="" xml:id="extent_36a253ae"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_4064c7e3">
+                  <height quantity="" unit="cm" xml:id="height_8dfa657d"/>
+                  <width quantity="" unit="cm" xml:id="width_0f52e4eb"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_f0d1785f">
+                  <height quantity="" unit="cm" xml:id="height_20721dc6"/>
+                  <width quantity="" unit="cm" xml:id="width_7cf02d94"/>
+                </dimensions>
+              </dimensions>
+              <dimensions xml:id="dimensions_5cba736b">
+                <height quantity="" xml:id="height_905c4f00"/>
+                <width quantity="" xml:id="width_179625d5"/>
+                <depth quantity="" xml:id="depth_3e693cb3"/>
+                <dim quantity="" xml:id="dim_5cc17c24"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_948ca91c">
+                <p>hand-ruled paper, 5 staves</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_5eb6d3b0">
+              <repository xml:id="repository_9a20237e">
+                <corpName xml:id="corpName_3149aa2c" role=""/>
+                <geogName xml:id="geogName_75e86ea4" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_fc2f78f4">A-Ed</identifier>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/432.html" mimetype="" label="digitized version" xml:id="ptr_d6e381_0"/>
+              </repository>
+              <identifier xml:id="identifier_b4b328ec">I 6</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_7502a36c">
+              <annot type="source_description" xml:id="annot_ed4c4d93">
+                <p>S coro (2), A coro (2), T coro (2), B coro (2), vl 1 (2), vl 2 (2), vlne (2), org (2)</p>
+              </annot>
+              <annot type="links" xml:id="annot_dbcac941">
+                <ptr mimetype="" xml:id="ptr_d6e397_1_0"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_095ed273"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_b9279d1b"/>
+        <relationList xml:id="relationList_0b1dd36b">
+          <relation rel="isEmbodimentOf" xml:id="relation_01357fa7"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_6aea557e">
+        <identifier xml:id="identifier_f59296e8"/>
+        <titleStmt xml:id="titleStmt_4f5187f9">
+          <title xml:id="title_ec4f0ac3">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_c189dcc0">
+          <publisher xml:id="publisher_2ec7d305"/>
+          <pubPlace xml:id="pubPlace_d0f0f41a"/>
+          <date isodate="1950-01-01" xml:id="date_253100cf">2nd half 20th century</date>
+        </pubStmt>
+        <classification xml:id="classification_5736e19d">
+          <termList xml:id="termList_570e9ad0">
+            <term xml:id="term_1b5e099b">Notated music</term>
+            <term xml:id="term_9650f161">Manuscript</term>
+            <term xml:id="term_db3c09d7">Copy</term>
+            <term xml:id="term_cc4af5be">Parts</term>
+            <term xml:id="term_c8889ce4">Fair copy</term>
+            <term xml:id="term_b0a12e0d">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_018c467c">
+          <item xml:id="item_188ff4d7">
+            <identifier xml:id="identifier_3f9bc02e"/>
+            <physDesc xml:id="physDesc_705f3567"/>
+            <physLoc xml:id="physLoc_2204b66d">
+              <repository xml:id="repository_05d3595b">
+                <corpName xml:id="corpName_3b766187" role=""/>
+                <geogName xml:id="geogName_988b9728" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_0498dafd">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14308498" mimetype="" label="catalogue entry" xml:id="ptr_d6e381"/>
+              </repository>
+              <identifier xml:id="identifier_4ecbf4ed">F100.Moder.29/3</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_5e179aea">
+              <annot type="source_description" xml:id="annot_ac0e2565">
+                <p>a copy by Richard Moder</p>
+              </annot>
+              <annot type="links" xml:id="annot_838e106f">
+                <ptr mimetype="" xml:id="ptr_d6e397"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_8cad5070"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_9b138d8a"/>
+        <relationList xml:id="relationList_2601dbe5">
+          <relation rel="isEmbodimentOf" xml:id="relation_61f902d2"/>
+        </relationList>
+      </manifestation>
+    </manifestationList>
+  </meiHead>
+  <music/>
+</mei>
