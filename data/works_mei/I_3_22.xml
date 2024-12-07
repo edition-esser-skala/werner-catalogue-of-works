@@ -66,9 +66,9 @@
         </langUsage>
         <biblList xml:id="biblList_618f0bdb">
           <head xml:id="head_8bdafc33">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 133]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 133]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_acbe286b">
@@ -182,63 +182,139 @@
           </termList>
         </classification>
         <itemList xml:id="itemList_99898119">
-          <item xml:id="item_bb2edc2d">
-            <identifier xml:id="identifier_8a43b0f5" label="RISM">600038543</identifier>
-            <physDesc xml:id="physDesc_29ff4df1">
-              <dimensions xml:id="dimensions_26ddcd35">
-                <locusGrp xml:id="locusGrp_360d7edd">
-                  <locus xml:id="locus_4e23ea03"/>
+          <item xml:id="item_71a9988a">
+            <physDesc xml:id="physDesc_3430631d">
+              <dimensions xml:id="dimensions_a84c68e2">
+                <locusGrp xml:id="locusGrp_84d46cc6">
+                  <locus xml:id="locus_02cd1cb5"/>
                 </locusGrp>
-                <height quantity="16.5" unit="cm" xml:id="height_2c8d1d01">16.5 (height in cm)</height>
-                <width quantity="21" unit="cm" xml:id="width_0c88a21a">21 (height in cm)</width>
-                <term xml:id="term_fb7b2990"/>
-                <extent quantity="" xml:id="extent_ff0eb76b"> lines</extent>
-                <dimensions type="format" xml:id="dimensions_a4feb3f6">
-                  <height quantity="" unit="cm" xml:id="height_18b8f222"/>
-                  <width quantity="" unit="cm" xml:id="width_de6f5f44"/>
+                <height quantity="15.5" unit="cm" xml:id="height_f2c527a8">15.5 (height in cm)</height>
+                <width quantity="18" unit="cm" xml:id="width_e5f1d2df">18 (width in cm)</width>
+                <term xml:id="term_b1113293"/>
+                <extent quantity="" xml:id="extent_d68369fa"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_f20ad02f">
+                  <height quantity="" unit="cm" xml:id="height_efbe832e"/>
+                  <width quantity="" unit="cm" xml:id="width_a521869c"/>
                 </dimensions>
-                <dimensions type="rastral_mirror" xml:id="dimensions_63cef190">
-                  <height quantity="" unit="cm" xml:id="height_071defb2"/>
-                  <width quantity="" unit="cm" xml:id="width_06847d6a"/>
+                <dimensions type="rastral_mirror" xml:id="dimensions_b13539a1">
+                  <height quantity="" unit="cm" xml:id="height_8b650af3"/>
+                  <width quantity="" unit="cm" xml:id="width_e19990ff"/>
                 </dimensions>
               </dimensions>
-              <titlePage label="[wrapper]" xml:id="titlePage_9de51647">
-                <p>Regina C&#x153;li. | &#xE2; 4. Voci. | &#xEA; | 2. Violini. | Con | Organo. &#xE8; Violone | Authore Signore Gregorio Werner.</p>
-              </titlePage>
-              <extent quantity="" xml:id="extent_fa76d9ad">3 parts</extent>
-              <dimensions xml:id="dimensions_23e6251e">
-                <height quantity="" xml:id="height_86591322"/>
-                <width quantity="" xml:id="width_83744af4"/>
-                <depth quantity="" xml:id="depth_9cd381e6"/>
-                <dim quantity="" xml:id="dim_88304479"/>
+              <extent quantity="" xml:id="extent_a3626e3c">3 parts</extent>
+              <dimensions xml:id="dimensions_4c6c75ef">
+                <height quantity="" xml:id="height_a2270ac7"/>
+                <width quantity="" xml:id="width_7ef14554"/>
+                <depth quantity="" xml:id="depth_0b45b3c7"/>
+                <dim quantity="" xml:id="dim_50fd347e"/>
               </dimensions>
-              <physMedium xml:id="physMedium_92853518">
-                <p>hand-ruled paper, 6 staves<lb/>org part: 21.5 x 17 cm, 7 staves</p>
+              <physMedium xml:id="physMedium_478d6e55">
+                <p>hand-ruled paper, 6 staves</p>
               </physMedium>
             </physDesc>
-            <physLoc xml:id="physLoc_f1e004ec">
-              <repository xml:id="repository_927236a2">
-                <corpName xml:id="corpName_20b9966b" role=""/>
-                <geogName xml:id="geogName_dffe46bc" role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_e7434a6e">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/444.html" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
+            <physLoc xml:id="physLoc_6b37bf16">
+              <repository xml:id="repository_6d130435">
+                <corpName role="" xml:id="corpName_f6a0287b"/>
+                <geogName role="" xml:id="geogName_29ff3d3c"/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_511f5d85">A-Ed</identifier>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/442.html" mimetype="" label="digitized version" xml:id="ptr_51161ce8"/>
               </repository>
-              <identifier xml:id="identifier_60bb1470">J 17</identifier>
+              <identifier xml:id="identifier_1d719872">J 15</identifier>
             </physLoc>
-            <notesStmt xml:id="notesStmt_684d9220">
-              <annot type="source_description" xml:id="annot_8701e746">
-                <p>S solo and coro (2), A solo and coro (1), org (2); vl 1, vl 2, and vlne missing</p>
+            <notesStmt xml:id="notesStmt_b403b8e3">
+              <annot type="source_description" xml:id="annot_fd5e5fa5">
+                <p>vlne (1); S, A, and org archived under shelfmark J 17; vl 1 and 2 missing</p>
               </annot>
-              <annot type="links" xml:id="annot_0e56dff5">
-                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
+              <annot type="links" xml:id="annot_65c2cf53">
+                <ptr mimetype="" xml:id="ptr_57105f44"/>
               </annot>
             </notesStmt>
-            <componentList xml:id="componentList_4427f63b"/>
+            <componentList xml:id="componentList_045b6929"/>
           </item>
         </itemList>
         <componentList xml:id="componentList_fee64288"/>
         <relationList xml:id="relationList_a6615cdf">
           <relation rel="isEmbodimentOf" xml:id="relation_474e256d"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_59c50acc">
+        <identifier xml:id="identifier_95aa4a6a"/>
+        <titleStmt xml:id="titleStmt_52ad8727">
+          <title xml:id="title_7b4db412">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_dea5fabc">
+          <publisher xml:id="publisher_cc74d47a"/>
+          <pubPlace xml:id="pubPlace_bc2bce0a"/>
+          <date isodate="1750-01-01" xml:id="date_38f02213">mid 18th century</date>
+        </pubStmt>
+        <classification xml:id="classification_40d554cc">
+          <termList xml:id="termList_5bd1d34f">
+            <term xml:id="term_cad7a816">Notated music</term>
+            <term xml:id="term_724ef80b">Manuscript</term>
+            <term xml:id="term_050b9f2e">Copy</term>
+            <term xml:id="term_65da4767">Parts</term>
+            <term xml:id="term_c5b5c682">Fair copy</term>
+            <term xml:id="term_18c2775b">Incomplete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_b39fb004">
+          <item xml:id="item_f7bae2d6">
+            <identifier label="RISM" xml:id="identifier_5eb2b70c">600038543</identifier>
+            <physDesc xml:id="physDesc_1cb9e990">
+              <dimensions xml:id="dimensions_3a3e201a">
+                <locusGrp xml:id="locusGrp_73fbeba5">
+                  <locus xml:id="locus_feead329"/>
+                </locusGrp>
+                <height quantity="16.5" unit="cm" xml:id="height_d42567a5">16.5 (height in cm)</height>
+                <width quantity="21" unit="cm" xml:id="width_3ac92c91">21 (height in cm)</width>
+                <term xml:id="term_091933d9"/>
+                <extent quantity="" xml:id="extent_6c802345"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_ad9f7cf1">
+                  <height quantity="" unit="cm" xml:id="height_0679300e"/>
+                  <width quantity="" unit="cm" xml:id="width_da0f0ecc"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_39d6d1dc">
+                  <height quantity="" unit="cm" xml:id="height_c1b63a75"/>
+                  <width quantity="" unit="cm" xml:id="width_01df31ce"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[wrapper]" xml:id="titlePage_1129023d">
+                <p>Regina C&#x153;li. | &#xE2; 4. Voci. | &#xEA; | 2. Violini. | Con | Organo. &#xE8; Violone | Authore Signore Gregorio Werner.</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_0895718a">3 parts</extent>
+              <dimensions xml:id="dimensions_35ee82fd">
+                <height quantity="" xml:id="height_7ddeb57c"/>
+                <width quantity="" xml:id="width_3b7f48de"/>
+                <depth quantity="" xml:id="depth_488810cf"/>
+                <dim quantity="" xml:id="dim_ad0e20e1"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_24c52e63">
+                <p>hand-ruled paper, 6 staves<lb/>org part: 21.5 x 17 cm, 7 staves</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_344e3f7e">
+              <repository xml:id="repository_7ba6b4f7">
+                <corpName role="" xml:id="corpName_d3239151"/>
+                <geogName role="" xml:id="geogName_c85d518d"/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_ece7fc9f">A-Ed</identifier>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/444.html" mimetype="" label="digitized version" xml:id="ptr_44340c0e"/>
+              </repository>
+              <identifier xml:id="identifier_fdadfcef">J 17</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_0e5a34fa">
+              <annot type="source_description" xml:id="annot_193c71be">
+                <p>S solo and coro (2), A solo and coro (1), org (2); vlne archived under shelfmark J 15; vl 1 and 2 missing</p>
+              </annot>
+              <annot type="links" xml:id="annot_ee6557e2">
+                <ptr mimetype="" xml:id="ptr_60f10e58"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_fb483810"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_701b5d38"/>
+        <relationList xml:id="relationList_bf704d4e">
+          <relation rel="isEmbodimentOf" xml:id="relation_dc509d90"/>
         </relationList>
       </manifestation>
       <manifestation xml:id="manifestation_a71de530">
