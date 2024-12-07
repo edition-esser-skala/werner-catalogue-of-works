@@ -449,9 +449,9 @@ format_scoring <- function(s) {
 }
 
 # format genre(s)
-format_classification <- function(c) {
+format_genre <- function(c) {
   if (is.null(c))
-    error("Classification missing.")
+    error("Genre missing.")
 
   c$termList %>%
     map_chr(\(t) check_genre(t[[1]])) %>%
@@ -771,7 +771,9 @@ format_source <- function(s) {
 
   classification <-
     s$classification$termList %>%
-    map_chr(\(t) t[[1]])
+    map_chr(\(t) t[[1]]) %>%
+    str_to_lower()
+  check_classification(classification)
 
   location <- get_source_location(s)
 
@@ -786,7 +788,7 @@ format_source <- function(s) {
   source_description <-
     attr(s$itemList$item$notesStmt[[1]], "markdown_text") %||% "–"
 
-  if (classification[6] == "Lost")
+  if (classification[6] == "lost")
     return(
       use_template(
         LOST_SOURCE_TEMPLATE,
@@ -868,6 +870,18 @@ check_genre <- function(genre) {
   if (!genre %in% params$validation$genres)
     error(" genre '{genre}' unknown")
   genre
+}
+
+# checks whether the source classification terms are valid
+check_classification <- function(terms) {
+  walk2(
+    terms,
+    params$validation$classification,
+    \(term, valid_terms) {
+      if (!term %in% valid_terms)
+        error("      term '{term}' invalid")
+    }
+  )
 }
 
 # stops the script if two strings are not equal
@@ -1005,7 +1019,7 @@ get_work_details <- function(group,
 
   roles <- format_roles(data_music$perfMedium$castList)
 
-  genre <- format_classification(data_work$classification)
+  genre <- format_genre(data_work$classification)
 
   creation <- format_creation(data_work$creation)
 

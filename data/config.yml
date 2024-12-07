@@ -83,3 +83,31 @@ validation:
     - sonata
     - te deum
     - vesper
+
+  # allowed classification terms
+  classification:
+    content:
+      - notated music
+      - text
+    presentation:
+      - manuscript
+      - print
+    authority:
+      - autograph
+      - doubtful autograph
+      - partly autograph
+      - copy
+    scoring:
+      - score
+      - parts
+      - score and parts
+    state:
+      - draft
+      - fair copy
+      - first edition
+    completeness:
+      - complete
+      - incomplete
+      - excerpt
+      - fragment
+      - lost
