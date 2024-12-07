@@ -33,6 +33,8 @@ rism_entries <-
     "data/works_in_rism.csv",
     col_types = cols(.default = "c")
   ) %>%
+  replace_na(list(collection = "no")) %>%
+  filter(collection != "yes") %>%
   select(siglum, shelfmark, title, rism_id)
 
 # (b) works missing in RISM
