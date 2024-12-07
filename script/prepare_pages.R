@@ -337,8 +337,7 @@ overview_table <-
   fmt_markdown(columns = c("WerW", "Description", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
-    row_group.background.color = "grey90",
-    row_group.font.weight =
+    row_group.background.color = "grey90"
   ) %>%
   as_raw_html(FALSE)
 

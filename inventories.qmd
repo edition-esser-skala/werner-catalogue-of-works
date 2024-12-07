@@ -1,0 +1,94 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+format:
+  html:
+    html-table-processing: none
+---
+
+# Inventories {.unnumbered}
+
+```{r}
+#| include: false
+library(tidyverse)
+library(gt)
+source("script/utils.R")
+options(readr.show_col_types = FALSE)
+```
+
+## Fonds Moder
+
+[Richard Moder](https://data.onb.ac.at/nlv_lex/perslex/M/Moder_Richard.html) (1901–1991) studied Gregor Joseph Werner's music intensively and published some of his works for the first time. His Nachlass is available in the Austrian National Library and includes around 190 inventory items. For each item, the following table lists
+
+- its inventory number, linked to the library's catalogue entry
+- the folder (some items are collected in a common folder)
+- the title
+- the catalogue of works number
+
+Items in gray text have not yet been screened.
+
+```{r}
+#| echo: false
+#| output: asis
+
+# read contents of the fonds Moder
+fonds_data <- 
+  read_csv("data/fonds_moder.csv") %>% 
+  rename(WerW = id)
+
+# check that entries in the fonds Moder have correct WerW numbers
+fonds_cited <- 
+  read_rds("data_generated/works.rds") %>% 
+  unnest(sources, names_sep = "_") %>%
+  filter(str_starts(sources_source, "A-Wn F100")) %>%
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
+  select(number = sources_source, WerW, file) %>%
+  mutate(number = str_replace(number, "A-Wn F100.Moder.", ""))
+
+wrong_sources <- 
+  fonds_data %>% 
+  filter(!is.na(WerW)) %>%
+  anti_join(fonds_cited, by = join_by(number, WerW))
+
+if (nrow(wrong_sources) > 0)
+  error("wrong WerW number in Fonds Moder ",
+        "{str_flatten_comma(wrong_sources$number)}")
+
+# create the table output
+fonds_data %>% 
+  left_join(fonds_cited, by = join_by(number, WerW)) %>% 
+  mutate(
+    number =
+      if_else(
+        is.na(onb),
+        number,
+        str_glue('<a href="https://data.onb.ac.at/rec/{onb}">{number}</a>')
+      ) %>%
+      map(html),
+    WerW = 
+      if_else(
+        is.na(WerW),
+        "",
+        str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")
+      )
+  ) %>% 
+  select(number, folder, title, WerW, notes) %>% 
+  gt() %>% 
+  cols_align("left") %>% 
+  fmt_markdown(columns = WerW) %>% 
+  sub_missing(missing_text = "") %>% 
+  tab_style(
+    style = cell_text(color = "grey70"),
+    locations = cells_body(rows = is.na(folder))
+  ) %>% 
+  tab_options(
+    column_labels.font.weight = "bold",
+    table_body.hlines.style = "none"
+  ) %>%
+  {.} 
+```
