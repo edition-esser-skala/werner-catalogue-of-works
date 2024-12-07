@@ -50,8 +50,8 @@
     </encodingDesc>
     <workList xml:id="workList_4826e601">
       <work xml:id="work_829f001a">
-        <identifier xml:id="identifier_dca83b92" label="WerW">F.2</identifier>
-        <title xml:lang="la" xml:id="title_64b30d70">Exultet coelum laudibus</title>
+        <identifier xml:id="identifier_dca83b92" label="WerW">F.8</identifier>
+        <title xml:lang="la" xml:id="title_64b30d70">Ave maris stella</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
           <corpName role="" xml:id="corpName_f5099b49"/>
@@ -72,15 +72,15 @@
           </bibl>
           <bibl xml:id="bibl_d4e66">
             <genre xml:id="genre_97bc2f73">reference</genre>
-            <ptr target="@Bardos1980 [p. 540, no. 1515/1]" targettype="pandoc-citation" xml:id="ptr_d6e68"/>
+            <ptr target="@Bardos1980 [p. 540, no. 1515/7]" targettype="pandoc-citation" xml:id="ptr_d6e68"/>
           </bibl>
           <bibl xml:id="bibl_d4e69">
             <genre xml:id="genre_e7cc082e">reference</genre>
-            <ptr target="@Rostetter2023 [p. 1421, no. W/34/25]" targettype="pandoc-citation" xml:id="ptr_d6e71"/>
+            <ptr target="@Rostetter2023 [p. 1422, no. W/34/33, p. 1425, no. W/46]" targettype="pandoc-citation" xml:id="ptr_d6e71"/>
           </bibl>
           <bibl xml:id="bibl_d4e72">
             <genre xml:id="genre_545da656">reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 159]" targettype="pandoc-citation" xml:id="ptr_d6e74"/>
+            <ptr target="@WinklerKlement2013 [p. 163f]" targettype="pandoc-citation" xml:id="ptr_d6e74"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_fe26513a">
@@ -120,7 +120,7 @@
             </classification>
             <componentList xml:id="componentList_24984666">
               <expression xml:id="expression_a9aa53c9" n="1">
-                <title xml:lang="la" xml:id="title_02e15280">Exultet coelum laudibus</title>
+                <title xml:lang="la" xml:id="title_02e15280">Ave maris stella</title>
                 <contributor xml:id="contributor_a2f10636">
                   <persName role="" xml:id="persName_f12113a9"/>
                 </contributor>
@@ -128,10 +128,10 @@
                   <incipText xml:id="incipText_0bfbd856">
                     <p xml:lang="en" xml:id="p_1dcdd936"/>
                   </incipText>
-                  <graphic targettype="lowres" xml:id="graphic_9dfceaf3" target="1_exultet"/>
+                  <graphic targettype="lowres" xml:id="graphic_9dfceaf3" target="1_ave"/>
                 </incip>
-                <tempo xml:id="tempo_a5dc1d2e">[no tempo] &#x2013; Adagio</tempo>
-                <key xml:id="key_fb62da55" pname="g" mode="mixolydian"/>
+                <tempo xml:id="tempo_a5dc1d2e">[no tempo]</tempo>
+                <key xml:id="key_fb62da55" pname="d" mode="dorian"/>
                 <meter xml:id="meter_6108a9c7" sym="cut"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_0827629c">
                   <perfResList xml:id="perfResList_441ed02b">
@@ -147,10 +147,10 @@
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_627272c2">org</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_dfa748ec">50 bars</extent>
+                <extent quantity="" xml:id="extent_dfa748ec">25 bars</extent>
                 <notesStmt xml:id="notesStmt_0298709c">
                   <annot xml:id="annot_1e1f0087">
-                    <p>four half notes per bar; final bar (Adagio) in common time</p>
+                    <p>four half notes per bar; three stanzas</p>
                   </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_97d913b8"/>
@@ -187,7 +187,7 @@
         </classification>
         <itemList xml:id="itemList_99898119">
           <item xml:id="item_f27e9a7b">
-            <identifier xml:id="identifier_3dcdef78" label="RISM">530002171</identifier>
+            <identifier xml:id="identifier_3dcdef78" label="RISM">530004272</identifier>
             <physDesc xml:id="physDesc_25653726">
               <dimensions xml:id="dimensions_cc52320d_0">
                 <locusGrp xml:id="locusGrp_4f937c9b_0">
@@ -209,8 +209,8 @@
               <titlePage label="[cover]" xml:id="titlePage_23f90af1">
                 <p>Hymni | Totius Anni ad vesperas | a 4 voci | [org:] Con 2 Violini non Sempre necessarii | Del Werner.</p>
               </titlePage>
-              <titlePage label="[work title]" xml:id="titlePage_ebc0aaa6">
-                <p>1. de Apostolis. Excultet</p>
+              <titlePage label="[work title]" xml:id="titlePage_42c577e1">
+                <p>7. de B:V: Maria.Ave maris stella</p>
               </titlePage>
               <extent quantity="" xml:id="extent_cefe2fa7">8 parts</extent>
               <dimensions xml:id="dimensions_7e0ce9a5">
@@ -229,12 +229,12 @@
                 <geogName xml:id="geogName_904888b0" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_b97944fe">H-Bn</identifier>
               </repository>
-              <identifier xml:id="identifier_a873e524">Ms.mus III.209 (1)</identifier>
+              <identifier xml:id="identifier_a873e524">Ms.mus III.209 (7)</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_e0e6f1de">
               <annot type="source_description" xml:id="annot_f0936baa">
                 <p>S coro, A coro, T coro, B coro, vl 1, vl 2, vlne, org</p>
-                <p>This source comprises 29 hymns. The present hymn is no. 1.</p>
+                <p>This source comprises 29 hymns. The present hymn is no. 7.</p>
                 <p>catalogued according to RISM entry and @Muranyi1997</p>
               </annot>
               <annot type="links" xml:id="annot_1fe09f11">
@@ -271,14 +271,12 @@
         </classification>
         <itemList xml:id="itemList_ef32843e">
           <item xml:id="item_a62f61f8">
-            <identifier xml:id="identifier_09c9615d" label="RISM">600038645</identifier>
+            <identifier xml:id="identifier_09c9615d" label="RISM">600038653</identifier>
             <physDesc xml:id="physDesc_4d334b78">
               <dimensions xml:id="dimensions_99e9a561">
                 <locusGrp xml:id="locusGrp_a9870155">
                   <locus xml:id="locus_d8cd0f44"/>
                 </locusGrp>
-                <height quantity="22" unit="cm" xml:id="height_8264c91f">22 (height in cm)</height>
-                <width quantity="17" unit="cm" xml:id="width_21cf733a">17 (height in cm)</width>
                 <term xml:id="term_8a38397b"/>
                 <extent quantity="" xml:id="extent_95174258"> lines</extent>
                 <dimensions type="format" xml:id="dimensions_3489ea20">
@@ -290,8 +288,11 @@
                   <width quantity="" unit="cm" xml:id="width_ed1c4afe"/>
                 </dimensions>
               </dimensions>
-              <titlePage label="[wrapper]" xml:id="titlePage_96349557">
-                <p>Hymnus | de Apostolis | &#xE0; | 4 Voci | 2 Violini ad Libitum | Con | Organo &#xE8; Violone | Auth. Werner</p>
+              <titlePage label="[wrapper, first set of parts]" xml:id="titlePage_f2985791">
+                <p>Hymnus | de B: V: Maria | &#xE0; | 4 Voci. | 2 Violettis | Con | Organo &#xE8; Violone | Auth: Werner</p>
+              </titlePage>
+              <titlePage label="[wrapper, second set of parts]" xml:id="titlePage_96349557">
+                <p>Hymnus | de B: V: Maria | a | 4 Voci | 2 Violettis | con | Organo e Violone | Di Sig: Werner</p>
               </titlePage>
               <extent quantity="" xml:id="extent_7d60f963">8 parts</extent>
               <dimensions xml:id="dimensions_20de6a65">
@@ -301,7 +302,7 @@
                 <dim quantity="" xml:id="dim_bd3c6804"/>
               </dimensions>
               <physMedium xml:id="physMedium_d422ff08">
-                <p>hand-ruled paper, 7 staves</p>
+                <p>two sets of parts:<lb/>(1) 8 parts, 22 x 18 cm, hand-ruled paper, 4&#x2013;6 staves<lb/>(2) 10 parts, 32.5 x 24 cm, hand-ruled paper, 8 staves</p>
               </physMedium>
             </physDesc>
             <physLoc xml:id="physLoc_36523227">
@@ -309,13 +310,14 @@
                 <corpName xml:id="corpName_67f4abbb" role=""/>
                 <geogName xml:id="geogName_f68faa64" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_49607f67">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/259.html" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/267.html" mimetype="" label="digitized version" xml:id="ptr_d6e381_0"/>
               </repository>
-              <identifier xml:id="identifier_5ed9a340">M 26</identifier>
+              <identifier xml:id="identifier_5ed9a340">M 34</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_ad595fb4">
               <annot type="source_description" xml:id="annot_45b238f4">
-                <p>S coro (2), A coro (2), T coro (2), B coro (2), vl 1 (2), vl 2 (1), vlne (2), org (2)</p>
+                <p>first set: S coro (2), A coro (2), T coro (2), B coro (2), vl 1 (1), vl 2 (1), vlne (1), org (1)</p>
+                <p>second set: S coro (2x; 1, 1), A coro (2x; 1, 1), T coro (1), B coro (1), vla 1 (1), vla 2 (1), vlne (1), org (1)</p>
               </annot>
               <annot type="links" xml:id="annot_aedd8bbd">
                 <ptr mimetype="" xml:id="ptr_d6e397_1_0"/>
@@ -351,7 +353,7 @@
         </classification>
         <itemList xml:id="itemList_4c2b9dcb">
           <item xml:id="item_044d82f6">
-            <identifier xml:id="identifier_e674ecd4" label="RISM">601001000</identifier>
+            <identifier xml:id="identifier_e674ecd4" label="RISM">601001006</identifier>
             <physDesc xml:id="physDesc_850acaff">
               <dimensions xml:id="dimensions_fcfae270">
                 <locusGrp xml:id="locusGrp_2b78a2e8">
@@ -371,7 +373,7 @@
                 </dimensions>
               </dimensions>
               <titlePage label="[work title]" xml:id="titlePage_f8746c6c">
-                <p>Hymnus de Apostolis</p>
+                <p>Hymnus de B. v. Maria</p>
               </titlePage>
               <extent quantity="" xml:id="extent_4c68dfac">7 parts</extent>
               <dimensions xml:id="dimensions_a49ab992">
@@ -390,12 +392,12 @@
                 <geogName xml:id="geogName_5508ab1b" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_3513dbef">A-KN</identifier>
               </repository>
-              <identifier xml:id="identifier_e6ed05be">130 (1)</identifier>
+              <identifier xml:id="identifier_e6ed05be">130 (7)</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_2e64b430">
               <annot type="source_description" xml:id="annot_a36878dd">
                 <p>S coro (1), A coro (1), T coro (1), B coro (1), vl 1 (1), vlne (1), org (1); vl 2 missing</p>
-                <p>This source comprises 49 hymns. The present hymn is no. 1.</p>
+                <p>This source comprises 49 hymns. The present hymn is no. 7.</p>
               </annot>
               <annot type="links" xml:id="annot_f1a2b7ef">
                 <ptr mimetype="" xml:id="ptr_d6e397_0_1"/>
@@ -407,6 +409,329 @@
         <componentList xml:id="componentList_babfcf4d"/>
         <relationList xml:id="relationList_acad7902">
           <relation rel="isEmbodimentOf" xml:id="relation_90fc0dd1"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_f0f766a4">
+        <identifier xml:id="identifier_0239c6d4"/>
+        <titleStmt xml:id="titleStmt_8f8b24ee">
+          <title xml:id="title_faf913e8">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_575a6bdf">
+          <publisher xml:id="publisher_f1b7feb6"/>
+          <pubPlace xml:id="pubPlace_0a7fe19c"/>
+          <date isodate="1800-01-01" xml:id="date_a8e3ae4a">18th/19th century</date>
+        </pubStmt>
+        <classification xml:id="classification_de114f5a">
+          <termList xml:id="termList_b35f92e0">
+            <term xml:id="term_c217d854">Notated music</term>
+            <term xml:id="term_0cb18708">Manuscript</term>
+            <term xml:id="term_3a933ac8">Copy</term>
+            <term xml:id="term_518a3ab3">Score</term>
+            <term xml:id="term_5a17b502">Fair copy</term>
+            <term xml:id="term_cac64d73">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_3fddd1b0">
+          <item xml:id="item_0864e6b1">
+            <identifier xml:id="identifier_33041197"/>
+            <physDesc xml:id="physDesc_de64cce0">
+              <dimensions xml:id="dimensions_7347eda1">
+                <locusGrp xml:id="locusGrp_557236ec">
+                  <locus xml:id="locus_8fb0943a"/>
+                </locusGrp>
+                <height quantity="24" unit="cm" xml:id="height_ba9e1487">24 (height in cm)</height>
+                <width quantity="31" unit="cm" xml:id="width_1d9488ef">31 (height in cm)</width>
+                <term xml:id="term_ea88f697"/>
+                <extent quantity="" xml:id="extent_afbf6fee"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_8407e00e">
+                  <height quantity="" unit="cm" xml:id="height_210a4c80"/>
+                  <width quantity="" unit="cm" xml:id="width_5fa1f924"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_e837702c">
+                  <height quantity="" unit="cm" xml:id="height_5a5dc32e"/>
+                  <width quantity="" unit="cm" xml:id="width_9530caae"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[cover]" xml:id="titlePage_abc16e46">
+                <p>Nro 9. | Partituren Sammlung. | Me&#x17F;se v Jos: Hayden in F. Me&#x17F;se v. Mozart in G. | Ein Dona nob. v Werner 1 Offertor: v Winter in F. | Salve v Jos: Hayden in Gmol. Ve&#x17F;per. von Etzman in C | Gradual v Michl Haydn. Lytaney v Werner in B. | Lytaney v Werner in D. Lytaney v Wastrill in E. | Lytaney v Werner A minor. Lytaney v Werner B fa | Hymnus v Werner in D mol. Veni Scte v Henneberg.</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_005519c5">4 p.</extent>
+              <dimensions xml:id="dimensions_545080d5">
+                <height quantity="" xml:id="height_f0ac93da"/>
+                <width quantity="" xml:id="width_8114c19e"/>
+                <depth quantity="" xml:id="depth_e3945011"/>
+                <dim quantity="" xml:id="dim_edef8d22"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_57c942af">
+                <p>hand-ruled paper, 14 staves (8 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_c011d74d">
+              <repository xml:id="repository_8963c794">
+                <corpName xml:id="corpName_2f8a2ece" role=""/>
+                <geogName xml:id="geogName_fb3409d4" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_93a12800">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14272301" mimetype="" label="catalogue entry" xml:id="ptr_d6e381_1"/>
+              </repository>
+              <identifier xml:id="identifier_a5377639">Mus.Hs.23434 (11)</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_d78bcca2">
+              <annot type="source_description" xml:id="annot_8251375f">
+                <p>This signature comprises several works. The present work is written on fol. 73r&#x2013;74v.</p>
+              </annot>
+              <annot type="links" xml:id="annot_8fb86413">
+                <ptr mimetype="" xml:id="ptr_d6e397_0"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_cc9c5644"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_e7d846d3"/>
+        <relationList xml:id="relationList_fdce4979">
+          <relation rel="isEmbodimentOf" xml:id="relation_9b3d405b"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_0212dd15">
+        <identifier xml:id="identifier_1dfd0cab"/>
+        <titleStmt xml:id="titleStmt_bbdb8c31">
+          <title xml:id="title_c5f4bcf5">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_47ad2f20">
+          <publisher xml:id="publisher_e4d76578"/>
+          <pubPlace xml:id="pubPlace_45278249"/>
+          <date notbefore="1800-01-01" notafter="1835-12-31" xml:id="date_1ad4302e">1800&#x2013;1835</date>
+        </pubStmt>
+        <classification xml:id="classification_15451d60">
+          <termList xml:id="termList_41b2cd5f">
+            <term xml:id="term_bd168b45">Notated music</term>
+            <term xml:id="term_c57bd2e7">Manuscript</term>
+            <term xml:id="term_9107b54c">Copy</term>
+            <term xml:id="term_704d7373">Score</term>
+            <term xml:id="term_de2556c6">Fair copy</term>
+            <term xml:id="term_4706c38b">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_5c7a7cf0">
+          <item xml:id="item_1433f6f8">
+            <identifier xml:id="identifier_c0c406d4" label="RISM">455030881</identifier>
+            <physDesc xml:id="physDesc_5e09bbed">
+              <dimensions xml:id="dimensions_a89d1fce">
+                <locusGrp xml:id="locusGrp_01aeca8f">
+                  <locus xml:id="locus_a246b1d7"/>
+                </locusGrp>
+                <height quantity="24" xml:id="height_216607b2" unit="cm">24 (height in cm)</height>
+                <width quantity="31" xml:id="width_18b0d3ad" unit="cm">31 (height in cm)</width>
+                <term xml:id="term_08edfbbd"/>
+                <extent quantity="" xml:id="extent_1594a15e"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_173e9149">
+                  <height quantity="" unit="cm" xml:id="height_418bf4e1"/>
+                  <width quantity="" unit="cm" xml:id="width_727bc7a8"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_7a447eba">
+                  <height quantity="" unit="cm" xml:id="height_5c0951c4"/>
+                  <width quantity="" unit="cm" xml:id="width_f821262e"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[in pencil on fly leaf]" xml:id="titlePage_af41659e">
+                <p>Kirchenkompositionen</p>
+              </titlePage>
+              <titlePage label="[heading]" xml:id="titlePage_56aa4056">
+                <p>[in red ink:] No 3 [in black ink] Hymnus de B. V. Maria</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_10f6bc8a">3 p.</extent>
+              <dimensions xml:id="dimensions_c89390d0">
+                <height quantity="" xml:id="height_6642e0a2"/>
+                <width quantity="" xml:id="width_fd4babda"/>
+                <depth quantity="" xml:id="depth_4e213dd1"/>
+                <dim quantity="" xml:id="dim_e6f55877"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_ddde5817">
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_d5f4d414">
+              <repository xml:id="repository_2c3edc7a">
+                <corpName xml:id="corpName_a0833c06" role=""/>
+                <geogName xml:id="geogName_06013397" role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_fe3ab3ad">D-B</identifier>
+              </repository>
+              <identifier xml:id="identifier_16513d2c">Mus.ms. 30177 (7)</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_4925d658">
+              <annot type="source_description" xml:id="annot_062f651a">
+                <p>This signature comprises several works. The present work is written on fol. 20r&#x2013;21r.</p>
+                <p>catalogued according to RISM entry</p>
+              </annot>
+              <annot type="links" xml:id="annot_83606bfd">
+                <ptr mimetype="" xml:id="ptr_d6e397_1"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_3d363e12"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_4b6ae64f"/>
+        <relationList xml:id="relationList_b0ff528c">
+          <relation rel="isEmbodimentOf" xml:id="relation_04826d89"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_aa080881">
+        <identifier xml:id="identifier_ab6c8316"/>
+        <titleStmt xml:id="titleStmt_980031f5">
+          <title xml:id="title_ebac88ec">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_734b604d">
+          <publisher xml:id="publisher_3887b187"/>
+          <pubPlace xml:id="pubPlace_bfafb670"/>
+          <date isodate="1790-01-01" xml:id="date_19c9c9cf">ca. 1790</date>
+        </pubStmt>
+        <classification xml:id="classification_fc9246be">
+          <termList xml:id="termList_d1de85a2">
+            <term xml:id="term_c070ea63">Notated music</term>
+            <term xml:id="term_384ae510">Manuscript</term>
+            <term xml:id="term_3a841e7e">Copy</term>
+            <term xml:id="term_52c9e96c">Parts</term>
+            <term xml:id="term_1d33ec43">Fair copy</term>
+            <term xml:id="term_6ba0079c">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_8f335b3b">
+          <item xml:id="item_b80a45d5">
+            <identifier label="RISM" xml:id="identifier_2ca2bb6f">530004266</identifier>
+            <physDesc xml:id="physDesc_920ecd30">
+              <dimensions xml:id="dimensions_ec1281c2">
+                <locusGrp xml:id="locusGrp_bbee6a35">
+                  <locus xml:id="locus_2c614b07"/>
+                </locusGrp>
+                <height quantity="31" unit="cm" xml:id="height_344ec09c">31 (height in cm)</height>
+                <width quantity="22" unit="cm" xml:id="width_3ff0d5b2">22 (width in cm)</width>
+                <term xml:id="term_ad1e0840"/>
+                <extent quantity="" xml:id="extent_b2b609c0"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_a07b4807">
+                  <height quantity="" unit="cm" xml:id="height_1d72a52d"/>
+                  <width quantity="" unit="cm" xml:id="width_a72fa150"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_ad6ec8f2">
+                  <height quantity="" unit="cm" xml:id="height_4cd5d2c8"/>
+                  <width quantity="" unit="cm" xml:id="width_7f097157"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[wrapper]" xml:id="titlePage_92e5670f">
+                <p>Hymnus D moll de B.V.Maria a 4 voci, 2 violini, violoncello e basso con organo del Sigre Werner</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_9b1e371c">17 parts</extent>
+              <dimensions xml:id="dimensions_72a8ce44">
+                <height quantity="" xml:id="height_972c0479"/>
+                <width quantity="" xml:id="width_06f213a7"/>
+                <depth quantity="" xml:id="depth_a1db06d6"/>
+                <dim quantity="" xml:id="dim_1e6c15f9"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_ab348c59">
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_dd8ba045">
+              <repository xml:id="repository_c5d482ec">
+                <corpName role="" xml:id="corpName_aada44da"/>
+                <geogName role="" xml:id="geogName_890d2ffd"/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_c27a2215">H-Bn</identifier>
+              </repository>
+              <identifier xml:id="identifier_71462e41">Ms.mus III.212 (1)</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_281ff8e4">
+              <annot type="source_description" xml:id="annot_5497717f">
+                <p>S coro (3x), A coro (3x), T coro (2x), B coro (2x), vl 1 (2x), vl 2 (2x), vlc (2x), org</p>
+                <p>catalogued according to RISM entry and @Muranyi1997</p>
+              </annot>
+              <annot type="links" xml:id="annot_9f16730d">
+                <ptr mimetype="" xml:id="ptr_7671a200"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_87073917"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_d980d52a"/>
+        <relationList xml:id="relationList_94b70c18">
+          <relation rel="isEmbodimentOf" xml:id="relation_610e168a"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_8a4faf87">
+        <identifier xml:id="identifier_c07b572a"/>
+        <titleStmt xml:id="titleStmt_d596c052">
+          <title xml:id="title_5b24c788">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_101cbeed">
+          <publisher xml:id="publisher_e0ed68a3"/>
+          <pubPlace xml:id="pubPlace_39d56711"/>
+          <date isodate="1790-01-01" xml:id="date_e92ecb4e">ca. 1790</date>
+        </pubStmt>
+        <classification xml:id="classification_ff2080a4">
+          <termList xml:id="termList_fb063cfe">
+            <term xml:id="term_0e8b989f">Notated music</term>
+            <term xml:id="term_5c5ba9ec">Manuscript</term>
+            <term xml:id="term_390b22ab">Copy</term>
+            <term xml:id="term_e7f418e8">Parts</term>
+            <term xml:id="term_ed6c4ea0">Fair copy</term>
+            <term xml:id="term_679245ca">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_a574a496">
+          <item xml:id="item_6111e0c1">
+            <identifier label="RISM" xml:id="identifier_ad8b2301">530004267</identifier>
+            <physDesc xml:id="physDesc_b89ce303">
+              <dimensions xml:id="dimensions_9def488a">
+                <locusGrp xml:id="locusGrp_f7ab6008">
+                  <locus xml:id="locus_ab76fefe"/>
+                </locusGrp>
+                <term xml:id="term_0b0adcfa"/>
+                <extent quantity="" xml:id="extent_035bc46a"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_1dacae74">
+                  <height quantity="" unit="cm" xml:id="height_accb46f7"/>
+                  <width quantity="" unit="cm" xml:id="width_79148ee1"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_64a0e91e">
+                  <height quantity="" unit="cm" xml:id="height_5e887c2e"/>
+                  <width quantity="" unit="cm" xml:id="width_cfa85b4d"/>
+                </dimensions>
+              </dimensions>
+              <titlePage label="[wrapper]" xml:id="titlePage_499c63d5">
+                <p>Hymni de B. V: Maria | et de Apostolis | Canto, Alto | Tenore, Basso | 2 Violinis | Organo | e | Violone | Del Werner.</p>
+              </titlePage>
+              <extent quantity="" xml:id="extent_3ac59884">17 parts</extent>
+              <dimensions xml:id="dimensions_a80d9f0a">
+                <height quantity="" xml:id="height_f1cf9b34"/>
+                <width quantity="" xml:id="width_f2813aaf"/>
+                <depth quantity="" xml:id="depth_afffa570"/>
+                <dim quantity="" xml:id="dim_a41b03f6"/>
+              </dimensions>
+              <physMedium xml:id="physMedium_7824edb4">
+                <p>two sets of parts:<lb/>(1) 8 parts, 20 x 24 cm, hand-ruled paper<lb/>(2) 9 parts, 24 x 22 cm, hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_4f64a19c">
+              <repository xml:id="repository_76093159">
+                <corpName role="" xml:id="corpName_19565e95"/>
+                <geogName role="" xml:id="geogName_4842dce9"/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_11059198">H-Bn</identifier>
+              </repository>
+              <identifier xml:id="identifier_1f6c0cdf">Ms.mus III.212 (2/1)</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_1faea331">
+              <annot type="source_description" xml:id="annot_69cd7b62">
+                <p>first set: S coro, A coro, T coro, B coro, vl 1, vl 2, vlne, org</p>
+                <p>second set: S coro (2x), A coro (2x), T coro, B coro, vl 1, vl 2, vlne</p>
+                <p>This source comprises two works: This work and the hymn <rend fontstyle="italic">Exultet orbis gaudiis</rend> WerW F.3.</p>
+                <p>catalogued according to RISM entry and @Muranyi1997</p>
+              </annot>
+              <annot type="links" xml:id="annot_4a23982f">
+                <ptr mimetype="" xml:id="ptr_f11e0c89"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_7fbe821b"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_7828aa10"/>
+        <relationList xml:id="relationList_889f2540">
+          <relation rel="isEmbodimentOf" xml:id="relation_1b9ab60e"/>
         </relationList>
       </manifestation>
       <manifestation xml:id="manifestation_8136779d">
@@ -431,14 +756,14 @@
         </classification>
         <itemList xml:id="itemList_f2e75ba5">
           <item xml:id="item_c2a6c31f">
-            <identifier xml:id="identifier_0b2f38dc" label="RISM">530012317</identifier>
+            <identifier xml:id="identifier_0b2f38dc" label="RISM">530012323</identifier>
             <physDesc xml:id="physDesc_f7c8cd71">
               <extent quantity="" xml:id="extent_1ea6e7db">8 parts</extent>
               <titlePage label="[cover]" xml:id="titlePage_205e3a1c">
                 <p>Hymni del Sigre. Werner</p>
               </titlePage>
               <titlePage label="[work title]" xml:id="titlePage_e31242d4">
-                <p>1. De Apostolis</p>
+                <p>7. De B. V. Maria</p>
               </titlePage>
               <physMedium xml:id="physMedium_d88faa9b">
                 <p>hand-ruled paper</p>
@@ -450,12 +775,12 @@
                 <geogName xml:id="geogName_f17a9669" role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_8c65dd1a">H-Gk</identifier>
               </repository>
-              <identifier xml:id="identifier_8edf2b6b">AMC, W. 74. (1)</identifier>
+              <identifier xml:id="identifier_8edf2b6b">AMC, W. 74. (7)</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_302d9d52">
               <annot type="source_description" xml:id="annot_1f9c75d6">
                 <p>S solo, A solo, T solo, B solo, vl 1, vl 2, vlne, org</p>
-                <p>This source comprises 29 hymns. The present hymn is no. 1.</p>
+                <p>This source comprises 29 hymns. The present hymn is no. 7.</p>
                 <p>catalogued according to RISM entry and @Bardos1980</p>
               </annot>
               <annot type="links" xml:id="annot_2fa8c2f9">
@@ -492,7 +817,7 @@
         </classification>
         <itemList xml:id="itemList_a5cde046">
           <item xml:id="item_3f3267db">
-            <identifier label="RISM" xml:id="identifier_915aa8ac">530003869</identifier>
+            <identifier label="RISM" xml:id="identifier_915aa8ac">530003876</identifier>
             <physDesc xml:id="physDesc_1534fd96">
               <dimensions xml:id="dimensions_cc52320d_1">
                 <locusGrp xml:id="locusGrp_4f937c9b_1">
@@ -513,7 +838,7 @@
               </dimensions>
               <extent quantity="" xml:id="extent_633c42b8">2 parts</extent>
               <titlePage label="[work title]" xml:id="titlePage_bd86b0d1">
-                <p>WERNER Gregor: Exultet. Hymnus de Apostolis.</p>
+                <p>WERNER Gregor: Ave maris. Hymnus de Beata M.V.</p>
               </titlePage>
               <physMedium xml:id="physMedium_2d6999f9">
                 <p>hand-ruled paper</p>
@@ -525,12 +850,12 @@
                 <geogName role="" xml:id="geogName_40e33ecb"/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_8cca291a">H-VEs</identifier>
               </repository>
-              <identifier xml:id="identifier_052e568e">Hymnus 112 a-b (26)</identifier>
+              <identifier xml:id="identifier_052e568e">Hymnus 112 a-b (34)</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_6d6be88f">
               <annot type="source_description" xml:id="annot_04a11458">
                 <p>bc, org; other parts missing</p>
-                <p>This source comprises 41 hymns, of which the first one is by Franz Novotn&#xFD;, and the remaining works are by Werner. No. 32 is missing; thus, the subsequent works are numbered 33 to 42. The present hymn is no. 26.</p>
+                <p>This source comprises 41 hymns, of which the first one is by Franz Novotn&#xFD;, and the remaining works are by Werner. No. 32 is missing; thus, the subsequent works are numbered 33 to 42. The present hymn is no. 34.</p>
                 <p>catalogued according to RISM entry</p>
               </annot>
               <annot type="links" xml:id="annot_78be3a42">
@@ -543,6 +868,79 @@
         <componentList xml:id="componentList_a5e3296a"/>
         <relationList xml:id="relationList_7cb28254">
           <relation rel="isEmbodimentOf" xml:id="relation_0c26f203"/>
+        </relationList>
+      </manifestation>
+      <manifestation xml:id="manifestation_eb0cfc88">
+        <identifier xml:id="identifier_e830ed1d"/>
+        <titleStmt xml:id="titleStmt_e973635f">
+          <title xml:id="title_f050184c">Manuscript copy</title>
+        </titleStmt>
+        <pubStmt xml:id="pubStmt_2de89ce4">
+          <publisher xml:id="publisher_69e21ca3"/>
+          <pubPlace xml:id="pubPlace_1c739660"/>
+          <date xml:id="date_ef0fbf87" notbefore="1870-01-01" notafter="1880-12-31">1870&#x2013;1880</date>
+        </pubStmt>
+        <classification xml:id="classification_b20f1fe3">
+          <termList xml:id="termList_0bfe5be2">
+            <term xml:id="term_20d9867f">Notated music</term>
+            <term xml:id="term_493f293c">Manuscript</term>
+            <term xml:id="term_fa61bffa">Copy</term>
+            <term xml:id="term_89e7e24a">Parts</term>
+            <term xml:id="term_e1c20c92">Fair copy</term>
+            <term xml:id="term_f21a1776">Complete</term>
+          </termList>
+        </classification>
+        <itemList xml:id="itemList_b70a11ab">
+          <item xml:id="item_02cf41c0">
+            <physDesc xml:id="physDesc_b7908738">
+              <dimensions xml:id="dimensions_e3507c6d">
+                <locusGrp xml:id="locusGrp_2894678c">
+                  <locus xml:id="locus_5c4d5537"/>
+                </locusGrp>
+                <height quantity="33" unit="cm" xml:id="height_4f35037d">33 (height in cm)</height>
+                <width quantity="25" unit="cm" xml:id="width_d0fc4734">25 (height in cm)</width>
+                <term xml:id="term_7a8b3be2"/>
+                <extent quantity="" xml:id="extent_6e061b29"> lines</extent>
+                <dimensions type="format" xml:id="dimensions_9fb3f8c0">
+                  <height quantity="" unit="cm" xml:id="height_c242f506"/>
+                  <width quantity="" unit="cm" xml:id="width_fbd3fd5f"/>
+                </dimensions>
+                <dimensions type="rastral_mirror" xml:id="dimensions_136cd06f">
+                  <height quantity="" unit="cm" xml:id="height_ac9e1dc4"/>
+                  <width quantity="" unit="cm" xml:id="width_44e19ef4"/>
+                </dimensions>
+              </dimensions>
+              <extent quantity="" xml:id="extent_9d8cb9c3">10 parts</extent>
+              <titlePage label="[wrapper]" xml:id="titlePage_fb3719ca">
+                <p>Hymnus de B.M.V. K&#xE9;z&#xED;r&#xE1;sos kotta Ave maris stella...</p>
+              </titlePage>
+              <physMedium xml:id="physMedium_11f4d058">
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc xml:id="physLoc_2f8b4db0">
+              <repository xml:id="repository_193b6dda">
+                <corpName role="" xml:id="corpName_31a4e9d4"/>
+                <geogName role="" xml:id="geogName_38188743"/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_88bb1552">H-VEs</identifier>
+              </repository>
+              <identifier xml:id="identifier_cbd9b23d">Hymnus 124</identifier>
+            </physLoc>
+            <notesStmt xml:id="notesStmt_b9d072cc">
+              <annot type="source_description" xml:id="annot_818e49f1">
+                <p>S coro (2x), A coro, T coro, B coro, vl 1 (2x), vl 2, vlne, org</p>
+                <p>catalogued according to catalogue entry</p>
+              </annot>
+              <annot type="links" xml:id="annot_c9390165">
+                <ptr mimetype="" xml:id="ptr_e15ad421"/>
+              </annot>
+            </notesStmt>
+            <componentList xml:id="componentList_5f423c29"/>
+          </item>
+        </itemList>
+        <componentList xml:id="componentList_002dab2d"/>
+        <relationList xml:id="relationList_2f5aa3db">
+          <relation rel="isEmbodimentOf" xml:id="relation_894d5de0"/>
         </relationList>
       </manifestation>
     </manifestationList>
