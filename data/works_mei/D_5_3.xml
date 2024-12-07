@@ -50,9 +50,8 @@
     </encodingDesc>
     <workList xml:id="workList_4826e601">
       <work xml:id="work_829f001a">
-        <identifier xml:id="identifier_dca83b92" label="WerW">D.5.7</identifier>
-        <identifier label="WinMa" xml:id="identifier_4b9df917">1</identifier>
-        <title xml:lang="la" xml:id="title_64b30d70">Amen</title>
+        <identifier xml:id="identifier_dca83b92" label="WerW">D.5.3</identifier>
+        <title xml:lang="la" xml:id="title_64b30d70">O quam suavis es</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
           <corpName role="" xml:id="corpName_f5099b49"/>
@@ -66,8 +65,8 @@
           <language xml:id="language_d4e54" xml:lang="la"/>
         </langUsage>
         <classification xml:id="classification_bd5e8bba">
-          <termList xml:id="termList_9b6bf073">
-            <term xml:id="term_adb5ec7d">sacred song</term>
+          <termList xml:id="termList_71b6672e">
+            <term xml:id="term_87ea46e0">antiphon</term>
           </termList>
         </classification>
         <expressionList xml:id="expressionList_2946a3c4">
@@ -81,9 +80,8 @@
               <geogName role="" xml:id="geogName_51b5ff43"/>
             </creation>
             <history xml:id="history_d4d92340"/>
-            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_05489552">
+            <perfMedium xml:id="perfMedium_05489552">
               <perfResList xml:id="perfResList_993416a2">
-                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_ebdc4ba8">vl</perfRes>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" xml:id="perfResList_57ca0d7e">
                   <head xml:lang="en" xml:id="head_b5aba6e3_0">coro</head>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" xml:id="perfRes_032a15bb">S</perfRes>
@@ -102,7 +100,7 @@
             </classification>
             <componentList xml:id="componentList_24984666">
               <expression xml:id="expression_6b59f1cc" n="1">
-                <title xml:lang="la" xml:id="title_dafe74cf">Amen</title>
+                <title xml:lang="la" xml:id="title_dafe74cf">O quam suavis est</title>
                 <contributor xml:id="contributor_12da0fe1">
                   <persName role="" xml:id="persName_5baaaa62"/>
                 </contributor>
@@ -110,12 +108,12 @@
                   <incipText xml:id="incipText_87d5d202">
                     <p xml:lang="en" xml:id="p_446d1a1c"/>
                   </incipText>
-                  <graphic targettype="lowres" xml:id="graphic_a909e820" target="1_amen"/>
+                  <graphic targettype="lowres" xml:id="graphic_a909e820" target="1_o_quam"/>
                 </incip>
                 <tempo xml:id="tempo_18f58e84">[no tempo]</tempo>
-                <key xml:id="key_949d67a0" pname="c" mode="major"/>
-                <meter xml:id="meter_d74c7158" count="3" unit="4"/>
-                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_8889d779">
+                <key xml:id="key_949d67a0" pname="d" mode="dorian"/>
+                <meter xml:id="meter_d74c7158" sym="cut"/>
+                <perfMedium xml:id="perfMedium_8889d779">
                   <perfResList xml:id="perfResList_8c1dd710">
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" xml:id="perfResList_d058b320" n="perfResList_57ca0d7e">
                       <head xml:lang="en" xml:id="head_b5aba6e3_1">coro</head>
@@ -124,14 +122,15 @@
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_4ee9910e" n="perfRes_26a19ef5">T</perfRes>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" xml:id="perfRes_2f464bb3" n="perfRes_b89c3302">B</perfRes>
                     </perfResList>
-                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_f41cee8c">vl</perfRes>
-                    <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_d4d81d52">vlne</perfRes>
-                    <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_01a619e3">org</perfRes>
+                    <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_b5973be6">vlne</perfRes>
+                    <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_48290b78">org</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_da464b18">22 bars</extent>
+                <extent quantity="" xml:id="extent_da464b18">43 bars</extent>
                 <notesStmt xml:id="notesStmt_85efae55">
-                  <annot xml:id="annot_7d99de8b"/>
+                  <annot xml:id="annot_7d99de8b">
+                    <p>mainly four half notes per bar (some bar comprise six half notes)</p>
+                  </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_badf0211"/>
                 <relationList xml:id="relationList_3c28a6a2">
@@ -189,10 +188,10 @@
               <titlePage label="[fol. 1r, in Aloys Fuchs' hand]" xml:id="titlePage_c2f0e5a1">
                 <p><rend rend="underline">Originale</rend> | von | <rend rend="underline">Gregor Werner.</rend> | f&#xFC;r&#x17F;tlich= E&#x17F;terhaczi&#x17F;cher Capellmei&#x17F;ter. | (<rend rend="underline">vor Joseph Haydn</rend>.) | <rend rend="underline">Enth&#xE4;lt folgende St&#xFC;cke in Partitur:</rend> | 1. Fuga &#x201E;Amen&#x201E; f&#xFC;r 4 Sing&#x17F;t. 2 Viol. Orgel. | 2. Antiphon, f&#xFC;r Sop. Alt. Ten. Ba&#x17F;s u Orgel. | Aloys Fuchs MP</p>
               </titlePage>
-              <titlePage label="[fol. 2v, in Fuchs's hand, red ink]" xml:id="titlePage_000ad867">
-                <p>&#x201D;Amen&#x201E; Fuga a 4 Voci. 2 Viol. Organo. di Gr. Werner.</p>
+              <titlePage label="[fol. 3v, in Werner's hand]" xml:id="titlePage_000ad867">
+                <p>Antiphona ad 4tu Evangelium</p>
               </titlePage>
-              <extent quantity="" xml:id="extent_0771e7a2">2 p.</extent>
+              <extent quantity="" xml:id="extent_0771e7a2">5 p.</extent>
               <dimensions xml:id="dimensions_6311fdf8">
                 <height quantity="" xml:id="height_05eaec85"/>
                 <width quantity="" xml:id="width_ccc44811"/>
@@ -210,11 +209,11 @@
                 <identifier auth="RISM" auth.uri="http://www.rism.info" xml:id="identifier_564d493a">A-Wn</identifier>
                 <ptr target="https://data.onb.ac.at/dtl/3451806" mimetype="" label="digitized version" xml:id="ptr_d6e381"/>
               </repository>
-              <identifier xml:id="identifier_76711660">Mus.Hs.15974 (1)</identifier>
+              <identifier xml:id="identifier_76711660">Mus.Hs.15974 (2)</identifier>
             </physLoc>
             <notesStmt xml:id="notesStmt_3c369f92">
               <annot type="source_description" xml:id="annot_8d8a900a">
-                <p>This signature comprises two works, this work (fol. 2v&#x2013;3r) and the antiphon <rend fontstyle="italic">O quam suavis es</rend> WerW D.5.4 (fol. 3v&#x2013;5v).</p>
+                <p>This signature comprises two works, the <rend fontstyle="italic">Amen</rend> WerW D.5.6 (fol. 2v&#x2013;3r) and this work (fol. 3v&#x2013;5v).</p>
               </annot>
               <annot type="links" xml:id="annot_9deda4dd">
                 <ptr mimetype="" xml:id="ptr_d6e397"/>

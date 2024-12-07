@@ -2,20 +2,19 @@
 \include "header.ly"
 
 notes = \relative c' {
-  \clef soprano
-  \key d \dorian \time 4/2 \autoBeamOff
-    \set Staff.timeSignatureFraction = 2/2
-  a'1.^\partSc a2
-  a1 d,2 d'
-  c2. c4 c2 a~
-  a4 a a2 a1
+  \clef treble
+  \key b \major \time 4/4 \tempoMarkup "Allegro"
+  b''8^\partVi b, r16 b32 c d16 f \grace a8 g8.\trill f32 es f8 b, \gotoBar "10"
+  \clef bass \autoBeamOff b,8^\partBs b,16 b r8 f' b a16 g f8 es16 f
+  d8 b r4 r r8 f'16 f
+  b8 b, r4 r r8 b16 b
 }
 
 text = \lyricmode {
-  O quam
-  sua -- vis est,
-  Do -- mi -- ne, spi --
-  ri -- tus "tu -"
+  \skips 11
+  Fu -- ri -- ae vos di -- vae a -- bys -- si vo --
+  la -- te, pro -- pe --
+  ra -- te, pro -- "pe -"
 }
 
 \score {
