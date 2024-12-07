@@ -68,11 +68,11 @@
           <head xml:id="head_4958f16f">Bibliography</head>
           <bibl xml:id="bibl_d4e60">
             <genre>reference</genre>
-            <ptr target="@Stefan1985 [p. 267]" targettype="pandoc-citation"/>
+            <ptr target="@Stefan1985 [p. 267]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
           <bibl xml:id="bibl_d4e62">
             <genre>reference</genre>
-            <ptr target="@Kiesewetter1847 [p. 90]" targettype="pandoc-citation"/>
+            <ptr target="@Kiesewetter1847 [p. 90]" targettype="pandoc-citation" xml:id="ptr_d6e68"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_0ab8c8fb">
@@ -109,7 +109,7 @@
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_626ffabd">T</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" xml:id="perfRes_e9523758">B</perfRes>
                 </perfResList>
-                <perfRes codedval="wch" count="1" solo="true" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_081c3d71">chalumeau</perfRes>
+                <perfRes codedval="wch" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_081c3d71">chalumeau</perfRes>
                 <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_91c07a8e">vl</perfRes>
                 <perfRes codedval="sva" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_a5cd98bc">vla</perfRes>
                 <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_a537d200">vlne</perfRes>
@@ -129,8 +129,8 @@
               </termList>
             </classification>
             <componentList xml:id="componentList_24984666">
-              <expression xml:id="expression_e18ae107">
-                <title xml:lang="la" xml:id="title_94108876">Salve regina</title>
+              <expression xml:id="expression_e18ae107" n="1">
+                <title xml:lang="la" xml:id="title_94108876">Salve Regina</title>
                 <contributor xml:id="contributor_3359fba0">
                   <persName role="" xml:id="persName_9674111f"/>
                 </contributor>
@@ -149,7 +149,7 @@
                       <head xml:lang="en" xml:id="head_0630a6ce_0_0_0_0_0_1">soli</head>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_8cc3db5b" n="perfRes_5e3f3635">A</perfRes>
                     </perfResList>
-                    <perfRes codedval="wch" count="1" solo="true" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_99c6026b">chalumeau</perfRes>
+                    <perfRes codedval="wch" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_99c6026b">chalumeau</perfRes>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_293beaf0">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_ae7ff845">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_ded9d921">org</perfRes>
@@ -157,14 +157,16 @@
                 </perfMedium>
                 <extent quantity="" xml:id="extent_ae1a12c7">51 bars</extent>
                 <notesStmt xml:id="notesStmt_8f41de77">
-                  <annot xml:id="annot_f8d13126"/>
+                  <annot xml:id="annot_f8d13126">
+                    <p>chalumeau solo</p>
+                  </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_8f26047e"/>
                 <relationList xml:id="relationList_9616bf57">
                   <relation rel="hasReproduction" xml:id="relation_32af8618"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_5a91c786">
+              <expression xml:id="expression_5a91c786" n="2">
                 <title xml:lang="la" xml:id="title_d1441077">Vita dulcedo</title>
                 <contributor xml:id="contributor_7d0214d3">
                   <persName role="" xml:id="persName_16e684b3"/>
@@ -198,7 +200,7 @@
                   <relation rel="hasReproduction" xml:id="relation_9581b7cb"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_ec55f42e">
+              <expression xml:id="expression_ec55f42e" n="3">
                 <title xml:lang="la" xml:id="title_57232244">Ad te clamamus</title>
                 <contributor xml:id="contributor_c613dd1c">
                   <persName role="" xml:id="persName_e24939fd"/>
@@ -236,7 +238,7 @@
                   <relation rel="hasReproduction" xml:id="relation_b89d8429"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_980f7711">
+              <expression xml:id="expression_980f7711" n="4">
                 <title xml:lang="la" xml:id="title_55342f97">Ad te suspiramus</title>
                 <contributor xml:id="contributor_f68d0dd7">
                   <persName role="" xml:id="persName_1c4d7202"/>
@@ -259,7 +261,7 @@
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_f93ff60f" n="perfRes_626ffabd">T</perfRes>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" xml:id="perfRes_a44b2365" n="perfRes_e9523758">B</perfRes>
                     </perfResList>
-                    <perfRes codedval="wch" count="1" solo="true" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_2f0a7ed7">chalumeau</perfRes>
+                    <perfRes codedval="wch" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_2f0a7ed7">chalumeau</perfRes>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_9948ccf3">vl</perfRes>
                     <perfRes codedval="sva" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_08558d89">vla</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_6bde1e8a">vlne</perfRes>
@@ -268,14 +270,16 @@
                 </perfMedium>
                 <extent quantity="" xml:id="extent_289160cf">82 bars</extent>
                 <notesStmt xml:id="notesStmt_b47283e3">
-                  <annot xml:id="annot_4cce62b4"/>
+                  <annot xml:id="annot_4cce62b4">
+                    <p>chalumeau solo</p>
+                  </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_2879521e"/>
                 <relationList xml:id="relationList_9fb25d2c">
                   <relation rel="hasReproduction" xml:id="relation_9217b1d7"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_7446b637">
+              <expression xml:id="expression_7446b637" n="5">
                 <title xml:lang="la" xml:id="title_33de6192">Eia ergo</title>
                 <contributor xml:id="contributor_e8b5d38f">
                   <persName role="" xml:id="persName_3a365771"/>
@@ -295,7 +299,7 @@
                       <head xml:lang="en" xml:id="head_0630a6ce_0_0_0_0_0_0_0_0_1">soli</head>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" xml:id="perfRes_fed7d176" n="perfRes_5e3f3635">A</perfRes>
                     </perfResList>
-                    <perfRes codedval="wch" count="1" solo="true" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_404735de">chalumeau</perfRes>
+                    <perfRes codedval="wch" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_404735de">chalumeau</perfRes>
                     <perfRes codedval="svl" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_70ad1a05">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_036d4a6d">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_db0781b7">org</perfRes>
@@ -303,14 +307,16 @@
                 </perfMedium>
                 <extent quantity="" xml:id="extent_09db8851">52 bars</extent>
                 <notesStmt xml:id="notesStmt_975ea7ab">
-                  <annot xml:id="annot_92748b99"/>
+                  <annot xml:id="annot_92748b99">
+                    <p>chalumeau solo</p>
+                  </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_1fe46596"/>
                 <relationList xml:id="relationList_844c5805">
                   <relation rel="hasReproduction" xml:id="relation_e09b3bb9"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_f5ff5943">
+              <expression xml:id="expression_f5ff5943" n="6">
                 <title xml:lang="la" xml:id="title_a8aea054">Et Jesum benedictum</title>
                 <contributor xml:id="contributor_bcd17716">
                   <persName role="" xml:id="persName_c5ddd08e"/>
@@ -330,7 +336,7 @@
                       <head xml:lang="en" xml:id="head_0630a6ce_0_0_0_0_0_0_0_0_0_1">soli</head>
                       <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" xml:id="perfRes_294135f9" n="perfRes_626ffabd">T</perfRes>
                     </perfResList>
-                    <perfRes codedval="wch" count="1" solo="true" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_73b8ffdd">chalumeau</perfRes>
+                    <perfRes codedval="wch" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_73b8ffdd">chalumeau</perfRes>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_8d76dc53">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_fc3ff1d0">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_4858044a">org</perfRes>
@@ -338,14 +344,16 @@
                 </perfMedium>
                 <extent quantity="" xml:id="extent_22008c0d">66 bars</extent>
                 <notesStmt xml:id="notesStmt_f9d7ddcf">
-                  <annot xml:id="annot_2356f233"/>
+                  <annot xml:id="annot_2356f233">
+                    <p>chalumeau solo</p>
+                  </annot>
                 </notesStmt>
                 <componentList xml:id="componentList_b76145e6"/>
                 <relationList xml:id="relationList_525db01b">
                   <relation rel="hasReproduction" xml:id="relation_38a13354"/>
                 </relationList>
               </expression>
-              <expression xml:id="expression_26860303">
+              <expression xml:id="expression_26860303" n="7">
                 <title xml:lang="la" xml:id="title_89582d93">O clemens</title>
                 <contributor xml:id="contributor_4e2b576c">
                   <persName role="" xml:id="persName_b5829d5c"/>
