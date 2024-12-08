@@ -941,16 +941,11 @@ validate_metadata <- function(group,
                               identifiers,
                               sources,
                               table_metadata,
-                              table_sources,
-                              loglevel = c("error", "warn")) {
-  loglevel <- rlang::arg_match(loglevel)
+                              table_sources) {
   report <- function(msg) {
     if (is.null(msg))
       return()
-    if (loglevel == "error") {
-      error(msg)
-    }
-    warn(msg)
+    error(msg)
   }
 
   # work title
@@ -1080,8 +1075,7 @@ get_work_details <- function(group,
     identifiers = set_names(identifier_ids, identifier_catalogues),
     sources = data_sources,
     table_metadata = table_metadata,
-    table_sources = table_sources,
-    loglevel = "error"
+    table_sources = table_sources
   )
 
   use_template(
