@@ -172,7 +172,7 @@ LOST_SOURCE_TEMPLATE <- '
 
 ## RISM ----
 
-RISM_TEMPLATE <- "[{label}](https://opac.rism.info/search?id={rism_id})"
+RISM_TEMPLATE <- str_glue("[{{label}}]({params$rism_link})")
 
 
 ## Identifier ----
