@@ -688,9 +688,14 @@ format_dimensions <- function(d) {
     return(NA_character_)
 
   h <- attr(d$height, "quantity")
-  hu <- attr(d$height, "unit")
+  hu <- attr(d$height, "unit") %||% "missing"
   w <- attr(d$width, "quantity")
-  wu <- attr(d$width, "unit")
+  wu <- attr(d$width, "unit") %||% "missing"
+
+  if (hu == "missing")
+    error("Dimensions for height missing")
+  if (wu == "missing")
+    error("Dimensions for width missing")
 
   if (hu == wu)
     paste(h, "×", w, wu)
