@@ -125,17 +125,17 @@ SOURCE_TEMPLATE <- '
 
 {classification}
 
-##### Location
+##### Location(s)
 
-{siglum} {shelfmark} {link}
+{locations}
 
 ##### RISM
 
 {rism_id}
 
-##### Dating
+##### Publication, dating
 
-{dating}
+{publication}
 
 ##### Title page(s)
 
@@ -162,7 +162,7 @@ LOST_SOURCE_TEMPLATE <- '
 
 ##### Location
 
-{siglum} {shelfmark} {link}
+{locations}
 
 ##### Components and notes
 
@@ -340,9 +340,10 @@ format_incipits <- function(incipit_list, work_id) {
 }
 
 # format the short sources as table
+#   ss: manifestationList
 format_sources_short <- function(ss) {
   sources <-
-    map(ss, \(s) get_source_location(s) %>% as_tibble_row()) %>%
+    map(ss, \(s) get_source_locations(s, pluck(s$identifier, 1))) %>%
     list_rbind() %>%
     arrange(type, siglum, shelfmark) %>%
     summarise(
@@ -705,7 +706,8 @@ format_dimensions <- function(d) {
 
 # format the titlepages of a source
 format_titlepage <- function(p) {
-  names(p) %>%
+  res <-
+    names(p) %>%
     str_which("titlePage") %>%
     map_chr(\(i) {
       label <- attr(p[[i]], "label")
@@ -722,6 +724,10 @@ format_titlepage <- function(p) {
       )
     }) %>%
     str_flatten("\n")
+
+  if (res == "")
+    "–"
+  res
 }
 
 # format the pysical description
@@ -744,58 +750,77 @@ format_physdesc <- function(p) {
   res
 }
 
-# get type, siglum, shelfmark, link to digitized version,
-# and RISM ID of a source
+# get the source locations
+#   s: manifestation
+#   rism_id: RISM ID of manifestation (used by prints)
+# returns a tibble with the following columns:
+#   validation_ignore (whether this source should be ignored during validation)
+#   type (A, C, …)
+#   siglum
+#   shelfmark
+#   link (link to source, labeled as digitized version, catalogue entry ...)
+#   rism_id (link to RISM entry, labeled by RISM ID)
+#   source (link to RISM entry, labeled by siglum and shelfmark)
 # also write siglum to global variable
-# for assembling a list of abbreviations later
-get_source_location <- function(s) {
+#   for assembling a list of abbreviations later
+get_source_locations <- function(s, rism_id = NULL) {
   type_long <- s$titleStmt$title[[1]]
   type <- params$validation$source_types[type_long]
   if (is.null(type))
     error("Unknown source type: ", type_long)
 
-  siglum <- pluck(s$itemList$item$physLoc$repository$identifier, 1)
-  if (is.null(siglum)) {
-    siglum <- s$itemList$item$physLoc$repository$corpName[[1]]
-    validation_ignore <- TRUE
-  } else {
-    GLOBAL_sigla <<- c(GLOBAL_sigla, siglum)
-    validation_ignore <- FALSE
-  }
+  map(
+    s$itemList,
+    \(item) {
+      siglum <- pluck(item$physLoc$repository$identifier, 1)
+      if (is.null(siglum)) {
+        siglum <- item$physLoc$repository$corpName[[1]]
+        validation_ignore <- TRUE
+      } else {
+        GLOBAL_sigla <<- c(GLOBAL_sigla, siglum)
+        validation_ignore <- FALSE
+      }
 
-  shelfmark <- s$itemList$item$physLoc$identifier[[1]]
-  source <- paste(siglum, shelfmark)
+      shelfmark <- item$physLoc$identifier[[1]]
+      source <- paste(siglum, shelfmark)
 
-  url <- attr(s$itemList$item$physLoc$repository$ptr, "target")
-  url_label <- attr(s$itemList$item$physLoc$repository$ptr, "label")
-  if (is.null(url)) {
-    link <- ""
-  } else {
-    if (!url_label %in% params$validation$location_link_labels)
-      error("Unknown link label: ", url_label)
-    link <- str_glue("([{url_label}]({url}))")
-  }
+      url <- attr(item$physLoc$repository$ptr, "target")
+      url_label <- attr(item$physLoc$repository$ptr, "label")
+      if (is.null(url)) {
+        link <- ""
+      } else {
+        if (!url_label %in% params$validation$location_link_labels)
+          error("Unknown link label: ", url_label)
+        link <- str_glue("([{url_label}]({url}))")
+      }
 
-  rism_id <- pluck(s$itemList$item$identifier, 1)
-  if (is.null(rism_id)) {
-    rism_id <- "–"
-  } else {
-    source <- use_template(RISM_TEMPLATE, label = source, rism_id = rism_id)
-    rism_id <- use_template(RISM_TEMPLATE, label = rism_id, rism_id = rism_id)
-  }
+      if (is.null(rism_id))
+        rism_id <- pluck(item$identifier, 1)
 
-  list(
-    validation_ignore = validation_ignore,
-    type = type,
-    siglum = siglum,
-    shelfmark = shelfmark,
-    link = link,
-    rism_id = rism_id,
-    source = source
-  )
+      if (is.null(rism_id)) {
+        rism_id <- "–"
+      } else {
+        source <- use_template(RISM_TEMPLATE,
+                               label = source, rism_id = rism_id)
+        rism_id <- use_template(RISM_TEMPLATE,
+                                label = rism_id, rism_id = rism_id)
+      }
+
+      tibble_row(
+        validation_ignore = validation_ignore,
+        type = type,
+        siglum = siglum,
+        shelfmark = shelfmark,
+        link = link,
+        rism_id = rism_id,
+        source = source
+      )
+    }
+  ) %>%
+    list_rbind()
 }
 
-# format a source
+# format a source (s: one manifestation of the manifestationList)
 format_source <- function(s) {
   title <- s$titleStmt$title[[1]]
   info("    source {title}")
@@ -806,41 +831,63 @@ format_source <- function(s) {
     str_to_lower()
   check_classification(classification)
 
-  location <- get_source_location(s)
-
   dating <- pluck(s, "pubStmt", "date", 1) %||% "–"
 
-  title_pages <- format_titlepage(s$itemList$item$physDesc)
-  if (title_pages == "")
-    title_pages <- "–"
+  # prints define publisher, location(s), title page(s),
+  # physical description (extent, dimensions, physical medium),
+  # and source description on the manifestation level;
+  # manuscripts define them on the item level
+  if (title == "Print") {
+    publication <- str_flatten_comma(c(
+      pluck(s, "pubStmt", "publisher", 1) %||% "N.N.",
+      pluck(s, "pubStmt", "pubPlace", 1) %||% "(no place)",
+      dating
+    ))
 
-  physdesc <- format_physdesc(s$itemList$item$physDesc)
+    source_locations <- get_source_locations(s, pluck(s$identifier, 1))
 
-  source_description <-
-    attr(s$itemList$item$notesStmt[[1]], "markdown_list") %||% "–"
+    title_pages <- format_titlepage(s$physDesc)
+
+    physdesc <- format_physdesc(s$physDesc)
+
+    source_description <- attr(s$notesStmt[[1]], "markdown_list") %||% "–"
+  } else {
+    publication <- dating
+
+    source_locations <- get_source_locations(s)
+    if (nrow(source_locations) != 1L)
+      error("There must be only one item for manuscripts.")
+
+    title_pages <- format_titlepage(s$itemList$item$physDesc)
+
+    physdesc <- format_physdesc(s$itemList$item$physDesc)
+
+    source_description <-
+      attr(s$itemList$item$notesStmt[[1]], "markdown_list") %||% "–"
+  }
+
+  locations <-
+    source_locations %>%
+    pmap_chr(\(siglum, shelfmark, link, ...) {
+      paste(siglum, shelfmark, link)
+    }) %>%
+    str_flatten("<br/>")
 
   if (classification[6] == "lost")
-    return(
-      use_template(
+    return(use_template(
         LOST_SOURCE_TEMPLATE,
         title = title,
         classification = str_flatten(classification, " · "),
-        siglum = location$siglum,
-        shelfmark = location$shelfmark,
-        link = location$link,
+        locations = locations,
         source_description = source_description
-      )
-    )
-
+      ))
   use_template(
     SOURCE_TEMPLATE,
     title = title,
     classification = str_flatten(classification, " · "),
-    siglum = location$siglum,
-    shelfmark = location$shelfmark,
-    link = location$link,
-    rism_id = location$rism_id,
-    dating = dating,
+    locations = locations,
+    rism_id = source_locations$rism_id[1],
+    publication = publication,
     title_pages = title_pages,
     physdesc = physdesc,
     source_description = source_description
@@ -973,12 +1020,9 @@ validate_metadata <- function(group,
 
   # sources
   mei_sources <-
-    map(sources,
-        \(s) get_source_location(s) %>%
-          as_tibble_row() %>%
-          filter(!validation_ignore)
-    ) %>%
+    map(sources, get_source_locations) %>%
     list_rbind() %>%
+    filter(!validation_ignore) %>%
     mutate(
       source = str_c(siglum, shelfmark, sep = " "),
       .keep = "none"

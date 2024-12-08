@@ -148,10 +148,9 @@ Enter the following source details:
   - “Autograph manuscript”
   - “Partly autograph manuscript”
   - “Manuscript copy”
-  - “Print”
 - *classification*: add six terms from the predefined list
 - *publication*:
-  - date of printing or writing
+  - date of writing
   - always include it, even if it is only a rough estimate, e.g.
     - mid 18th century (machine-readable 1750-01-01)
 
@@ -196,6 +195,41 @@ If a full score or all parts are described, enter the following information on t
   - location (use “Repository name” if no RISM siglum is available)
   - (optional) general description
 
+
+### Prints
+
+Enter the following source details:
+
+- *source title*: “Print”
+- *classification*: add six terms from the predefined list
+- *publication*:
+  - publisher
+  - place
+  - date of printing (mandatory)
+
+![](images/mermeid_sources_print_1.png)
+
+Also, add the following information on the source level (see manuscripts for details):
+
+- RISM identifier
+- title page(s)
+- physical description (extent, dimensions, physical medium)
+- general description
+
+![](images/mermeid_sources_print_2.png)
+
+Then, add **several items** where only the *location* is specified:
+
+- RISM siglum
+- URI (link to digitized version or catalogue entry)
+- label (“digitized version” or “catalogue entry”)
+- shelfmark
+
+![](images/mermeid_sources_print_3.png)
+
+::: {.callout-warning}
+In the XML file, manually remove the `m:` prefix and namespace declaration from the `<physMedium>` tag.
+:::
 
 
 ## History
