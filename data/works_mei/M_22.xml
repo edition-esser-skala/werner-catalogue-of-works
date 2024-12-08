@@ -50,10 +50,10 @@
     </encodingDesc>
     <workList xml:id="workList_4826e601">
       <work xml:id="work_829f001a">
-        <identifier xml:id="identifier_dca83b92" label="WerW">M.17</identifier>
-        <identifier label="HarIn" xml:id="identifier_d5e1ed68">F.19</identifier>
-        <identifier label="PetSi" xml:id="identifier_b64a056f">Sog 20</identifier>
-        <title xml:lang="la" xml:id="title_64b30d70">Sonata prima</title>
+        <identifier xml:id="identifier_dca83b92" label="WerW">M.22</identifier>
+        <identifier label="HarIn" xml:id="identifier_c892c15a">F.19</identifier>
+        <identifier label="PetSi" xml:id="identifier_b64a056f">Sog 9</identifier>
+        <title xml:lang="la" xml:id="title_64b30d70">Sonata sexta</title>
         <title type="alternative" xml:lang="la" xml:id="title_dd6e342c">Symphoniae sex senaeque sonatae</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
@@ -70,7 +70,7 @@
         <biblList xml:id="biblList_cdf918b3">
           <head xml:id="head_69e00f1e">Bibliography</head>
           <bibl xml:id="bibl_d4e67">
-            <genre xml:id="genre_6b682814">reference</genre>
+            <genre xml:id="genre_f1a60ddb">reference</genre>
             <ptr target="@Petermayr2020 [p. 448f]" targettype="pandoc-citation" xml:id="ptr_d6e69"/>
           </bibl>
         </biblList>
@@ -114,10 +114,10 @@
                   <incipText xml:id="incipText_9ddcbfc3">
                     <p xml:lang="en" xml:id="p_96b0f235"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_largo" xml:id="graphic_34848c07"/>
+                  <graphic targettype="lowres" target="1_adagio" xml:id="graphic_34848c07"/>
                 </incip>
-                <tempo xml:id="tempo_6313a62f">Largo</tempo>
-                <key pname="a" mode="minor" xml:id="key_1050ae57"/>
+                <tempo xml:id="tempo_6313a62f">Adagio</tempo>
+                <key pname="c" mode="phrygian" xml:id="key_1050ae57"/>
                 <meter count="3" unit="4" xml:id="meter_7f5c78be"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_95d50bc2">
                   <perfResList xml:id="perfResList_1fd77a71">
@@ -125,7 +125,7 @@
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_b7517dc9">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_420f1fb1">23 bars</extent>
+                <extent quantity="" xml:id="extent_420f1fb1">19 bars</extent>
                 <notesStmt xml:id="notesStmt_4712223b">
                   <annot xml:id="annot_1ca84487"/>
                 </notesStmt>
@@ -143,10 +143,10 @@
                   <incipText xml:id="incipText_74f8a5d1">
                     <p xml:lang="en" xml:id="p_e59d5964"/>
                   </incipText>
-                  <graphic targettype="lowres" target="2_allegro" xml:id="graphic_15f1e5b3"/>
+                  <graphic targettype="lowres" target="2_vivace" xml:id="graphic_15f1e5b3"/>
                 </incip>
-                <tempo xml:id="tempo_be6963e7">Allegro</tempo>
-                <key pname="a" mode="minor" xml:id="key_06868e1b"/>
+                <tempo xml:id="tempo_be6963e7">Vivace</tempo>
+                <key pname="c" mode="dorian" xml:id="key_06868e1b"/>
                 <meter sym="common" xml:id="meter_17016964"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_9670a21e">
                   <perfResList xml:id="perfResList_a2017446">
@@ -154,7 +154,7 @@
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_938de779">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_a8405fc9">53 bars</extent>
+                <extent quantity="" xml:id="extent_a8405fc9">39 bars</extent>
                 <notesStmt xml:id="notesStmt_3e9bd657">
                   <annot xml:id="annot_e4731378"/>
                 </notesStmt>
@@ -172,18 +172,18 @@
                   <incipText xml:id="incipText_a657fba0">
                     <p xml:lang="en" xml:id="p_5f708d9c"/>
                   </incipText>
-                  <graphic targettype="lowres" target="3_largo" xml:id="graphic_22acc761"/>
+                  <graphic targettype="lowres" target="3_adagio" xml:id="graphic_22acc761"/>
                 </incip>
-                <tempo xml:id="tempo_cd21d83f">Largo</tempo>
-                <key pname="c" mode="major" xml:id="key_6d54068f"/>
-                <meter xml:id="meter_df6c8443" count="3" unit="2"/>
+                <tempo xml:id="tempo_cd21d83f">Adagio</tempo>
+                <key pname="c" mode="dorian" xml:id="key_6d54068f"/>
+                <meter xml:id="meter_df6c8443" count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_05d17755">
                   <perfResList xml:id="perfResList_e41d58a2">
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_7e37314d">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_3298d225">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_fb915e4b">17 bars</extent>
+                <extent quantity="" xml:id="extent_fb915e4b">11 bars</extent>
                 <notesStmt xml:id="notesStmt_19bd79f2">
                   <annot xml:id="annot_5583144a"/>
                 </notesStmt>
@@ -201,10 +201,10 @@
                   <incipText xml:id="incipText_26790c47">
                     <p xml:lang="en" xml:id="p_d54b1bd2"/>
                   </incipText>
-                  <graphic targettype="lowres" xml:id="graphic_a1707891" target="4_allegro"/>
+                  <graphic targettype="lowres" xml:id="graphic_a1707891" target="4_allegro_non_troppo"/>
                 </incip>
-                <tempo xml:id="tempo_5ec32ba7">Allegro</tempo>
-                <key xml:id="key_d5ee8bc4" pname="a" mode="minor"/>
+                <tempo xml:id="tempo_5ec32ba7">Allegro non troppo</tempo>
+                <key xml:id="key_d5ee8bc4" pname="c" mode="dorian"/>
                 <meter xml:id="meter_fcc73a32" count="6" unit="8"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_0857f431">
                   <perfResList xml:id="perfResList_42d658dd">
@@ -212,7 +212,7 @@
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" xml:id="perfRes_1b05688f">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent quantity="" xml:id="extent_698a8923">46 bars</extent>
+                <extent quantity="" xml:id="extent_698a8923">47 bars</extent>
                 <notesStmt xml:id="notesStmt_9b4e208e">
                   <annot xml:id="annot_4a7fbbb0"/>
                 </notesStmt>
@@ -260,7 +260,7 @@
         <notesStmt xml:id="notesStmt_a5dc3dfd">
           <annot type="source_description" xml:id="annot_666c0686">
             <p>vl 1 (24), vl 2 (24), cemb (20)</p>
-            <p>This sonata is the 2nd work in the collection <rend fontstyle="italic">Symphoniae sex senaeque sonatae</rend>, which consists of twelve works in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 2&#x2013;4; vl 2, p. 2&#x2013;4; bc, p. 2f.</p>
+            <p>This sonata is the last work in the collection <rend fontstyle="italic">Symphoniae sex senaeque sonatae</rend>, which consists of twelve works in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 22&#x2013;24; vl 2, p. 22&#x2013;24; bc, p. 18&#x2013;20.</p>
           </annot>
           <annot type="links" xml:id="annot_be582ea5">
             <ptr mimetype="" xml:id="ptr_d6e321"/>

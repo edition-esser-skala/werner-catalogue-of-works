@@ -53,6 +53,7 @@
         <identifier xml:id="identifier_dca83b92" label="WerW">P.3</identifier>
         <identifier label="PetSi" xml:id="identifier_319dfa8d">Sin 11</identifier>
         <title xml:lang="la" xml:id="title_64b30d70">Symphonia</title>
+        <title type="alternative" xml:lang="la" xml:id="title_bbc8425b">Symphoniae sex senaeque sonatae</title>
         <contributor xml:id="contributor_f5043ab9">
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X" xml:id="persName_060615d7">Gregor Joseph Werner</persName>
           <corpName role="" xml:id="corpName_f5099b49"/>
@@ -68,8 +69,8 @@
         <biblList xml:id="biblList_d6fdacba">
           <head xml:id="head_96fe9fe8">Bibliography</head>
           <bibl xml:id="bibl_d4e65">
-            <genre>reference</genre>
-            <ptr target="@Sherman2001 [p. 271, 488]" targettype="pandoc-citation"/>
+            <genre xml:id="genre_12df3771">reference</genre>
+            <ptr target="@Sherman2001 [p. 271, 488]" targettype="pandoc-citation" xml:id="ptr_d6e67"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_edfb85be">
