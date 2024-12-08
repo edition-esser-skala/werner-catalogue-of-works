@@ -28,7 +28,7 @@ warn <- function(..., .envir = parent.frame()) {
 
 error <- function(..., .envir = parent.frame()) {
   log4r::error(default_logger, glue::glue(..., .envir = .envir))
-  stop()
+  stop(call. = FALSE)
 }
 
 
