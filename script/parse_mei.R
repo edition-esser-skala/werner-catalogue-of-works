@@ -765,7 +765,7 @@ format_physdesc <- function(p) {
 #   for assembling a list of abbreviations later
 get_source_locations <- function(s, rism_id = NULL) {
   type_long <- s$titleStmt$title[[1]]
-  type <- params$validation$source_types[type_long]
+  type <- pluck(params$validation$source_types, type_long, "abbreviation")
   if (is.null(type))
     error("Unknown source type: ", type_long)
 
@@ -829,7 +829,7 @@ format_source <- function(s) {
     s$classification$termList %>%
     map_chr(\(t) t[[1]]) %>%
     str_to_lower()
-  check_classification(classification)
+  check_classification(classification, title)
 
   dating <- pluck(s, "pubStmt", "date", 1, .default = "–")
 
@@ -960,7 +960,8 @@ check_genre <- function(genre) {
 }
 
 # checks whether the source classification terms are valid
-check_classification <- function(terms) {
+# and whether the authority term matches the source title
+check_classification <- function(terms, source_title) {
   walk2(
     terms,
     params$validation$classification,
@@ -969,6 +970,18 @@ check_classification <- function(terms) {
         error("      term '{term}' invalid")
     }
   )
+
+  term_expected <-
+    pluck(params$validation$source_types, source_title, "term_presentation")
+  if (term_expected != terms[2])
+    error("Source title '{source_title}' ",
+          "does not match presentation term '{terms[2]}'")
+
+  term_expected <-
+    pluck(params$validation$source_types, source_title, "term_authority")
+  if (term_expected != terms[3])
+    error("Source title '{source_title}' ",
+          "does not match authority term '{terms[2]}'")
 }
 
 # stops the script if two strings are not equal

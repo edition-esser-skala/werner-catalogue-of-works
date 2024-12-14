@@ -44,13 +44,28 @@ edition:
 rism_link: https://rism.online/sources/{rism_id}  # link to RISM
 
 validation:
-  # allowed source types and their abbreviations
+  # allowed source types (title, abbreviation, presentation and authority term)
   source_types:
-    Autograph manuscript: A
-    Partly autograph manuscript: A
-    Manuscript copy: C
-    Print: P
-    Lost manuscript: L
+    Autograph manuscript:
+      abbreviation: A
+      term_presentation: manuscript
+      term_authority: autograph
+    Partly autograph manuscript:
+      abbreviation: A
+      term_presentation: manuscript
+      term_authority: partly autograph
+    Manuscript copy:
+      abbreviation: C
+      term_presentation: manuscript
+      term_authority: copy
+    Print:
+      abbreviation: P
+      term_presentation: print
+      term_authority: copy
+    Lost manuscript:
+      abbreviation: L
+      term_presentation: manuscript
+      term_authority: copy
 
   # allowed labels for the link to the source location
   location_link_labels:
