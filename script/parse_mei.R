@@ -831,18 +831,27 @@ format_source <- function(s) {
     str_to_lower()
   check_classification(classification)
 
-  dating <- pluck(s, "pubStmt", "date", 1) %||% "–"
+  dating <- pluck(s, "pubStmt", "date", 1, .default = "–")
 
-  # prints define publisher, location(s), title page(s),
-  # physical description (extent, dimensions, physical medium),
+  # prints define publisher (name, place, date, plate number), location(s),
+  # title page(s), physical description (extent, dimensions, physical medium),
   # and source description on the manifestation level;
   # manuscripts define them on the item level
   if (title == "Print") {
     publication <- str_flatten_comma(c(
-      pluck(s, "pubStmt", "publisher", 1) %||% "N.N.",
-      pluck(s, "pubStmt", "pubPlace", 1) %||% "(no place)",
+      pluck(s, "pubStmt", "publisher", 1, .default = "(unknown publisher)"),
+      pluck(s, "pubStmt", "pubPlace", 1, .default = "(no place)"),
       dating
     ))
+
+    plate_number <- pluck(s, "physDesc", "plateNum", 1)
+    if (is.null(plate_number))
+      plate_number <- "(no plate number)"
+    else
+      plate_number <- str_glue("(plate number: {plate_number})")
+
+    publication <- paste(publication, plate_number)
+
 
     source_locations <- get_source_locations(s, pluck(s$identifier, 1))
 
