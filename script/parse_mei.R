@@ -599,6 +599,10 @@ format_section <- function(s) {
   scoring <- format_scoring(s$perfMedium$perfResList)
   notes <- attr(s$notesStmt[[1]], "markdown_text") %||% ""
 
+  incipit_file <- attr(s$incip$graphic, "target", exact = TRUE)
+  if (!is.null(incipit_file))
+    error("Section must not have an incipit {incipit_file}")
+
   tibble_row(
     extent =
       extent %>%
