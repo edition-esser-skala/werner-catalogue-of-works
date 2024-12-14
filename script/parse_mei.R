@@ -716,6 +716,7 @@ format_dimensions <- function(d) {
 }
 
 # format the titlepages of a source
+# p: physDesc
 format_titlepage <- function(p) {
   res <-
     names(p) %>%
@@ -737,7 +738,7 @@ format_titlepage <- function(p) {
     str_flatten("\n")
 
   if (res == "")
-    "–"
+    return("–")
   res
 }
 
