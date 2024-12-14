@@ -247,15 +247,15 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
     ```xml
     <bibl>
       <genre>reference</genre>
-      <ptr target="@Petermayr2020 [p. 23]" targettype="pandoc-citation"/>
+      <ref targettype="pandoc-citation">@Petermayr2020 [p. 23]</ref>
     </bibl>
     <bibl>
       <genre>reference</genre>
-      <ptr target="@Mikusi2020" targettype="pandoc-citation"/>
+      <ref targettype="pandoc-citation">@Mikusi2020</ref>
     </bibl>
     <bibl>
       <genre>reference</genre>
-      <ptr target="@WinklerKlement2013 [p. 50]" targettype="pandoc-citation"/>
+      <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 50]</ref>
     </bibl>
     ```
     - *Editions* are described with MEI XML tags:

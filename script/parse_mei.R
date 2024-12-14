@@ -514,7 +514,7 @@ format_bibliography <- function(b, work_id) {
   entries_ref <-
     b %>%
     keep(\(x) !is.null(x$genre) && x$genre == "reference") %>%
-    map_chr(\(i) attr(i$ptr, "target")) %>%
+    map_chr(\(i) i$ref[[1]]) %>%
     str_sort()
 
   entries_score <-
