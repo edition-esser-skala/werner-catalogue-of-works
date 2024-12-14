@@ -1006,7 +1006,7 @@ check_equal_string <- function(a, b) {
 check_equal_list <- function(a, b) {
   a <- str_sort(a) %>% unique()
   b <- str_sort(b) %>% unique()
-  if (all(a == b)) return()
+  if (length(a) == length(b) && all(a == b)) return()
   str_glue("These lists must be the same:",
            "\n(MEI) {str_flatten_comma(a)}",
            "\n(CSV) {str_flatten_comma(b)}")
@@ -1034,11 +1034,13 @@ validate_metadata <- function(group,
     report()
 
   # references
-  table_bibliography <-
-    table_metadata$literature %>%
-    replace_na("") %>%
-    str_split_1(", @") %>%
-    str_remove("@")
+  if (is.na(table_metadata$literature))
+    table_bibliography <- character(0)
+  else
+    table_bibliography <-
+      table_metadata$literature %>%
+      str_split_1(", @") %>%
+      str_remove("@")
   check_equal_list(str_remove(bibliography, "@"), table_bibliography) %>%
     report()
 
