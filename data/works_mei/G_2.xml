@@ -66,9 +66,9 @@
         </langUsage>
         <biblList xml:id="biblList_a18d4cba">
           <head xml:id="head_21ca7d22">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e63">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 119, 168]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 119, 168]" targettype="pandoc-citation" xml:id="ptr_d6e65"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_491453d3">
@@ -291,7 +291,7 @@
                     </incip>
                     <tempo xml:id="tempo_046aa9fe">Adagio</tempo>
                     <key xml:id="key_8bb2bc97" pname="g" mode="minor"/>
-                    <meter xml:id="meter_1e4d0cf6"/>
+                    <meter xml:id="meter_1e4d0cf6" sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_4f8e5c42">
                       <perfResList xml:id="perfResList_44230a47">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" xml:id="perfResList_03bf564d" n="perfResList_558c98fe">

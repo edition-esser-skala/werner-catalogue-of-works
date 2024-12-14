@@ -267,18 +267,18 @@ format_mei_text <- function(xml_data) {
 
 # format the time signature with common/cut time symbols or fraction
 format_meter <- function(m) {
-  res <- NULL
-  if (is.null(attr(m, "sym"))) {
-    res <- str_glue("${attr(m, 'count')} \\atop {attr(m, 'unit')}$")
-  } else if (attr(m, "sym") == "common") {
-    res <- "\U1d134"
-  } else if (attr(m, "sym") == "cut") {
-    res <- "\U1d135"
-  }
+  meter <- attr(m, "sym")
+  if (is.null(meter))
+    meter <- paste(attr(m, "count"), attr(m, "unit"), sep = "_")
 
-  if (is.null(res))
-    error("Illegal meter")
-  res
+  if (length(meter) == 0L)
+    error("Meter missing")
+
+  meter_svg <- str_glue("images/meter/{meter}.svg")
+  if (!file_exists(meter_svg))
+    warn("No image available for meter {meter}")
+
+  str_glue("![](../{meter_svg})")
 }
 
 # format the key signature

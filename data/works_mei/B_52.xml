@@ -68,9 +68,9 @@
         </langUsage>
         <biblList xml:id="biblList_6d0b7310">
           <head xml:id="head_3db0f10c">Bibliography</head>
-          <bibl>
+          <bibl xml:id="bibl_d4e67">
             <genre>reference</genre>
-            <ptr target="@WinklerKlement2013 [p. 46]" targettype="pandoc-citation"/>
+            <ptr target="@WinklerKlement2013 [p. 46]" targettype="pandoc-citation" xml:id="ptr_d6e69"/>
           </bibl>
         </biblList>
         <classification xml:id="classification_5b2edecb">
@@ -385,7 +385,7 @@
                     </incip>
                     <tempo xml:id="tempo_6c9f590d">[no tempo]</tempo>
                     <key xml:id="key_b87c08ab" pname="d" mode="minor"/>
-                    <meter xml:id="meter_4b1df4c2"/>
+                    <meter xml:id="meter_4b1df4c2" sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="perfMedium_cb967b20">
                       <perfResList xml:id="perfResList_177d9a08">
                         <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="Mixed choir (SATB)" xml:id="perfResList_c622a5cb" n="perfResList_4d6c22d6">
