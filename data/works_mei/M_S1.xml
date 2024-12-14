@@ -701,6 +701,19 @@
               <repository>
                 <corpName role=""/>
                 <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">A-SEI</identifier>
+              </repository>
+              <identifier>(n.i.)</identifier>
+            </physLoc>
+            <componentList/>
+          </item>
+          <item>
+            <identifier/>
+            <physDesc/>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wgm</identifier>
               </repository>
               <identifier>IX 5411</identifier>
@@ -827,6 +840,63 @@
               </repository>
               <identifier>(no shelfmark)</identifier>
             </physLoc>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1847-01-01">1847</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Parts</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <physDesc>
+              <titlePage label="[wrapper]">
+                <p>VI Fugen | in | Quartetten | auf 2 Violinen, Viola und Violoncell | von | G. J. Werner | Weyland Kapellmeister | S. D. des F&#xFC;rsten N. Esterhazy etc. etc. | Aus besonderer Achtung gegen diesen ber&#xFC;hmten | Meister nun herausgegeben von dessen Nachfolger | Jos: Haydn | Comp. | 847.</p>
+              </titlePage>
+              <extent>4 parts</extent>
+              <dimensions/>
+              <physMedium>
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">A-G&#xD6;</identifier>
+              </repository>
+              <identifier>Ms 4495</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>vl 1, vl 2, vla, vlc</p>
+                <p>a copy by P. Hermann Moser</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
             <componentList/>
           </item>
         </itemList>
