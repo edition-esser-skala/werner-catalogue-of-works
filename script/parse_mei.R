@@ -588,6 +588,10 @@ format_section <- function(s) {
   title <- s$title[[1]]
   info("      section {title}")
 
+  number <- attr(s, "n", exact = TRUE)
+  if (!is.null(number))
+    error("Section must not be numbered")
+
   tempo <- s$tempo[[1]]
   key <- format_key(s$key)
   meter <- format_meter(s$meter)
@@ -612,9 +616,12 @@ format_section <- function(s) {
 # returns a table row with the movement's pipe-separated scoring (scoring)
 # and the markdown-formatted movement data (markdown)
 format_movement <- function(m, work_id) {
-  number <- attr(m, "n", exact = TRUE) %||% ""
   title <- m$title[[1]]
   info("    movement {title}")
+
+  number <- attr(m, "n", exact = TRUE)
+  if (is.null(number))
+    error("Movement number missing")
 
   tempo <- m$tempo[[1]]
   meter <- format_meter(m$meter)
