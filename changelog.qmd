@@ -1,5 +1,60 @@
 # Changelog {.unnumbered}
 
+## 0.10.0 – 2024-12-14
+
+### Added
+
+- works: WerW D.4.9, I.5.27, P.10, and P.L8/L9
+- manual incipits for WerW B.23/71, D.1.1/4, D.2.10, F.2/3/32, G.17, H.1.14/16, I.1.4, I.2.17, I.3.1/22, I.4.50, I.5.13, and M.18–22
+- metadata for WerW B.23/71, D.1.1/4, D.2.10, D.5.4/5/7/S1, F.2/3/8/15/16/18–20/32/42/60/61, G.2/6/10/17, H.1.8/9/11/14/16, I.1.1/2/4/13/27/30/31, I.2.4/6/8/12/15–17, I.3.1/7/10/15/21/22, I.4.7/15–17/35/41/45/46/50/S1, I.5.5/7/10/13/23, J.2/3, M.17–22/S1, O.13, and Q.2–4
+- sources:
+  - WerW I.3.21: H-K Ms.748/a
+  - WerW B.71: A-HE VIII a 6 and D-OB MO 312
+  - Fonds Moder: 6, 11, 20, 29/1-7, 30, 37-45
+  - copies in A-KN
+- the identifier *HarCa*, which is Hárich's unfinished catalogue of works in A-Wgm (currently only for masses)
+- support for prints and lost sources in metadata
+- support for a repository name instead of a RISM siglum in the source location
+- references: Armstrong 2004, Bardos 1976, 1980, 1984, Chase 2003, Esterházy inventories 1805 and 1812/13, Hansell 1968, Harman 1968, Herzogenburg inventories A and B, Klosterneuburg inventory B, Müller 1911, Narkmun 2024, Preisl 2022, Prominczel 2013, Radant 1982, Rheinfurth 1977, Rostetter 2023, and Weinmann 1978
+- a detailed description of previous efforts to create a thematic catalogue
+- metadata validation:
+  - consistency between CSV and MEI (work title, references, identifiers, sources)
+  - link label of source location, genre, and classification terms are from a vocabulary defined in `data/config.yml`
+  - number of bars in sections sum up to number of bars in movement
+  - scoring of sections (movement) sums up to scoring of movement (work)
+  - instrument abbreviation corresponds to UNIMARC term
+  - source title matches presentation and authority term
+  - all movements are numbered and sections are not
+  - there are no incipits in sections
+- a link to the modern EES edition of a work (if available)
+- an appendix *Inventories*, which contains tables describing Hárich's catalogue and the Fonds Moder
+- acknowledgements for A-H, A-KN, A-MB, A-Wgm, A-Z, D-OB, H-K, and Hilscher
+- the macro `\hA` to the incipit header
+- shelfmark subnumbers to hymn collections in A-KN, H-Gk, and H-VEs
+- `catalogue.log`, which contains the log file
+- `data/instrument_abbreviations.csv`, which describes UNIMARC instrument abbreviations
+- `data/library_sigla.csv`, which describes RISM library sigla
+- `data/fonds_moder.csv`, which contains an inventory for the Fonds Moder
+
+### Changed
+
+- Sources are now formatted as table with one row for each source type (autograph, manuscript ...).
+- Meters are now printed as SVGs from LilyPond's Emmentaler font.
+- Source components are now rendered as itemized list.
+- WerW H.2.12 has been merged to H.1.16 (5th movement).
+- WerW I.2.23 has been merged to I.2.22. Thus, WerW I.2.24 has been renumbered to I.2.23.
+- WerW I.3.L1 has been reclassified as I.3.S1, with source A-Ee N0226.
+- WerW D.3.2 has been reclassified as D.3.S2. Thus, WerW D.3.3–8 have been renumbered to D.3.2–7.
+- WerW D.5.3 has been reclassified as D.5.S2. Thus, WerW D.5.4–7 have been renumbered to D.5.3–6.
+- The XML processing script (renamed to `get_mermeid_xml.sh`) now downloads files from the eXist-db database and validates them against the mei-CMN schema.
+
+
+### Fixed
+
+- References in metadata are (again) encoded with a `<ref>` element to conform with the MEI schema.
+- description of HarIn in guidelines (prefixes were swapped)
+
+
 ## 0.9.0 – 2024-10-12
 
 ### Added
