@@ -11,7 +11,7 @@ This website contains an evolving thematic catalogue of Gregor Joseph Werner's w
 ::: {.callout-important}
 ## Caution
 
-This catalogue is **work-in-progress** and likely contains errors or duplicate entries. Its contents are subject to change as we screen more and more manuscripts.
+This catalogue is **work-in-progress** and likely contains errors or duplicate entries. Its contents are subject to change as we screen more and more manuscripts. A [development version](http://dev.gregor-joseph-werner.at/) is available.
 :::
 
 For general and biographical information on Werner, see @Bogati1936, @Czernin2020, @Moder1959, @Moder1985, @Petermayr2007, and @Unverricht2001.
@@ -128,7 +128,7 @@ rm output.xml
 
 Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
-Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org), polished with [mei-friend](https://mei-friend.mdw.ac.at), and rendered with [Verovio](https://www.verovio.org), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). XML files were exported from MerMEId and post-processed. These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and Verovio.
+Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org), polished with [mei-friend](https://mei-friend.mdw.ac.at), and rendered with [Verovio](https://www.verovio.org), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). XML files were exported from MerMEId, post-processed and validated against the schema [mei-CMN](https://github.com/music-encoding/schema/blob/main/4.0.0/mei-CMN.rng). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and Verovio.
 
 
 ### Data and code availability
