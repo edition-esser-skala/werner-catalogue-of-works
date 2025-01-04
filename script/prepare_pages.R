@@ -92,7 +92,8 @@ make_incipits <- function(group, subgroup, number) {
   main_incipits <-
     dir_ls(target_dir) %>%
     path_file() %>%
-    path_filter("main*")
+    path_filter("main*") %>%
+    str_sort(numeric = TRUE)
   info("  found {length(main_incipits)} incipits")
 
   full_incipits <-

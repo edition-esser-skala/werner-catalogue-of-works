@@ -328,7 +328,7 @@ format_incipits <- function(incipit_list, work_id) {
       full_incipit <-
         dir_ls(target_dir) %>%
         path_file() %>%
-        path_filter(paste0(n, "*"))
+        path_filter(paste0(n, "_*"))
 
       str_glue('<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
