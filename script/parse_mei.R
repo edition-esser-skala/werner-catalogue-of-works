@@ -330,10 +330,12 @@ format_incipits <- function(incipit_list, work_id) {
         path_file() %>%
         path_filter(paste0(n, "_*"))
 
-      str_glue('<a href="/{target_dir}/{full_incipit}" ',
+      str_glue('<div class="incipit">{n}&emsp;',
+               '<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
                '<img src="/{target_dir}/{main_incipit}.svg" ',
-               'class="incipit img-fluid"></a>')
+               'class="incipit img-fluid"></a>',
+               '</div>')
     }
   ) %>%
     str_flatten("\n\n")
