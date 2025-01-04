@@ -318,7 +318,7 @@ format_title <- function(d) {
 format_incipits <- function(incipit_list, work_id) {
   target_dir <- str_glue("incipits/{work_id}")
 
-  map_chr(
+  rows <- map_chr(
     incipit_list,
     \(i) {
       main_incipit <- attr(i, "target")
@@ -330,15 +330,18 @@ format_incipits <- function(incipit_list, work_id) {
         path_file() %>%
         path_filter(paste0(n, "_*"))
 
-      str_glue('<div class="incipit">{n}&emsp;',
+      str_glue('|{n}|',
                '<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
                '<img src="/{target_dir}/{main_incipit}.svg" ',
-               'class="incipit img-fluid"></a>',
-               '</div>')
+               'class="incipit img-fluid"></a>|')
     }
   ) %>%
-    str_flatten("\n\n")
+    str_flatten("\n")
+
+  paste0("|||\n|-|-|\n",
+         rows,
+         '\n\n: {tbl-colwidths="[4,96]" .incipits}')
 }
 
 # format the short sources as table
