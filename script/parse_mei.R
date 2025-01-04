@@ -334,7 +334,7 @@ format_incipits <- function(incipit_list, work_id) {
                '<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
                '<img src="/{target_dir}/{main_incipit}.svg" ',
-               'class="incipit img-fluid"></a>|')
+               'class="incipit-main img-fluid"></a>|')
     }
   ) %>%
     str_flatten("\n")
@@ -647,7 +647,7 @@ format_movement <- function(m, work_id) {
     incipit <- "(incipit missing)"
   else {
     incipit <- str_glue(
-      "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit}}"
+      "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit-full}}"
     )
   }
 
