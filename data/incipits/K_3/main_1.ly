@@ -4,7 +4,7 @@
 notes = \relative c' {
   \clef soprano
   \key b \major \time 4/4 \tempoMarkup "Largo" \autoBeamOff
-  b'2^\markup \remark "S 1 solo" c4. c8
+  b'2^\role "S 1 solo" c4. c8
   d4 d d d
   d d es c8 c
   b4 a b c

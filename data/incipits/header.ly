@@ -9,25 +9,30 @@
   paper-width = 100\cm
 }
 
-partSs = \markup \remark "S solo"
-partAs = \markup \remark "A solo"
-partTs = \markup \remark "T solo"
-partBs = \markup \remark "B solo"
-partSc = \markup \remark "S coro"
-partSic = \markup \remark "S 1 coro"
-partAc = \markup \remark "A coro"
-partTc = \markup \remark "T coro"
-partBc = \markup \remark "B coro"
-partFl = \markup \remark "fl"
-partClni = \markup \remark "clno 1, 2"
-partTrbi = \markup \remark "trb 1"
-partV = \markup \remark "vl"
-partVi = \markup \remark "vl 1"
-partVii = \markup \remark "vl 2"
-partVla = \markup \remark "vla"
-partVlcSolo = \markup \remark "vlc solo"
-partUnk = \markup \remark "[unknown]"
-partOrg = \markup \remark "org"
+part = #(define-scheme-function
+  (parser location n)
+  (string?)
+  #{ \markup \remark { #n } #})
+
+partSs = \part "S solo"
+partAs = \part "A solo"
+partTs = \part "T solo"
+partBs = \part "B solo"
+partSc = \part "S coro"
+partSic = \part "S 1 coro"
+partAc = \part "A coro"
+partTc = \part "T coro"
+partBc = \part "B coro"
+partFl = \part "fl"
+partClni = \part "clno 1, 2"
+partTrbi = \part "trb 1"
+partV = \part "vl"
+partVi = \part "vl 1"
+partVii = \part "vl 2"
+partVla = \part "vla"
+partVlcSolo = \part "vlc solo"
+partUnk = \part "[unknown]"
+partOrg = \part "org"
 
 gotoBar = #(define-music-function
   (parser location num)
@@ -44,6 +49,7 @@ gotoBar = #(define-music-function
                         time-signature))
   #})
 
+fC = \set Staff.forceClef = ##t
 hA = \once \override Accidental.stencil = ##f
 hy = \markup { \override #'(thickness . 1.25) \raise #.52 \draw-line #'(.5 . 0) }
 
