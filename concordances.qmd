@@ -16,39 +16,102 @@ library(stringi)
 library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
+
+print_concordance <- function (catalogue) {
+  notes <-
+    read_csv("data/catalogue_notes.csv") %>% 
+    filter(catalogue == {{catalogue}}) %>% 
+    select(number, notes)
+  
+  read_rds("data_generated/works.rds") %>% 
+    left_join(
+      read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+      by = "group"
+    ) %>% 
+    unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
+    mutate(
+      number = .data[[catalogue]],
+      WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")
+    ) %>%
+    separate_longer_delim(number, delim = ", ") %>% 
+    select(number, WerW) %>% 
+    bind_rows(notes) %>% 
+    filter(!is.na(number)) %>%
+    summarise(
+      .by = number,
+      WerW = str_flatten_comma(WerW, na.rm = TRUE),
+      notes = str_flatten_comma(notes, na.rm = TRUE)
+    ) %>%
+    mutate(WerW = if_else(WerW == "", "–", WerW)) %>% 
+    arrange(
+      stri_rank(number, opts_collator = stri_opts_collator(numeric = TRUE))
+    ) %>% 
+    gt() %>%
+    cols_width(number ~ px(80), WerW ~ px(160)) %>%
+    fmt_markdown(columns = WerW) %>% 
+    sub_missing(columns = notes, missing_text = "") %>% 
+    tab_options(
+      column_labels.font.weight = "bold",
+      table_body.hlines.style = "none"
+    )
+}
 ```
 
-## HarCa
+
+## Dopf
 
 ```{r}
 #| echo: false
 #| output: asis
-read_rds("data_generated/works.rds") %>% 
-  left_join(
-    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
-    by = "group"
-  ) %>% 
-  unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>% 
-  mutate(WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")) %>% 
-  separate_longer_delim(HarCa, delim = ", ") %>% 
-  select(HarCa, WerW) %>% 
-  bind_rows(read_csv("data/harich_catalogue_notes.csv")) %>% 
-  filter(!is.na(HarCa)) %>%
-  summarise(
-    .by = HarCa,
-    WerW = str_flatten_comma(WerW, na.rm = TRUE),
-    notes = str_flatten_comma(notes, na.rm = TRUE)
-  ) %>%
-  mutate(WerW = if_else(WerW == "", "–", WerW)) %>% 
-  arrange(
-    stri_rank(HarCa, opts_collator = stri_opts_collator(numeric = TRUE))
-  ) %>% 
-  gt() %>%
-  cols_width(HarCa ~ px(80), WerW ~ px(160)) %>%
-  fmt_markdown(columns = WerW) %>% 
-  sub_missing(columns = notes, missing_text = "") %>% 
-  tab_options(
-    column_labels.font.weight = "bold",
-    table_body.hlines.style = "none"
-  )
+print_concordance("Dopf")
+```
+
+
+## HarCa
+
+Generally, Hárich included works from the 1737/38 inventory as separate works in his catalogue, even if the work title is so generic that it may correspond to an extant work.
+
+```{r}
+#| echo: false
+#| output: asis
+
+
+
+print_concordance("HarCa")
+```
+
+
+## HarIn
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance("HarIn")
+```
+
+
+## PetSi
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance("PetSi")
+```
+
+
+## PetWe
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance("PetWe")
+```
+
+
+## WinMa
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance("WinMa")
 ```
