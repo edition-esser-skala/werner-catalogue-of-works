@@ -1,5 +1,36 @@
 # Changelog {.unnumbered}
 
+## 0.11.0 – 2025-01-18
+
+### Added
+
+- works: WerW B.L10, D.3.S3, and D.5.L2
+- manual incipits: WerW A.12, B.35, D.1.9, D.4.9, D.5.L2, E.28, and O.1
+- metadata: WerW A.12, B.35, D.1.9, D.4.9, E.28, and O.1
+- sources:
+  - A-Wgm: Dopf's scores (I 59590–59639), I 35470, VI 37991/1+2, and VII 35473
+  - A-Wn Mus.Hs.2120
+  - D-B Mus.12727
+  - H-VEs Hymnus 112/c (1–6)
+- remaining entries in HarCa
+- references Erdmann 2014 and Hochradner 2016
+- a macro `\part` to the incipit header
+- support for text incipits and roles in movements
+- acknowledgements for A-SB, H-Gk, and H-VEs
+- appendix:
+  - concordances of previous catalogues to WerW
+  - list of known copies of foreign works
+
+### Changed
+
+- WerW C.4 has been reclassified as C.S3. Thus, WerW C.S3 has been renumbered to C.S4.
+- Main incipits are now numbered consecutively.
+
+### Fixed
+
+- incipit order for more than nine incipits
+
+
 ## 0.10.0 – 2024-12-14
 
 ### Added
