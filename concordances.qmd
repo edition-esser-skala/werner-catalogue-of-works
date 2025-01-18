@@ -1,0 +1,54 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+format:
+  html:
+    html-table-processing: none
+---
+
+# Concordances {.unnumbered}
+
+```{r}
+#| include: false
+library(tidyverse)
+library(stringi)
+library(gt)
+source("script/utils.R")
+options(readr.show_col_types = FALSE)
+```
+
+## HarCa
+
+```{r}
+#| echo: false
+#| output: asis
+read_rds("data_generated/works.rds") %>% 
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>% 
+  mutate(WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")) %>% 
+  separate_longer_delim(HarCa, delim = ", ") %>% 
+  select(HarCa, WerW) %>% 
+  bind_rows(read_csv("data/harich_catalogue_notes.csv")) %>% 
+  filter(!is.na(HarCa)) %>%
+  summarise(
+    .by = HarCa,
+    WerW = str_flatten_comma(WerW, na.rm = TRUE),
+    notes = str_flatten_comma(notes, na.rm = TRUE)
+  ) %>%
+  mutate(WerW = if_else(WerW == "", "–", WerW)) %>% 
+  arrange(
+    stri_rank(HarCa, opts_collator = stri_opts_collator(numeric = TRUE))
+  ) %>% 
+  gt() %>%
+  cols_width(HarCa ~ px(80), WerW ~ px(160)) %>%
+  fmt_markdown(columns = WerW) %>% 
+  sub_missing(columns = notes, missing_text = "") %>% 
+  tab_options(
+    column_labels.font.weight = "bold",
+    table_body.hlines.style = "none"
+  )
+```
