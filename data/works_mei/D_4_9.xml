@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title/>
+      </titleStmt>
+      <pubStmt>
+        <respStmt>
+          <resp>Publisher</resp>
+          <corpName role="">
+            <abbr/>
+            <expan/>
+            <address>
+              <addrLine/>
+              <addrLine>
+                <ptr/>
+              </addrLine>
+            </address>
+          </corpName>
+          <persName role="editor">Wolfgang Esser-Skala</persName>
+        </respStmt>
+        <date/>
+        <availability>
+          <useRestrict>CC BY-SA 4.0</useRestrict>
+        </availability>
+      </pubStmt>
+      <seriesStmt>
+        <title>Gregor Joseph Werner: A thematic catalogue of his works</title>
+        <identifier type="file_collection">WerW</identifier>
+      </seriesStmt>
+    </fileDesc>
+    <encodingDesc>
+      <appInfo>
+        <application version="v2.0.0">
+          <name>MerMEId</name>
+        </application>
+      </appInfo>
+    </encodingDesc>
+    <workList>
+      <work>
+        <identifier label="WerW">D.4.9</identifier>
+        <title xml:lang="la">Rorate coeli</title>
+        <contributor>
+          <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
+          <corpName role=""/>
+        </contributor>
+        <creation>
+          <date isodate="1750-01-01">mid 18th century</date>
+          <geogName role="">Eisenstadt (?)</geogName>
+        </creation>
+        <history/>
+        <biblList>
+          <head>Bibliography</head>
+          <bibl>
+            <genre>reference</genre>
+            <ref targettype="pandoc-citation">@Rostetter2023 [p. 1426, no. W/49]</ref>
+          </bibl>
+        </biblList>
+        <classification>
+          <termList>
+            <term>rorate</term>
+          </termList>
+        </classification>
+        <expressionList>
+          <expression>
+            <title xml:lang="en"/>
+            <incip>
+              <graphic target="main_1" targettype="lowres"/>
+            </incip>
+            <creation>
+              <date/>
+              <geogName role=""/>
+            </creation>
+            <history/>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+              <perfResList>
+                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
+                  <head xml:lang="en">coro</head>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
+                </perfResList>
+                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
+                <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
+                <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
+                <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
+              </perfResList>
+            </perfMedium>
+            <classification>
+              <termList>
+                <term/>
+              </termList>
+            </classification>
+            <componentList>
+              <expression n="1">
+                <title xml:lang="la">Rorate</title>
+                <contributor>
+                  <persName role=""/>
+                </contributor>
+                <incip>
+                  <incipText>
+                    <p xml:lang="en"/>
+                  </incipText>
+                  <graphic targettype="lowres" target="1_rorate"/>
+                </incip>
+                <tempo>[no tempo]</tempo>
+                <key pname="f" mode="major"/>
+                <meter sym="cut"/>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                  <perfResList>
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_3fc2a576">
+                      <head xml:lang="en">coro</head>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_2b89513b">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_07886dff">A</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_ea6bfe15">T</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_0ed51367">B</perfRes>
+                    </perfResList>
+                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
+                    <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
+                    <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
+                    <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
+                  </perfResList>
+                </perfMedium>
+                <extent>71 bars (incl. 28 bars da capo)</extent>
+                <notesStmt>
+                  <annot>
+                    <p>four half notes per bar</p>
+                  </annot>
+                </notesStmt>
+                <componentList/>
+                <relationList>
+                  <relation rel="hasReproduction"/>
+                </relationList>
+              </expression>
+            </componentList>
+            <relationList/>
+          </expression>
+        </expressionList>
+      </work>
+    </workList>
+    <manifestationList>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date notbefore="1860-01-01" notafter="1870-12-31">ca. 1860&#x2013;1870</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Score and parts</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier/>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="33" unit="cm">33 (height in cm)</height>
+                <width quantity="26" unit="cm">26 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[wrapper]">
+                <p>Rorate Coeli. | a | 4 Voci | 2 Violinen 1 Viola | Organo | Cello et Contraba&#x17F;s | con Partitura | di Gregorio Werner | Cath. Eccl. Veszprimiensis.</p>
+              </titlePage>
+              <extent>1 vocal score, 12 parts</extent>
+              <dimensions/>
+              <physMedium>
+                <p>hand-ruled paper, 12 staves<lb/>vocal score: 26 x 33 cm, hand-ruled paper, 10 staves</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-VEs</identifier>
+              </repository>
+              <identifier>Rorate 7</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>vocal score (6), S coro (2x; 2, 2), A coro (2x; 2, 2), T coro (2), B coro (1), vl 1 (2), vl 2 (2), vla (2), org (2x; 2, 3), vlc/b (1)</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+    </manifestationList>
+  </meiHead>
+  <music/>
+</mei>
