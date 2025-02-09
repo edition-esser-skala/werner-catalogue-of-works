@@ -3,18 +3,18 @@
 
 notes = \relative c' {
   \clef tenor
-  \key h \minor \time 3/2 \autoBeamOff \tempoMarkup "Larghetto"
-  r2^\partTs fis4 d h4. cis16[ d]
-  e4 cis ais2.\trill ais4
-  h ais h2 r
+  \key g \minor \time 3/4 \autoBeamOff \tempoMarkup "Larghetto"
+  d4^\partTs b a
+  \clef alto g'^\partAs es d
+  c b8[ a] b4
+  b8[ a] a4 r
 }
 
-
-
 text = \lyricmode {
-  Be -- _ ne -- _
-  di -- _ ctus, qui
-  ve -- _ nit,
+  Be -- _ ne --
+  Be -- _ ne --
+  di -- ctus, qui
+  ve -- nit,
 }
 
 \score {

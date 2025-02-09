@@ -4,65 +4,87 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key fis \minor \time 3/8 \tempoMarkup "Andante moderato"
-    r8 cis'\p fis
-    eis16( fis) gis8 h,
-    a a' cis,
-    d gis e,
-    cis'16 e a,8 r
-    d16 fis h,8 r
-    e16 gis cis,8 r
+    \key h \minor \time 3/4 \tempoMarkup "Larghetto"
+    fis8.\f gis32 ais h32( d16.) e32( g16.) fis32( d16.) e32( cis16.)
+    \tuplet 3/2 8 { d16 cis h } d8~ \sbOn \tuplet 3/2 8 { d16 e fis g fis e } \sbOff \grace d8 cis4 \gotoBar "6"
+    h,4 r r
+    r8 fis''\p h16( a!) h8 r e,
+    a16( g) a8 r4 r
+    r8 a16(\f e) e( fis) fis8 r g16( d)
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key fis \minor \time 3/8 \tempoMarkup "Andante moderato"
-    r8 cis'\p fis
-    eis16( fis) gis8 h,
-    a a' cis,
-    d gis e,
-    cis'16 e a,8 r
-    d16 fis h,8 r
-    e16 gis cis,8 r
+    \key h \minor \time 3/4 \tempoMarkup "Larghetto"
+    fis16(\f d) d( h) d32( fis16.) g32( e'16.) d32( h16.) cis32( ais16.)
+    h8 h, r g' \sbOn \tuplet 3/2 8 { g16 a h cis h a } \sbOff \gotoBar "6"
+    h,4 r r
+    r8 d'\p h g' r cis,
+    a fis' r4 r
+    r r8 d16(\f a) a( h) h8
   }
 }
 
-Basso = {
-  \relative c {
-    \clef bass
-    \key fis \minor \time 3/8 \autoBeamOff \tempoMarkup "Andante moderato"
-    fis4.^\solo
-    gis
-    a
-    h4 gis8
-    a8.[ cis16 fis, a]
-    d,[ d' h d gis, h]
-    e,[ e' cis e a, cis]
+Soprano = {
+  \relative c' {
+    \clef soprano
+    \key h \minor \time 3/4 \autoBeamOff \tempoMarkup "Larghetto"
+    R2.*2 \gotoBar "6"
+    fis'8^\solo d4 h8 cis h16 ais
+    h[ ais] h8 r h e16[ d] e8
+    r a, a h16 cis d8 h16 g
+    \grace fis8 e8.\trill d16 d4 r
   }
 }
 
-BassoLyrics = \lyricmode {
-  Be --
-  ne --
-  di --
-  ctus, qui
-  "ve -"
+SopranoLyrics = \lyricmode {
+  Be -- _ ne -- di -- ctus, qui
+  ve -- nit, qui ve -- nit,
+  qui ve -- nit in no -- mi -- ne
+  Do -- mi -- ni,
+}
+
+Alto = {
+  \relative c' {
+    \clef alto
+    \key h \minor \time 3/4 \autoBeamOff \tempoMarkup "Larghetto"
+    R2.*2 \gotoBar "6"
+    r8 h4^\solo g'8 g fis16 e
+    d[ cis] d8 r e cis16[ h] cis8
+    r fis e d16 e a, d8 e16
+    d8[ cis16.]\trill d32 d4 r
+  }
+}
+
+AltoLyrics = \lyricmode {
+  Be -- ne -- di -- ctus, qui
+  ve -- nit, qui ve -- nit,
+  qui ve -- nit in no -- mi -- ne
+  Do -- mi -- ni,
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key fis \minor \time 3/8 \tempoMarkup "Andante moderato"
-    fis8-\solo a fis
-    gis eis4
-    fis4.
-    h,8 e!4
-    a8 fis d
-    h gis' e
-    cis a' fis
+    \key h \minor \time 3/4 \tempoMarkup "Larghetto"
+    h'8-\solo h, r e fis4
+    h, r8 e a! a, \gotoBar "6"
+    h4 g' e8 fis
+    h, h' g e cis a'!
+    fis d cis a fis g
+    a4 d8 d, g g'
   }
+}
+
+BassFigures = \figuremode {
+  r2 <6 4>8 <5 _+>
+  r2.
+  r2 <6>4
+  r2.
+  r2 <6>8 <6 5>
+  <6 4> <5 3> r2
 }
 
 \score {
@@ -82,10 +104,16 @@ Organo = {
     >>
     \new ChoirStaff <<
       \new Staff {
-        \set Staff.instrumentName = "B"
-        \new Voice = "Basso" { \dynamicUp \Basso }
+        \set Staff.instrumentName = "S"
+        \new Voice = "Soprano" { \dynamicUp \Soprano }
       }
-      \new Lyrics \lyricsto Basso \BassoLyrics
+      \new Lyrics \lyricsto Soprano \SopranoLyrics
+
+      \new Staff {
+        \set Staff.instrumentName = "A"
+        \new Voice = "Alto" { \dynamicUp \Alto }
+      }
+      \new Lyrics \lyricsto Alto \AltoLyrics
     >>
     \new StaffGroup <<
       \new Staff {
@@ -93,5 +121,6 @@ Organo = {
         \Organo
       }
     >>
+    \new FiguredBass { \BassFigures }
   >>
 }

@@ -1,20 +1,18 @@
 \version "2.24.2"
 \include "header.ly"
 
-notes = \relative c {
+notes = \relative c' {
   \clef bass
-  \key a \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
-  a'4.^\partBc a16[ gis] a8[ h]
-  \clef tenor e4.^\partTc d16[ cis] d8[ e]
-  \clef alto a4.^\partAc a16[ gis] a8[ h]
-  \clef soprano e4.^\partSc d16[ cis] d8[ e]
+  \key c \dorian \time 4/4 \autoBeamOff \tempoMarkup "Adagiose"
+  c,2^\partBc h4 as'
+  \clef alto d^\partAc as' g4. f16[ es]
+  \clef soprano d'4^\partSc f4. es16[ d] es8[ d16 c]
 }
 
 text = \lyricmode {
-  San -- _ _
-  San -- _ _
-  San -- _ _
-  San -- _ \hy
+  San -- ctus, san
+  San -- _ _ ctus,
+  San -- _ _ \hy
 }
 
 \score {

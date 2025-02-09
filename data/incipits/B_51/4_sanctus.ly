@@ -4,137 +4,125 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 3/4 \tempoMarkup "Andante"
-    r4 fis'32( g a g) fis8 fis32( g a g) fis8
-    r4 d32( e fis e) d8 d32( e fis e) d8
-    r h'( a fis) e g
-    fis4 fis,32(\p g a g) fis8 fis32( g a g) fis8
-    r h( a fis) e g
-    fis4 a32(\f h cis h) a8 d4
+    \key b \major \time 3/4 \tempoMarkup "Largo"
+    r4 r16 b'' b( a) a( g) g( f)
+    f4 r16 g g( f) f( es) es( d)
+    d4 r16 es es( d) d( c) c( b)
+    b4 r r
+    r8 e, e16( f) f( g) g( a) a( b)
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 3/4 \tempoMarkup "Andante"
-    r4 d'32( e fis e) d8 d32( e fis e) d8
-    r4 fis,32( g a g) fis8 fis32( g a g) fis8
-    r8 g'( fis d) cis e
-    d4 d,32(\p e fis e) d8 d32( e fis e) d8
-    r g( fis d) cis e
-    d4 r fis32(\f e d e) fis8
+    \key b \major \time 3/4 \tempoMarkup "Largo"
+    r4 r16 f' g( f) f( es) es( d)
+    d4 r16 es es( d) d( c) c( b)
+    b4 r16 g g( f) f( es) es( d)
+    d4 r r
+    r8 c' c,16( d) d( e) e( f) f( g)
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key d \major \time 3/4 \autoBeamOff \tempoMarkup "Andante"
-    a'4^\tutti a r
-    d d r
-    h a2
-    a r4
-    h\p a2
-    a4 a\f d
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Largo"
+    d'4^\tutti d,8 r r4
+    d' d,8 r r4
+    d' d,8 r r4
+    d'4. d8 c c
+    c4 r r
   }
 }
 
 SopranoLyrics = \lyricmode {
   San -- ctus,
   san -- ctus,
-  san -- _
-  ctus,
-  san -- _
-  ctus, san -- ctus
+  san -- ctus,
+  san -- ctus Do -- mi --
+  nus,
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key d \major \time 3/4 \autoBeamOff \tempoMarkup "Andante"
-    fis4^\tutti fis r
-    fis fis r
-    g fis e
-    fis2 r4
-    g\p fis e
-    fis r fis\f
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Largo"
+    f4^\tutti f8 r r4
+    f f8 r r4
+    f f8 r r4
+    g4. d8 g f
+    e4 r r
   }
 }
 
 AltoLyrics = \lyricmode {
   San -- ctus,
   san -- ctus,
-  san -- _ _
-  ctus,
-  san -- _ _
-  ctus, "san -"
+  san -- ctus,
+  san -- ctus Do -- mi --
+  nus,
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key d \major \time 3/4 \autoBeamOff \tempoMarkup "Andante"
-    d4^\tutti d r
-    d a r
-    d2 cis4
-    d2 r4
-    d2\p cis4
-    d r d\f
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Largo"
+    b4^\tutti b8 r r4
+    b b8 r r4
+    b b8 r r4
+    b4. b8 b a
+    g4 r r
   }
 }
 
 TenoreLyrics = \lyricmode {
   San -- ctus,
   san -- ctus,
-  san -- _
-  ctus,
-  san -- _
-  ctus, "san -"
+  san -- ctus,
+  san -- ctus Do -- mi --
+  nus,
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key d \major \time 3/4 \autoBeamOff \tempoMarkup "Andante"
-    d'4^\tutti d, r
-    h' fis r
-    g a2
-    d, r4
-    g\p a2
-    d,4 r h\f
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Largo"
+    b'4^\tutti b,8 r r4
+    b' b,8 r r4
+    b' b,8 r r4
+    g'4. g8 e f
+    c4 r r
   }
 }
 
 BassoLyrics = \lyricmode {
   San -- ctus,
   san -- ctus,
-  san -- _
-  ctus,
-  san -- _
-  ctus, "san -"
+  san -- ctus,
+  san -- ctus Do -- mi --
+  nus,
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 3/4 \tempoMarkup "Andante"
-    d'4-\tutti d, r
-    h' fis r
-    g a2
-    d, r4
-    g,4\p a2
-    d4 r h\f
+    \key b \major \time 3/4 \tempoMarkup "Largo"
+    b'4-\tutti b,8 r r4
+    b' b,8 r r4
+    b' b,8 r r4
+    g'4. g8 e f
+    c4 r r
   }
 }
 
 BassFigures = \figuremode {
   r2.
-  <5>4 <6>2
-  r4 <4> <3>
-  r2.
   r
-  r2 <5>4
+  r
+  r2 <6 5>4
+  r2.
 }
 
 \score {
@@ -185,5 +173,4 @@ BassFigures = \figuremode {
     >>
     \new FiguredBass { \BassFigures }
   >>
-  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16) }
 }

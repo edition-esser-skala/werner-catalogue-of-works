@@ -4,137 +4,92 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/4 \tempoMarkup "Allegro"
-    R2.
-    a'8\f fis'~ fis16 d a d fis, a d a
-    h4 r8 d4 g8~
-    g16 e cis e a,8 e'4 a8~
-    a16 fis d fis a,8 a4 d8
-    h16 g h d g h g d h d h g
+    \key a \major \time 4/4 \tempoMarkup "Andante"
+    R1*6
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/4 \tempoMarkup "Allegro"
-    R2.
-    fis8\f d'~ d16 a fis a d, fis8 a16
-    d,4 r8 h'4 d8
-    e8. e16 cis a e a cis,8 e'
-    fis16 d a d fis,8 d fis a
-    h16 g h d g h g d h d h g
+    \key a \major \time 4/4 \tempoMarkup "Andante"
+    R1*6
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Allegro"
-    r8 h'4 d g8
-    fis4 r8 d4 d8
-    h h d4~ d8.[\trill c32 d]
-    e8 cis e4~ e8.[\trill d32 e]
-    fis4 r8 a,4 d8
-    h2 h4
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
+    a'4^\solo e' cis r8 fis
+    \sbOn \tuplet 3/2 8 { e16[ fis e } d cis] \tuplet 3/2 8 { d[ e d } cis h] cis8 a r fis'
+    \tuplet 3/2 8 { e16[ fis e } d cis] \tuplet 3/2 8 { d[ e d } cis h] \sbOff cis[ d cis d] e8 e,
+    a16[ h] cis4 h16[ a] gis8 h e[ e,]~
+    e[ \tuplet 3/2 8 { a16 gis fis] } \appoggiatura e8 dis4\trill e r
+    r2 r4 r8 d'!
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Ky -- _ ri --
-  e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, Ky -- ri --
-  e "e -"
+  Ky -- ri -- e e --
+  lei -- _ _ son, e --
+  lei -- _ son, __ _ e --
+  lei -- _ _ son, e -- lei --
+  _ son,
+  "e -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Allegro"
-    r4 g'^\tutti h
-    a r8 fis fis4
-    g r8 g h[ g]~
-    g e r a cis[ a]~
-    a fis r a fis a
-    g4. g8 g4~
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
+    R1*4
+    e4^\solo h' gis r8 cis
+    \sbOn \tuplet 3/2 8 { h16[ cis h } a gis] \tuplet 3/2 8 { a[ h a } gis fis] gis8 e r fis
   }
 }
 
 AltoLyrics = \lyricmode {
-  Ky -- ri --
-  e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, e -- lei -- son,
-  Ky -- ri -- e
+  Ky -- ri -- e e --
+  lei -- _ _ son, "e -"
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Allegro"
-    r4 h4. d8
-    d4 r8 a a[ d]
-    d4 r8 d h[ d]
-    c r r e cis[ e]
-    d4 d d
-    d2 d4
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
+    R1*6
   }
-}
-
-TenoreLyrics = \lyricmode {
-  Ky -- ri --
-  e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, Ky -- ri --
-  e "e -"
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Allegro"
-    r4 g'4.^\tutti g,8
-    d'4 r8 d d'[ d,]
-    g4 r8 g g[ h,]
-    c r r a' a[ cis,]
-    d4 r8 d'4 d,8
-    g4 g4. g8
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
+    R1*6
   }
-}
-
-BassoLyrics = \lyricmode {
-  Ky -- ri --
-  e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, Ky -- "ri -"
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key g \major \time 3/4 \tempoMarkup "Allegro"
-    g8-\tutti g'~ g16 d h d g, d' h g
-    d'4 r8 d d' d,
-    g, g'~ g16 d h d g, d' h g
-    c8 a'~ a16 e cis e a, e' cis a
-    d8 d'~ d16 a fis a d, a' fis d
-    g, h' g d h g' d h g h d g
+    \key a \major \time 4/4 \tempoMarkup "Andante"
+    a'8-\solo cis gis e a gis16 fis e8 d
+    cis fis h, e a, a'16 gis fis8 e16 d
+    cis8 fis h, e a, a'4 gis8
+    fis e dis4 e8 dis cis gis'
+    a cis h h, e e' cis a
+    gis cis fis, h e, e'16 d! cis8 d
   }
 }
 
 BassFigures = \figuremode {
-  r2.
+  r1
   r
   r
-  r8 <_+> r2
-  r2.
-  r
+  r8 <6> <7> <6> r2
+  r4 <4>8 <_+> r2
+  r1
 }
 
 \score {
@@ -169,13 +124,11 @@ BassFigures = \figuremode {
         \set Staff.instrumentName = "T"
         \new Voice = "Tenore" { \dynamicUp \Tenore }
       }
-      \new Lyrics \lyricsto Tenore \TenoreLyrics
 
       \new Staff {
         \set Staff.instrumentName = "B"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
-      \new Lyrics \lyricsto Basso \BassoLyrics
     >>
     \new StaffGroup <<
       \new Staff {
@@ -185,4 +138,5 @@ BassFigures = \figuremode {
     >>
     \new FiguredBass { \BassFigures }
   >>
+  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/8) }
 }

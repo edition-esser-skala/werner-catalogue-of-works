@@ -4,64 +4,66 @@
 Alto = {
   \relative c' {
     \clef alto
-    \key h \minor \time 3/2 \autoBeamOff \tempoMarkup "Larghetto"
-    R1.*2
-    r2 fis4^\solo d h4.\trill cis16[ d]
-    e4 cis ais2.\trill ais4
-    h ais h2 r
-    r r d4 cis8[ h]
+    \key g \minor \time 3/4 \autoBeamOff \tempoMarkup "Larghetto"
+    R2.
+    g'4^\solo es d
+    c b8[ a] b4
+    b8[ a] a4 r
+    r r f'~
+    f b2
   }
 }
 
 AltoLyrics = \lyricmode {
-  Be -- _ ne -- _
-  di -- _ ctus, qui
-  ve -- _ nit,
-  qui __ _
+  Be -- _ ne --
+  di -- ctus, qui
+  ve -- nit
+  in __
+  "no -"
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key h \minor \time 3/2 \autoBeamOff \tempoMarkup "Larghetto"
-    r2 fis4^\solo d h4. cis16[ d]
-    e4 cis ais2.\trill ais4
-    h ais h2 r
-    r4 g fis ais cis e
-    d fis8[ e] d2.\trill cis8[ h]
-    a4 a g2~ g8[ fis] g4
+    \key g \minor \time 3/4 \autoBeamOff \tempoMarkup "Larghetto"
+    d4^\solo b a
+    g8[ fis] g4 g
+    fis g8[ fis] g4
+    g8[ fis] fis4 d'
+    es2 es4
+    d r d
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Be -- _ ne -- _
-  di -- _ ctus, qui
-  ve -- _ nit,
-  qui ve -- _ nit, qui
-  ve -- _ _ _
-  nit, qui ve -- \hy
+  Be -- _ ne --
+  di -- ctus, qui
+  ve -- nit, qui
+  ve -- nit in
+  no -- mi --
+  ne, in
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key h \minor \time 3/2 \tempoMarkup "Larghetto"
-    h2-\solo d g
-    cis, fis e
-    d2. h4 g2
-    e fis1
-    h2 h'4 a8 g fis2
-    cis h4 e h cis
+    \key g \minor \time 3/4 \tempoMarkup "Larghetto"
+    g'2 d4
+    es c b
+    a g cis
+    d2 b4
+    c g a
+    b d g
   }
 }
 
 BassFigures = \figuremode {
-  r1.
-  r2 <_+> <\t>
-  <6>1.
-  <5>4 <6> <4>2 <_+>
-  r1 <6>2
-  q q2. \once \bassFigureExtendersOn q4
+  r2 <_+>4
+  r2 <6>4
+  <6\\>2 <7 5>4
+  <6 4> <5 _+> r
+  r <6> <6 5>
+  r2.
 }
 
 \score {
@@ -87,5 +89,4 @@ BassFigures = \figuremode {
     >>
     \new FiguredBass { \BassFigures }
   >>
-  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/4) }
 }

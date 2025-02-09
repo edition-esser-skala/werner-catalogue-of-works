@@ -3,16 +3,17 @@
 
 notes = \relative c' {
   \clef treble
-  \key e \minor \time 4/4 \tempoMarkup "Spirituoso"
-  e'8.^\partVi d32 c h16 fis dis h \tuplet 3/2 8 { g' fis e } e8 g4 \gotoBar "5"
-  \clef soprano \autoBeamOff e'8.[^\partSs d32( c)] h8. a16 \tuplet 3/2 8 { g[ fis e] } e8 r e'
-    c8.[\trill h32( a)] g8 fis \tuplet 3/2 8 { g16[ fis e] } e8 r4
+  \key a \minor \time 4/4 \tempoMarkup "Molto largo"
+  a'16^\partVi c' c64( h32.) h64( a32.) gis16( f!) f64( e32.) e64( d32.) \sbOff \tuplet 3/2 8 { c16 h a } a8 c'4 \gotoBar "6"
+  \clef soprano \autoBeamOff
+  a,8.[^\partSs h16] \tuplet 3/2 8 { c[ d e] e[ fis gis] } a8 a, r c
+  h16[ dis,] e8 r dis' dis16[ e] e,8 r h'
 }
 
 text = \lyricmode {
   \skips 12
   Be -- _ ne -- di -- ctus, qui
-  ve -- nit, qui ve -- nit,
+  ve -- nit, qui ve -- nit in
 }
 
 \score {

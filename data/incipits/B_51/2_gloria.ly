@@ -4,136 +4,133 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Andante"
-    R1
-    r2 r8 e'4 e8
-    cis a' e h' cis, d h4\trill
-    cis r r2
-    r r4 \sbOn \tuplet 3/2 8 { e16\f d cis } h a \sbOff
-    fis' a d, fis cis e d fis e a, fis a cis, e d fis
+    \key b \major \time 3/4 \tempoMarkup "Vivace"
+    R2.*2
+    d'16 d d d b' b b b e, e e e
+    f c' a c f, a c, f a, c f, a
+    b d g, b es,! es' c es a, c f, a
+    d, d' b d g, b es, g c, c' a c
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Andante"
-    R1
-    r2 r8 cis' h16( a) h8~
-    h16 a fis'8 h, gis' a,4. gis8
-    a4 r r2
-    r fis'16\f e32 d cis16 h a cis d e
-    fis a d, fis cis e d fis e a, fis a cis, e d fis
+    \key b \major \time 3/4 \tempoMarkup "Vivace"
+    R2.*2
+    f16 f f f d' d d d g, g g g
+    a a' f a c, f a, c f, a c a
+    b d g, b es,! es' c es a, c f, a
+    d, d' b d g, b es, g c, c' a c
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
-    d'8^\solo a16[ g] fis8 e d a' g8. g16
-    fis8 r r4 r2
-    R1
-    r8 a4 d8 cis[ e16 d] cis8 h
-    ais h16 h h8[ ais] h4 r
-    d8^\tutti d16 d cis8 d e d cis d
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
+    b'8^\solo f' d b f b
+    d,4 r r
+    b'8^\tutti d4 d8 e e
+    f4 r f
+    g, es'!8 es f,4
+    d'8[ b g es c' a]
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Et in ter -- ra pax ho -- mi -- ni --
-  bus,
-
-  pro -- pter ma -- _ gnam
-  glo -- ri -- am tu -- am.
-  Do -- mi -- ne De -- us, Rex coe -- le -- stis,
+  Et in ter -- ra, ter -- ra
+  pax,
+  pax, pax ho -- mi -- ni --
+  bus bo --
+  nae vo -- lun -- ta --
+  \hy
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
-    R1
-    fis8^\solo e d d16 d cis4 r
-    r2 r4 e~
-    e8 d16 cis fis8 gis16 a e8 cis16[ d] e8 e
-    e d16 d cis4 h r
-    fis'8^\tutti fis16 fis e8 fis a fis e fis
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
+    b'8 d b f d f
+    b,4 r r
+    f'8^\tutti f g4. g8
+    c,4 r r
+    b' c, a'8 a
+    f d r4 f~
   }
 }
 
 AltoLyrics = \lyricmode {
-  Be -- ne -- di -- ci -- mus te, %2
-  gra --
-  ti -- as a -- gi -- mus ti -- bi pro -- pter
-  glo -- ri -- am tu -- am.
-  Do -- mi -- ne De -- us, Rex coe -- le -- stis,
+  Et in ter -- ra, ter -- ra
+  pax,
+  pax ho -- mi -- ni --
+  bus
+  bo -- nae vo -- lun --
+  ta -- tis, "bo -"
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
-    r2 r8 d^\solo d cis
-    d4 r r2
-    R1
-    cis8 h16 a d8 d,16 d a'8 a a g!
-    fis g16 g e8[ fis] h4 r
-    a8^\tutti a16 a a8 a cis a a a
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
+    R2.
+    b8^\solo f' d b f b
+    d,4 b'8^\tutti b b b
+    a4 r r
+    R2.
+    r4 es' f,
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Lau -- da -- mus %1
-  te,
+  Et in ter -- ra, ter -- ra
+  pax, pax ho -- mi -- ni --
+  bus
 
-  gra -- ti -- as a -- gi -- mus ti -- bi pro -- pter
-  glo -- ri -- am tu -- am.
-  Do -- mi -- ne De -- us, Rex coe -- le -- stis,
+  bo -- nae
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
-    r4 d8^\solo a' h fis e[ a]
-    d, r r4 a16[ h] cis[ d] e[ fis] gis[ e]
-    a8 gis16[ fis] e[ d] cis[ h] a[ a' fis d] e8. e16
-    a,4 r r2
-    R1
-    d8^\tutti d16 d a'8 fis cis d a' fis
+    \key b \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
+    R2.
+    b'8^\solo d b f d f
+    b,4 g'8^\tutti g g g
+    f4 r r
+    R2.
+    b4 c, a'8 a
   }
 }
 
 BassoLyrics = \lyricmode {
-  Bo -- nae vo -- lun -- ta --
-  tis, ad -- o -- ra -- mus
-  te, glo -- ri -- fi -- ca -- _ mus
-  te.
+  Et in ter -- ra, ter -- ra
+  pax, pax ho -- mi -- ni --
+  bus
 
-  Do -- mi -- ne De -- us, Rex coe -- le -- stis,
+  bo -- nae vo -- "lun -"
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \tempoMarkup "Andante"
-    d8-\solo fis16 e d8 a' h fis e a
-    d, e fis gis a4 gis8 e
-    fis4 gis8 e fis d e e,
-    a \clef tenor a'[ d d,] a'4. g8
-    fis g e fis h \clef bass h,[ cis a!]
-    d4-\tutti a'8 fis cis d a' fis
+    \key b \major \time 3/4 \tempoMarkup "Vivace"
+    b4-\solo r r
+    b r r
+    b8-\tutti b g g g g
+    f f f f f4
+    \clef soprano << { g''4 es'!8 es f,4 } \\ { b4 c, a'8 a } >>
+    \clef bass b,4 c, a'8 a
   }
 }
 
 BassFigures = \figuremode {
-  r2 r8 <6> <7> <_+>
-  r4 <6>8 <\t> r2
-  <5>2. <4>8 <_+>
-  r1
-  <7 _+>8 <5> <6 5> <_+> r4 <6>
-  r4. <6>8 r2
+  r2.
+  r
+  r4 <5> <6!>
+  r2.
+  r
+  r4 <_-> <6>
 }
 
 \score {

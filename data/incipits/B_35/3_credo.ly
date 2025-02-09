@@ -1,144 +1,185 @@
 \version "2.24.2"
 \include "header.ly"
 
+sbFourOn = {
+  \set subdivideBeams = ##t
+  \set baseMoment = #(ly:make-moment 1/4)
+  \set beatStructure = #'(2 2 2)
+}
+
+ClarinoI = {
+  \relative c' {
+    \clef treble
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    g''2. g4 g c
+    h2 r4 g g g
+    g2 r4 g g g
+    a2 r4 a a a
+    h2 r4 h h h
+  }
+}
+
+ClarinoII = {
+  \relative c' {
+    \clef treble
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    e'2 c e
+    d r4 d d d
+    e2 r4 c c c
+    c2 r4 d d d
+    d2 r4 e e e
+  }
+}
+
+Timpani = {
+  \relative c {
+    \clef bass
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    c4. c16 c c4 c c c
+    g4. g16 g g4 g g g
+    c2 r4 c8 c c4 c8 c
+    c2 r r
+    R1.
+  }
+}
+
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/2 \tempoMarkup "Vivace"
-    d'4. h8 e4. c8 a4 d
-    h4. d8 g4. e8 cis4. e8
-    a4. fis8 d4. g8 e4 a
-    fis d4. h8 g'4. e8 c4~
-    c8 a fis'4. d8 h4. g8 c4~
-    c8 a h g' a,4 fis' g2
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    \sbFourOn c'16(\f d e f) g( a h c) c,4 r c16( d e f) g( a h c)
+    h4 r g,16( a h c) d( e fis g) g,4 r
+    c,16( d e f!) g( a h c) c,4 r c16( d e f) g( a h c)
+    a4 r a16( h c d) e( f g a) a,4 r
+    h16( c d e) f( g a h) h,4 r g16( a h c) d( e f g)
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/2 \tempoMarkup "Vivace"
-    r4 g'4. e8 a4. fis8 d fis
-    g4 h4. g8 h4 e, cis'~
-    cis8 a cis4 fis, d'2 cis4
-    d2 r4 d h e~
-    e8 c a2 d4. h8 g4
-    fis g a4. d8 h2
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    r2 \sbFourOn c'16( d e f) g( a h c) c,4 r
+    g16( a h c) d( e fis g) g,4 r g16( a h c) d( e f g)
+    e4 r c,16( d e f) g( a h c) e,4 r
+    f16( g a b) c( d e f) f,4 r d16( e f g) a( h c d)
+    h4 r e,16( f g a) h( c d e) e,4 r
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key g \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
-    h'2^\tutti c4 c a d
-    h h h e2 cis4~
-    cis fis d d d cis
-    d d2 h e4~
-    e c a d4. h8 c4~
-    c h a4. a8 h4 h~^\solo
+    \key c \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    e'2^\tutti c e
+    d g1
+    e2 e r
+    c c4 d d d
+    d2 e4 e e e
   }
 }
 
 SopranoLyrics = \lyricmode {
+  Cre -- do in
+  u -- num
+  De -- um,
   Pa -- trem o -- mni -- po --
-  ten -- tem, fa -- cto -- rem __
-  coe -- li et ter -- _
-  rae, vi -- si -- bi --
-  li -- um et in -- vi --
-  si -- bi -- li -- um. Et
+  ten -- tem, fa -- cto -- rem
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key g \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
-    g'2^\tutti g4 a fis fis
-    g g g2 e
-    a4 a fis g e2\trill
-    fis4 fis2 g4 g4. g8
-    a4 fis fis fis g4. e8
-    fis4 g g fis g2
+    \key c \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    g'2^\tutti g g
+    g1 g2
+    g g r
+    f f4 f a f
+    d2 d4 g h g
   }
 }
 
 AltoLyrics = \lyricmode {
+  Cre -- do in
+  u -- num
+  De -- um,
   Pa -- trem o -- mni -- po --
-  ten -- tem, fa -- cto --
-  rem coe -- li et ter --
-  rae, vi -- si -- bi -- li --
-  um o -- mni -- um et in --
-  vi -- si -- bi -- li -- um.
+  ten -- tem, fa -- cto -- rem
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key g \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
-    d2^\tutti e4 e d d
-    d d e2 cis
-    fis4 cis d h a2
-    a4 a h2 h4 c!~
-    c8 c a2 h e4
-    d d d4. d8 d2
+    \key c \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    c2^\tutti c c
+    h d h
+    c c r
+    a a4 a a a
+    h2 h4 h h h
   }
 }
 
 TenoreLyrics = \lyricmode {
+  Cre -- do in
+  u -- _ num
+  De -- um,
   Pa -- trem o -- mni -- po --
-  ten -- tem, fa -- cto --
-  rem coe -- li et ter --
-  rae, vi -- si -- bi -- _
-  li -- um et in --
-  vi -- si -- bi -- li -- um.
+  ten -- tem, fa -- cto -- rem
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key g \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
-    g'2^\tutti c,4 c d d
-    g, g r e' a a
-    fis2 h4 g a2
-    d,4 d h2 e4. e8
-    a,4 a' fis d g e8[ c]
-    d4 g d4. d8 g,2
+    \key c \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    c2^\tutti e c
+    g' h g
+    c c, r
+    f f4 d f d
+    g2 g4 e g e
   }
 }
 
 BassoLyrics = \lyricmode {
+  Cre -- do in
+  u -- _ num
+  De -- um,
   Pa -- trem o -- mni -- po --
   ten -- tem, fa -- cto -- rem
-  coe -- li et ter --
-  rae, vi -- si -- bi -- li --
-  um o -- mni -- um et in --
-  vi -- si -- bi -- li -- um.
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key g \major \time 3/2 \tempoMarkup "Vivace"
-    g'2-\tutti c, d
-    << { g } \\ { g, } >> e' a
-    fis h4 g a a,
-    d2 h e
-    a, d g4 e8 c
-    d4 g d d, g g'~-\solo
+    \key c \major \time 3/2 \tempoMarkup "Vivace"
+    c2-\tutti e c
+    g' h g
+    c e, c
+    f2. d4 f d
+    g2. e4 g e
   }
 }
 
 BassFigures = \figuremode {
-  r2 <5>4 <6>2.
-  r1 <_+>2
-  <5>1 <4>4 <_+>
-  r2 <5>4 <6> <5> <6>
-  <5> <6\\> <5> <6>2.
-  <7>2 <4>4 <_+>2.
+  r1.
+  r
+  r
+  r1 <6>2
+  r1 <6>2
 }
+
 
 \score {
   <<
+    \new StaffGroup <<
+      \new Staff <<
+        \set Staff.instrumentName = \markup \center-column { "clno" "1, 2" }
+        \partCombine #'(0 . 10) \ClarinoI \ClarinoII
+      >>
+    >>
+    \new Staff {
+      \set Staff.instrumentName = "timp"
+      \Timpani
+    }
     \new StaffGroup <<
       \new GrandStaff <<
         \set GrandStaff.instrumentName = "vl"

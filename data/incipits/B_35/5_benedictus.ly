@@ -1,78 +1,66 @@
 \version "2.24.2"
 \include "header.ly"
 
-ViolinoI = {
+ViolinoSolo = {
   \relative c' {
     \clef treble
-    \key e \minor \time 4/4 \tempoMarkup "Spirituoso"
-    e'8.\f\trill d32 c h16 fis dis h \tuplet 3/2 8 { g' fis e } e8 g4 \gotoBar "5"
-    e4 r r8 h''16(\p g) e4~
-    e8 \tuplet 3/2 8 { a16 g fis } e8 dis e16 e,32 fis g16 a \tuplet 3/2 8 { \sbOn h a h c d e \sbOff }
-    d4 r r16 h d g h a h8
-  }
-}
-
-ViolinoII = {
-  \relative c' {
-    \clef treble
-    \key e \minor \time 4/4 \tempoMarkup "Spirituoso"
-    e'8.\f\trill d32 c h16 fis dis h \tuplet 3/2 8 { g' fis e } e8 g4 \gotoBar "5"
-    e4 r r8 h''16(\p g) e4~
-    e8 \tuplet 3/2 8 { a16 g fis } e8 dis e16 e,32 fis g16 a \tuplet 3/2 8 { \sbOn h a h c d e \sbOff }
-    d4 r r16 g, h d g fis g8
+    \key a \minor \time 4/4 \tempoMarkup "Molto largo"
+    \sbOn a'16\f c' c64( h32.) h64( a32.) gis16( f!) f64( e32.) e64( d32.) \sbOff \tuplet 3/2 8 { c16 h a } a8 << {
+      c'4~
+      c16. c32 h16 a g4~ g16. g32 f16 e a4
+    } \\ {
+      r8 e
+      d4~ d16. d32 c16 h e8 r r16 e d cis
+    } >> \gotoBar "6"
+    a4 r r2
+    r8 e' a16( a,) a8 a16( gis) gis8 r4
+    R1
   }
 }
 
 Soprano = {
   \relative c' {
-    \clef soprano
-    \key e \minor \time 4/4 \autoBeamOff \tempoMarkup "Spirituoso"
-    R1 \gotoBar "5"
-    e'8.[\trill^\solo d32( c)] h8. a16 \tuplet 3/2 8 { g[ fis e] } e8 r e'
-    c8.[\trill h32( a)] g8 fis \tuplet 3/2 8 { g16[ fis e] } e8 r4
-    g'8.[\trill fis32( e)] d8. c16 \tuplet 3/2 8 { h[ a g] } g8 d' g
+    \clef treble
+    \key a \minor \time 4/4 \autoBeamOff \tempoMarkup "Molto largo"
+    R1*2 \gotoBar "6"
+    a'8._[^\solo h16] \tuplet 3/2 8 { c[ d e] e[ fis gis] } a8 a, r c
+    h16[ dis,] e8 r dis' dis16[ e] e,8 r h'
+    c8.[\trill d32 e] d8.[\trill e32 f] e8.[\trill f32 g] f8.[\trill g32 a]
   }
 }
 
 SopranoLyrics = \lyricmode {
   Be -- _ ne -- di -- ctus, qui
-  ve -- nit, qui ve -- nit,
-  be -- _ ne -- di -- ctus, qui "ve -"
+  ve -- nit, qui ve -- nit in
+  no -- _ _ \hy
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key e \minor \time 4/4 \tempoMarkup "Spirituoso"
-    e8-\solo g dis h e g16 fis e8 h \gotoBar "5"
-    e g dis h e g c g
-    a a, h4 e,8 e' d! c
-    h16 e d c h8 fis g g' g16 d h g
+    \key a \minor \time 4/4 \tempoMarkup "Molto largo"
+    a4-\solo h8 gis a16. a'32 e16. c32 a8 a'
+    f d h g c4 cis8 a' \gotoBar "6"
+    a,4 r r16 a' c h c8 a
+    gis g fis f e e16 fis gis8 e
+    a, a' f g c, c' a f
   }
 }
 
 BassFigures = \figuremode {
+  r4 <6\\>8 <6> r2
+  r4 <6> r4 <[6]>8 <_+>
   r1
-  r
-  r4 <6 4>8 <5 _+>4. <6>8 q
-  q2 r
+  <6>8 <\t> <7> <6\\> <8 4> <\t _+>4.
+  r4 <6 5> r <6>
 }
 
 \score {
   <<
-    \new StaffGroup <<
-      \new GrandStaff <<
-        \set GrandStaff.instrumentName = "vl"
-        \new Staff {
-          \set Staff.instrumentName = "1"
-          \ViolinoI
-        }
-        \new Staff {
-          \set Staff.instrumentName = "2"
-          \ViolinoII
-        }
-      >>
-    >>
+    \new Staff \with { \smallStaffDistance } {
+      \set Staff.instrumentName = \markup \center-column { "vl" "solo" }
+      \ViolinoSolo
+    }
     \new ChoirStaff <<
       \new Staff {
         \set Staff.instrumentName = "S"

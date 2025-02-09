@@ -1,119 +1,142 @@
 \version "2.24.2"
 \include "header.ly"
 
+ClarinoI = {
+  \relative c' {
+    \clef treble
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+    e16 e32 e e16 e e8 r g16 g32 g g16 g g8 r
+    c16 c32 c c16 c c8 r g'16 g32 g g16 g g8.\trill a32 h
+    c4 r8 g a4 r8 a
+    h d c8. c16 h4 r
+  }
+}
+
+ClarinoII = {
+  \relative c' {
+    \clef treble
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+    c16 c32 c c16 c c8 r e16 e32 e e16 e e8 r
+    g16 g32 g g16 g g8 r d'16 d32 d d16 d d8 g
+    e4 r8 e c4 r8 f
+    d g e8. e16 d4 r
+  }
+}
+
+Timpani = {
+  \relative c {
+    \clef bass
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+    c16 c32 c c16 c c8 r c16 c32 c c16 c c8 r
+    c16 c32 c c16 c c8 r g16 g32 g g16 g g g32 g g16 g
+    c4 r8 c16 c c4 r
+    g8 g16 g c g c c g4 r
+  }
+}
+
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key a \major \time 4/4 \tempoMarkup "Vivace"
-    r32 e\f fis gis a h cis d e cis d e fis gis a h cis16-! a-! e-! a-! e-! cis-! a-! e-!
-    cis32 a h cis d e fis gis a h cis d e fis gis a gis a h cis h a gis fis e fis gis a gis fis e d
-    cis e, fis gis a h cis d e gis h a gis fis e d cis16-! e-! gis-! h-! a-! e-! cis-! a'-!
-    gis32 a h cis h a gis fis e16-! h-! gis-! h-! e, e32 e e16 e e4
-    r2 r16 fis' gis( fis) r h, cis( h)
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+      \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16)
+    c16 c32 c c16 c e g c g e e32 e e16 e g c e c
+    g g32 g g16 g c e g e \sbOn \tuplet 3/2 8 { d c d g f g h a h g f g } \sbOff
+    c h32 a g16 f e d c h a a'32 b a16 g f e d c
+    h! d8 g16 e g8 c16 h d32 c h16 a g f e d
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key a \major \time 4/4 \tempoMarkup "Vivace"
-    r32 cis\f d e fis gis a h cis a h cis d e fis gis a16-! e-! cis-! e-! cis-! a-! e-! cis-!
-    r32 a h cis d e fis gis a h cis d e fis gis a gis a h a gis a gis fis e fis gis fis e fis e d
-    cis e, fis gis a h cis d e gis h a gis fis e d cis16-! e-! gis-! h-! a-! e-! cis-! a'-!
-    gis32 a h cis h a gis fis e16-! h-! gis-! h-! e,16 e32 e e16 e e4
-    r2 r16 a h( a) r gis a( gis)
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+    r2 c16 c32 c c16 c e g c g
+    e e32 e e16 e g c e c \sbOn \tuplet 3/2 8 { d c d g f g d c d g f g } \sbOff
+    e32 c' h a g16 f e d c h a a'32 g f16 g f e d c
+    h! d8 g16 e g8 c16 h d32 c h16 a g f e d
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
-    cis'8.^\tutti cis16 cis4 r2
-    cis8. cis16 cis4 h8 h e e
-    cis cis h e16 e cis8 e a cis,
-    h h r4 r2
-    cis8 cis cis cis his r h r
+    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace moderato"
+    g'4^\tutti r8 g g e r c'
+    c g r e' d4. g8
+    e4 r8 e c4 r8 f
+    d g e8. e16 d4 r
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Glo -- ri -- a,
-  glo -- ri -- a in ex -- cel -- sis
-  De -- o, glo -- ri -- a in ex -- cel -- sis
-  De -- o.
-  Et in ter -- ra pax, pax,
+  Et in ter -- ra, in
+  ter -- ra, in ter -- ra
+  pax, pax, pax, pax,
+  pax ho -- mi -- ni -- bus
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
-    e8.^\tutti e16 e4 r2
-    e8. e16 e4 e8 e h' gis
-    e e e gis16 gis e8 gis e a
-    gis gis r4 r2
-    eis8 eis eis eis fis r gis r
+    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace moderato"
+    e4^\tutti r8 e e c r g'
+    g e r g g4. g8
+    g4 r8 g a4 r8 a
+    g g g8. g16 g4 r
   }
 }
 
 AltoLyrics = \lyricmode {
-  Glo -- ri -- a,
-  glo -- ri -- a in ex -- cel -- sis
-  De -- o, glo -- ri -- a in ex -- cel -- sis
-  De -- o.
-  Et in ter -- ra pax, pax,
+  Et in ter -- ra, in
+  ter -- ra, in ter -- ra
+  pax, pax, pax, pax,
+  pax ho -- mi -- ni -- bus
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
-    a8.^\tutti a16 a4 r2
-    a8. a16 a4 gis8 h e, h'
-    a a h h16 h a8 h cis e
-    e e r4 r2
-    gis,8 gis gis cis a r h! r
+    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace moderato"
+    c4^\tutti r8 c c g r e'
+    e c r c d4 h
+    c r8 c a4 r8 d
+    h d c8. c16 h4 r
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Glo -- ri -- a,
-  glo -- ri -- a in ex -- cel -- sis
-  De -- o, glo -- ri -- a in ex -- cel -- sis
-  De -- o.
-  Et in ter -- ra pax, pax,
+  Et in ter -- ra, in
+  ter -- ra, in ter -- ra
+  pax, pax, pax, pax,
+  pax ho -- mi -- ni -- bus
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
-    a'8.^\tutti a,16 a4 r2
-    a'8. a,16 a4 e'8 e gis e
-    a a gis e16 e a8 e cis a
-    e' e r4 r2
-    cis8 cis cis cis d! r eis r
+    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace moderato"
+    c'4^\tutti r8 c c c, r c'
+    c c, r c' h16[ d32 c h16 a] g[ f] e[ d]
+    c4 r8 c f4 r8 d
+    g h c8. c16 g4 r
   }
 }
 
 BassoLyrics = \lyricmode {
-  Glo -- ri -- a,
-  glo -- ri -- a in ex -- cel -- sis
-  De -- o, glo -- ri -- a in ex -- cel -- sis
-  De -- o.
-  Et in ter -- ra pax, pax,
+  Et in ter -- ra, in
+  ter -- ra, in ter -- _ ra
+  pax, pax, pax, pax,
+  pax ho -- mi -- ni -- bus
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key a \major \time 4/4 \tempoMarkup "Vivace"
-    a'8.-\tutti a,16 a4 r2
-    a'8. a,16 a4 e8 e' gis e
-    a, a' gis e a e cis a
-    e' e, r4 r2
-    cis'8 cis cis cis d! r eis r
+    \key c \major \time 4/4 \tempoMarkup "Vivace moderato"
+    c'4-\tutti r8 c c c, r c'
+    c c, r c' h16 d32 c h16 a g f e d
+    c4 r8 c f4 r8 d
+    g h c c, g'4 r
   }
 }
 
@@ -122,11 +145,20 @@ BassFigures = \figuremode {
   r
   r
   r
-  <_+>2 <6\\>4 <5!>
 }
 
 \score {
   <<
+    \new StaffGroup <<
+      \new Staff <<
+        \set Staff.instrumentName = \markup \center-column { "clno" "1, 2" }
+        \partCombine #'(0 . 10) \ClarinoI \ClarinoII
+      >>
+    >>
+    \new Staff {
+      \set Staff.instrumentName = "timp"
+      \Timpani
+    }
     \new StaffGroup <<
       \new GrandStaff <<
         \set GrandStaff.instrumentName = "vl"
@@ -160,7 +192,7 @@ BassFigures = \figuremode {
       \new Lyrics \lyricsto Tenore \TenoreLyrics
 
       \new Staff {
-        \set Staff.instrumentName = "B"
+        \set Staff.instrumentName = "b"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
       \new Lyrics \lyricsto Basso \BassoLyrics
@@ -173,5 +205,4 @@ BassFigures = \figuremode {
     >>
     \new FiguredBass { \BassFigures }
   >>
-  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16) }
 }

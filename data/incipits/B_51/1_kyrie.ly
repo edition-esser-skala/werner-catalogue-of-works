@@ -4,122 +4,97 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Allegro"
-    R1
-    r16 fis' a g fis8 e r2
-    r16 fis,\p a g fis8 e\f fis a d\trill fis\trill
-    e16( fis) e( fis) e(\p fis) e( cis') e,( fis) e( fis) e( fis) e( h')
-    d,( e) d( e) d( e) d( a') cis,( d) cis( d) cis( d) cis( gis')
+    \key b \major \time 4/4 \tempoMarkup "Ariose"
+    R1*5
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Allegro"
-    R1
-    r16 d' fis e d8 cis r2
-    r16 d,\p fis e d8 cis\f d fis a d
-    cis16( d) cis( d) cis(\p d) cis( a) h8 gis4 gis8
-    a fis4 a8 gis e'4 e,8
+    \key b \major \time 4/4 \tempoMarkup "Ariose"
+    R1*5
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    d'8.^\tutti d16 d8 cis d[ fis16 e] d8[ cis]
-    d4 r8 cis\p d[ fis16 e16] d8[ cis]
-    d4 r8 e\f fis8.[ e16] d4
-    cis r r2
-    R1
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Ariose"
+    R1*4
+    b'4.^\solo c16[ d] g,8 c4 d16[ es]
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Ky -- ri -- e e -- lei -- _
-  son, e -- lei -- _
-  son, e -- lei -- _
-  son,
+  Ky -- ri -- e e -- \hy
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    fis8.^\tutti fis16 fis8 e fis[ a16 g] fis8[ e]
-    fis4 r8 e\p fis[ a16 g] fis8[ e]
-    fis4 r8 a\f a2
-    a4 r r2
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Ariose"
     R1
+    r2 r4 f8^\solo g16[ a]
+    d,8 g4 a16[ b] e,8 a4 b16[ c]
+    f,8 \tuplet 3/2 8 { b16[ a g] } f8[ e] f8 f16[ g] a[ f g a]
+    b8 d,16[ es] f8 b4 g c8
   }
 }
 
 AltoLyrics = \lyricmode {
-  Ky -- ri -- e e -- lei -- _
-  son, e -- lei -- _
-  son, e -- lei --
-  son,
+  Ky -- ri --
+  e e -- _ lei -- _ _
+  son, e -- lei -- son, e -- lei --
+  son, e -- lei -- _ _ \hy
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    d8.^\tutti a16 a8 a a2
-    a4 r8 a\p a2
-    a4 r8 cis\f d8.[ e16] fis4
-    e r r2
-    R1
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Ariose"
+    r8 b4^\solo c16[ d] g,8 c4 d16[ es]
+    a,8 d4 es16[ f] b,8 \tuplet 3/2 8 { es16[ d c] } b8[ a]
+    b8 b4 g c a8~
+    a \tuplet 3/2 8 { d16[ c b] } a8[ g] f16[ g] a[ b] c[ a b c]
+    d8 b b b es[ es16 d] c8 c
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Ky -- ri -- e e -- lei --
-  son, e -- lei --
-  son, e -- lei -- _
-  son,
+  Ky -- ri -- e e -- _
+  lei -- _ _ son, e -- lei --
+  son, e -- lei -- _ son, __
+  e -- lei -- son, e -- lei --
+  son, Chri -- ste e -- lei -- son, "e -"
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    d'8.^\tutti d16 d8 a fis[ d fis a]
-    d4 r8 a\p fis[ d fis a]
-    d4 r8 a\f d[ a fis d]
-    a4 r8 a'^\solo gis8[ h e e,]
-    fis4 r8 fis e[ gis cis cis,]
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Ariose"
+    R1*5
   }
-}
-
-BassoLyrics = \lyricmode {
-  Ky -- ri -- e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son, e -- "lei -"
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \tempoMarkup "Allegro"
-    d'4.-\tutti a8 fis d fis a
-    d4 r8 a\p fis d fis a
-    d4 r8 a d a fis d
-    a4 r r2
-    R1
+    \key b \major \time 4/4 \tempoMarkup "Ariose"
+    b8-\solo b' d, b es4 c
+    f d g8 es f f,
+    b4 g c a
+    d8 b c8. b16 a8 f'~ f16 es! d c
+    b8 \clef tenor b'[ b b] es8. d16 c8 c
   }
 }
 
 BassFigures = \figuremode {
-  r2.. <3>8
-  r1
-  r2. <6>4
-  r1
-  r
+  r2 <5>8 <6> <5> <6>
+  <5> <6> <5> <6>4 q8 <4> <3>
+  <5> <6> <5> <6!> <5 _!> <6 \t> <5!> <6>
+  r r <6 4> <5 _!> <6>2
+  r <5>8 <6> <5> <6>
 }
 
 \score {
@@ -160,7 +135,6 @@ BassFigures = \figuremode {
         \set Staff.instrumentName = "B"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
-      \new Lyrics \lyricsto Basso \BassoLyrics
     >>
     \new StaffGroup <<
       \new Staff {

@@ -3,18 +3,16 @@
 
 notes = \relative c' {
   \clef soprano
-  \key a \major \time 3/4 \tempoMarkup "Vivace" \autoBeamOff
-  cis'8.^\partSc cis16 cis8 h a[ h]
-  cis4 r8 h a[ h]
-  cis4 r8 h a[ h]
-  cis
+  \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
+  a'8.^\partSc a16 a8 d d cis r e
+  e d r fis, fis e r g
+  g fis r fis' gis,2
 }
 
 text = \lyricmode {
-  Ky -- ri -- e e -- lei --
-  son, e -- lei --
-  son, e -- lei --
-  son,
+  Ky -- ri -- e e -- lei -- son, e --
+  lei -- son, e -- lei -- son, e --
+  lei -- son, e -- "lei -"
 }
 
 \score {
@@ -22,4 +20,5 @@ text = \lyricmode {
     \new Voice = "incipit" { \notes }
     \new Lyrics \lyricsto "incipit" { \text }
   >>
+  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/8) }
 }

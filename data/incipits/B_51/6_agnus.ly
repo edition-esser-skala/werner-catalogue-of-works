@@ -4,113 +4,114 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Largo"
-    r4 d' c a'
-    d,2 e~
-    e4 a16 h c8 h8 a g4
-    fis2\trill fis8 g4 fis8
-    g4 e a4. g8
-    fis4. fis8 e2~
-    e8 e e e dis4 r
+    \key b \major \time 4/4 \tempoMarkup "Adagio"
+    R1*6
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 4/4 \tempoMarkup "Largo"
-    fis1\p
-    g2 h
-    a4. g8 fis4 h~
-    h8 h ais4 h8 d4 a?8
-    h4. h,8 fis'4. g8
-    a fis dis h h'4 c
-    cis8 cis cis cis h4 r
+    \key b \major \time 4/4 \tempoMarkup "Adagio"
+    R1*6
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
-    a'4.^\solo d8 fis,[ a] c h
-    g4 g8 h e, gis h[ d]
-    cis!4 d8 e fis4. e8
-    d4 cis\trill h r
-    R1*2
-    r2 r8 fis4 h8
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    d'2.^\solo c4
+    c8[ b] b b a[ c] b a
+    b16[ c] d4 es8 f4 f~
+    f8 f es4 des8 des des[ c]
+    as4 r r2
+    d4. d8 es!4 c8 f
   }
 }
 
 SopranoLyrics = \lyricmode {
+  A -- gnus
+  De -- i, qui tol -- lis pec --
+  ca -- ta, pec -- ca -- ta, __
+  pec -- ca -- _ ta mun --
+  di:
   A -- gnus De -- i, qui
-  tol -- lis pec -- ca -- ta mun --
-  di: Mi -- se -- re -- re
-  no -- _ bis.
-
-  Mi -- "se -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
-    R1*4
-    g'4.^\solo h8 dis,([ fis)] a h
-    c h4 a8 gis4 a
-    g2\trill fis8 dis4 dis8
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    r2 e4^\solo es
+    d8.[ es16] f8 g c,8.[ d32 es] d8 c
+    d16[ es] f4 g8 as2
+    g4. g8 g4. e8
+    c4 r r2
+    R1
   }
 }
 
 AltoLyrics = \lyricmode {
-  A -- gnus De -- i, qui
-  tol -- lis pec -- ca -- ta
-  mun -- di: Mi -- "se -"
+  A -- gnus
+  De -- i, qui tol -- lis pec --
+  ca -- ta, pec -- ca --
+  _ ta mun -- _
+  di:
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
-    R1*6
-    r2 h4. h8
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    R1*4
+    r4 a!8^\solo a a4 b
+    a2 g4 r
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Mi -- "se -"
+  Mi -- se -- re -- re
+  no -- bis.
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
-    R1*7
+    \key b \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    R1*3
+    r2 r4 e8^\solo e
+    f2 fis4 g~
+    g fis g r
   }
+}
+
+BassoLyrics = \lyricmode {
+  Mi -- se --
+  re -- re no --
+  _ bis.
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 4/4 \tempoMarkup "Largo"
-    d2-\solo a'
-    h gis
-    a8 g fis e dis4 e
-    fis2 h,4. d8
-    g2 fis4. e8
-    dis2 d4 c
-    ais8 ais ais ais h4 \clef tenor h'
+    \key b \major \time 4/4 \tempoMarkup "Adagio"
+    b8-\solo b' f g a4 fis
+    g8 g, d' es f4 f,
+    b8 b' as g f es d c
+    h4 c e2
+    f4 es d cis
+    d2 g,4 a
   }
 }
 
 BassFigures = \figuremode {
-  r2 <6 _!>
-  <6> <6>4 <5>
-  <_+> <6>8 <6!> <6> <5> <9> <8>
-  <6 4>4 <5 _+> r8 <6>4.
-  <5>4 <6> <6\\>2
-  <7!>8 <6>4 <5>8 <4\+ 2>4 <6>
-  <7! 5>2 <_+>4 q
+  r4 <6> <5! 4> <7- 5>
+  <4>8 <3> <6>2 <6 4>8 <5 3>
+  r4 <\t>8 <6> <_->4. \once \bassFigureExtendersOn q8
+  <5>4 <_-> <7- 5>2
+  <_->4 <4!> <_+> <7 5>
+  <4> <_+> <6-> <6>
 }
 
 \score {
@@ -151,6 +152,7 @@ BassFigures = \figuremode {
         \set Staff.instrumentName = "B"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
+      \new Lyrics \lyricsto Basso \BassoLyrics
     >>
     \new StaffGroup <<
       \new Staff {

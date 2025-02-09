@@ -1,20 +1,20 @@
 \version "2.24.2"
 \include "header.ly"
 
-notes = \relative c' {
-  \clef soprano
-  \key g \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
-  g'4.^\partSc a8 h[ c d e]
-  f2 e8[ d] c[ h]
-  ais4 h2 a4~
-  a8[ g16 fis] g2 fis4
+notes = \relative c {
+  \clef bass
+  \key a \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
+  a'4.^\partBc a16[ gis] a8[ h]
+  \clef tenor e4.^\partTc d16[ cis] d8[ e]
+  \clef alto a4.^\partAc a16[ gis] a8[ h]
+  \clef soprano e4.^\partSc d16[ cis] d8[ e]
 }
 
 text = \lyricmode {
   San -- _ _
-  _ _ ctus,
-  san -- _ _
-  _ ctus
+  San -- _ _
+  San -- _ _
+  San -- _ \hy
 }
 
 \score {

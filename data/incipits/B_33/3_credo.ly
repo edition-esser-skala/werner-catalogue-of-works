@@ -4,137 +4,116 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/4 \tempoMarkup "Vivace"
-    g''16\f d h g h'4 r
-    d16 a fis d d'4 r
-    h16 g d h \sbOn \tuplet 3/2 8 { g fis g h a h d c d g fis g \sbOff }
-    fis d a fis r4 d16 fis a d
-    h d g h, c e g c, d g, d' g
-    e8 g16 e c8 e16 c a fis a d
+    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    a'8 e cis e a,4 a' d, e
+    a8 e cis e a,4 a' d, e
+    a8 e cis e a4 e cis a
+    e'8 fis16 gis a h cis d e8 h gis h e h gis h
+    eis,2 r r
+    cis8 dis16 eis fis gis a h cis8 gis eis gis cis gis eis gis
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key g \major \time 3/4 \tempoMarkup "Vivace"
-    r4 g''16\f d h g g'4
-    r a16 fis d a fis'8 d~
-    d h~ \sbOn \tuplet 3/2 8 { h16 a h d c d g fis g h a h } \sbOff
-    a fis d a r4 d,16 fis a d
-    h d g h, c e g c, d g, d' g
-    e8 g16 e c8 e16 c a fis a d
+    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    a'8 e cis e a,4 a' d, e
+    a8 e cis e a,4 a' d, e
+    a8 e cis e a4 e cis a
+    e'8 fis16 gis a h cis d e8 h gis h e h gis h
+    eis,2 r r
+    cis8 dis16 eis fis gis a h cis8 gis eis gis cis gis eis gis
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
-    d'8^\tutti d r d h d
-    a a r a a d
-    h4 h8 d h4\trill
-    a r8 a4 d8
-    h8. h16 c4 d8. d16
-    g,8 c4 e8 d4
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    cis'4^\solo cis2 e4 d cis8[ h]
+    cis[ h] cis2 e4 d8[ cis] d[ h]
+    cis4 e8[ d] cis4 h a cis
+    h2 r r
+    gis4 cis a gis a a
+    gis4. gis8 gis2 r
   }
 }
 
 SopranoLyrics = \lyricmode {
   Pa -- trem o -- mni -- po --
   ten -- tem, fa -- cto -- rem
-  coe -- li et ter --
-  rae, vi -- si --
-  bi -- li -- um o -- mni --
-  um et in -- "vi -"
+  coe -- _ li et ter -- _
+  rae,
+  vi -- si -- bi -- _ li -- um
+  o -- mni -- um
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
-    g'8^\tutti g r g g g
-    fis fis r fis d fis
-    g4 g8 d d[ g]
-    fis4 r8 fis[ a] fis
-    g4 g8 g g8. g16
-    g4 e8 e a4
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    e4^\solo a2 cis4 h a8[ gis]
+    a[ gis] a2 cis4 h8[ a] h[ gis]
+    a4 cis8[ h] a4 gis e a
+    gis2 r r
+    eis4 eis fis eis fis fis
+    eis4. eis8 eis2 r
   }
 }
 
 AltoLyrics = \lyricmode {
   Pa -- trem o -- mni -- po --
   ten -- tem, fa -- cto -- rem
-  coe -- li et ter --
-  rae, vi -- si --
-  bi -- li -- um o -- mni --
-  um et in -- "vi -"
+  coe -- _ li et ter -- _
+  rae,
+  vi -- si -- bi -- _ li -- um
+  o -- mni -- um,
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
-    h8^\tutti h r h d d
-    d d r d d d
-    d4 d8 d d4
-    d r8 d4 d8
-    d4 e8 e d8. d16
-    c4 e a,
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    R1.*4
+    cis4 cis cis2 his4 his
+    cis4. cis8 cis2 r
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Pa -- trem o -- mni -- po --
-  ten -- tem, fa -- cto -- rem
-  coe -- li et ter --
-  rae, vi -- si --
-  bi -- li -- um o -- mni --
-  um et "in -"
+  Vi -- si -- bi -- li -- um
+  o -- mni -- um,
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Vivace"
-    g'8^\tutti g, r g' g, g'
-    d d r d fis d
-    g4 g8 h g16[ d h g]
-    d'4 r8 d[ fis] d
-    g8. g16 e4 h8. h16
-    c4 a'8 a fis4
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    R1.*6
   }
-}
-
-BassoLyrics = \lyricmode {
-  Pa -- trem o -- mni -- po --
-  ten -- tem, fa -- cto -- rem
-  coe -- li et ter --
-  rae, vi -- si --
-  bi -- li -- um o -- mni --
-  um et in -- "vi -"
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key g \major \time 3/4 \tempoMarkup "Vivace"
-    g4-\tutti r g'16 d h g
-    d'4 r d'16 a fis d
-    g d h g g' d h g g' d h g
-    d'4 d'16 a fis d fis8 d
-    g4 e h
-    c a' fis
+    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    a'8-\solo-\tasto e cis e a,2 r4 e'
+    a8 e cis e a,2 r4 e'
+    a8 e cis e a4 e cis a
+    e'2 r r
+    \clef tenor cis'1 his2
+    cis r r
   }
 }
 
 BassFigures = \figuremode {
-  r2.
+  r1.
   r
   r
   r
-  r4 <6>2
-  r2.
+  <_+>2 <6 4>4 r2.
+  <_+>1.
 }
 
 \score {
@@ -175,7 +154,6 @@ BassFigures = \figuremode {
         \set Staff.instrumentName = "B"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
-      \new Lyrics \lyricsto Basso \BassoLyrics
     >>
     \new StaffGroup <<
       \new Staff {
