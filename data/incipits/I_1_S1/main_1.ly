@@ -3,17 +3,12 @@
 
 notes = \relative c' {
   \clef treble
-  \key g \major \time 2/4 \tempoMarkup "Andante"
-  d'8[^\partVi d d d]
-  \grace d16 c8[ c c c] \gotoBar "18"
-  \clef soprano \autoBeamOff d4^\partSc d
-  d8 d c16[ h] a[ g]
+  \key f \major \time 4/4 \tempoMarkup "Andante"
+  c'8^\partVi c c c d16 b c g' f d e c
+  b d g,,8 g g g''16 c, c8\trill a'16 c, c8\trill
 }
 
 text = \lyricmode {
-  \skips 8
-  Al -- ma
-  re -- dem -- pto -- ris
 }
 
 \score {

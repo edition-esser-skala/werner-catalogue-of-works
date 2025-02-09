@@ -1,158 +1,102 @@
 \version "2.24.2"
 \include "header.ly"
 
-ViolinoI = {
-  \relative c' {
-    \clef treble
-    \key d \dorian \time 4/4 \tempoMarkup "Presto"
-    R1
-    a'2 d,4 d'~
-    d8 cis d e f2
-    e r4 d~
-    d c! d4. d8
-  }
-}
-
-ViolinoII = {
-  \relative c' {
-    \clef treble
-    \key d \dorian \time 4/4 \tempoMarkup "Presto"
-    R1*3
-    r2 d
-    a4 a'4. gis8 a h
-  }
-}
-
-Soprano = {
-  \relative c' {
-    \clef soprano
-    \key d \dorian \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    R1
-    a'2 d,4 d'~
-    d8 cis d e f2
-    e r4 d~
-    d c! d4. d8
-  }
-}
-
-SopranoLyrics = \lyricmode {
-  Al -- ma Re -- %2
-  dem -- pto -- ris Ma --
-  ter, Re --
-  dem -- pto -- ris
-}
-
-Alto = {
-  \relative c' {
-    \clef alto
-    \key d \dorian \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    R1*3
-    r2 d2
-    a4 a'4. gis8 a h
-  }
-}
-
-AltoLyrics = \lyricmode {
-  Al --
-  ma Re -- dem -- pto -- ris
-}
-
-Tenore = {
+TenoreI = {
   \relative c' {
     \clef tenor
-    \key d \dorian \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    a2 d,4 d'~
-    d8 cis d e f2
-    e r4 d~
-    d c! h c8[ d]
-    e2 d
+    \key c \dorian \time 4/4 \autoBeamOff \tempoMarkup "Largo"
+    c4. es8 d g, g f
+    es c c'4. h16[ a] h4
+    c4 r r8 d d c16 d
+    es8 es es d16[ c] d8 g, r4
+    r c c8[ b!] b[ as]
   }
 }
 
-TenoreLyrics = \lyricmode {
-  Al -- ma Re --
-  dem -- pto -- ris Ma --
-  ter, Re --
-  dem -- pto -- ris
-  "Ma -"
+TenoreILyrics = \lyricmode {
+  Al -- ma Re -- dem -- pto -- ris
+  ma -- ter, al -- _ _
+  ma, quae per -- vi -- a
+  coe -- li por -- ta ma -- nes
+  et stel -- la
 }
 
-Basso = {
-  \relative c {
-    \clef bass
-    \key d \dorian \time 4/4 \tempoMarkup "Presto" \autoBeamOff
+TenoreII = {
+  \relative c' {
+    \clef tenor
+    \key c \dorian \time 4/4 \autoBeamOff \tempoMarkup "Largo"
+    R1
+    c4. es8 d g, g f
+    es c c'4. h16[ a] h4
+    c4 r r8 d d c16 d
+    es8 es es d16[ c] d8 g, r4
+  }
+}
+
+TenoreIILyrics = \lyricmode {
+  Al -- ma Re -- dem -- pto -- ris
+  ma -- ter, al -- _ _
+  ma, quae per -- vi -- a
+  coe -- li por -- ta ma -- nes
+}
+
+TenoreIII = {
+  \relative c' {
+    \clef tenor
+    \key c \dorian \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     R1*2
-    r2 d
-    a4 a'4. gis8 a h
-    c!2 h
+    c4. es8 d g, g f
+    es c c'4. h16[ a] h4
+    c4 r r8 d d c16 d
   }
 }
 
-BassoLyrics = \lyricmode {
-  Al --
-  ma Re -- dem -- pto -- ris
-  Ma -- ter,
+TenoreIIILyrics = \lyricmode {
+  Al -- ma Re -- dem -- pto -- ris
+  ma -- ter, al -- _ _
+  ma, quae per -- vi -- a
 }
 
 Organo = {
   \relative c {
-    \clef tenor
-    \key d \dorian \time 4/4 \tempoMarkup "Presto"
-    a'2-! d,4-! d'~-!
-    d8 cis d e f2
-    e \clef bass d,
-    a4 a'4. gis8 a h
-    c!2 h
+    \clef bass
+    \key c \dorian \time 4/4 \tempoMarkup "Largo"
+    c4 c'2 h4
+    c8 c, es c g'4. f8
+    es4 c g2
+    c4 r r g'
+    c, c'4. b!8 b as
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  <5>2 <6>
-  <7>4 <6\\>2.
-  <5 4>4 <\t 3> <4 2>2
-  <9 6>4 <8 \t> <7> <6\\>
+  r4 <3> <2> r
+  r2 <4>4 <_!>
+  <6>2 <4>4 <_!>
+  r2. <_!>4
+  r <3> <2>8 <6>4 q8
 }
 
 \score {
   <<
-    \new StaffGroup <<
-      \new GrandStaff <<
-        \set GrandStaff.instrumentName = "vl"
-        \new Staff {
-          \set Staff.instrumentName = "1"
-          \ViolinoI
-        }
-        \new Staff {
-          \set Staff.instrumentName = "2"
-          \ViolinoII
-        }
-      >>
-    >>
     \new ChoirStaff <<
       \new Staff {
-        \set Staff.instrumentName = "S"
-        \new Voice = "Soprano" { \dynamicUp \Soprano }
+        \set Staff.instrumentName = "T 1"
+        \new Voice = "TenoreI" { \dynamicUp \TenoreI }
       }
-      \new Lyrics \lyricsto Soprano \SopranoLyrics
+      \new Lyrics \lyricsto TenoreI \TenoreILyrics
 
       \new Staff {
-        \set Staff.instrumentName = "A"
-        \new Voice = "Alto" { \dynamicUp \Alto }
+        \set Staff.instrumentName = "T 2"
+        \new Voice = "TenoreII" { \dynamicUp \TenoreII }
       }
-      \new Lyrics \lyricsto Alto \AltoLyrics
+      \new Lyrics \lyricsto TenoreII \TenoreIILyrics
 
       \new Staff {
-        \set Staff.instrumentName = "T"
-        \new Voice = "Tenore" { \dynamicUp \Tenore }
+        \set Staff.instrumentName = "T 3"
+        \new Voice = "TenoreIII" { \dynamicUp \TenoreIII }
       }
-      \new Lyrics \lyricsto Tenore \TenoreLyrics
-
-      \new Staff {
-        \set Staff.instrumentName = "B"
-        \new Voice = "Basso" { \dynamicUp \Basso }
-      }
-      \new Lyrics \lyricsto Basso \BassoLyrics
+      \new Lyrics \lyricsto TenoreIII \TenoreIIILyrics
     >>
     \new StaffGroup <<
       \new Staff {
