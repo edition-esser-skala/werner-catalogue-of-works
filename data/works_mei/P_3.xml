@@ -42,7 +42,6 @@
         <identifier label="WerW">P.3</identifier>
         <identifier label="PetSi">Sin 11</identifier>
         <title xml:lang="la">Symphonia</title>
-        <title type="alternative" xml:lang="la">Symphoniae sex senaeque sonatae</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
@@ -70,6 +69,7 @@
             <incip>
               <graphic target="main_1" targettype="lowres"/>
               <graphic target="main_2" targettype="lowres"/>
+              <graphic target="main_3" targettype="lowres"/>
             </incip>
             <creation>
               <date/>
@@ -141,6 +141,36 @@
                   </perfResList>
                 </perfMedium>
                 <extent>22 bars</extent>
+                <notesStmt>
+                  <annot/>
+                </notesStmt>
+                <componentList/>
+                <relationList>
+                  <relation rel="hasReproduction"/>
+                </relationList>
+              </expression>
+              <expression n="3">
+                <title xml:lang="en">[no title]</title>
+                <contributor>
+                  <persName role=""/>
+                </contributor>
+                <incip>
+                  <incipText>
+                    <p xml:lang="en"/>
+                  </incipText>
+                  <graphic targettype="lowres" target="3_allabreve"/>
+                </incip>
+                <tempo>Allabreve</tempo>
+                <key pname="b" mode="major" accid="f"/>
+                <meter sym="cut"/>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                  <perfResList>
+                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
+                    <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
+                    <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
+                  </perfResList>
+                </perfMedium>
+                <extent>106 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
