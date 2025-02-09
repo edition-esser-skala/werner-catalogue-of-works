@@ -1,7 +1,7 @@
 ---
 title-block-banner: true
 nocite: |
-  @Armstrong2004, @Preisl2022, @Radant1982
+  @Armstrong2004, @Preisl2022, @Radant1982, @RobbinsLandon1977
 ---
 
 # Introduction {.unnumbered}
@@ -74,6 +74,21 @@ Works in the catalogue should be cited by the abbreviation “WerW”, followed 
 As a supplement to the catalogue, we publish selected works as [Open Content editions](https://edition.esser-skala.at/scores/gregor-joseph-werner/). Available works are marked with the symbol ![](../images/ees_link.svg) in the work details.
 
 
+## Works not yet catalogued
+
+- A-Wgm:
+  - I 35469 (2 Sub tuum)
+  - VII 23528 (4 pastorellas)
+  - IX 73837 (Praeludium and Fuga for string quartet, arranged by Joseph Haydn)
+  - IX 75085 (Partia a 3)
+- A-WIL: 2304 (RISM 1001317882); probably title page and bass part missing in A-Ed L 9
+- CZ-NR: Aria de Passione Domini
+- F-Pn: MS-2231 (autograph full score of Missa Breves sunt dies homini)
+- H-Bn: 6 fugues (Ms. mus. IV. 2.166, RISM 1001303905); probably those mentioned in the catalogue of Haydn's artistic effects [@Sauer1809, fol. 13v, no. 534]
+- prints [@Czernin2020b]
+
+
+
 ## Methods
 
 ### Sources
@@ -126,7 +141,7 @@ grep -v "<zs:" output.xml | \
 rm output.xml
 ```
 
-Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
+Later changes in the RISM database were manually added to the catalogue (2025-02-09: 875 entries for “Werner, Gregor Joseph” and 5 (A-Z) entries for “Werner, C.”). Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
 Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org), polished with [mei-friend](https://mei-friend.mdw.ac.at), and rendered with [Verovio](https://www.verovio.org), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). XML files were exported from MerMEId, post-processed and validated against the schema [mei-CMN](https://github.com/music-encoding/schema/blob/main/4.0.0/mei-CMN.rng). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and Verovio.
 
