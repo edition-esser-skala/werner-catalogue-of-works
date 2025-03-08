@@ -3,20 +3,20 @@
 
 notes = \relative c' {
   \clef soprano
-  \key c \major \time 3/2 \autoBeamOff \tempoMarkup "[no tempo]"
-  c'1^\partSc c2
-  h1 h2
-  r c gis
-  a1.
-  gis2
+  \key c \major \time 3/4 \autoBeamOff
+  r4^\partSs g'2
+  a8[ g] a2
+  h8[ a] h2
+  c8[ h] c2
+  h4 a2 %5
 }
 
 text = \lyricmode {
-  Pan -- ge
-  lin -- gua
-  glo -- ri --
-  o --
-  si
+  A --
+  _ _
+  _ _
+  _ _
+  men, "a -"
 }
 
 \score {

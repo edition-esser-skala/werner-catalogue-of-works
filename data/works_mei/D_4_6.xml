@@ -39,20 +39,27 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">D.5.4</identifier>
-        <title xml:lang="la">Furiae vos divae abyssi volate</title>
+        <identifier label="WerW">D.4.6</identifier>
+        <title xml:lang="la">Rorate coeli</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
         </contributor>
         <creation>
-          <date isodate="1745-07-07">1745-07-07</date>
+          <date isodate="1750-01-01">mid 18th century</date>
           <geogName role="">Eisenstadt (?)</geogName>
         </creation>
         <history/>
+        <biblList>
+          <head>Bibliography</head>
+          <bibl>
+            <genre>reference</genre>
+            <ref targettype="pandoc-citation">@Rostetter2023 [p. 1426, no. W/49]</ref>
+          </bibl>
+        </biblList>
         <classification>
           <termList>
-            <term>sacred song</term>
+            <term>rorate</term>
           </termList>
         </classification>
         <expressionList>
@@ -66,10 +73,13 @@
               <geogName role=""/>
             </creation>
             <history/>
-            <perfMedium>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
-                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli">
-                  <head xml:lang="en">soli</head>
+                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
+                  <head xml:lang="en">coro</head>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
+                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
                 </perfResList>
                 <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
@@ -85,7 +95,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="la">Furiae vos divae abyssi volate</title>
+                <title xml:lang="la">Rorate</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -93,16 +103,19 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_furiae"/>
+                  <graphic targettype="lowres" target="1_rorate"/>
                 </incip>
-                <tempo>Allegro</tempo>
-                <key pname="b" accid="f" mode="major"/>
-                <meter sym="common"/>
-                <perfMedium>
+                <tempo>[no tempo]</tempo>
+                <key pname="f" mode="major"/>
+                <meter sym="cut"/>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" n="perfResList_853ae05b">
-                      <head xml:lang="en">soli</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_427db77e">B</perfRes>
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_3fc2a576">
+                      <head xml:lang="en">coro</head>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_2b89513b">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_07886dff">A</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_ea6bfe15">T</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_0ed51367">B</perfRes>
                     </perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
@@ -110,9 +123,11 @@
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>107 bars (incl. 36 bars da capo)</extent>
+                <extent>71 bars (incl. 28 bars da capo)</extent>
                 <notesStmt>
-                  <annot/>
+                  <annot>
+                    <p>four half notes per bar</p>
+                  </annot>
                 </notesStmt>
                 <componentList/>
                 <relationList>
@@ -134,51 +149,51 @@
         <pubStmt>
           <publisher/>
           <pubPlace/>
-          <date isodate="1745-07-07">1745-07-07</date>
+          <date notbefore="1860-01-01" notafter="1870-12-31">ca. 1860&#x2013;1870</date>
         </pubStmt>
         <classification>
           <termList>
             <term>Notated music</term>
             <term>Manuscript</term>
             <term>Copy</term>
-            <term>Score</term>
+            <term>Score and parts</term>
             <term>Fair copy</term>
             <term>Complete</term>
           </termList>
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">451024488</identifier>
+            <identifier/>
             <physDesc>
               <dimensions>
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="32.5" unit="cm">32.5 (height in cm)</height>
-                <width quantity="20.5" unit="cm">20.5 (height in cm)</width>
+                <height quantity="33" unit="cm">33 (height in cm)</height>
+                <width quantity="26" unit="cm">26 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <titlePage label="[wrapper, in Aloys Fuchs' hand]">
-                <p><rend rend="underline">Aria per il Ba&#x17F;so</rend> | <rend rend="underline">B dur</rend> | <rend rend="underline">"Furiae! vos divae Abyssi volate"</rend> | 2 Viol: Viola-Ba&#x17F;so | di | <rend rend="underline">Jos. Gre: Werner</rend> | <rend rend="underline">Partitura</rend> | 1745. | [right at bottom:] AF.</p>
+              <titlePage label="[wrapper]">
+                <p>Rorate Coeli. | a | 4 Voci | 2 Violinen 1 Viola | Organo | Cello et Contraba&#x17F;s | con Partitura | di Gregorio Werner | Cath. Eccl. Veszprimiensis.</p>
               </titlePage>
-              <extent>8 p.</extent>
+              <extent>1 vocal score, 12 parts</extent>
               <dimensions/>
               <physMedium>
-                <p>full score; hand-ruled paper, 15 staves</p>
+                <p>hand-ruled paper, 12 staves<lb/>vocal score: 26 x 33 cm, hand-ruled paper, 10 staves</p>
               </physMedium>
             </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
                 <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">D-M&#xDC;s</identifier>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-VEs</identifier>
               </repository>
-              <identifier>SANT Hs 4312</identifier>
+              <identifier>Rorate 7</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>an authentic copy by Johann Georg Thonner</p>
+                <p>vocal score (6), S coro (2x; 2, 2), A coro (2x; 2, 2), T coro (2), B coro (1), vl 1 (2), vl 2 (2), vla (2), org (2x; 2, 3), vlc/b (1)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>

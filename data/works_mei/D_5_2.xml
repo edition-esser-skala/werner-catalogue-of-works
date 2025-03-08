@@ -39,8 +39,10 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">D.4.9</identifier>
-        <title xml:lang="la">Rorate coeli</title>
+        <identifier label="WerW">D.5.2</identifier>
+        <identifier label="HarCa">I.B.91</identifier>
+        <identifier label="WinMa">1</identifier>
+        <title xml:lang="la">Amen</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
@@ -50,16 +52,9 @@
           <geogName role="">Eisenstadt (?)</geogName>
         </creation>
         <history/>
-        <biblList>
-          <head>Bibliography</head>
-          <bibl>
-            <genre>reference</genre>
-            <ref targettype="pandoc-citation">@Rostetter2023 [p. 1426, no. W/49]</ref>
-          </bibl>
-        </biblList>
         <classification>
           <termList>
-            <term>rorate</term>
+            <term>sacred song</term>
           </termList>
         </classification>
         <expressionList>
@@ -75,6 +70,7 @@
             <history/>
             <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
+                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
                   <head xml:lang="en">coro</head>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
@@ -82,8 +78,6 @@
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
                 </perfResList>
-                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
-                <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
                 <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                 <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
               </perfResList>
@@ -95,7 +89,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="la">Rorate</title>
+                <title xml:lang="la">Amen</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -103,31 +97,28 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_rorate"/>
+                  <graphic targettype="lowres" target="1_amen"/>
                 </incip>
                 <tempo>[no tempo]</tempo>
-                <key pname="f" mode="major"/>
-                <meter sym="cut"/>
+                <key pname="c" mode="major"/>
+                <meter count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_3fc2a576">
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_57ca0d7e">
                       <head xml:lang="en">coro</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_2b89513b">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_07886dff">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_ea6bfe15">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_0ed51367">B</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_032a15bb">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_86edd1af">A</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_26a19ef5">T</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_b89c3302">B</perfRes>
                     </perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
-                    <perfRes codedval="sva" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vla</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>71 bars (incl. 28 bars da capo)</extent>
+                <extent>22 bars</extent>
                 <notesStmt>
-                  <annot>
-                    <p>four half notes per bar</p>
-                  </annot>
+                  <annot/>
                 </notesStmt>
                 <componentList/>
                 <relationList>
@@ -144,56 +135,60 @@
       <manifestation>
         <identifier/>
         <titleStmt>
-          <title>Manuscript copy</title>
+          <title>Autograph manuscript</title>
         </titleStmt>
         <pubStmt>
           <publisher/>
           <pubPlace/>
-          <date notbefore="1860-01-01" notafter="1870-12-31">ca. 1860&#x2013;1870</date>
+          <date isodate="1750-01-01">mid 18th century</date>
         </pubStmt>
         <classification>
           <termList>
             <term>Notated music</term>
             <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Score and parts</term>
+            <term>Autograph</term>
+            <term>Score</term>
             <term>Fair copy</term>
             <term>Complete</term>
           </termList>
         </classification>
         <itemList>
           <item>
-            <identifier/>
+            <identifier label="RISM">600101187</identifier>
             <physDesc>
               <dimensions>
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="33" unit="cm">33 (height in cm)</height>
-                <width quantity="26" unit="cm">26 (height in cm)</width>
+                <height quantity="32" unit="cm">32 (height in cm)</height>
+                <width quantity="21" unit="cm">21 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Rorate Coeli. | a | 4 Voci | 2 Violinen 1 Viola | Organo | Cello et Contraba&#x17F;s | con Partitura | di Gregorio Werner | Cath. Eccl. Veszprimiensis.</p>
+              <titlePage label="[fol. 1r, in Aloys Fuchs' hand]">
+                <p><rend rend="underline">Originale</rend> | von | <rend rend="underline">Gregor Werner.</rend> | f&#xFC;r&#x17F;tlich= E&#x17F;terhaczi&#x17F;cher Capellmei&#x17F;ter. | (<rend rend="underline">vor Joseph Haydn</rend>.) | <rend rend="underline">Enth&#xE4;lt folgende St&#xFC;cke in Partitur:</rend> | 1. Fuga &#x201E;Amen&#x201E; f&#xFC;r 4 Sing&#x17F;t. 2 Viol. Orgel. | 2. Antiphon, f&#xFC;r Sop. Alt. Ten. Ba&#x17F;s u Orgel. | Aloys Fuchs MP</p>
               </titlePage>
-              <extent>1 vocal score, 12 parts</extent>
+              <titlePage label="[fol. 2v, in Fuchs's hand, red ink]">
+                <p>&#x201D;Amen&#x201E; Fuga a 4 Voci. 2 Viol. Organo. di Gr. Werner.</p>
+              </titlePage>
+              <extent>2 p.</extent>
               <dimensions/>
               <physMedium>
-                <p>hand-ruled paper, 12 staves<lb/>vocal score: 26 x 33 cm, hand-ruled paper, 10 staves</p>
+                <p>full score; hand-ruled paper, 14 staves</p>
               </physMedium>
             </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
                 <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-VEs</identifier>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/dtl/3451806" mimetype="" label="digitized version"/>
               </repository>
-              <identifier>Rorate 7</identifier>
+              <identifier>Mus.Hs.15974 (1)</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>vocal score (6), S coro (2x; 2, 2), A coro (2x; 2, 2), T coro (2), B coro (1), vl 1 (2), vl 2 (2), vla (2), org (2x; 2, 3), vlc/b (1)</p>
+                <p>This signature comprises two works, this work (fol. 2v&#x2013;3r) and the antiphon <rend fontstyle="italic">O quam suavis es</rend> WerW D.5.3 (fol. 3v&#x2013;5v).</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
