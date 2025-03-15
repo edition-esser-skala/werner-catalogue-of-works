@@ -58,7 +58,7 @@ SUBGROUP_TEMPLATE <- '
 ## Work (overview) ----
 
 WORK_TEMPLATE_OVERVIEW <- '
-### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{str_to_lower(str_remove(subgroup, "\\\\."))}{str_to_lower(number)}}}
 
 {incipits}
 
@@ -273,9 +273,9 @@ n_ascertained <-
 
 overview_table_count <-
   works %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  unite(group, subgroup, col = "group_sub", sep = ".", na.rm = TRUE) %>%
   summarise(
-    .by = group,
+    .by = group_sub,
     n = n(),
     l = sum(str_starts(number, "L")),
     s = sum(str_starts(number, "S")),
@@ -288,7 +288,7 @@ overview_table_count <-
       '<span class="text-danger">{s}</span>'
     )
   ) %>%
-  select(group, work_count)
+  select(group_sub, work_count)
 
 overview_table_groups <-
   work_pages %>%
@@ -297,29 +297,30 @@ overview_table_groups <-
     subgroups %>% unnest(subgroups),
     by = "group"
   ) %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
+  unite(group, subgroup, col = "group_sub", sep = ".", na.rm = TRUE) %>%
   left_join(
     overview_table_count,
-    by = "group"
+    by = "group_sub"
   ) %>%
   unite(group_name, title, col = "group_name", sep = ": ", na.rm = TRUE) %>%
   mutate(group_name = str_glue("**{group_name}** ({work_count})"))
 
 overview_table_details <-
   tibble(
-    WerW =
+    id =
       dir_ls("data/works_mei", type = "file") %>%
       str_extract("works_mei/(.*)\\.xml$", group = 1),
-    Metadata = str_glue("[XML](/metadata/{WerW}.xml)"),
+    Metadata = str_glue("[XML](/metadata/{id}.xml)"),
   ) %>%
-  mutate(WerW = str_replace_all(WerW, "_", "."))
+  mutate(id = str_replace_all(id, "_", "."))
 
 overview_table <-
   works %>%
-  unite(group, subgroup, col = "group", sep = ".", na.rm = TRUE) %>%
-  left_join(overview_table_groups, by = "group") %>%
-  unite(group, number, col = "WerW", sep = ".", remove = FALSE) %>%
-  left_join(overview_table_details, by = "WerW") %>%
+  unite(group, subgroup, col = "group_sub", sep = ".", remove = FALSE, na.rm = TRUE) %>%
+  left_join(overview_table_groups, by = "group_sub") %>%
+  unite(group_sub, number, col = "id", sep = ".", remove = FALSE) %>%
+  left_join(overview_table_details, by = "id") %>%
+  unite(subgroup, number, col = "anchor", sep = "", remove = FALSE, na.rm = TRUE) %>%
   mutate(
     number = case_when(
       str_starts(number, "S") ~
@@ -329,13 +330,13 @@ overview_table <-
       .default = number
     ),
     label = if_else(is.na(Metadata), "summary", "details"),
-    Description = str_glue("[{label}](/groups/{file}.html#work-{WerW})"),
+    Description = str_glue("[{label}](/groups/{file}.html#work-{str_to_lower(anchor)})"),
     Metadata = replace_na(Metadata, "")
   ) %>%
-  unite(group, number, col = "WerW", sep = ".") %>%
-  select(group_name, WerW, Title = title, Description, Metadata) %>%
+  select(group_name, id, Title = title, Description, Metadata) %>%
   gt(groupname_col = "group_name", process_md = TRUE) %>%
-  fmt_markdown(columns = c("WerW", "Description", "Metadata")) %>%
+  cols_label(id = catalogue_prefix) %>%
+  fmt_markdown(columns = c("id", "Description", "Metadata")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90"

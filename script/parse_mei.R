@@ -58,7 +58,7 @@ AVAILABLE_EDITIONS <- get_available_editions()
 ## Work (detailed) ----
 
 WORK_TEMPLATE_DETAILED <- '
-### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{str_to_lower(str_remove(subgroup, "\\\\."))}{str_to_lower(number)}}}
 
 {incipits}
 
@@ -206,7 +206,11 @@ format_mei_text <- function(xml_data) {
     ref <- str_match(s, pattern_work)[1,]
     link_text <- ref[1]
     group <- ref[2]
-    work_id <- str_flatten(ref[-1], na.rm = TRUE)
+    work_id <-
+      ref[3:4] %>%
+      str_to_lower() %>%
+      str_remove("\\.") %>%
+      str_flatten(na.rm = TRUE)
 
     str_glue(
       "[{link_text}]",
