@@ -74,7 +74,7 @@ Works in the catalogue should be cited by the abbreviation “WerW”, followed 
 As a supplement to the catalogue, we publish selected works as [Open Content editions](https://edition.esser-skala.at/scores/gregor-joseph-werner/). Available works are marked with the symbol ![](../images/ees_link.svg) in the work details.
 
 
-## Works not yet catalogued
+### Works not yet catalogued
 
 - H-Bn: [Ms. mus. IV. 2.166](rism.online/sources/1001303905) comprises six fugues (“6. aus ſeinen Meſsen gezohene Fugen für die 4. Singſtimmen mit der Orgel für Komponisten”). This source is mentioned in the catalogue of Joseph Haydn's artistic effects [@Sauer1809, fol. 13v, no. 534]. Fugue 6 is *Cum Sancto Spiritu* from the *Missa primitiva* [WerW B.35](groups/b.html#work-35). Fugues 1–5 cannot yet be assigned:
 
@@ -150,6 +150,17 @@ rm output.xml
 Later changes in the RISM database were manually added to the catalogue (2025-02-09: 875 entries for “Werner, Gregor Joseph” and 5 (A-Z) entries for “Werner, C.”). Pages for all groups of works were generated automatically from `catalogue_overview.csv` and `catalogue_works.csv`. If manually curated incipits were unavailable for a work, the first incipit of the first source with a RISM entry was included. Data from the [RISM Catalogue](https://opac.rism.info) (e.g., Plaine & Easie Code for incipits) by the *Répertoire International des Sources Musicales* is licensed under a Creative Commons Attribution CC-BY 3.0 Unported License.
 
 Detailed work metadata was edited with [MerMEId v2.0](https://mermeid.edirom.de/). Incipits were either prepared with [MuseScore](https://musescore.org), polished with [mei-friend](https://mei-friend.mdw.ac.at), and rendered with [Verovio](https://www.verovio.org), or created with [LilyPond](https://lilypond.org/) and [EES Tools](https://github.com/edition-esser-skala/ees-tools). XML files were exported from MerMEId, post-processed and validated against the schema [mei-CMN](https://github.com/music-encoding/schema/blob/main/4.0.0/mei-CMN.rng). These pages are rendered using the [BravuraText](https://github.com/steinbergmedia/bravura) font v1.392 and Verovio.
+
+
+### ARKs
+
+A semi-opaque Archival Resource Key ([ARK](https://arks.org)) is assigned to each work as persistent identifier:
+
+- Each ARK uses the Name Assigning Authority Number ([NAAN](https://arks.org/about/ark-naans-and-systems/)) `68748` …
+ - … and the [Shoulder](https://arks.org/about/ark-features/) `gw1`.
+ - The [Blade](https://arks.org/specs/) consists of the catalogue of work number (lowercase, no separators).
+
+Thus, the ARKs [ark:68748/gw1b1](https://n2t.net/ark:68748/gw1b1) and [ark:68748/gw1d5s1](https://n2t.net/ark:68748/gw1d5s1) denote WerW B.1 and D.5.S1, respectively.
 
 
 ### Data and code availability
