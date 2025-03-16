@@ -1,28 +1,28 @@
 \version "2.24.2"
 \include "header.ly"
 
-ViolinoI = {
+ViolaI = {
   \relative c' {
-    \clef treble
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \clef soprano
+    \key f \major \time 5/8 \tempoMarkup "Allegro"
       \once \omit Staff.TimeSignature
-    s8*6 \bar "||"
+    s8*5 \bar "||"
     \time 4/4 R1
-    r2 c'4 a8 d
-    d c f e16 d c8 d e f
+    r2 c'4 a8 d~
+    d c f e16 d c8 d e f~
     f e f4 r8 a, a a
   }
 }
 
-ViolinoII = {
+ViolaII = {
   \relative c' {
-    \clef treble
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \clef alto
+    \key f \major \time 5/8 \tempoMarkup "Allegro"
       \once \omit Staff.TimeSignature
-    s8*6 \bar "||"
+    s8*5 \bar "||"
     \time 4/4 r4 f e8 a4 g8
     c b16 a g8 a g8. g16 c,8 f
-    g a f g a g16 f e8 c
+    g a f g a g16 f e8 c~
     c c c c f4. f8
   }
 }
@@ -30,9 +30,9 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/8 \tempoMarkup "Allegro" \autoBeamOff
       \once \omit Staff.TimeSignature
-    s8*6 \bar "||"
+    s8*5 \bar "||"
     \time 4/4 R1
     r2 c'4 a8 d~
     d c f e16[ d] c8 d e f~
@@ -49,32 +49,32 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/8 \tempoMarkup "Allegro" \autoBeamOff
       \once \omit Staff.TimeSignature
-    s8*6 \bar "||"
+    s8*5 \bar "||"
     \time 4/4 r4 f e8 a4 g8
-    c b16([ a)] g8 a g8. g16 c,8 f
-    g a f g a g16[ f] e8 c~
+    c b16([ a)] g8 a( g8.) g16 c,8 f(
+    g) a f g a g16[ f] e8 c~
     c c c c f4. f8
   }
 }
 
 AltoLyrics = \lyricmode {
   Coe -- li, coe -- li
-  de -- su -- per, de -- _ su -- per, coe --
+  de -- su -- per, de -- su -- per, coe --
   li, coe -- li de -- su -- per, de --
-  _ su -- per, et nu -- bes
+  su -- per, et nu -- bes
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/8 \tempoMarkup "Allegro" \autoBeamOff
       \once \omit Staff.TimeSignature
-    s8*6 \bar "||"
+    s8*5 \bar "||"
     \time 4/4 c4 a8 d4 c8 f e16[ d]
     c8 d e f~ f e f4
-    r8 c d c16[ b] a8[ h] c8[ b16 a]
+    r8 c( d) c16[ b] a8[ h] c8[ b16 a]
     g8. g16 a4 r2
   }
 }
@@ -82,25 +82,25 @@ Tenore = {
 TenoreLyrics = \lyricmode {
   Coe -- li, coe -- li de -- su --
   per, coe -- li de -- su -- per,
-  de -- _ su -- per, de --
+  de -- su -- per, de --
   _ su -- per,
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/8 \tempoMarkup "Allegro" \autoBeamOff
       \once \omit Staff.TimeSignature
-    c\breve*1/16 d d a' b a\fermata \bar "||"
+    c\breve*1/16 d a' b a\fermata \bar "||"
     \time 4/4 R1
     r2 r4 f
-    e8 a[ d,] e f e16[ d] c4
+    e8 a[( d,]) e f e16[ d] c4
     c8. c16 f,4 r2
   }
 }
 
 BassoLyrics = \lyricmode {
-  Ro -- _ ra -- _ te __ _
+  Ro -- _ ra -- _ te
 
   coe --
   li, coe -- li de -- su -- per,
@@ -110,9 +110,9 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \key f \major \time 5/8 \tempoMarkup "Allegro"
       \once \omit Staff.TimeSignature
-    c\breve*1/16 d d a' b a\fermata \bar "||"
+    c\breve*1/16 d a' b a\fermata \bar "||"
     \clef alto \time 4/4 << {
       r4 f' e8 a4 g8
       c b16 a g8 a
@@ -126,7 +126,7 @@ Organo = {
 }
 
 BassFigures = \figuremode {
-  r8*6
+  r8*5
   r1
   r2 <5 2>4 <5>8 <6>
   <7> <3> <10> <8 6>16 <_ 5> r4 <5 3>8 <6 4>
@@ -137,14 +137,14 @@ BassFigures = \figuremode {
   <<
     \new StaffGroup <<
       \new GrandStaff <<
-        \set GrandStaff.instrumentName = "vl"
+        \set GrandStaff.instrumentName = "vla"
         \new Staff {
           \set Staff.instrumentName = "1"
-          \ViolinoI
+          \ViolaI
         }
         \new Staff {
           \set Staff.instrumentName = "2"
-          \ViolinoII
+          \ViolaII
         }
       >>
     >>
