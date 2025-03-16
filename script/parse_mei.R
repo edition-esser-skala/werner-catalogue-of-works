@@ -91,7 +91,7 @@ Place and date of composition
 ### Sources
 {sources}
 
-[Download metadata](/metadata/{work_id}.xml)
+[Download metadata](/metadata/mei/{mei_outfile}.xml)
 :::'
 
 
@@ -1095,7 +1095,14 @@ get_work_details <- function(group,
                              table_metadata,
                              table_sources) {
   work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
-  data <- read_xml(str_glue("data/works_mei/{work_id}.xml"))
+  mei_infile <- str_glue("data/works_mei/{work_id}.xml")
+  mei_outfile <-
+    work_id %>%
+    str_to_lower() %>%
+    str_remove_all("_")
+  file_copy(mei_infile, str_glue("metadata/mei/{mei_outfile}.xml"))
+
+  data <- read_xml(mei_infile)
   format_mei_text(data)
   data <-
     as_list(data) %>%
@@ -1195,7 +1202,7 @@ get_work_details <- function(group,
     work_description = work_description,
     movements = movements$markdown %>% str_flatten("\n"),
     sources = sources,
-    work_id = work_id
+    mei_outfile = mei_outfile
   )
 }
 
