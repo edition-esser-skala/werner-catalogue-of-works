@@ -70,6 +70,9 @@ WORK_TEMPLATE_DETAILED <- '
 Identification
 : {identifiers}
 
+ARK
+: {ark}
+
 Scoring
 : {work_scoring}
 
@@ -191,6 +194,21 @@ SUBTITLE_TEMPLATE <- "[{title}]{{.other-title}}"
 EDITION_LINK_TEMPLATE <- "[![](../images/ees_link.svg)]({link})"
 
 
+## ARK ----
+
+ARK_TEMPLATE <- "[{ark}](https://n2t.net/{ark})"
+
+
+## Dublin Kernel ----
+
+ERC_TEMPLATE <- "
+erc:
+who: {who}
+what: {what}
+when: {when}
+where: {where}
+"
+
 
 # Functions ---------------------------------------------------------------
 
@@ -302,7 +320,30 @@ format_key <- function(k) {
   )
 }
 
+# format Archival Resource Key
+# also generates ERC metadata
+format_ark <- function(d, title, mei_outfile, work_id) {
+  ark <- d$altId[[1]] %||% ""
+  meta <- read_yaml("_quarto.yml")$book
+  work_id <- str_replace_all(work_id, "_", ".")
+
+  use_template(
+    ERC_TEMPLATE,
+    who = meta$author,
+    what = str_glue("Entry for '{title} {catalogue_prefix} {work_id}' ",
+                    "in {meta$title}. {meta$subtitle}"),
+    when = lubridate::today(),
+    where = str_glue("https://n2t.net/{ark}")
+  ) %>%
+    write_file(str_glue("metadata/erc/{mei_outfile}.txt"))
+
+  use_template(ARK_TEMPLATE, ark = ark)
+}
+
 # formats titles
+# returns a list with elements
+#  'main' (main title) and
+#  'all' (all formatted titles)
 format_title <- function(d) {
   title_indices <-
     names(d) %>%
@@ -314,8 +355,12 @@ format_title <- function(d) {
     \(i) use_template(SUBTITLE_TEMPLATE, title = d[[i]][[1]])
   )
 
-  c(main_title, other_titles) %>%
-    str_flatten("<br/>")
+  list(
+    main = main_title,
+    all =
+      c(main_title, other_titles) %>%
+      str_flatten("<br/>")
+  )
 }
 
 # format incipits (lightbox expanding to orchestral incipit)
@@ -1121,6 +1166,8 @@ get_work_details <- function(group,
 
   title <- format_title(data_work)
 
+  ark <- format_ark(data, title$main, mei_outfile, work_id)
+
   incipits <- format_incipits(data_music$incip, work_id)
 
   sources_short <- format_sources_short(data_sources)
@@ -1176,7 +1223,7 @@ get_work_details <- function(group,
     group = group,
     subgroup = subgroup,
     number = number,
-    title = title,
+    title = title$all,
     bibliography = bibliography$entries_ref,
     identifiers = set_names(identifier_ids, identifier_catalogues),
     sources = data_sources,
@@ -1190,10 +1237,11 @@ get_work_details <- function(group,
     subgroup = str_flatten(c(".", subgroup)),
     number = number,
     number_formatted = number_formatted,
-    title = title,
+    title = title$all,
     incipits = incipits,
     sources_short = sources_short,
     identifiers = identifiers,
+    ark = ark,
     work_scoring = work_scoring$markdown,
     roles = roles,
     genre = genre,

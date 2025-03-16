@@ -227,7 +227,7 @@ if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups")
 
 if (dir_exists("metadata")) dir_delete("metadata")
-dir_create("metadata/mei")
+dir_create(c("metadata/mei", "metadata/erc"))
 
 pwalk(work_pages, make_group_page)
 

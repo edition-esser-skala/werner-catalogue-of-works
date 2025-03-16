@@ -51,5 +51,5 @@ The root folder contains the usual files required by Quarto. Notably,
 3. Engrave all incipits: `make -f script/make_incipits.mk`.
 4. Prepare webpages: `Rscript script/prepare_pages.R`.
 5. Render with Quarto: `quarto render`.
-6. Move generated files into the site folder: `cp -r data/works_mei _book/metadata && cp -r incipits _book` (not necessary during preview).
+6. Move generated files into the site folder: `cp -r metadata/erc _book/metadata` (not necessary during preview).
 7. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
