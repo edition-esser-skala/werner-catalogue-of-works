@@ -189,8 +189,12 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
   }
 
   # write entries for ARK mapping table
-  blade <- str_replace(work_id, "_", "") %>% str_to_lower()
+  blade <-
+    work_id %>%
+    str_replace_all("_", "") %>%
+    str_to_lower()
   siteurl <- read_yaml("_quarto.yml")$book$`site-url`
+
   use_template(
     ARK_MAPPING_TEMPLATE,
     work_id = work_id,
