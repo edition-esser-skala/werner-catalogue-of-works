@@ -55,6 +55,5 @@ The root folder contains the usual files required by Quarto. Notably,
 2. Create PAE sources for RISM incipits: `Rscript script/create_rism_incipits.R`.
 3. Engrave all incipits: `make -f script/make_incipits.mk`.
 4. Prepare webpages: `Rscript script/prepare_pages.R`.
-5. Render with Quarto: `quarto render`.
-6. Move additional files into the site folder: `mkdir -p _book/metadata/mei && cp data/works_mei/* _book/metadata/mei && cp -r data_generated/erc _book/metadata && cp .htaccess _book`.
-7. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
+5. Render with Quarto: `quarto render` (also executes the post-render script `script/post_render.sh`).
+6. Deploy the folder `_book` via rsync, either to the folder `werner-catalogue` (released versions) or `werner-catalogue-draft` (draft versions).
