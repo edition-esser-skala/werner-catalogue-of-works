@@ -144,7 +144,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
 
   if (file_exists(str_glue("data/works_mei/{work_id}.xml"))) {
     info("Writing detailed entry for {work_id}")
-    get_work_details(group, subgroup, number, metadata, sources)
+    entry <- get_work_details(group, subgroup, number, metadata, sources)
   } else {
     info("Writing overview entry for {work_id}")
 
@@ -173,7 +173,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       str_sort() %>%
       str_flatten(" · ")
 
-    use_template(
+    entry <- use_template(
       WORK_TEMPLATE_OVERVIEW,
       group = group,
       subgroup = str_flatten(c(".", subgroup)),
@@ -206,6 +206,8 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
     file = file
   ) %>%
     write_file("data_generated/ark_mapping_table.csv", append = TRUE)
+
+  entry
 }
 
 
