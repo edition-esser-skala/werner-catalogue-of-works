@@ -75,7 +75,7 @@ WORK_TEMPLATE_OVERVIEW <- '
 ## ARK mapping table ----
 
 ARK_MAPPING_TEMPLATE <-
-"{blade},{siteurl}/groups/{file}.html#work-{group}{subgroup}.{number}
+"{blade},{siteurl}/groups/{file}.html#work-{work_id_dots}
 {blade}.mei,{siteurl}/metadata/mei/{work_id}.xml
 {blade}?info,{siteurl}/metadata/erc/{work_id}_entry.txt
 {blade}.mei?info,{siteurl}/metadata/erc/{work_id}_mei.txt\n\n"
@@ -198,9 +198,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
   use_template(
     ARK_MAPPING_TEMPLATE,
     work_id = work_id,
-    group = group,
-    subgroup = subgroup,
-    number = number,
+    work_id_dots = str_replace_all(work_id, "_", "."),
     blade = blade,
     siteurl = siteurl,
     file = file
