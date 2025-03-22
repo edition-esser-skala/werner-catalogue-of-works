@@ -72,7 +72,12 @@ WORK_TEMPLATE_OVERVIEW <- '
 : {{tbl-colwidths="[12,87]" .movement-details}}
 '
 
+## ARK mapping table ----
 
+ARK_MAPPING_TEMPLATE <-
+"{blade},{siteurl}/groups/{file}.html#work-{group}{subgroup}.{number}
+{blade}.mei,{siteurl}/metadata/mei/{work_id}.xml
+{blade}?info,{siteurl}/metadata/erc/{work_id}.txt\n\n"
 
 # Generate group pages ----------------------------------------------------
 
@@ -130,7 +135,7 @@ make_incipits <- function(group, subgroup, number) {
 }
 
 
-make_work_entry <- function(group, subgroup, number, sources, ...) {
+make_work_entry <- function(group, subgroup, number, sources, file, ...) {
   metadata <- list(...)
   work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
 
@@ -179,6 +184,21 @@ make_work_entry <- function(group, subgroup, number, sources, ...) {
       literature = str_sort(metadata$literature)
     )
   }
+
+  # write entries for ARK mapping table
+  blade <- str_replace(work_id, "_", "") %>% str_to_lower()
+  siteurl <- read_yaml("_quarto.yml")$book$`site-url`
+  use_template(
+    ARK_MAPPING_TEMPLATE,
+    work_id = work_id,
+    group = group,
+    subgroup = subgroup,
+    number = number,
+    blade = blade,
+    siteurl = siteurl,
+    file = file
+  ) %>%
+    write_file("data_generated/ark_mapping_table.csv", append = TRUE)
 }
 
 
@@ -187,6 +207,7 @@ make_group_page <- function(file, group, title, subgroups) {
     page_contents <-
       works %>%
       filter(group == {{group}}) %>%
+      mutate(file = file) %>%
       pmap_chr(make_work_entry) %>%
       str_flatten("\n\n")
   } else {
@@ -197,6 +218,7 @@ make_group_page <- function(file, group, title, subgroups) {
           work_list <-
             works %>%
             filter(group == {{group}}, subgroup == {{subgroup}}) %>%
+            mutate(file = file) %>%
             pmap_chr(make_work_entry) %>%
             str_flatten("\n\n")
           use_template(
@@ -222,6 +244,9 @@ make_group_page <- function(file, group, title, subgroups) {
 
 
 ## Run ----
+
+if (file_exists("data_generated/ark_mapping_table.csv"))
+  file_delete("data_generated/ark_mapping_table.csv")
 
 if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups")
