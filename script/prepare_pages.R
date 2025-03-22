@@ -58,7 +58,7 @@ SUBGROUP_TEMPLATE <- '
 ## Work (overview) ----
 
 WORK_TEMPLATE_OVERVIEW <- '
-### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{str_to_lower(str_remove(subgroup, "\\\\."))}{str_to_lower(number)}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {incipits}
 
@@ -226,8 +226,8 @@ make_group_page <- function(file, group, title, subgroups) {
 if (dir_exists("groups")) dir_delete("groups")
 dir_create("groups")
 
-if (dir_exists("metadata")) dir_delete("metadata")
-dir_create(c("metadata/mei", "metadata/erc"))
+if (dir_exists("data_generated/erc")) dir_delete("data_generated/erc")
+dir_create("data_generated/erc")
 
 pwalk(work_pages, make_group_page)
 
@@ -308,11 +308,7 @@ overview_table_details <-
     id =
       dir_ls("data/works_mei", type = "file") %>%
       str_extract("works_mei/(.*)\\.xml$", group = 1),
-    file_name =
-      id %>%
-      str_to_lower() %>%
-      str_remove_all("_"),
-    Metadata = str_glue("[XML](/metadata/mei/{file_name}.xml)"),
+    Metadata = str_glue("[XML](/metadata/mei/{id}.xml)")
   ) %>%
   mutate(id = str_replace_all(id, "_", ".")) %>%
   select(id, Metadata)
@@ -333,7 +329,7 @@ overview_table <-
       .default = number
     ),
     label = if_else(is.na(Metadata), "summary", "details"),
-    Description = str_glue("[{label}](/groups/{file}.html#work-{str_to_lower(anchor)})"),
+    Description = str_glue("[{label}](/groups/{file}.html#work-{id})"),
     Metadata = replace_na(Metadata, "")
   ) %>%
   select(group_name, id, Title = title, Description, Metadata) %>%

@@ -58,7 +58,7 @@ AVAILABLE_EDITIONS <- get_available_editions()
 ## Work (detailed) ----
 
 WORK_TEMPLATE_DETAILED <- '
-### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{str_to_lower(str_remove(subgroup, "\\\\."))}{str_to_lower(number)}}}
+### [{group}{subgroup}.{number_formatted}]{{.header-section-number}}<br/>{title} {{.unnumbered #work-{group}{subgroup}.{number}}}
 
 {incipits}
 
@@ -94,7 +94,7 @@ Place and date of composition
 ### Sources
 {sources}
 
-[Download metadata](/metadata/mei/{mei_outfile}.xml)
+[Download metadata](/metadata/mei/{work_id}.xml)
 :::'
 
 
@@ -207,6 +207,7 @@ who: {who}
 what: {what}
 when: {when}
 where: {where}
+support-what: {support_what}
 "
 
 
@@ -224,11 +225,7 @@ format_mei_text <- function(xml_data) {
     ref <- str_match(s, pattern_work)[1,]
     link_text <- ref[1]
     group <- ref[2]
-    work_id <-
-      ref[3:4] %>%
-      str_to_lower() %>%
-      str_remove("\\.") %>%
-      str_flatten(na.rm = TRUE)
+    work_id <- str_flatten(ref[-1], na.rm = TRUE)
 
     str_glue(
       "[{link_text}]",
@@ -322,20 +319,21 @@ format_key <- function(k) {
 
 # format Archival Resource Key
 # also generates ERC metadata
-format_ark <- function(d, title, mei_outfile, work_id) {
+format_ark <- function(d, title, work_id) {
   ark <- d$altId[[1]] %||% ""
-  meta <- read_yaml("_quarto.yml")$book
-  work_id <- str_replace_all(work_id, "_", ".")
+  book <- read_yaml("_quarto.yml")$book
 
   use_template(
     ERC_TEMPLATE,
-    who = meta$author,
-    what = str_glue("Entry for '{title} {catalogue_prefix} {work_id}' ",
-                    "in {meta$title}. {meta$subtitle}"),
+    who = book$author,
+    what = str_glue("Entry for '{title} ({catalogue_prefix} ",
+                    "{str_replace_all(work_id, '_', '.')})' ",
+                    "in {book$title}. {book$subtitle}"),
     when = lubridate::today(),
-    where = str_glue("https://n2t.net/{ark}")
+    where = str_glue("https://n2t.net/{ark}"),
+    support_what = params$persistence
   ) %>%
-    write_file(str_glue("metadata/erc/{mei_outfile}.txt"))
+    write_file(str_glue("data_generated/erc/{work_id}.txt"))
 
   use_template(ARK_TEMPLATE, ark = ark)
 }
@@ -1140,14 +1138,7 @@ get_work_details <- function(group,
                              table_metadata,
                              table_sources) {
   work_id <- str_flatten(c(group, subgroup, number), "_", na.rm = TRUE)
-  mei_infile <- str_glue("data/works_mei/{work_id}.xml")
-  mei_outfile <-
-    work_id %>%
-    str_to_lower() %>%
-    str_remove_all("_")
-  file_copy(mei_infile, str_glue("metadata/mei/{mei_outfile}.xml"))
-
-  data <- read_xml(mei_infile)
+  data <- read_xml(str_glue("data/works_mei/{work_id}.xml"))
   format_mei_text(data)
   data <-
     as_list(data) %>%
@@ -1166,7 +1157,7 @@ get_work_details <- function(group,
 
   title <- format_title(data_work)
 
-  ark <- format_ark(data, title$main, mei_outfile, work_id)
+  ark <- format_ark(data, title$main, work_id)
 
   incipits <- format_incipits(data_music$incip, work_id)
 
@@ -1250,7 +1241,7 @@ get_work_details <- function(group,
     work_description = work_description,
     movements = movements$markdown %>% str_flatten("\n"),
     sources = sources,
-    mei_outfile = mei_outfile
+    work_id = work_id
   )
 }
 
