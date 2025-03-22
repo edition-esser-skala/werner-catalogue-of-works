@@ -10,7 +10,7 @@ default_logger <- log4r::logger(
   threshold = "DEBUG",
   appenders = list(
     log4r::console_appender(),
-    log4r::file_appender("catalogue.log", append = FALSE)
+    log4r::file_appender("data_generated/catalogue.log", append = FALSE)
   )
 )
 
