@@ -163,7 +163,7 @@ A semi-opaque Archival Resource Key ([ARK](https://arks.org)) is assigned to eac
 
 Thus, the ARKs [ark:68748/gw1b1](https://n2t.net/ark:68748/gw1b1) and [ark:68748/gw1d5s1](https://n2t.net/ark:68748/gw1d5s1) denote WerW B.1 and D.5.S1, respectively.
 
-ARKs are resolved by `https://ark.esser-skala.at` via a [minimal ARK resolver](https://github.com/edition-esser-skala/minimal-ark-resolver). The resolver also supports the following features:
+ARKs are resolved by `https://ark.esser-skala.at` via a [minimal ARK resolver](https://github.com/edition-esser-skala/minimal-ark-resolver). (They are also forwarded to the rseolver from this sites's base URL via its `.htaccess` file.) The resolver also supports the following features:
 
 - The object variant `.mei` directly resolves to the metadata in MEI format.<br/>
 Example: [ark:68748/gw1b1.mei](https://ark.esser-skala.at/ark:68748/gw1b1.mei)
