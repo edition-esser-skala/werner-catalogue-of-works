@@ -20,11 +20,6 @@ cols_identifiers <-
   list_simplify()
 catalogue_prefix <- params$catalogue_prefix
 
-work_page_names <-
-  read_csv("data/catalogue_overview.csv") %>%
-  distinct(group, file) %>%
-  deframe()
-
 instruments_unimarc <-
   read_csv("data/instrument_abbreviations.csv") %>%
   select(abbreviation, unimarc) %>%
@@ -218,19 +213,18 @@ support-what: {support_what}
 # of the MEI formatting nodes
 # add hyperlinks when referencing other works or RISM entries
 format_mei_text <- function(xml_data) {
-  pattern_work <- paste(catalogue_prefix, "([A-Z])(\\.[\\dSL]+)?(\\.[\\dSL]+)")
+  pattern_work <- paste(catalogue_prefix, "([A-Z](?:\\.[\\dSL]+){1,2})")
   pattern_rism <- "RISM (\\d+)"
 
   link_work <- function(s) {
     ref <- str_match(s, pattern_work)[1,]
     link_text <- ref[1]
-    group <- ref[2]
-    work_id <- str_flatten(ref[-1], na.rm = TRUE)
+    blade <-
+      ref[2] %>%
+      str_replace_all("\\.", "") %>%
+      str_to_lower()
 
-    str_glue(
-      "[{link_text}]",
-      "(/groups/{work_page_names[group]}.qmd#work-{work_id})"
-    )
+    str_glue("[{link_text}](https://n2t.net/ark:{params$ark}{blade})")
   }
 
   link_rism <- function(s) {
