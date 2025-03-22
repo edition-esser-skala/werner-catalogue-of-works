@@ -318,7 +318,8 @@ format_key <- function(k) {
 }
 
 # format Archival Resource Key
-# also generates ERC metadata
+# also generates ERC metadata for the catalogue entry
+# and the associated MEI metadata
 format_ark <- function(d, title, work_id) {
   ark <- d$altId[[1]] %||% ""
   book <- read_yaml("_quarto.yml")$book
@@ -326,14 +327,28 @@ format_ark <- function(d, title, work_id) {
   use_template(
     ERC_TEMPLATE,
     who = book$author,
-    what = str_glue("Entry for '{title} ({catalogue_prefix} ",
+    what = str_glue("Catalogue entry ",
+                    "for '{title} ({catalogue_prefix} ",
                     "{str_replace_all(work_id, '_', '.')})' ",
-                    "in {book$title}. {book$subtitle}"),
+                    "in: {book$title}. {book$subtitle}"),
     when = lubridate::today(),
     where = str_glue("https://n2t.net/{ark}"),
     support_what = params$persistence
   ) %>%
-    write_file(str_glue("data_generated/erc/{work_id}.txt"))
+    write_file(str_glue("data_generated/erc/{work_id}_entry.txt"))
+
+  use_template(
+    ERC_TEMPLATE,
+    who = book$author,
+    what = str_glue("Metadata in Music Encoding Initiative (MEI) format ",
+                    "for '{title} ({catalogue_prefix} ",
+                    "{str_replace_all(work_id, '_', '.')})' ",
+                    "in: {book$title}. {book$subtitle}"),
+    when = lubridate::today(),
+    where = str_glue("https://n2t.net/{ark}.mei"),
+    support_what = params$persistence
+  ) %>%
+    write_file(str_glue("data_generated/erc/{work_id}_mei.txt"))
 
   use_template(ARK_TEMPLATE, ark = ark)
 }

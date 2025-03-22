@@ -77,7 +77,10 @@ WORK_TEMPLATE_OVERVIEW <- '
 ARK_MAPPING_TEMPLATE <-
 "{blade},{siteurl}/groups/{file}.html#work-{group}{subgroup}.{number}
 {blade}.mei,{siteurl}/metadata/mei/{work_id}.xml
-{blade}?info,{siteurl}/metadata/erc/{work_id}.txt\n\n"
+{blade}?info,{siteurl}/metadata/erc/{work_id}_entry.txt
+{blade}.mei?info,{siteurl}/metadata/erc/{work_id}_mei.txt\n\n"
+
+
 
 # Generate group pages ----------------------------------------------------
 
