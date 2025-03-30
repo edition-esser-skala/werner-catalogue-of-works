@@ -65,7 +65,7 @@ WORK_TEMPLATE_DETAILED <- '
 Identification
 : {identifiers}
 
-ARK
+ARKs
 : {ark}
 
 Scoring
@@ -191,7 +191,9 @@ EDITION_LINK_TEMPLATE <- "[![](../images/ees_link.svg)]({link})"
 
 ## ARK ----
 
-ARK_TEMPLATE <- "[{ark}](https://n2t.net/{ark})"
+ARK_TEMPLATE <- "
+[{ark}](https://n2t.net/{ark}) (human-readable catalogue entry)<br/>
+[{ark}.mei](https://n2t.net/{ark}.mei) (metadata in MEI format)"
 
 
 ## Dublin Kernel ----
