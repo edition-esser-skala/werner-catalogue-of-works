@@ -55,11 +55,11 @@ Continuo = {
       \new GrandStaff \with { \smallGroupDistance } <<
         \set GrandStaff.instrumentName = "vl"
         \new Staff {
-          \set Staff.instrumentName = "2"
+          \set Staff.instrumentName = "1"
           \ViolinoI
         }
         \new Staff {
-          \set Staff.instrumentName = "1"
+          \set Staff.instrumentName = "2"
           \ViolinoII
         }
       >>
