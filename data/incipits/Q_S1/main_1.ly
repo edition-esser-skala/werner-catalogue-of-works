@@ -8,8 +8,6 @@ notes = \relative c' {
   a r16 a h cis
   d8 d4 d8 d d4 d8
   cis32 h a8. h8 h
-  a32 g fis8. g8 g
-  fis16 e d8 r4
 }
 
 \score {

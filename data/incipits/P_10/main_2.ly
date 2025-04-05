@@ -8,6 +8,7 @@ notes = \relative c' {
   d4 \set Staff.forceClef = ##t a'2~^\partVi
   a4 gis e
   f2 g8 f
+  e d e4 f8 e
 }
 
 \score {
