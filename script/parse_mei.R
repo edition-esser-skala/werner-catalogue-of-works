@@ -565,24 +565,30 @@ format_creation <- function(c) {
   str_flatten_comma(c(place, date), na.rm = TRUE)
 }
 
+# get bibliography entries of a given genre
+# issue a warning if the targettype is incorrect
+get_bibliography_entries <- function(bibllist, genre) {
+  bibllist %>%
+    keep(\(bibl) !is.null(bibl$genre) && bibl$genre == genre) %>%
+    map_chr(\(bibl) {
+      targettype <- attr(bibl$ref, "targettype") %||% "(missing)"
+      citation <- bibl$ref[[1]]
+      if (targettype != "pandoc-citation")
+        warn("citation {citation} has wrong targettype '{targettype}'")
+      citation
+    }) %>%
+    str_sort()
+}
+
 # format bibliography (PanDoc style)
+# b: <biblList>
 # also adds a link to the EES edition if available
 # returns a list containing the markdown-formatted bibliography
 # as well as the raw entries for references and edition
 format_bibliography <- function(b, work_id) {
   b <- b %||% list()
-
-  entries_ref <-
-    b %>%
-    keep(\(x) !is.null(x$genre) && x$genre == "reference") %>%
-    map_chr(\(i) i$ref[[1]]) %>%
-    str_sort()
-
-  entries_edition <-
-    b %>%
-    keep(\(x) !is.null(x$genre) && x$genre == "edition") %>%
-    map_chr(\(i) i$ref[[1]]) %>%
-    str_sort()
+  entries_ref <- get_bibliography_entries(b, "reference")
+  entries_edition <- get_bibliography_entries(b, "edition")
 
   # check whether there is an EES edition
   ees_edition <- NULL
