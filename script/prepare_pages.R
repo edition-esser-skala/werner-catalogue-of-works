@@ -68,6 +68,7 @@ WORK_TEMPLATE_OVERVIEW <- '
 |*Sources*|{sources}|
 |*Notes*|{notes}|
 |*Literature*|{literature}|
+|*Editions*|{editions}|
 
 : {{tbl-colwidths="[12,87]" .movement-details}}
 '
@@ -184,7 +185,8 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       identification = identification,
       sources = sources,
       notes = metadata$notes,
-      literature = str_sort(metadata$literature)
+      literature = str_sort(metadata$literature),
+      editions = str_sort(metadata$editions)
     )
   }
 

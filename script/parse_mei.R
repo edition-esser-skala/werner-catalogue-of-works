@@ -568,7 +568,7 @@ format_creation <- function(c) {
 # format bibliography (PanDoc style)
 # also adds a link to the EES edition if available
 # returns a list containing the markdown-formatted bibliography
-# as well as the raw entries
+# as well as the raw entries for references and edition
 format_bibliography <- function(b, work_id) {
   b <- b %||% list()
 
@@ -578,36 +578,22 @@ format_bibliography <- function(b, work_id) {
     map_chr(\(i) i$ref[[1]]) %>%
     str_sort()
 
-  entries_score <-
+  entries_edition <-
     b %>%
-    keep(\(x) !is.null(x$genre) && x$genre == "score") %>%
-    map_chr(\(i) {
-      res <- str_glue("{i$composer}: *{i$title}*.")
+    keep(\(x) !is.null(x$genre) && x$genre == "edition") %>%
+    map_chr(\(i) i$ref[[1]]) %>%
+    str_sort()
 
-      if (!is.null(i$editor))
-        res <- str_glue("{res} Edited by {i$editor}.")
-
-      imprint <-
-        c(i$imprint$publisher, i$imprint$pubPlace, i$imprint$date) %>%
-        str_flatten_comma()
-      res <- str_glue("{res}<br/>&emsp;{i$identifier}. {imprint}.")
-
-      if (!is.null(i$ptr))
-        res <- str_glue("{res} [{attr(i$ptr, 'label')}]({attr(i$ptr, 'target')})")
-
-      res
-    })
-
+  # check whether there is an EES edition
+  ees_edition <- NULL
   if (work_id %in% AVAILABLE_EDITIONS) {
     link <- paste0(
       params$edition$url,
       str_to_lower(work_id) %>% str_replace_all("_", "-")
     )
-    entries_score <- c(
-      entries_score,
-      use_template(EDITION_LINK_TEMPLATE, link = link)
-    )
+    ees_edition <- use_template(EDITION_LINK_TEMPLATE, link = link)
   }
+  entries_edition_all <- c(entries_edition, ees_edition)
 
   markdown <- str_flatten(
     c(
@@ -617,8 +603,8 @@ format_bibliography <- function(b, work_id) {
         ""
       ),
       if_else(
-        length(entries_score) > 0,
-        paste("Editions\n:", str_flatten(entries_score, "<br/>")),
+        length(entries_edition_all) > 0,
+        paste("Editions\n:", str_flatten_comma(entries_edition_all)),
         ""
       )
     ),
@@ -628,7 +614,7 @@ format_bibliography <- function(b, work_id) {
   list(
     markdown = markdown,
     entries_ref = entries_ref,
-    entries_score = entries_score
+    entries_edition = entries_edition
   )
 }
 
@@ -1089,7 +1075,8 @@ validate_metadata <- function(group,
                               subgroup,
                               number,
                               title,
-                              bibliography,
+                              references,
+                              editions,
                               identifiers,
                               sources,
                               table_metadata,
@@ -1107,13 +1094,24 @@ validate_metadata <- function(group,
 
   # references
   if (is.na(table_metadata$literature))
-    table_bibliography <- character(0)
+    table_references <- character(0)
   else
-    table_bibliography <-
+    table_references <-
       table_metadata$literature %>%
       str_split_1(", @") %>%
       str_remove("@")
-  check_equal_list(str_remove(bibliography, "@"), table_bibliography) %>%
+  check_equal_list(str_remove(references, "@"), table_references) %>%
+    report()
+
+  # editions
+  if (is.na(table_metadata$editions))
+    table_editions <- character(0)
+  else
+    table_editions <-
+    table_metadata$editions %>%
+    str_split_1(", @") %>%
+    str_remove("@")
+  check_equal_list(str_remove(editions, "@"), table_editions) %>%
     report()
 
   # identifiers
@@ -1226,7 +1224,8 @@ get_work_details <- function(group,
     subgroup = subgroup,
     number = number,
     title = title$all,
-    bibliography = bibliography$entries_ref,
+    references = bibliography$entries_ref,
+    editions = bibliography$entries_edition,
     identifiers = set_names(identifier_ids, identifier_catalogues),
     sources = data_sources,
     table_metadata = table_metadata,
