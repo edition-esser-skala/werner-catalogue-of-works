@@ -466,3 +466,5 @@ use_template(
   sigla = sigla
 ) %>%
   write_file(str_glue("abbreviations.qmd"))
+
+summarise_loglevels()
