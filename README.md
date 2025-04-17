@@ -45,7 +45,8 @@ The root folder contains the usual files required by Quarto. Notably,
 
 - `.htaccess` redirects ARKs appended to the base URL to the ARK resolver at `ark.esser-skala.at`
 - `apa-6th-edition.csl` describes the citation style;
-- `references.bib` contains all references; and
+- `editions.bib` contains BibTeX entries describing (modern) editions;
+- `references.bib` contains BibTeX entries for references; and
 - `styling.scss` customizes CSS.
 
 

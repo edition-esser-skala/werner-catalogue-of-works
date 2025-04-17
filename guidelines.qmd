@@ -240,8 +240,7 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
 ## Bibliography
 
 - Add a single bibliography with default header “Bibliography”.
-- Manually add bibliographic references as XML code. Each entry is represented by a `<bibl>` element, containing a `<genre>` tag and other tags as described below.
-  - *References* contain one `<ptr>` element, whose `target` attribute points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html)).
+- Manually add bibliographic references and modern editions as XML code. Each entry is represented by a `<bibl>` element that contains one `<genre>` and one `<ref>` tag. The latter tag points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html)).
 
     ```xml
     <bibl>
@@ -256,22 +255,9 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
       <genre>reference</genre>
       <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 50]</ref>
     </bibl>
-    ```
-    - *Editions* are described with MEI XML tags:
-    
-    ```xml
     <bibl>
-      <genre>score</genre>
-      <composer>Gregor Joseph Werner</composer>
-      <title level="m">Kleine Hirtenmusik</title>
-      <editor>Ernst Fritz Schmid</editor>
-      <identifier>Bärenreiter-Ausgabe 1597</identifier>
-      <imprint>
-        <publisher>Bärenreiter</publisher>
-        <pubPlace>Kassel</pubPlace>
-        <date isodate="1940-01-01">1940</date>
-      </imprint>
-      <ptr target="https://imslp.org/wiki/Pastorella_(Werner%2C_Gregor_Joseph)" label="digitized version"/>
+      <genre>edition</genre>
+      <ref targettype="pandoc-citation">@Schmid1940</ref>
     </bibl>
     ```
 
