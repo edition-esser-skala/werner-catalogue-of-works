@@ -46,7 +46,7 @@ Viola = {
   }
 }
 
-Organo = {
+Cembalo = {
   \relative c {
     \clef bass
     \key g \major \time 3/8 \tempoMarkup "Allegro"
@@ -93,8 +93,8 @@ BassFigures = \figuremode {
     >>
     \new StaffGroup <<
       \new Staff {
-        \set Staff.instrumentName = \markup \center-column { "org" "b" }
-        \Organo
+        \set Staff.instrumentName = \markup \center-column { "cemb" "b" }
+        \Cembalo
       }
     >>
     \new FiguredBass { \BassFigures }
