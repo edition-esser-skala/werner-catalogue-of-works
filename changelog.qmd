@@ -1,5 +1,35 @@
 # Changelog {.unnumbered}
 
+## 0.13.0 – 2025-04-18
+
+### Added
+
+- manual incipits and metadata: WerW D.1.12, D.2.1, D.4.2, D.5.S3, E.2, F.4/41/S1, G.1, H.1.4, H.2.1, H.3.1, I.1.23, I.2.2, I.3.3/S1, I.4.9, I.5.16, J.6, N.15, O.3/4, P.10, and Q.S1
+- sources:
+  - A-KN: D-I-614a-03 and 29
+  - A-Wst: A-14984
+  - D-As: 4 Tonk 1513
+  - H-Bn: Ms. mus. IV. 2.166
+- references: Dlabac1815, Neuhuber2020, Perutkova2022, Schindler1969, Tank1981, and Winkler2010
+- acknowledgements for A-Wst, CZ-Pak, H-Gk (updated), J-Tma, and Pernerstorfer
+- Archival Resource Keys for each catalogue entry and MEI file, including the `?info` inflection that links to Dublin Kernel metadata
+- citations of all known modern editions (`editions.bib`)
+- a `.htaccess` file that redirects ARKs to the resolver <http://ark.esser-skala.at>
+- a post-render script `post_render.sh` that copies metadata files to the output folder
+- info on uncatalogued funds in CZ-Bm
+- a check that the `targettype` attribute of the `<ref>` tag in a bibliography item has the correct value
+- a function `summarise_loglevels()` that prints the total number of errors and warnings in the logfile
+
+### Changed
+
+- `get_mermeid_xml` now adds the ARK as `<altId>` tag and reads the catalogue of works prefix from `config.yml`. Thus, it now requires only a single argument.
+- The log file is now saved in the folder `data_generated`.
+
+### Fixed
+
+- Publisher locations are now separate fields in the BibTeX file.
+
+
 ## 0.12.0 – 2025-03-08
 
 ### Added
