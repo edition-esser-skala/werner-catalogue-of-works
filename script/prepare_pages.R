@@ -65,6 +65,7 @@ WORK_TEMPLATE_OVERVIEW <- '
 |||
 |-|-|
 |*Identifiers*|{identification}|
+|*ARK*|{ark}|
 |*Sources*|{sources}|
 |*Notes*|{notes}|
 |*Literature*|{literature}|
@@ -159,6 +160,13 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
 
     identification <- format_identifiers(metadata, sep = " · ")
 
+    ark <- format_ark(
+      meihead = NULL,
+      title = metadata$title,
+      work_id = work_id,
+      template = "short"
+    )
+
     sources <-
       pmap_chr(
         sources,
@@ -183,6 +191,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       title = metadata$title,
       incipits = incipits,
       identification = identification,
+      ark = ark,
       sources = sources,
       notes = metadata$notes,
       literature = str_sort(metadata$literature),

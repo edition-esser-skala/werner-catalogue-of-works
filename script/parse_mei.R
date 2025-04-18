@@ -191,9 +191,13 @@ EDITION_LINK_TEMPLATE <- "[![](../images/ees_link.svg)]({link})"
 
 ## ARK ----
 
-ARK_TEMPLATE <- "
-[{ark}](https://n2t.net/{ark}) (human-readable catalogue entry)<br/>
-[{ark}.mei](https://n2t.net/{ark}.mei) (metadata in MEI format)"
+ARK_TEMPLATE_SHORT <- "[{ark}](https://n2t.net/{ark})"
+
+ARK_TEMPLATE_FULL <- paste0(
+  ARK_TEMPLATE_SHORT,
+  " (human-readable catalogue entry)<br/>",
+  "[{ark}.mei](https://n2t.net/{ark}.mei) (metadata in MEI format)"
+)
 
 
 ## Dublin Kernel ----
@@ -316,10 +320,24 @@ format_key <- function(k) {
 # format Archival Resource Key
 # also generates ERC metadata for the catalogue entry
 # and the associated MEI metadata
-format_ark <- function(d, title, work_id) {
-  ark <- d$altId[[1]] %||% ""
+format_ark <- function(meihead,
+                       title,
+                       work_id,
+                       template = c("full", "short")) {
+  template <- match.arg(template)
   book <- read_yaml("_quarto.yml")$book
+  ark <- pluck(
+    meihead,
+    "altId",
+    1,
+    .default = paste0(
+      "ark:",
+      params$ark,
+      work_id %>% str_replace_all("_", "") %>% str_to_lower()
+    )
+  )
 
+  # create record for '?info' inflection of catalogue entry
   use_template(
     ERC_TEMPLATE,
     who = book$author,
@@ -333,20 +351,25 @@ format_ark <- function(d, title, work_id) {
   ) %>%
     write_file(str_glue("data_generated/erc/{work_id}_entry.txt"))
 
-  use_template(
-    ERC_TEMPLATE,
-    who = book$author,
-    what = str_glue("Metadata in Music Encoding Initiative (MEI) format ",
-                    "for '{title} ({catalogue_prefix} ",
-                    "{str_replace_all(work_id, '_', '.')})' ",
-                    "in: {book$title}. {book$subtitle}"),
-    when = lubridate::today(),
-    where = str_glue("https://n2t.net/{ark}.mei"),
-    support_what = params$persistence
-  ) %>%
-    write_file(str_glue("data_generated/erc/{work_id}_mei.txt"))
+  # create record for '?info' inflection of MEI metadata only if available
+  if (template == "full")
+    use_template(
+      ERC_TEMPLATE,
+      who = book$author,
+      what = str_glue("Metadata in Music Encoding Initiative (MEI) format ",
+                      "for '{title} ({catalogue_prefix} ",
+                      "{str_replace_all(work_id, '_', '.')})' ",
+                      "in: {book$title}. {book$subtitle}"),
+      when = lubridate::today(),
+      where = str_glue("https://n2t.net/{ark}.mei"),
+      support_what = params$persistence
+    ) %>%
+      write_file(str_glue("data_generated/erc/{work_id}_mei.txt"))
 
-  use_template(ARK_TEMPLATE, ark = ark)
+  if (template == "full")
+    use_template(ARK_TEMPLATE_FULL, ark = ark)
+  else
+    use_template(ARK_TEMPLATE_SHORT, ark = ark)
 }
 
 # formats titles
@@ -1172,7 +1195,12 @@ get_work_details <- function(group,
 
   title <- format_title(data_work)
 
-  ark <- format_ark(data, title$main, work_id)
+  ark <- format_ark(
+    meihead = data,
+    title = title$main,
+    work_id = work_id,
+    template = "full"
+  )
 
   incipits <- format_incipits(data_music$incip, work_id)
 
