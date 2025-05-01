@@ -7,15 +7,15 @@
 sf=2.1
 
 # extract value of the width attribute of the <svg> element and double it
-w=`grep -oP ' width="\d+"' $1 | grep -oP "\d+"`
+w=`grep -oP ' width="\d+pt"' $1 | grep -oP "\d+"`
 w=`echo "$w * $sf" | bc`
 
 # same for the value of the height attribute
-h=`grep -oP ' height="\d+"' $1 | grep -oP "\d+"`
+h=`grep -oP ' height="\d+pt"' $1 | grep -oP "\d+"`
 h=`echo "$h * $sf" | bc`
 
 # replace values in the svg file
-sed -i -r "s/width=\"[0-9]+\" height=\"[0-9]+\"/width=\"$w\" height=\"$h\"/" $1
+sed -i -r "s/width=\"[0-9]+pt\" height=\"[0-9]+pt\"/width=\"$w\" height=\"$h\"/" $1
 
 # add a white background to an SVG file, i.e.,
 # add a white-filled <rect> element before the first <defs> tag
