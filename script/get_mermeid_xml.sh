@@ -61,6 +61,13 @@ xmlstarlet edit --inplace --delete '//_:dim[@quantity=""]' $s
 xmlstarlet edit --inplace --delete '//_:dimensions[@type="format"]' $s
 xmlstarlet edit --inplace --delete '//_:dimensions[@type="rastral_mirror"]' $s
 
+# remove attributes 'target' and 'label' of <ref> in <bibl>,
+# add attribute 'targettype'
+xmlstarlet edit --inplace --delete '//_:biblList/_:bibl/_:ref/@target' $s
+xmlstarlet edit --inplace --delete '//_:biblList/_:bibl/_:ref/@label' $s
+xmlstarlet edit --inplace --insert '//_:biblList/_:bibl/_:ref' -t attr -n targettype -v "pandoc-citation" $s
+
+
 # currently unnecessary, make files large and less readable
 xmlstarlet edit --inplace --delete '//@xml:id' $s
 
