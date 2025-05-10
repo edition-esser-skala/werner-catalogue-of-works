@@ -827,7 +827,7 @@ format_dimensions <- function(d) {
 format_copyists <- function(p) {
   hands <- pluck(p, "handList")
   if (is.null(hands)) {
-    error("List of hands empty")
+    error("List of hands empty") # TODO remove this once all files are in order
     return("")
   }
 
@@ -888,6 +888,19 @@ format_physdesc <- function(p) {
     res <- "–"
 
   res
+}
+
+# formats the source description
+# n: notesStmt
+format_source_description <- function(n) {
+  desc <-
+    n %>%
+    keep(~attr(.x, "type") == "source_description")
+
+  if (is_empty(desc))
+    return("–")
+
+  attr(desc[[1]], "markdown_list")
 }
 
 # get the source locations
@@ -1007,7 +1020,7 @@ format_source <- function(s) {
 
     physdesc <- format_physdesc(s$physDesc)
 
-    source_description <- attr(s$notesStmt[[1]], "markdown_list") %||% "–"
+    source_description <- format_source_description(s$notesStmt)
   } else {
     publication <- dating
 
@@ -1021,8 +1034,7 @@ format_source <- function(s) {
 
     physdesc <- format_physdesc(s$itemList$item$physDesc)
 
-    source_description <-
-      attr(s$itemList$item$notesStmt[[1]], "markdown_list") %||% "–"
+    source_description <- format_source_description(s$itemList$item$notesStmt)
   }
 
   locations <-
