@@ -79,6 +79,9 @@ Genre
 Place and date of composition
 : {creation}
 
+Performance(s)
+: {performances}
+
 {bibliography}
 
 {work_description}
@@ -591,6 +594,19 @@ format_creation <- function(c) {
   date <- c$date[[1]] %||% NA
   place <- c$geogName[[1]] %||% NA
   str_flatten_comma(c(place, date), na.rm = TRUE)
+}
+
+# format performances (date and place)
+# h: <history>
+format_performances <- function(h) {
+  if (length(h) == 0L)
+    return("–")
+
+  h$eventList %>%
+    map_chr(\(e) {
+      str_glue("{e$date[[1]]} ({e$geogName[[1]]})")
+    }) %>%
+    str_flatten_comma()
 }
 
 # get bibliography entries of a given genre
@@ -1273,6 +1289,8 @@ get_work_details <- function(group,
 
   creation <- format_creation(data_work$creation)
 
+  performances <- format_performances(data_work$history)
+
   bibliography <- format_bibliography(data_work$biblList, work_id)
 
   work_description <- format_work_description(data_work$notesStmt)
@@ -1318,6 +1336,7 @@ get_work_details <- function(group,
     roles = roles,
     genre = genre,
     creation = creation,
+    performances = performances,
     bibliography = bibliography$markdown,
     work_description = work_description,
     movements = movements$markdown %>% str_flatten("\n"),

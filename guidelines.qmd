@@ -173,14 +173,17 @@ If a full score or all parts are described, enter the following information on t
 - physical description
   - extent (number of parts or number of folios/pages for full scores)
   - dimensions (height and width)
-  - list of hands (hand is the full name; select medium from list; delete person)
+  - list of hands
+    - hand is the full name; unknown writers are denoted “unidentified”
+    - medium is selected from list
+    - person is deleted
   - physical medium
     - usually “hand-ruled paper, 8–12 staves” or similar
     - if there are several sets of parts, omit dimensions above and write details here (e.g., WerW I.3.3: “two sets of parts: [newline] (1) autograph manuscript, ca. 1760, 8 parts, 16 x 22 cm, hand-ruled paper, 5 staves (10 mm) [newline] (2) manuscript copy, ca. 1790, 8 parts, 15 x 22 cm, hand-ruled paper, 5 staves (10 mm)”)
 - general description
   - individual parts with number of written pages in parentheses, e.g.,
     “S coro (2), A coro (2), T solo and coro (4), B coro (2), vl 1 (3), vl 2 (3), vlne (2), org (3)”
-  - include any additional notes as new paragraph, e.g., “title page contains 17 performance dates: 1749-05-04, 1750-04-26 ...”
+  - include any additional notes as new paragraph, e.g., “wrapper (fol. 1r) contains 17 performance dates”
   - if only data from the RISM entry and/or literature were used, write “catalogued according to RISM entry and @Muranyi1997” or similar
 
 
@@ -233,10 +236,14 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
 
 ## History
 
-- *creation*
-  - date of composition; always include at least a date estimate
+- *creation* (required)
+  - date of composition (include at least an estimated date)
   - place of composition; use a parenthesized question mark to indicate assumed place, e.g. “Eisenstadt (?)”
+- *performances* (optional)
+  - date and location
 
+
+![](images/mermeid_history.png)
 
 ## Bibliography
 
