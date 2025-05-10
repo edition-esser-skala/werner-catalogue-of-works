@@ -135,6 +135,8 @@ SOURCE_TEMPLATE <- '
 
 {publication}
 
+{copyists}
+
 ##### Title page(s)
 
 {title_pages}
@@ -209,6 +211,14 @@ what: {what}
 when: {when}
 where: {where}
 support-what: {support_what}
+"
+
+
+## Copyists ----
+
+COPYISTS_TEMPLATE <- "##### Copyist(s)
+
+{copyists}
 "
 
 
@@ -801,6 +811,30 @@ format_dimensions <- function(d) {
     paste(h, hu, "×", w, wu)
 }
 
+# format the copyists of a source
+# p: physDesc
+format_copyists <- function(p, title) {
+  if (title == "Autograph manuscript")
+    return("")
+
+  hands <- pluck(p, "handList")
+  if (is.null(hands)) {
+    info("List of hands empty")  # make this a warning or error
+    return("")
+  }
+
+  copyists <-
+    hands %>%
+    map_chr(\(h) {
+      name <- h[[1]]
+      medium <- attr(h, "medium")
+      str_glue("{name} ({medium})")
+    }) %>%
+    str_flatten_comma()
+
+  use_template(COPYISTS_TEMPLATE, copyists = copyists)
+}
+
 # format the titlepages of a source
 # p: physDesc
 format_titlepage <- function(p) {
@@ -953,6 +987,8 @@ format_source <- function(s) {
 
     source_locations <- get_source_locations(s, pluck(s$identifier, 1))
 
+    copyists <- ""
+
     title_pages <- format_titlepage(s$physDesc)
 
     physdesc <- format_physdesc(s$physDesc)
@@ -964,6 +1000,8 @@ format_source <- function(s) {
     source_locations <- get_source_locations(s)
     if (nrow(source_locations) != 1L)
       error("There must be only one item for manuscripts.")
+
+    copyists <- format_copyists(s$itemList$item$physDesc, title)
 
     title_pages <- format_titlepage(s$itemList$item$physDesc)
 
@@ -995,6 +1033,7 @@ format_source <- function(s) {
     locations = locations,
     rism_id = source_locations$rism_id[1],
     publication = publication,
+    copyists = copyists,
     title_pages = title_pages,
     physdesc = physdesc,
     source_description = source_description
