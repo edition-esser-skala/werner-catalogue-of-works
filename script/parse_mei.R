@@ -916,15 +916,21 @@ get_source_locations <- function(s, rism_id = NULL) {
       shelfmark <- item$physLoc$identifier[[1]]
       source <- paste(siglum, shelfmark)
 
-      url <- attr(item$physLoc$repository$ptr, "target")
-      url_label <- attr(item$physLoc$repository$ptr, "label")
-      if (is.null(url)) {
-        link <- ""
-      } else {
-        if (!url_label %in% params$validation$location_link_labels)
-          error("Unknown link label: ", url_label)
-        link <- str_glue("([{url_label}]({url}))")
-      }
+      # parse several ptr elements in repository
+      link <-
+        item$physLoc$repository %>%
+        names() %>%
+        str_which("ptr") %>%
+        map_chr(\(i) {
+          url <- attr(item$physLoc$repository[[i]], "target")
+          url_label <- attr(item$physLoc$repository[[i]], "label")
+          if (!url_label %in% params$validation$location_link_labels)
+            error("Unknown link label: ", url_label)
+          str_glue("[{url_label}]({url})")
+        }) %>%
+        str_flatten_comma()
+      if (link != "")
+        link <- paste0("(", link, ")")
 
       if (is.null(rism_id))
         rism_id <- pluck(item$identifier, 1)
