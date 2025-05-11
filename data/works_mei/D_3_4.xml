@@ -79,7 +79,7 @@
               <geogName role=""/>
             </creation>
             <history/>
-            <perfMedium>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
                 <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
@@ -113,7 +113,7 @@
                 <tempo>[no tempo]</tempo>
                 <key pname="c" mode="major"/>
                 <meter sym="cut"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_7d2513e7">
                       <head xml:lang="en">coro</head>
@@ -152,7 +152,7 @@
                 <tempo>[no tempo]</tempo>
                 <key pname="d" mode="minor"/>
                 <meter count="3" unit="2"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_7d2513e7">
                       <head xml:lang="en">coro</head>
@@ -189,7 +189,7 @@
                 <tempo>Presto</tempo>
                 <key pname="a" mode="minor"/>
                 <meter sym="common"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_7d2513e7">
                       <head xml:lang="en">coro</head>
@@ -226,7 +226,7 @@
                 <tempo>Presto</tempo>
                 <key pname="g" mode="major"/>
                 <meter sym="common"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_7d2513e7">
                       <head xml:lang="en">coro</head>
@@ -289,8 +289,12 @@
               </dimensions>
               <extent>9 parts</extent>
               <dimensions/>
+              <handList>
+                <hand medium="brown ink" type="main">Carl Kraus</hand>
+                <hand medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>S, A, T, B, vl 1, vl 2 (11 p.), vlne, org: hand-ruled paper, 6 staves, upright format (22 x 18 cm)<lb/>vl 2 (1 p.): hand-ruled paper, 12 staves, upright format (32.5 x 23 cm), only comprises first movement</p>
+                <p>two sets of parts:<lb/>(1) S, A, T, B, vl 1, vl 2 (11 p.), vlne, org: 22 x 18 cm, hand-ruled paper, 6 staves (11 mm), in the hand of Kraus<lb/>(2) vl 2 (1 p.): 32.5 x 23 cm, hand-ruled paper, 12 staves (10 mm), only comprises first movement, by unidentified scribe</p>
               </physMedium>
             </physDesc>
             <physLoc>

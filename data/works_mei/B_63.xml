@@ -614,8 +614,7 @@
                     <extent>24 bars</extent>
                     <notesStmt>
                       <annot>
-                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend>
-                                                </p>
+                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend></p>
                       </annot>
                     </notesStmt>
                     <componentList/>
@@ -753,7 +752,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="" type="main">Hubert Dopf</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -763,9 +766,6 @@
               <identifier>I 59591</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a score by Hubert Dopf which he prepared for his PhD thesis</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
@@ -819,6 +819,9 @@
               </titlePage>
               <extent>12 p.</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">Carl M. Brand</hand>
+              </handList>
               <physMedium>
                 <p>printed staff paper:<lb/>(1) &#x201C;S&#xFC;nova&#x201D; Nr.6 1/2 16-zeilig (16 staves, 6mm)<lb/>(2) &#x201C;S&#xFC;nova&#x201D; Nr.8 1/2 20-zeilig (20 staves, 6mm)</p>
               </physMedium>
@@ -833,7 +836,6 @@
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>a copy by Carl M. Brand from the autograph manuscript in A-Wn</p>
                 <p>This shelfmark comprises two works: The&#xA0;<rend fontstyle="italic">Missa in contrapuncto</rend> WerW B.7 (p. 1&#x2013;12) and this mass (p. 13&#x2013;24).</p>
                 <p>It is unclear why the masses are dated 1736 in this copy, since none of the existing manuscripts contains any date.</p>
               </annot>
@@ -888,8 +890,11 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand medium="brown ink" type="main">Gregor Joseph Werner</hand>
+              </handList>
               <physMedium>
-                <p>full score; hand-ruled paper, 10 staves</p>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>

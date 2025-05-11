@@ -53,7 +53,22 @@
           <date isodate="1750-01-01">ca. 1740&#x2013;1750</date>
           <geogName role="">Eisenstadt (?)</geogName>
         </creation>
-        <history/>
+        <history>
+          <eventList type="performances">
+            <event>
+              <date isodate="1753-04-22">1753-04-22</date>
+              <geogName role="place">Heiligenkreuz</geogName>
+            </event>
+            <event>
+              <date isodate="1754-04-14">1754-04-14</date>
+              <geogName role="place">Heiligenkreuz</geogName>
+            </event>
+            <event>
+              <date isodate="1755-03-30">1755-03-30</date>
+              <geogName role="place">Heiligenkreuz</geogName>
+            </event>
+          </eventList>
+        </history>
         <biblList>
           <head>Bibliography</head>
           <bibl>
@@ -1031,8 +1046,7 @@
                     <extent>29 bars</extent>
                     <notesStmt>
                       <annot>
-                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend>
-                                                </p>
+                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend></p>
                       </annot>
                     </notesStmt>
                     <componentList/>
@@ -1223,6 +1237,10 @@
                 <p>S. Me&#x17F;se in C | v. Grg Werner.</p>
               </titlePage>
               <extent>13 parts</extent>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
@@ -1232,13 +1250,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/s-messe-in-c/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2746458" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.14</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
                 <p>S solo and coro (9), A solo and coro (9), T solo and coro (9), B solo and coro (10), clno 1 (6), clno 2 (4), timp (4), vl 1 (2x; 14, 14), vl 2 (2x; 13, 13), vlne (11), org (14)</p>
-                <p>autograph manuscript: A, clno 1, clno 2, timp, vlne, org; manuscript copy: S, T, B, vl 1 (2x), vl 2 (2x)</p>
+                <p>A, clno 1, clno 2, timp, vlne, and org are autograph manuscripts; in S, T, and B, the title and keys in the first 4 lines are by Werner, while the remaining elements are by a different hand; vl 1 (2x) and vl 2 (2x) are entirely copies</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -1287,6 +1307,9 @@
               </titlePage>
               <extent>11 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper, 10&#x2013;11 staves</p>
               </physMedium>
@@ -1351,15 +1374,16 @@
               </dimensions>
               <titlePage label="[wrapper, fol. 1r, unknown hand]">
                 <p>MISSA | Trinitas in Unitate veneranda | A 4 Voce Concert: | Violini Concti. 2 | <rend rend="line-through">Violini 3</rend> | Clarino 1 Concertante | Clarino 2 o Tympano ad libitum | Organo &#xE8; Violino [sic!] | Partes 11. | NB In defectu Clarinorum | Organum Clarinum concertantem | Supplet. | Del Signore | Werner</p>
-                <p>[top right corner: three performance dates 1753-04-22, 1754-04-14, 1755-03-30]</p>
-                <p>[below, black ink] Nro 8</p>
               </titlePage>
               <titlePage label="[wrapper, fol. 2r, unknown hand]">
                 <p>MISSA | Trinitate in u [discontinued, likely because of mistake in writing]</p>
               </titlePage>
               <extent>11 parts</extent>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 10 staves</p>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -1374,6 +1398,7 @@
               <annot type="source_description">
                 <p>S solo and coro (8), A solo and coro (8), T solo and coro (8), B solo and coro (8), clno 1 (4), clno 2 (4), timp (4), vl 1 (10), vl 2 (10), vlne (10), org (11)</p>
                 <p>The org part of also contains the solo parts of clno 1 in the <rend fontstyle="italic">Quoniam</rend> and <rend fontstyle="italic">Pleni sunt coeli</rend>.</p>
+                <p>wrapper (fol. 1r) contains three performance dates</p>
               </annot>
             </notesStmt>
             <componentList/>
@@ -1407,7 +1432,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="" type="main">Hubert Dopf</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -1416,14 +1445,6 @@
               </repository>
               <identifier>I 59630</identifier>
             </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>a score by Hubert Dopf which he prepared for his PhD thesis</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
             <componentList/>
           </item>
         </itemList>

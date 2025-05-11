@@ -1214,8 +1214,7 @@
                     <extent>20 bars</extent>
                     <notesStmt>
                       <annot>
-                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend>
-                                                </p>
+                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend></p>
                       </annot>
                     </notesStmt>
                     <componentList/>
@@ -1368,70 +1367,6 @@
       <manifestation>
         <identifier/>
         <titleStmt>
-          <title>Autograph manuscript</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1760-01-01">1760</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Autograph</term>
-            <term>Score</term>
-            <term>Fair copy</term>
-            <term>Incomplete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530001960</identifier>
-            <physDesc>
-              <extent>60 fol.</extent>
-              <titlePage label="[title page]">
-                <p>Missa Primitiva | In honorem Scti Joannis | Nepomuceni | Canto, Alto, Tenore, Basso. | Violini Conc.ti 2 | Clarino Primo Conc.to | Clarino Secondo | Con | Tympano | Organo e Violone | Del Gregorio Werner | de Anno 1760</p>
-              </titlePage>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="32" unit="cm">32 (height in cm)</height>
-                <width quantity="22" unit="cm">22 (height in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <dimensions/>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
-              </repository>
-              <identifier>Ms.mus III.52</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>beginning of score missing</p>
-                <p>catalogued according to RISM entry and @Muranyi1997</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
           <title>Partly autograph manuscript</title>
         </titleStmt>
         <pubStmt>
@@ -1444,7 +1379,7 @@
             <term>Notated music</term>
             <term>Manuscript</term>
             <term>Partly autograph</term>
-            <term>Parts</term>
+            <term>Score and parts</term>
             <term>Fair copy</term>
             <term>Complete</term>
           </termList>
@@ -1453,31 +1388,41 @@
           <item>
             <identifier label="RISM">530001960</identifier>
             <physDesc>
+              <extent>60 fol., 11 parts</extent>
+              <titlePage label="[title page]">
+                <p>Mi&#x17F;sa Primitiva | In honorem Scti Joannis | Nepomuceni. | Canto, Alto, Tenore, Ba&#x17F;so. | Violini Conc:ti 2. | Clarino Primo Conc:to | Clarino Secondo | Con | Tympano. | Organo e Violone. | Del Gregorio Werner. | de Anno 1760.</p>
+              </titlePage>
               <dimensions>
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="36" unit="cm">36 (height in cm)</height>
-                <width quantity="23" unit="cm">23 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <extent>11 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Johann Georg Thonner</hand>
+              </handList>
+              <physMedium>
+                <p>full score: 32 x 22 cm, hand-ruled paper, 10 staves (10 mm)<lb/>parts: 36 x 23 cm, hand-ruled paper, 11 staves (10 mm)</p>
+              </physMedium>
             </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/missa-primitiva-in-c/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2746325" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.52</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, clno 1, clno 2, timp, vl 1, vl 2, vlne, org</p>
-                <p>vlne in the hand of Johann Georg Thonner, remaining parts written by Werner</p>
-                <p>catalogued according to RISM entry and @Muranyi1997 </p>
+                <p>S solo and coro (10), A solo and coro (9), T solo and coro (10), B solo and coro (9), clno 1 (6), clno 2 (4), timp (4), vl 1 (14), vl 2 (13), vlne (13), org (16)</p>
+                <p>vlne in the hand of Thonner, remaining parts and full score by Werner</p>
+                <p>first page of full score missing (i.e., bars 1&#x2013;3 of <rend fontstyle="italic">Kyrie</rend>)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -1529,8 +1474,11 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 11 staves<lb/>a-trb: 30 x 20 cm, 8 staves</p>
+                <p>hand-ruled paper, 11 staves (11 mm)<lb/>a-trb: 30 x 20 cm, 8 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -1581,7 +1529,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="" type="main">Hubert Dopf</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -1591,9 +1543,6 @@
               <identifier>I 59628</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a score by Hubert Dopf which he prepared for his PhD thesis</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
@@ -1632,7 +1581,7 @@
             <physDesc>
               <extent>11 parts</extent>
               <titlePage label="[wrapper]">
-                <p>MESSA Primitiva | a | Canto Alto | Tenore Ba&#x17F;so | Violino Primo | Violino Secondo. | Due Clarini | Tympano | Organo con Violone | Del Sig Gregorio Werner | </p>
+                <p>MESSA Primitiva | a | Canto Alto | Tenore Ba&#x17F;so | Violino Primo | Violino Secondo. | Due Clarini | Tympano | Organo con Violone | Del Sig Gregorio Werner |</p>
               </titlePage>
               <dimensions>
                 <locusGrp>
@@ -1644,8 +1593,11 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand medium="" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 10 staves</p>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>

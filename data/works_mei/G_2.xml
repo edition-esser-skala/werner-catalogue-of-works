@@ -428,8 +428,8 @@
           <item>
             <identifier label="RISM">530001973</identifier>
             <physDesc>
-              <titlePage>
-                <p>Lytaniae della Santissima | Madona | g moll | a 4.to Voci Soli | 2.e Violini | con | Organo e Violone | comp. | del Sigre Werner.</p>
+              <titlePage label="[wrapper]">
+                <p>Lytani&#xE6; della Santi&#xE6;sima | Madona | g moll | a 4:to Voci Soli | 2e Violini | con | Organo e Violone | comp | del Sigre Werner</p>
               </titlePage>
               <extent>7 parts</extent>
               <dimensions>
@@ -442,8 +442,12 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper</p>
+                <p>two sets of parts:<lb/>(1) 7 parts, autograph manuscript, 31 x 21 mm, hand-ruled paper, 11 staves (11 mm)<lb/>(2) 9 parts, manuscript copy, ca. 1780, 30 x 22 mm, hand-ruled paper, 10 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -451,14 +455,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/lytaniae-della-sanctissima-modona/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2746355" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.66</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, vl 1, vl 2, org</p>
-                <p>also comprises a second set of 9 parts (copy, ca. 1780, 31 x 22 cm): S coro (2x), A coro (2x), T coro, B coro, vl 1, vl 2, vlne</p>
-                <p>catalogued according to RISM entry and @Muranyi1997 </p>
+                <p>first set: S solo and coro (3), A solo and coro (4), T solo and coro (3), B solo and coro (3), vl 1 (3), vl 2 (3), org (4)</p>
+                <p>second set: S coro (2x; 3, 3), A coro (2x; 3, 3), T coro (3), B coro (3), vl 1 (3), vl 2 (3), vlne (4)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -510,8 +515,11 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 11 staves</p>
+                <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -574,6 +582,9 @@
               </dimensions>
               <extent>18 fol.</extent>
               <dimensions/>
+              <handList>
+                <hand medium="ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>

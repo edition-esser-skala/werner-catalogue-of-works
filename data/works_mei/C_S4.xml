@@ -68,7 +68,7 @@
               <geogName role=""/>
             </creation>
             <history/>
-            <perfMedium>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)">
                   <head xml:lang="en">soli</head>
@@ -106,7 +106,7 @@
                 <tempo>[no tempo]</tempo>
                 <key pname="d" mode="minor"/>
                 <meter sym="common"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="Mixed choir (SATB)" n="perfResList_3b595393">
                       <head xml:lang="en">soli</head>
@@ -178,8 +178,11 @@
               </titlePage>
               <extent>8 p.</extent>
               <dimensions/>
+              <handList>
+                <hand medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 8 staves</p>
+                <p>hand-ruled paper, 8 staves (8 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>

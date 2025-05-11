@@ -49,10 +49,17 @@
           <corpName role=""/>
         </contributor>
         <creation>
-          <date isodate="1748-04-12">1748-04-12</date>
+          <date isodate="1748-04-12">1748</date>
           <geogName role="">Eisenstadt</geogName>
         </creation>
-        <history/>
+        <history>
+          <eventList type="performances">
+            <event>
+              <date isodate="1748-04-12">1748-04-12</date>
+              <geogName role="place">Eisenstadt</geogName>
+            </event>
+          </eventList>
+        </history>
         <biblList>
           <head>Bibliography</head>
           <bibl>
@@ -1902,8 +1909,11 @@
               </titlePage>
               <extent>40 fol.</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Johann Georg Thonner</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 16 staves</p>
+                <p>hand-ruled paper, 16 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -1917,8 +1927,6 @@
             <notesStmt>
               <annot type="source_description">
                 <p>score consists of title page (fol. 1r), empty page (fol. 1v), music (fol. 2r&#x2013;79v), and empty pages (fol. 80r&#x2013;v)</p>
-                <p>at bottom of fol. 79v: 8. May 748.</p>
-                <p>a copy by Johann Georg Thonner</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>

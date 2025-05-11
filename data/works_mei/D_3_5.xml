@@ -69,7 +69,7 @@
               <geogName role=""/>
             </creation>
             <history/>
-            <perfMedium>
+            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
                   <head xml:lang="en">coro</head>
@@ -103,7 +103,7 @@
                 <tempo>Alla breve</tempo>
                 <key pname="d" mode="dorian"/>
                 <meter sym="cut"/>
-                <perfMedium>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_502c5cdf">
                       <head xml:lang="en">coro</head>
@@ -163,8 +163,12 @@
               <titlePage label="[wrapper]">
                 <p>Libera me Domine. | a | Canto. Alto. | Tenore. Ba&#x17F;so. | Violeta 1<rend rend="underline(2)">ma</rend> | Violeta Secunda | Con | Organo e Violone. | [in pencil by later hand] Werner</p>
               </titlePage>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 11 staves</p>
+                <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -179,6 +183,7 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S coro (2x; 2, 2), A coro (2x; 2, 2), T coro (2), B coro (2), vl 1 (1), vl 2 (1), vlne (2), org (2)</p>
+                <p>one S and one A part in unidentified hand, remaining parts by Kraus</p>
                 <p>This manuscript is currently archived under shelfmark G 13 (together with the lamentation WerW K.3), but has been recorded with shelfmark D 13 in the inventory of 1837.</p>
               </annot>
               <annot type="links">
@@ -216,7 +221,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand medium="ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -227,9 +236,6 @@
               <identifier>F100.Moder.76/2</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a copy by Richard Moder</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
