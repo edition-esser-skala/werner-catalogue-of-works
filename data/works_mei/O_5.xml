@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1o4</altId>
+    <altId>ark:68748/gw1o5</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -40,10 +40,10 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">O.4</identifier>
-        <identifier label="HarCa">II.A.3/4</identifier>
-        <identifier label="PetSi">Par 6</identifier>
-        <title xml:lang="de">L&#x2019;Apr&#xEC;le, im April</title>
+        <identifier label="WerW">O.5</identifier>
+        <identifier label="HarCa">II.A.3/5</identifier>
+        <identifier label="PetSi">Par 23</identifier>
+        <title xml:lang="de">Il M&#xE0;ggio, im May</title>
         <title type="alternative" xml:lang="de">Neuer und sehr curios-musicalischer Instrumentalkalender</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
@@ -90,6 +90,10 @@
           </bibl>
           <bibl>
             <genre>edition</genre>
+            <ref targettype="pandoc-citation">@Halusa1950</ref>
+          </bibl>
+          <bibl>
+            <genre>edition</genre>
             <ref targettype="pandoc-citation">@Stein1956</ref>
           </bibl>
           <bibl>
@@ -130,7 +134,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="it">La Primavera</title>
+                <title xml:lang="it">L&#x2019;Ortolano</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -141,7 +145,7 @@
                   <graphic targettype="lowres" target="1_allegro"/>
                 </incip>
                 <tempo>Allegro</tempo>
-                <key pname="d" mode="major"/>
+                <key pname="a" mode="major"/>
                 <meter count="2" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
@@ -149,10 +153,10 @@
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>96 bars</extent>
+                <extent>144 bars</extent>
                 <notesStmt>
                   <annot>
-                    <p>German title: Der Fr&#xFC;hling</p>
+                    <p>German title: Der G&#xE4;rtner</p>
                   </annot>
                 </notesStmt>
                 <componentList/>
@@ -161,7 +165,7 @@
                 </relationList>
               </expression>
               <expression n="2">
-                <title xml:lang="it">Il Pastore fischiante</title>
+                <title xml:lang="it">Menuet il Giorno di 14. hore, la Notte di 10. hore</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -169,41 +173,10 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="2_allegretto"/>
-                </incip>
-                <tempo>Allegretto</tempo>
-                <key pname="d" mode="major"/>
-                <meter count="3" unit="4"/>
-                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-                  <perfResList>
-                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
-                    <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
-                  </perfResList>
-                </perfMedium>
-                <extent>72 bars</extent>
-                <notesStmt>
-                  <annot>
-                    <p>German title: Der spiehlende Sch&#xE4;fer</p>
-                  </annot>
-                </notesStmt>
-                <componentList/>
-                <relationList>
-                  <relation rel="hasReproduction"/>
-                </relationList>
-              </expression>
-              <expression n="3">
-                <title xml:lang="it">Menuet il Giorno di 13. hore, la Notte di 11. hore</title>
-                <contributor>
-                  <persName role=""/>
-                </contributor>
-                <incip>
-                  <incipText>
-                    <p xml:lang="en"/>
-                  </incipText>
-                  <graphic targettype="lowres" target="3_menuet"/>
+                  <graphic targettype="lowres" target="2_menuet"/>
                 </incip>
                 <tempo>[no tempo]</tempo>
-                <key pname="d" mode="major"/>
+                <key pname="a" mode="major"/>
                 <meter count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
@@ -214,7 +187,38 @@
                 <extent>48 bars</extent>
                 <notesStmt>
                   <annot>
-                    <p>German title: Die Tags-L&#xE4;nge 13. Stund, die Nacht 11. Stund</p>
+                    <p>German title: Die Tags-L&#xE4;nge 14. Stund, die Nacht 10. Stund</p>
+                  </annot>
+                </notesStmt>
+                <componentList/>
+                <relationList>
+                  <relation rel="hasReproduction"/>
+                </relationList>
+              </expression>
+              <expression n="3">
+                <title xml:lang="it">Il Rossignuolo</title>
+                <contributor>
+                  <persName role=""/>
+                </contributor>
+                <incip>
+                  <incipText>
+                    <p xml:lang="en"/>
+                  </incipText>
+                  <graphic targettype="lowres" target="3_tempo_ordinario"/>
+                </incip>
+                <tempo>Tempo ordinario</tempo>
+                <key pname="a" mode="major"/>
+                <meter sym="common"/>
+                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                  <perfResList>
+                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
+                    <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
+                  </perfResList>
+                </perfMedium>
+                <extent>44 bars</extent>
+                <notesStmt>
+                  <annot>
+                    <p>German title: Die Nachtigall</p>
                   </annot>
                 </notesStmt>
                 <componentList/>
@@ -223,7 +227,7 @@
                 </relationList>
               </expression>
               <expression n="4">
-                <title xml:lang="it">Tempo variabile</title>
+                <title xml:lang="it">Menuet il Giorno di 15. hore, la Notte di 9. hore</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -231,21 +235,21 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="4_tempo_variabile"/>
+                  <graphic targettype="lowres" target="4_menuet"/>
                 </incip>
                 <tempo>[no tempo]</tempo>
-                <key pname="d" mode="major"/>
-                <meter count="4" unit="8"/>
+                <key pname="a" mode="major"/>
+                <meter count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>88 bars</extent>
+                <extent>48 bars</extent>
                 <notesStmt>
                   <annot>
-                    <p>German title: Das ver&#xE4;nderliche April-Wetter; frequent changes between 3/8, 4/8, 12/8, and 2/4 time</p>
+                    <p>German title: Die Tags-L&#xE4;nge 15. Stund, die Nacht 9. Stund</p>
                   </annot>
                 </notesStmt>
                 <componentList/>
@@ -254,7 +258,7 @@
                 </relationList>
               </expression>
               <expression n="5">
-                <title xml:lang="it">Il grido di Ranochio</title>
+                <title xml:lang="it">Eccho</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -262,21 +266,21 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="5_prestissimo"/>
+                  <graphic targettype="lowres" target="5_molto_allegro"/>
                 </incip>
-                <tempo>Prestissimo</tempo>
-                <key pname="d" mode="major"/>
-                <meter sym="common"/>
+                <tempo>Molto allegro</tempo>
+                <key pname="a" mode="major"/>
+                <meter count="4" unit="8"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>78 bars</extent>
+                <extent>120 bars</extent>
                 <notesStmt>
                   <annot>
-                    <p>German title: Das Frosch-Geschrey</p>
+                    <p>German title: Der Widerhall oder Echo.</p>
                   </annot>
                 </notesStmt>
                 <componentList/>
@@ -323,7 +327,7 @@
         <notesStmt>
           <annot type="source_description">
             <p>vl 1 (32), vl 2 (32), b or cemb (30)</p>
-            <p>This partita is the 4th work in the collection <rend fontstyle="italic">Neuer und sehr curios-musicalischer Instrumentalkalender</rend>, which consists of twelve partitas in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 9&#x2013;12; vl 2, p. 9&#x2013;12; bc, p. 7&#x2013;9.</p>
+            <p>This partita is the 5th work in the collection <rend fontstyle="italic">Neuer und sehr curios-musicalischer Instrumentalkalender</rend>, which consists of twelve partitas in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 12&#x2013;14; vl 2, p. 12&#x2013;14; bc, p. 10&#x2013;12.</p>
             <p>The bc part consists of title page (fol. 1r); empty page (fol. 1v); dedication to Franz Graf Zichy-V&#xE1;sonyke&#x151; (1702&#x2013;1783), bishop of Gy&#x151;r, in Latin (fol. 2r&#x2013;v); preface, in German (fol. 3r); table of contents, giving Italian and German movement and section titles (fol. 3v); and music (fol. 4r&#x2013;18v).</p>
             <p>The vl 1 and 2 parts consist of title page (fol. 1r), empty page (fol. 1v), preface (fol. 2r), table of contents (fol. 2v), and music (fol. 3r&#x2013;18v).</p>
           </annot>
@@ -474,6 +478,76 @@
               </repository>
               <identifier>(no shelfmark)</identifier>
             </physLoc>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1820-01-01">ca. 1820</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Parts</term>
+            <term>Fair copy</term>
+            <term>Excerpt</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">469490500</identifier>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="33.5" unit="cm">33.5 (height in cm)</height>
+                <width quantity="20" unit="cm">20 (width in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[cover]">
+                <p>[by Zelter: &#x201C;Il Maggio&#x201D;] Trio 21 | anonimo | [by Zelter: &#x201C;und 22.&#x201D;] | [annotations by Zelter]</p>
+              </titlePage>
+              <extent>3 parts</extent>
+              <dimensions/>
+              <handList>
+                <hand medium="ink" type="main">unidentified</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">D-Bsa</identifier>
+              </repository>
+              <identifier>SA 4905</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>vl 1 (2 fol.), vl 2 (2 fol.), bc (2 fol.)</p>
+                <p>catalogued according to RISM entry</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
             <componentList/>
           </item>
         </itemList>
