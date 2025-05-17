@@ -87,7 +87,7 @@ catalogue_all <-
 check_empty <- function(df) {
   if (nrow(df) != 0) {
     print(df)
-    error("The table above should be empty")
+    error("The table above should be empty", strict = TRUE)
   }
   invisible(df)
 }

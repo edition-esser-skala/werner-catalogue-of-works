@@ -26,8 +26,9 @@ warn <- function(..., .envir = parent.frame()) {
   log4r::warn(default_logger, glue::glue(..., .envir = .envir))
 }
 
-error <- function(..., .envir = parent.frame()) {
+error <- function(..., strict = FALSE, .envir = parent.frame()) {
   log4r::error(default_logger, glue::glue(..., .envir = .envir))
+  if (strict) stop(call. = FALSE)
 }
 
 summarise_loglevels <- function() {
