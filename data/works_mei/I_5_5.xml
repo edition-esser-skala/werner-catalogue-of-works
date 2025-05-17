@@ -251,12 +251,16 @@
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[wrapper]">
-                <p>Sub tuum praesidium. | Canto, Alto, Tenore, Basso. | Violini 2 Conc.ti | Con | Organo e Violone | Del Werner | Ao 758</p>
+                <p>Sub tuum pr&#xE6;&#x17F;idium. | Canto, Alto, Tenore, Ba&#x17F;so. | Violini 2 Conc:ti | Con | Organo e Violone | Del Werner | Ao. 758.</p>
               </titlePage>
-              <extent>17 parts</extent>
+              <extent>18 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>two sets of parts:<lb/>(1) 8 parts (autograph), 16 x 21 cm, hand-ruled paper<lb/>(2) 9 parts (copy), 15 x 22 cm, hand-ruled paper</p>
+                <p>two sets of parts:<lb/>(1) 8 parts, autograph manuscript, 16 x 21 cm, hand-ruled paper, 5 staves (11 mm)<lb/>(2) 9 parts, manuscript copy, 15 x 22 cm, hand-ruled paper, 5&#x2013;6 staves (10 mm)<lb/>(3) 1 part, manuscript copy, 32 x 22 cm, hand-ruled paper, 10 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -264,14 +268,16 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/sub-tuum-praesidium-3/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2706316" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.229</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>first set: S coro, A solo and coro, T coro, B coro, vl 1, vl 2, vlne, org</p>
-                <p>second set: S coro (2x), A solo and coro (2x), T coro, B coro, vl 1, vl 2, vlne</p>
-                <p>catalogued according to RISM entry</p>
+                <p>first set: S coro (2), A solo and coro (2), T coro (2), B coro (2), vl 1 (2), vl 2 (2), vlne (2), org (2)</p>
+                <p>second set: S coro (2x; 2, 2), A solo and coro (2x; 2, 2), T coro (2), B coro (2), vl 1 (2), vl 2 (2), vlne (2)</p>
+                <p>third set: A coro (2)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -313,8 +319,11 @@
               <titlePage label="[wrapper]">
                 <p>Sub tuum | &#xE0; | 4 Voci | 2 Violinis | Con | Organo &#xE8; Violone. | Del Gregorio Werner. | [in lighter ink:] Sub tuum</p>
               </titlePage>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 6 staves</p>
+                <p>hand-ruled paper, 6 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -371,8 +380,11 @@
               <titlePage label="[wrapper]">
                 <p>Sub tuum | &#xE0; | 4 Voci | 2 Violinis | Con | Organo &#xE8; Violone. | Del Gregorio Werner. | [in lighter ink:] Sub tuum</p>
               </titlePage>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 6 staves</p>
+                <p>hand-ruled paper, 6 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -424,7 +436,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand medium="ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -435,9 +451,6 @@
               <identifier>F100.Moder.158</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a copy by Richard Moder</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>

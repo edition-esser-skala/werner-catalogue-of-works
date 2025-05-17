@@ -170,13 +170,20 @@
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Alma Redemptoris | Alla Capella | a 4 voci. | Canto, Alto, Tenore, Basso. | Viole 2 | Con | Organo e Violone | Auth.re: Werner</p>
+              <titlePage label="[wrapper, blue paper]">
+                <p>in A moll | Alma Redemptoris: | a 4 Voci | 2 Viole | con | Organo e | Violone | Auth: | Werner | mestra die Capella.</p>
+              </titlePage>
+              <titlePage label="[wrapper, by Werner]">
+                <p>Alma Redemptoris. | Alla Capella. |&#xA0;&#xE2; 4 voci. | Canto, Alto, Tenore, Ba&#x17F;so. | Viole 2. | Con | Organo e Violone | [by different hand: in A moll] | Auth.re: Werner.</p>
               </titlePage>
               <extent>17 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>two sets of parts:<lb/>(1) 8 parts (autograph manuscript), 32 x 21 cm,&#xA0; hand-ruled paper<lb/>(2) 9 parts (copy), 31 x 22 cm, hand-ruled paper</p>
+                <p>two sets of parts:<lb/>(1) 8 parts, autograph manuscript, 32 x 21 cm, hand-ruled paper, 9 staves (11 mm)<lb/>(2) 9 parts, manuscript copy, 31 x 22 cm, hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -184,14 +191,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/alma-redemptoris-alla-capella-a-4-voci/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705837" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.172</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>first set: S coro, A coro, T coro, B coro, vla 1, vla 2, vlne, org</p>
-                <p>second set: S coro (2x), A coro (2x), T coro, B coro, vla 1, vla 2, vlne</p>
-                <p>catalogued according to RISM entry and @Muranyi1997</p>
+                <p>first set: S coro (2), A coro (2), T coro (2), B coro (2), vla 1 (1), vla 2 (1), vlne (2), org (2)</p>
+                <p>second set: S coro (2x; 2, 2), A coro (2x; 2, 2), T coro (2), B coro (2), vla 1 (2), vla 2 (2), vlne (2)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -246,6 +254,9 @@
               </titlePage>
               <extent>2 p.</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
@@ -315,6 +326,9 @@
               </titlePage>
               <extent>5 p.</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>
@@ -385,8 +399,11 @@
               </titlePage>
               <extent>8 p.</extent>
               <dimensions/>
+              <handList>
+                <hand medium="brown ink" type="main">B. Naunatill</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 10 staves</p>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -398,9 +415,6 @@
               <identifier>Mus.ms 584</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>at end of work (fol. 4v): Eisenstadt den 6. 10ber 818. B. Naunatill.</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>

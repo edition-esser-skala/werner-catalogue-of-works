@@ -418,70 +418,6 @@
     </workList>
     <manifestationList>
       <manifestation>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <date isodate="1729-12-13">1729-12-13</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Score</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">1001054545</identifier>
-            <physDesc>
-              <extent>14 fol.</extent>
-              <titlePage label="[fol. 1r, by Kiesewetter]">
-                <p>Salve Regina | a quattro voci concert.&#xB0; | con | Violini, Viola di Alto, | Oboe obligato | ed Organo, | di | Gregorio Giuseppe Werner, | Maestro di Capp. di S. A. | il Principe Esterhazy, | (Predecessore di Gius. Hayden.) [several additions by two different hands]</p>
-              </titlePage>
-              <titlePage label="[fol. 2r, by Thonner]">
-                <p>Salve Regina. [added by second hand: di Gr. Jos. Werner.] | A 4 Voc: Conc.to Violini, Chalamaux Conc. | [at bottom right, by Kiesewetter:] Ex collectis R. Kiesewetter.</p>
-              </titlePage>
-              <titlePage label="[fol. 12r, by Thonner]">
-                <p>2. Viol&#xE6; Conc</p>
-              </titlePage>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="32.5" unit="cm">32.5 (height in cm)</height>
-                <width quantity="20.5" unit="cm">20.5 (height in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <dimensions/>
-              <physMedium>
-                <p>hand-ruled paper, 17 staves</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">D-Dl</identifier>
-                <ptr target="https://digital.slub-dresden.de/id51457190X" mimetype="" label="digitized version"/>
-              </repository>
-              <identifier>Mus.2462-E-1</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>An authentic copy by Johann Georg Thonner, with annotations by Raphael Georg Kiesewetter in red ink. Below the single system on fol. 11v, Thonner wrote "Die 13. Xbris. 1729", which most likely is the date of composition. Violas are written separately on fol. 12r&#x2013;13r.</p>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-      </manifestation>
-      <manifestation>
         <identifier/>
         <titleStmt>
           <title>Manuscript copy</title>
@@ -520,6 +456,9 @@
               </titlePage>
               <extent>36 p.</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Raphael Georg Kiesewetter</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper, 16 staves (7 mm)</p>
               </physMedium>
@@ -535,7 +474,7 @@
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>A copy by Raphael Kiesewetter, most likely copied from Thonner's copy.</p>
+                <p>Kiesewetter most likely used Thonner's copy</p>
               </annot>
             </notesStmt>
             <componentList/>
@@ -566,6 +505,13 @@
             <identifier label="RISM">550268626</identifier>
             <physDesc>
               <extent>11 parts</extent>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">Josef Anton&#xED;n Sehling</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper</p>
+              </physMedium>
             </physDesc>
             <physLoc>
               <repository>
@@ -579,6 +525,75 @@
               <annot type="source_description">
                 <p>S, A, T, B, vl 1, vl 2, ob, a-trb, t-trb, b-trb, org</p>
                 <p>catalogued according to RISM entry</p>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+      </manifestation>
+      <manifestation>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <date isodate="1729-12-13">1729-12-13</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Score</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">1001054545</identifier>
+            <physDesc>
+              <extent>23 p.</extent>
+              <titlePage label="[fol. 1r, by Kiesewetter]">
+                <p>Salve Regina | a quattro voci concert.&#xB0; | con | Violini, Viola di Alto, | Oboe obligato | ed Organo, | di | Gregorio Giuseppe Werner, | Maestro di Capp. di S. A. | il Principe Esterhazy, | (Predecessore di Gius. Hayden.) [several additions by two different hands]</p>
+              </titlePage>
+              <titlePage label="[fol. 2r, by Thonner]">
+                <p>Salve Regina. [added by second hand: di Gr. Jos. Werner.] | A 4 Voc: Conc.to Violini, Chalamaux Conc. | [at bottom right, by Kiesewetter:] Ex collectis R. Kiesewetter.</p>
+              </titlePage>
+              <titlePage label="[fol. 12r, by Thonner]">
+                <p>2. Viol&#xE6; Conc</p>
+              </titlePage>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="32.5" unit="cm">32.5 (height in cm)</height>
+                <width quantity="20.5" unit="cm">20.5 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <dimensions/>
+              <handList>
+                <hand medium="black ink" type="main">Johann Georg Thonner</hand>
+                <hand medium="brown ink" type="title">Raphael Georg Kiesewetter</hand>
+                <hand medium="red ink" type="notes">Raphael Georg Kiesewetter<persName role=""/></hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper, 17 staves (9 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">D-Dl</identifier>
+                <ptr target="https://digital.slub-dresden.de/id51457190X" mimetype="" label="digitized version"/>
+              </repository>
+              <identifier>Mus.2462-E-1</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>violas are written separately on fol. 12r&#x2013;13r</p>
               </annot>
             </notesStmt>
             <componentList/>

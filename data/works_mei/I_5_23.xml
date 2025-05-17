@@ -169,12 +169,16 @@
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[wrapper]">
-                <p>Sub tuum | &#xE0; 4 | Canto, Alto, Tenore, Basso | Con | Organo e Violone | Del Werner.</p>
+                <p>Sub tuum | &#xE0; 4 | Canto, Alto, Tenore, Ba&#x17F;so. | Con [by different hand: in A.] | Organo e Violone. | Del Werner.</p>
               </titlePage>
               <extent>7 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>two sets of parts:<lb/>(1) 5 parts (autograph), 14 x 21 cm, hand-ruled paper<lb/>(2) 2 parts (copy), 15 x 22 cm, hand-ruled paper</p>
+                <p>two sets of parts:<lb/>(1) 5 parts, autograph manuscript, 14 x 21 cm, hand-ruled paper, 5 staves (11 mm)<lb/>(2) 2 parts, manuscript copy, 15 x 22 cm, hand-ruled paper, 6 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -182,14 +186,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/sub-tuum-2/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2706597" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.248</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>first set: A solo, T solo, B solo, vlne, org</p>
-                <p>second set: S solo, vlne</p>
-                <p>catalogued according to RISM entry</p>
+                <p>first set: A solo (2), T solo (2), B solo (2), vlne (1), org (2)</p>
+                <p>second set: S solo (2), vlne (2)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -240,8 +245,11 @@
               <titlePage label="[wrapper]">
                 <p>Sub tuum | &#xE0; | 4 Voci | Con | Organo &#xE8; Violone | Del Werner</p>
               </titlePage>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 5 or 7 staves</p>
+                <p>hand-ruled paper, 5 or 7 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -292,7 +300,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand medium="black ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -303,9 +315,6 @@
               <identifier>F100.Moder.7/2</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a copy by Richard Moder</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
