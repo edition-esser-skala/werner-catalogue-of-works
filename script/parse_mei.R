@@ -827,8 +827,7 @@ format_dimensions <- function(d) {
 format_copyists <- function(p) {
   hands <- pluck(p, "handList")
   if (is.null(hands)) {
-    error("List of hands empty") # TODO remove this once all files are in order
-    return("")
+    return("–")
   }
 
   hands %>%
