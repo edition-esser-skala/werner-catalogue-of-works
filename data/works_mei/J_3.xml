@@ -510,12 +510,15 @@
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[wrapper]">
-                <p>Te Deum Laudamus. | Canto, Alto, Tenore, Basso | Violini 2 Conc:ti | Chalamaux 2 Conc:ti | Clarini 2 Conc. | Tympano. | Con | Organo e Violone. | Auth:re Werner.</p>
+                <p>Te Deum Laudamus. | [by different hand: in C.] | Canto, Alto, Tenore, Ba&#x17F;so. | Violini 2 Conc:ti | Chalamaux 2 Conc:ti | Clarini 2 Conc: | Tympano. | Con | Organo e Violone. | Auth:re Werner [manu propria].</p>
               </titlePage>
               <extent>13 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper</p>
+                <p>hand-ruled paper, 10 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -523,13 +526,14 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/te-deum-laudamus-in-c-3/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2706679" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.260</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, chalumeau 1, chalumeau 2, clno 1, clno 2, timp, vl 1, vl 2, vlne, org</p>
-                <p>catalogued according to RISM entry and @Muranyi1997</p>
+                <p>S solo and coro (4), A solo and coro (4), T solo and coro (3), B solo and coro (3), chalumeau 1 (1), chalumeau 2 (1), clno 1 (2), clno 2 (1), timp (1), vl 1 (3), vl 2 (3), vlne (3), org (4)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -581,8 +585,11 @@
               </titlePage>
               <extent>13 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 11 staves</p>
+                <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -648,6 +655,9 @@
               </titlePage>
               <extent>13 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified<persName role=""/></hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>
@@ -701,7 +711,11 @@
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
@@ -712,9 +726,6 @@
               <identifier>F100.Moder.51</identifier>
             </physLoc>
             <notesStmt>
-              <annot type="source_description">
-                <p>a copy by Richard Moder</p>
-              </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
@@ -765,6 +776,9 @@
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
+              <handList>
+                <hand medium="ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>
@@ -780,8 +794,7 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S coro, A coro, T coro, B coro, org</p>
-                <p>comprises <rend fontstyle="italic">Non confundar</rend>
-                                </p>
+                <p>comprises <rend fontstyle="italic">Non confundar</rend></p>
                 <p>catalogued according to RISM entry and @Rostetter2023</p>
               </annot>
               <annot type="links">

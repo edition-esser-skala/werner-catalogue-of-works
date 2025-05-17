@@ -78,7 +78,7 @@
             <ptr mimetype=""/>
           </annot>
           <annot type="general_description">
-            <p>This vesper has been attributed to Werner (H-VEs), to Anton Carl (A-Ed), or to both of them (H-Bn). Since the copy in A-KN, which comprises movements 3&#x2013;5, is attributed to Carl alone, the remaining movements are likely by Werner.</p>
+            <p>This vesper has been attributed to Werner (H-VEs), to Anton Carl (A-Ed, A-KN), or to both of them (H-Bn, in Werner's hand). Since the copy in A-KN, which comprises movements 3&#x2013;5, is attributed to Carl alone, the remaining movements are likely by Werner.</p>
           </annot>
         </notesStmt>
         <classification>
@@ -435,13 +435,17 @@
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Vesperae de Apostolis | &#xE2; 4 Voci | 2 Violini | Con | Organo e Violone | Del Werner e Carl | A.o [1]757.</p>
+              <titlePage label="[wrapper, in Werner's hand]">
+                <p>Vesper&#xE6; de Apostolis | &#xE2; 4 Voci | 2 Violini | Con | Organo e Violone. | Del Werner e Carl | Ao: 757</p>
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper</p>
+                <p>hand-ruled paper, 11&#x2013;12 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -449,13 +453,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/vesperae-de-apostolis-in-g/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705464" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.98</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro (copy), vl 1, vl 2, vlne, org</p>
-                <p>catalogued according to RISM entry and @Muranyi1997</p>
+                <p>S solo and coro (8), A solo and coro (8), T solo and coro (8), B solo and coro (7), vl 1 (6), vl 2 (5), vlne (7), org (7)</p>
+                <p>B by unidentified hand, remaining parts by Werner</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -506,8 +512,11 @@
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 11 staves</p>
+                <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -570,6 +579,9 @@
               </dimensions>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 staves (11 mm)</p>
               </physMedium>
@@ -579,14 +591,14 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-KN</identifier>
+                <ptr target="https://db.klostermusiksammlungen.at/scores/97" mimetype="" label="digitized version"/>
               </repository>
               <identifier>73/3</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
                 <p>S coro (6), A coro (7), T coro (7), B coro (7), vl 1 (4), vl 2 (4), vlne (5), org (5)</p>
-                <p>comprises <rend fontstyle="italic">Credidi</rend>, <rend fontstyle="italic">In convertendo</rend>, and <rend fontstyle="italic">Domine probasti me</rend>
-                                </p>
+                <p>comprises <rend fontstyle="italic">Credidi</rend>, <rend fontstyle="italic">In convertendo</rend>, and <rend fontstyle="italic">Domine probasti me</rend></p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -638,6 +650,9 @@
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>

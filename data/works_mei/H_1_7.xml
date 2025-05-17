@@ -415,18 +415,20 @@
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="32" unit="cm">32 (height in cm)</height>
-                <width quantity="21" unit="cm">21 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[wrapper]">
-                <p>Vesperae breviores | de B: Virgine | &#xE0; 4 Voce | 2 Violinis | Con | Organo et Violone | Del Sig: Werner.</p>
+                <p>Vesper&#xE6; breviores | de B: Virgine | &#xE0; 4 Voce. | 2 Violinis | Con | Organo et Violone | Del Sig: Werner | [incipit]</p>
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper<lb/>S: manuscript copy, 30.5 x 22 cm, ca. 1790</p>
+                <p>two sets of parts:<lb/>(1) 7 parts, autograph manuscript, 32 x 21 cm, hand-ruled paper, 10 staves (11 mm)<lb/>(2) 1 part, manuscript copy,&#xA0;ca. 1790, 30.5 x 22 cm, hand-ruled paper, 10 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -434,13 +436,15 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/vesperae-breviores-de-b-virgine-in-g/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705355" mimetype="" label="catalogue entry"/>
               </repository>
               <identifier>Ms.mus III.94</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, vl 1, vl 2, vlne, org</p>
-                <p>catalogued according to RISM entry and @Muranyi1997</p>
+                <p>S solo and coro (7), A solo and coro (6), T solo and coro (6), B solo and coro (7), vl 1 (4), vl 2 (4), vlne (6), org (7)</p>
+                <p>S by unidentified hand, remaining parts by Werner</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -487,13 +491,16 @@
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <titlePage label="[wrapper, probably in Werner's hand]">
+              <titlePage label="[wrapper]">
                 <p>Vesper&#xE6; breves | De Communi Virginum | a | 4: Voci Vocali | 2bus Violinis | Con | Organo &#xF4; Violone | Del auth: Werner. [MP?]</p>
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="unidentifed" type="main">Carl Kraus</hand>
+              </handList>
               <physMedium>
-                <p>hand-ruled paper, 10&#x2013;11 staves</p>
+                <p>hand-ruled paper, 10&#x2013;11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -559,6 +566,9 @@
               </titlePage>
               <extent>8 parts</extent>
               <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
+              </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
               </physMedium>
