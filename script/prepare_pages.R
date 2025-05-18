@@ -454,7 +454,20 @@ sigla <-
     read_csv("data/library_sigla.csv"),
     by = "siglum"
   ) %>%
-  arrange(siglum) %>%
+  arrange(siglum)
+
+sigla_missing <-
+  sigla %>%
+  filter(is.na(name))
+
+if (nrow(sigla_missing) > 0L)
+  walk(
+    sigla_missing$siglum,
+    \(s) warn("Siglum {s} unknown")
+  )
+
+sigla <-
+  sigla %>%
   pmap_chr(
     \(siglum, name, rism, url) {
       if (!is.na(url))
