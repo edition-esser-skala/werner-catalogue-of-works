@@ -12,8 +12,13 @@ rism_entries_new <-
   map_chr(~.x[2][[1]][[1]][1]) %>% enframe("name", "rism_id") %>%
   mutate(rism_id = as.integer(rism_id))
 
-rism_entries_old <- read_csv("data/works_in_rism.csv", comment = "#")
+# alternatively, download CSV from rism.online search results
+rism_entries_new <-
+  read_csv("data_generated/rism-online-search-results.csv") %>%
+  mutate(rism_id = str_extract(url, "\\d+") %>% as.integer(), .keep = "none")
 
+
+rism_entries_old <- read_csv("data/works_in_rism.csv", comment = "#")
 
 rism_entries_old %>%
   anti_join(rism_entries_new) %>%
