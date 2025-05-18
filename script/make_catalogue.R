@@ -31,7 +31,8 @@ catalogue <- read_csv(
 rism_entries <-
   read_csv(
     "data/works_in_rism.csv",
-    col_types = cols(.default = "c")
+    col_types = cols(.default = "c"),
+    comment = "#"
   ) %>%
   replace_na(list(collection = "no")) %>%
   filter(collection != "yes") %>%

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1b35</altId>
+    <altId type="ark">ark:68748/gw1b35</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -56,6 +56,10 @@
         <history/>
         <biblList>
           <head>Bibliography</head>
+          <bibl>
+            <genre>reference</genre>
+            <ref targettype="pandoc-citation">@Sauer1809 [fol. 13v, no. 534]</ref>
+          </bibl>
           <bibl>
             <genre>reference</genre>
             <ref targettype="pandoc-citation">@Bardos1980 [p. 595, no. 1824]</ref>
@@ -1214,7 +1218,8 @@
                     <extent>20 bars</extent>
                     <notesStmt>
                       <annot>
-                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend></p>
+                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend>
+                                                </p>
                       </annot>
                     </notesStmt>
                     <componentList/>
@@ -1563,6 +1568,75 @@
         <pubStmt>
           <publisher/>
           <pubPlace/>
+          <date isodate="1775">2nd half 18th century</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Score</term>
+            <term>Fair copy</term>
+            <term>Excerpt</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">1001303917</identifier>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="23" unit="cm">23 (height in cm)</height>
+                <width quantity="32" unit="cm">32 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[wrapper, in pencil]">
+                <p>Werner Joseph Gregor | 6 aus seinen Messen gezohene Fugen | f&#xFC;r 4 Singstimmen mit Orgel.</p>
+              </titlePage>
+              <extent>12 fol.</extent>
+              <dimensions/>
+              <handList>
+                <hand medium="brown ink" type="main">unidentified</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+              </repository>
+              <identifier>Ms. mus. IV. 2.166 (6)</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>This source comprises six fugues and is mentioned in the catalogue of Joseph Haydn&#x2019;s artistic effects (&#x201C;6. aus &#x17F;einen Me&#x17F;sen gezohene Fugen f&#xFC;r die 4. Sing&#x17F;timmen mit der Orgel f&#xFC;r Komponisten&#x201D;). The present work is written on fol. 10r&#x2013;11r and is the <rend fontstyle="italic">Amen</rend> (bars 169&#x2013;197) from the <rend fontstyle="italic">Gloria</rend>.</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
           <date isodate="1760-01-01">1760 or later</date>
         </pubStmt>
         <classification>
@@ -1594,7 +1668,7 @@
               </dimensions>
               <dimensions/>
               <handList>
-                <hand medium="" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 staves (10 mm)</p>
