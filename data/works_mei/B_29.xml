@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1b29</altId>
+    <altId type="ark">ark:68748/gw1b29</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -778,77 +778,6 @@
             <term>Notated music</term>
             <term>Manuscript</term>
             <term>Autograph</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530001954</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="34" unit="cm">34 (height in cm)</height>
-                <width quantity="22" unit="cm">22 (height in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Missa | breves sunt dies Hominis | &#xE0; 4 voci | Violini 2 | con | Organo e Violone. | Del Werner | di A.o 762.</p>
-              </titlePage>
-              <extent>8 parts</extent>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
-              </handList>
-              <physMedium>
-                <p>hand-ruled paper</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
-                <ptr target="https://nektar.oszk.hu/hu/manifestation/2704917" mimetype="" label="catalogue entry"/>
-              </repository>
-              <identifier>Ms.mus III.46</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, vl 1, vl 2, vlne, org</p>
-                <p>catalogued according to RISM entry</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Autograph manuscript</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1762">1762</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Autograph</term>
             <term>Score</term>
             <term>Fair copy</term>
             <term>Complete</term>
@@ -896,6 +825,77 @@
             <notesStmt>
               <annot type="source_description">
                 <p>once owned by Charles Th&#xE9;odore Malherbe (as indicated by red stamps)</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Autograph manuscript</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1762">1762</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Autograph</term>
+            <term>Parts</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">530001954</identifier>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="34" unit="cm">34 (height in cm)</height>
+                <width quantity="22" unit="cm">22 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[wrapper]">
+                <p>Missa | breves sunt dies Hominis | &#xE0; 4 voci | Violini 2 | con | Organo e Violone. | Del Werner | di A.o 762.</p>
+              </titlePage>
+              <extent>8 parts</extent>
+              <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2704917" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>Ms.mus III.46</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>S solo and coro, A solo and coro, T solo and coro, B solo and coro, vl 1, vl 2, vlne, org</p>
+                <p>catalogued according to RISM entry</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
