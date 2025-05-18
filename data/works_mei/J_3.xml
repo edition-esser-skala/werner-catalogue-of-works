@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1j3</altId>
+    <altId type="ark">ark:68748/gw1j3</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -77,6 +77,10 @@
           <bibl>
             <genre>reference</genre>
             <ref targettype="pandoc-citation">@EsterhazyInv1812 [te deum no. 40]</ref>
+          </bibl>
+          <bibl>
+            <genre>edition</genre>
+            <ref targettype="pandoc-citation">@Warner1965a [p. 194-229]</ref>
           </bibl>
         </biblList>
         <classification>
@@ -656,7 +660,8 @@
               <extent>13 parts</extent>
               <dimensions/>
               <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified<persName role=""/></hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified<persName role=""/>
+                                </hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
@@ -794,7 +799,8 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S coro, A coro, T coro, B coro, org</p>
-                <p>comprises <rend fontstyle="italic">Non confundar</rend></p>
+                <p>comprises <rend fontstyle="italic">Non confundar</rend>
+                                </p>
                 <p>catalogued according to RISM entry and @Rostetter2023</p>
               </annot>
               <annot type="links">
