@@ -831,14 +831,24 @@ format_copyists <- function(p) {
   }
 
   hands %>%
-    map_chr(\(h) {
-      name <- h[[1]]
-      medium <- attr(h, "medium")
-      if (medium == "")
-        name
-      else
-        str_glue("{name} ({medium})")
-    }) %>%
+    map(\(h) tibble(
+      name = h[[1]],
+      medium = attr(h, "medium"),
+      type = attr(h, "type")
+    )) %>%
+    list_rbind() %>%
+    mutate(
+      details = if_else(
+        type != "main",
+        paste(medium, type, sep = ", "),
+        medium
+      )
+    ) %>%
+    summarise(
+      .by = name,
+      details = str_flatten(details, collapse = "; ")
+    ) %>%
+    pmap_chr(\(name, details) str_glue("{name} ({details})")) %>%
     str_flatten_comma()
 }
 
