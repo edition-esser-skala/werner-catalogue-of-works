@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1h111</altId>
+    <altId type="ark">ark:68748/gw1h111</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -43,7 +43,7 @@
         <identifier label="WerW">H.1.11</identifier>
         <identifier label="HarCa">I.K.8</identifier>
         <title xml:lang="la">Vesperae de Apostolis</title>
-        <title type="alternative" xml:lang="la">Dixit Dominus &#xB7; Laudate pueri &#xB7; Credidi &#xB7; In convertendo &#xB7; Domine, probasti me &#xB7; Magnificat</title>
+        <title type="alternative" xml:lang="la">Dixit Dominus &#xB7; Laudate pueri &#xB7; Credidi &#xB7; In convertendo &#xB7; Domine probasti me &#xB7; Magnificat</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <persName role="composer">Anton Carl</persName>
@@ -306,7 +306,7 @@
                 </relationList>
               </expression>
               <expression n="5">
-                <title xml:lang="la">Domine, probasti me</title>
+                <title xml:lang="la">Domine probasti me</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -598,7 +598,8 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S coro (6), A coro (7), T coro (7), B coro (7), vl 1 (4), vl 2 (4), vlne (5), org (5)</p>
-                <p>comprises <rend fontstyle="italic">Credidi</rend>, <rend fontstyle="italic">In convertendo</rend>, and <rend fontstyle="italic">Domine probasti me</rend></p>
+                <p>comprises <rend fontstyle="italic">Credidi</rend>, <rend fontstyle="italic">In convertendo</rend>, and <rend fontstyle="italic">Domine probasti me</rend>
+                                </p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
