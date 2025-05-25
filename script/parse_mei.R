@@ -140,7 +140,7 @@ SOURCE_TEMPLATE <- '
 
 ##### Scribe(s)
 
-{copyists}
+{scribes}
 
 ##### Title page(s)
 
@@ -822,9 +822,9 @@ format_dimensions <- function(d) {
     paste(h, hu, "×", w, wu)
 }
 
-# format the copyists of a source
+# format the scribes of a source
 # p: physDesc
-format_copyists <- function(p) {
+format_scribes <- function(p) {
   hands <- pluck(p, "handList")
   if (is.null(hands)) {
     return("–")
@@ -1023,7 +1023,7 @@ format_source <- function(s) {
 
     source_locations <- get_source_locations(s, pluck(s$identifier, 1))
 
-    copyists <- "–"
+    scribes <- "–"
 
     title_pages <- format_titlepage(s$physDesc)
 
@@ -1037,7 +1037,7 @@ format_source <- function(s) {
     if (nrow(source_locations) != 1L)
       error("There must be only one item for manuscripts.")
 
-    copyists <- format_copyists(s$itemList$item$physDesc)
+    scribes <- format_scribes(s$itemList$item$physDesc)
 
     title_pages <- format_titlepage(s$itemList$item$physDesc)
 
@@ -1068,7 +1068,7 @@ format_source <- function(s) {
     locations = locations,
     rism_id = source_locations$rism_id[1],
     publication = publication,
-    copyists = copyists,
+    scribes = scribes,
     title_pages = title_pages,
     physdesc = physdesc,
     source_description = source_description
@@ -1371,7 +1371,6 @@ get_work_details <- function(group,
 # Testing -----------------------------------------------------------------
 
 # data <- read_xml("data/works_mei/D_3_7.xml")
-# get_work_details("B", NA, "46")
-# get_work_details("D", "1", "1")
-# get_work_details("I", "4", "54")
-# get_work_details("Q", NA, "2")
+# format_mei_text(data)
+# data <- as_list(data) %>% pluck("mei", "meiHead")
+# data_work <- data$workList$work
