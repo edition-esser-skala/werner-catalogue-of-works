@@ -313,6 +313,38 @@
       "NeedsCompilation": "yes",
       "Repository": "CRAN"
     },
+    "bib2df": {
+      "Package": "bib2df",
+      "Version": "1.1.2.0",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Parse a BibTeX File to a Data Frame",
+      "Authors@R": "c(person(\"Philipp\", \"Ottolinger\", email = \"philipp@ottolinger.de\", role = \"aut\"), person(\"Thomas\", \"Leeper\", email = \"thosjleeper@gmail.com\", role = \"ctb\"), person(\"Maëlle\", \"Salmon\", email = \"maelle.salmon@yahoo.se\", role = \"ctb\"), person(\"Paul\", \"Egeler\", email = \"paulegeler@gmail.com\", role = \"ctb\"), person(\"Emilio Xavier\", \"Esposito\", email = \"emilio.esposito@gmail.com\", role = \"ctb\"), person(\"Gianluca\", \"Baio\", email = \"g.baio@ucl.ac.uk\", role = c(\"ctb\",\"cre\")))",
+      "Description": "Parse a BibTeX file to a data.frame to make it accessible for further analysis and visualization.",
+      "URL": "https://docs.ropensci.org/bib2df/, https://github.com/ropensci/bib2df/",
+      "BugReports": "https://github.com/ropensci/bib2df/issues/",
+      "License": "GPL-3",
+      "Imports": [
+        "dplyr",
+        "stringr",
+        "humaniformat",
+        "httr"
+      ],
+      "Suggests": [
+        "testthat",
+        "knitr",
+        "rmarkdown",
+        "ggplot2",
+        "tidyr"
+      ],
+      "RoxygenNote": "7.3.1",
+      "VignetteBuilder": "knitr",
+      "Encoding": "UTF-8",
+      "NeedsCompilation": "no",
+      "Author": "Philipp Ottolinger [aut], Thomas Leeper [ctb], Maëlle Salmon [ctb], Paul Egeler [ctb], Emilio Xavier Esposito [ctb], Gianluca Baio [ctb, cre]",
+      "Maintainer": "Gianluca Baio <g.baio@ucl.ac.uk>",
+      "Repository": "CRAN"
+    },
     "bigD": {
       "Package": "bigD",
       "Version": "0.3.1",
@@ -2065,6 +2097,36 @@
       "Author": "Hadley Wickham [aut, cre], Posit, PBC [cph, fnd]",
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "CRAN"
+    },
+    "humaniformat": {
+      "Package": "humaniformat",
+      "Version": "0.6.0",
+      "Source": "Repository",
+      "Title": "A Parser for Human Names",
+      "Date": "2016-04-24",
+      "Author": "Oliver Keyes [aut, cre]",
+      "Maintainer": "Oliver Keyes <ironholds@gmail.com>",
+      "Description": "Human names are complicated and nonstandard things. Humaniformat, which is based on Anthony Ettinger's 'humanparser' project (https://github.com/ chovy/humanparser) provides functions for parsing human names, making a best- guess attempt to distinguish sub-components such as prefixes, suffixes, middle names and salutations.",
+      "License": "MIT + file LICENSE",
+      "LazyData": "true",
+      "URL": "https://github.com/ironholds/humaniformat/",
+      "BugReports": "https://github.com/ironholds/humaniformat/issues",
+      "Suggests": [
+        "testthat",
+        "knitr"
+      ],
+      "LinkingTo": [
+        "Rcpp"
+      ],
+      "Imports": [
+        "Rcpp",
+        "methods"
+      ],
+      "VignetteBuilder": "knitr",
+      "RoxygenNote": "5.0.1",
+      "NeedsCompilation": "yes",
+      "Repository": "CRAN",
+      "Encoding": "UTF-8"
     },
     "ids": {
       "Package": "ids",
