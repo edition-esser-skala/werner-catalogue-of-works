@@ -1,0 +1,80 @@
+---
+output: html_document
+editor_options:
+  chunk_output_type: console
+format:
+  html:
+    html-table-processing: none
+---
+
+# Prints {.unnumbered}
+
+```{r}
+#| include: false
+library(tidyverse)
+library(bib2df)
+library(gt)
+source("script/utils.R")
+options(readr.show_col_types = FALSE)
+```
+
+The following table collects all known modern editions of Werner's works. These editions are also cited in each entry.
+
+```{r}
+#| echo: false
+#| output: asis
+#| warning: false
+#| column: page
+
+catalogue_ids <-
+  read_rds("data_generated/works.rds") %>%
+  select(key = editions, group:number) %>%
+  separate_longer_delim(key, ", ") %>%
+  mutate(key = str_extract(key, "@[:alnum:]+")) %>%
+  filter(!is.na(key)) %>%
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>%
+  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+  mutate(id = str_glue("[{id}](/groups/{file}.html#work-{id})")) %>%
+  summarise(
+    .by = key,
+    id = str_flatten_comma(id)
+  )
+
+prints <-
+  suppressWarnings(bib2df("editions.bib")) %>%
+  select(
+    key = BIBTEXKEY,
+    title = TITLE,
+    editor = EDITOR,
+    identifier = SUBTITLE,
+    publisher = PUBLISHER,
+    location = LOCATION,
+    year = YEAR,
+    type = TYPE,
+    notes = NOTE
+  ) %>%
+  rowwise() %>%
+  mutate(editor = str_flatten(editor, "; ")) %>%
+  ungroup() %>%
+  mutate(
+    across(
+      c(title, identifier, editor),
+      \(c) str_replace_all(c, "^\\{|\\}$", "")
+    ),
+    key = paste0("@", key)
+  ) %>% 
+  left_join(catalogue_ids, by = "key", relationship = "many-to-many") %>% 
+  select(!key)
+
+prints %>% 
+  gt() %>%
+  fmt_markdown(columns = id) %>%
+  sub_missing(missing_text = "") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    table_body.hlines.style = "none"
+  )
+```
