@@ -69,7 +69,7 @@ xmlstarlet edit --inplace --delete '//_:dimensions[@type="rastral_mirror"]' $s
 # add attribute 'targettype'
 xmlstarlet edit --inplace --delete '//_:biblList/_:bibl/_:ref/@target' $s
 xmlstarlet edit --inplace --delete '//_:biblList/_:bibl/_:ref/@label' $s
-xmlstarlet edit --inplace --insert '//_:biblList/_:bibl/_:ref' -t attr -n targettype -v "pandoc-citation" $s
+xmlstarlet edit --inplace --insert '//_:biblList/_:bibl/_:ref[not(@targettype)]' -t attr -n targettype -v "pandoc-citation" $s
 
 # remove several empty elements in <event>
 xmlstarlet edit --inplace --delete '//_:eventList/_:event/_:geogName[@role="venue"]' $s
