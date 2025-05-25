@@ -1,5 +1,53 @@
 # Changelog {.unnumbered}
 
+## 0.14.0 – 2025-05-25
+
+### Added
+
+- works: WerW G.L2 and H.1.L1
+- incipits and metadata for WerW B.29, D.1.13, and O.5
+- sources:
+  - A-Wn: Fonds Moder 8, 13, 22, 33–35, 51–55, and 66
+  - A-Z: lost textbooks (assigned to sources)
+  - F-Pn: MS-2232 (WerW I.4.16)
+  - H-Bn: lost textbooks (assigned to sources)
+- references Harich1959 and editions Narkmun2024a–c, Paparozzi2021, and Warner1965a
+- acknowledgements for H-Bn and Haydneum
+- WerW M.24: shelfmark for source in A-SEI
+- a siglum A-Wdtö for sources in the archive of the Denkmäler der Tonkunst in Österreich
+- support for a list of hands (scribe, medium, type) in MEI metadata
+- support for a list of performances (date, venue, place) in MEI metadata
+- an appendix “Prints” that contains a table with all known modern editions
+- links to the Klostermusiksammlungen database for A-GÖ and A-KN sources
+- scripts:
+  - `check_mei_consistency.R` for manually checking consistency across metadata files (list of hands, title, tempo)
+  - `check_rism_entries.R` for comparing RISM entries in the catalogue to entries in the current RISM database
+  - `util_make_events.R` for creating `<event>` elements from a list of performance dates/places (since it is cumbersome to enter long lists of performances in MerMEId)
+
+### Changed
+
+- WerW M.S1 has been renumbered to M.24; consequently, former WerW M.S2 is now M.S1.
+- WerW D.2.L7 has been merged to D.1.13.
+- Group I has been renamed (again) to “Marian antiphons”.
+- Genres in metadata now adhere to the UNIMARC codes for musical forms. Notably, the terms “rorate” (now “introit”), “Marian antiphon/hymn” (now “antiphon”), “profane vocal music” (now “cantata”), and “te deum” (now “hymn”) have been removed.
+- WerW G.S1: Metadata now contains all A-SEI performance dates.
+- updated metadata for A-Wgm sources of WerW B.23, I.1.13, and M.24
+- updated the favicon and title block banner background
+- A warning is now issued for unknown RISM sigla.
+- Fugues 1, 5, and 6 in H-Bn Ms. mus. IV. 2.166 have been assigned to their respective works.
+- `get_mermaid_xml.sh` now
+  - fixes `<ref>` elements, i.e., it removes the `label` and `target` attributes and, if missing, adds `targettype="pandoc-citation"`; and
+  - adds a `type="ark"` attribute to `<altId>`.
+- `error()` now has an argument `strict` which decides if the current R session should terminate.
+
+### Fixed
+
+- `svg_process_ly.sh` again creates correctly-sized SVG incipits (was broken by pdfcairo update in poppler 25.04).
+- WerW G.8 is now correctly entitled “Litaniae de venerabili sacramento”.
+- Source descriptions now contain no empty bullet points.
+- The hand-written sources of WerW O.1–12 are now only assigned to their actual works.
+
+
 ## 0.13.0 – 2025-04-18
 
 ### Added
