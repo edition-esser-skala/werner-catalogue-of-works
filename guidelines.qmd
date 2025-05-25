@@ -23,7 +23,7 @@ The name of the XML file is `WerW_[group]_[number].xml`.
 - *contributors*: composer with GND ID; use “unknown” for spurious attributions
 - *work notes*: optional general notes on the work, e.g., why is an attribution spurious?
 - *language*
-- *classification and keywords*: genre of the work
+- *classification and keywords*: genre of the work; use UNIMARC codes for [musical forms](http://www.urfm.braidense.it/risorse/searchforms_en.php) (field 128)
 
 ![](images/mermeid_work.png)
 
@@ -39,7 +39,7 @@ The name of the XML file is `WerW_[group]_[number].xml`.
 
 ### Instruments and voices
 
-Use RISM scoring abbreviations and UNIMARC codes:
+Use RISM scoring abbreviations and UNIMARC codes for [medium of performance](http://www.urfm.braidense.it/risorse/searchmedium_en.php) (field 126):
 
 - ensembles
   - soli (cve)
