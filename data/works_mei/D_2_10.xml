@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1d210</altId>
+    <altId type="ark">ark:68748/gw1d210</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -56,10 +56,12 @@
           <eventList type="performances">
             <event>
               <date isodate="1748-03-31">1748-03-31</date>
+              <geogName role="venue"/>
               <geogName role="place">G&#xF6;ttweig</geogName>
             </event>
             <event>
               <date isodate="1754-07-16">1754-07-16</date>
+              <geogName role="venue"/>
               <geogName role="place">G&#xF6;ttweig</geogName>
             </event>
           </eventList>
@@ -405,7 +407,6 @@
               <annot type="source_description">
                 <p>S solo and coro (1), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (1), vl 2 (1), org (2)</p>
                 <p>fol. 1v of the vl 1 and 2 parts contains the S 1 and 2 part of an unidentified <rend fontstyle="italic">Laudate pueri</rend> in different hand</p>
-                <p>wrapper (fol. 2v) contains two performance dates</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>

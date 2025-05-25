@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1gs1</altId>
+    <altId type="ark">ark:68748/gw1gs1</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -53,14 +53,17 @@
           <eventList type="performances">
             <event>
               <date isodate="1848-07-25">1848-07-25</date>
+              <geogName role="venue"/>
               <geogName role="place">Seitenstetten</geogName>
             </event>
             <event>
               <date isodate="1861-09-08">1861-09-08</date>
+              <geogName role="venue"/>
               <geogName role="place">Wilhering</geogName>
             </event>
             <event>
               <date isodate="1886-02-01">1886-02</date>
+              <geogName role="venue"/>
               <geogName role="place">Seitenstetten</geogName>
             </event>
           </eventList>
@@ -809,7 +812,6 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S solo and coro (5), A solo and coro (3), T solo and coro (3), B solo and coro (4), cl 1 (2), cl 2 (2), clno 1 (2), clno 2 (2), timp (2), vl 1 (5), vl 2 (4), vlne (4), org (5)</p>
-                <p>wrapper (fol. 2v) contains 88 performance dates from 1848-07-25 to 1886-02</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -987,7 +989,7 @@
               <extent>15 parts</extent>
               <dimensions/>
               <handList>
-                <hand medium="brown ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 12 staves (9 mm)</p>

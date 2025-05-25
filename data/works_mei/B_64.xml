@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1b64</altId>
+    <altId type="ark">ark:68748/gw1b64</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -60,18 +60,22 @@
           <eventList type="performances">
             <event>
               <date isodate="1732-09-07">1732-09-07</date>
+              <geogName role="venue"/>
               <geogName role="place">G&#xF6;ttweig</geogName>
             </event>
             <event>
               <date isodate="1738-03-27">1738-03-27</date>
+              <geogName role="venue"/>
               <geogName role="place">G&#xF6;ttweig</geogName>
             </event>
             <event>
               <date isodate="1741-01-29">1741-01-29</date>
+              <geogName role="venue"/>
               <geogName role="place">G&#xF6;ttweig</geogName>
             </event>
             <event>
               <date isodate="1765">1765</date>
+              <geogName role="venue"/>
               <geogName role="place">Seitenstetten</geogName>
             </event>
           </eventList>
@@ -1385,7 +1389,6 @@
             <notesStmt>
               <annot type="source_description">
                 <p>S solo and coro (12), A solo and coro (12), T solo and coro (12), B solo and coro (11), trb 1 (9), trb 2 (9), vl 1 (12), vl 2 (12), org (14); vlne missing</p>
-                <p>wrapper (fol. 1v) contains three performance dates</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -1630,7 +1633,7 @@
               <extent>7 parts</extent>
               <dimensions/>
               <handList>
-                <hand medium="brown ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 11 staves (11 mm)</p>
