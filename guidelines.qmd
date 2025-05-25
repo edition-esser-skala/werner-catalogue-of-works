@@ -20,7 +20,7 @@ The name of the XML file is `WerW_[group]_[number].xml`.
   - PetSi: catalogue of instrumental works by @Petermayr2020 (Kon: Konzerte; Par: Partiten; Pas: Pastorellen (geistlich); Sin: Sinfonien; Sog: Sonaten (geistlich); Sow: Sonaten (weltlich))
   - PetWe: catalogue of Christmas music by @Petermayr2015
   - WinMa: catalogue of masses by @WinklerKlement2020
-- *contributors*: composer with GND ID
+- *contributors*: composer with GND ID; use “unknown” for spurious attributions
 - *work notes*: optional general notes on the work, e.g., why is an attribution spurious?
 - *language*
 - *classification and keywords*: genre of the work
@@ -184,7 +184,7 @@ If a full score or all parts are described, enter the following information on t
 - general description
   - individual parts with number of written pages in parentheses, e.g.,
     “S coro (2), A coro (2), T solo and coro (4), B coro (2), vl 1 (3), vl 2 (3), vlne (2), org (3)”
-  - include any additional notes as new paragraph, e.g., “wrapper (fol. 1r) contains 17 performance dates”
+  - include any additional notes as new paragraph
   - if only data from the RISM entry and/or literature were used, write “catalogued according to RISM entry and @Muranyi1997” or similar
 
 
@@ -241,7 +241,9 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
   - date of composition (include at least an estimated date)
   - place of composition; use a parenthesized question mark to indicate assumed place, e.g. “Eisenstadt (?)”
 - *performances* (optional)
-  - date and location
+  - date
+  - venue
+  - location
 
 
 ![](images/mermeid_history.png)

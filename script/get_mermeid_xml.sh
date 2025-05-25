@@ -72,7 +72,6 @@ xmlstarlet edit --inplace --delete '//_:biblList/_:bibl/_:ref/@label' $s
 xmlstarlet edit --inplace --insert '//_:biblList/_:bibl/_:ref[not(@targettype)]' -t attr -n targettype -v "pandoc-citation" $s
 
 # remove several empty elements in <event>
-xmlstarlet edit --inplace --delete '//_:eventList/_:event/_:geogName[@role="venue"]' $s
 xmlstarlet edit --inplace --delete '//_:eventList/_:event/_:corpName' $s
 xmlstarlet edit --inplace --delete '//_:eventList/_:event/_:persName' $s
 xmlstarlet edit --inplace --delete '//_:eventList/_:event/_:desc' $s

@@ -222,6 +222,17 @@ support-what: {support_what}
 
 # Functions ---------------------------------------------------------------
 
+# get the value of <elem_name attr_name="attr_value">
+get_elem_value <- function(l, elem_name, attr_name, attr_value) {
+  ids <- str_which(names(l), elem_name)
+  res <-
+    l[ids] %>%
+    keep(\(e) !is.null(attr(e, attr_name)) &&
+           attr(e, attr_name) == attr_value) %>%
+    pluck(1, 1)
+  res %||% NA_character_
+}
+
 # add an attribute "markdown_text" to each XML node with rich text,
 # which contains the node contents with markdown formatting instead
 # of the MEI formatting nodes
@@ -596,17 +607,28 @@ format_creation <- function(c) {
   str_flatten_comma(c(place, date), na.rm = TRUE)
 }
 
-# format performances (date and place)
+# format performances (date, place, venue)
 # h: <history>
 format_performances <- function(h) {
   if (length(h) == 0L)
-    return("–")
+    return("(none documented)")
 
   h$eventList %>%
-    map_chr(\(e) {
-      str_glue("{e$date[[1]]} ({e$geogName[[1]]})")
-    }) %>%
-    str_flatten_comma()
+    map(\(e) tibble(
+      date = e$date[[1]],
+      place = get_elem_value(e, "geogName", "role", "place"),
+      venue = get_elem_value(e, "geogName", "role", "venue")
+    )) %>%
+    list_rbind() %>%
+    unite(place, venue, col = "place", sep = ", ", na.rm = TRUE) %>%
+    summarise(
+      .by = place,
+      n = n(),
+      dates = str_flatten_comma(date, last = ", and ")
+    ) %>%
+    arrange(place) %>%
+    pmap_chr(\(place, n, dates) str_glue("*{place}* ({n}): {dates}")) %>%
+    str_flatten("<br/>")
 }
 
 # get bibliography entries of a given genre
