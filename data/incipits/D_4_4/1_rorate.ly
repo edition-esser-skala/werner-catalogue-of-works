@@ -1,26 +1,26 @@
 \version "2.24.2"
 \include "header.ly"
 
-ViolinoI = {
+ViolaI = {
   \relative c' {
-    \clef treble
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \clef soprano
+    \key f \major \time 6/8
       \once \omit Staff.TimeSignature
     s8*6 \bar "||"
-    \time 4/4 c'4. d16 e f8 c a f
+    \time 4/4 \tempoMarkup "Allegro" c'4. d16 e f8 c a f
     d'8. es16 f8 \hA es16 d c b a b c8 b16 a
     g4 c2 c4
     b8 c d8. d16 c8 c4 f8
   }
 }
 
-ViolinoII = {
+ViolaII = {
   \relative c' {
-    \clef treble
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \clef alto
+    \key f \major \time 6/8
       \once \omit Staff.TimeSignature
     s8*6 \bar "||"
-    \time 4/4 r2 f4. g16 a
+    \time 4/4 \tempoMarkup "Allegro" r2 f4. g16 a
     b8 f d b f'16 g f g a8 g16 f
     e8 e4 f16 g a8 a4 a8
     f f4 f8 f e f a
@@ -30,10 +30,10 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 6/8 \autoBeamOff
       \once \omit Staff.TimeSignature
     s8*6 \bar "||"
-    \time 4/4 c'4. d16[ e] f8[ c] a[ f]
+    \time 4/4 \tempoMarkup "Allegro" c'4. d16[ e] f8[ c] a[ f]
     d'8.[ es16] f8 \hA es16[ d] c[ b] a[ b] c8 b16[ a]
     g4 c2 c4
     b8[ c] d8. d16 c8 c4 f8
@@ -50,10 +50,10 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 6/8 \autoBeamOff
       \once \omit Staff.TimeSignature
     s8*6 \bar "||"
-    \time 4/4 r2 f4. g16[ a]
+    \time 4/4 \tempoMarkup "Allegro" r2 f4. g16[ a]
     b8[ f] d[ b] f'16[ g f g] a8 g16[ f]
     e8 e4 f16[ g] a8 a4 a8
     f f4 f8 f e[ f] a
@@ -70,10 +70,10 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 6/8 \autoBeamOff
       \once \omit Staff.TimeSignature
     s8*6 \bar "||"
-    \time 4/4 R1*2
+    \time 4/4 \tempoMarkup "Allegro" R1*2
     c4. d16[ e] f8[ c] a[ f]
     d'[ c] b8. b16 a8 g[ a] c
   }
@@ -87,17 +87,17 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 6/8 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 6/8 \autoBeamOff
       \once \omit Staff.TimeSignature
-    c\breve*1/16 d d a' b a\fermata \bar "||"
-    \time 4/4 R1*2
+    c\breve*1/16 d d a' b a \bar "||"
+    \time 4/4 \tempoMarkup "Allegro" R1*2
     r2 f4. g16[ a]
     b8[ f] d[ b] f'[ c a] f
   }
 }
 
 BassoLyrics = \lyricmode {
-  Ro -- _ ra -- _ te __ _
+  Ro -- _ ra -- _ _ te
 
   coe -- _
   _ li __ de -- "su -"
@@ -106,12 +106,12 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key f \major \time 6/8 \tempoMarkup "Allegro"
+    \key f \major \time 6/8
       \once \omit Staff.TimeSignature
-    c\breve*1/16 d d a' b a\fermata \bar "||"
-    \clef soprano \time 4/4 << {
+    c\breve*1/16 d d a' b a \bar "||"
+    \clef soprano \time 4/4 \tempoMarkup "Allegro" << {
       c'4. d16 e f8 c a b16 c
-      d8 es f es16 d c b a b c8 b16 a
+      d8. es16 f8 es16 d c b a b c8 b16 a
     } \\ {
       r2 f4. g16 a
       b8 f d b f'16 g f g a8 g16 f
@@ -133,14 +133,14 @@ BassFigures = \figuremode {
   <<
     \new StaffGroup <<
       \new GrandStaff <<
-        \set GrandStaff.instrumentName = "vl"
+        \set GrandStaff.instrumentName = "vla"
         \new Staff {
           \set Staff.instrumentName = "1"
-          \ViolinoI
+          \ViolaI
         }
         \new Staff {
           \set Staff.instrumentName = "2"
-          \ViolinoII
+          \ViolaII
         }
       >>
     >>

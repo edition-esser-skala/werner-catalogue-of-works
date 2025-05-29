@@ -4,10 +4,10 @@
 ViolaI = {
   \relative c' {
     \clef soprano
-    \key f \major \time 5/4 \tempoMarkup "Allegro"
+    \key f \major \time 5/4
       \once \omit Staff.TimeSignature
     s4*5 \bar "||"
-    \time 3/2 r2 r c'
+    \time 3/2 \tempoMarkup "[no tempo]" r2 r c'
     d4 f2 e4 f8 g f e
     d4. d8 c2 r4 c
     d d h2 c
@@ -17,10 +17,10 @@ ViolaI = {
 ViolaII = {
   \relative c' {
     \clef alto
-    \key f \major \time 5/4 \tempoMarkup "Allegro"
+    \key f \major \time 5/4
       \once \omit Staff.TimeSignature
     s4*5 \bar "||"
-    \time 3/2 f2 g4 b2 a4
+    \time 3/2 \tempoMarkup "[no tempo]" f2 g4 b2 a4
     b8 c b a g4. g8 f2
     r r4 g a a
     r f g g e2
@@ -30,10 +30,10 @@ ViolaII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 5/4 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*5 \bar "||"
-    \time 3/2 r2 r c'
+    \time 3/2 \tempoMarkup "[no tempo]" r2 r c'
     d4 f2 e4 f8[ g f e]
     d4. d8 c2 r4 c
     d d h2 c
@@ -50,10 +50,10 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 5/4 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*5 \bar "||"
-    \time 3/2 f2 g4 b2 a4
+    \time 3/2 \tempoMarkup "[no tempo]" f2 g4 b2 a4
     b8[ c b a] g4. g8 f2
     r r4 g a a
     r f g g e2
@@ -70,10 +70,10 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 5/4 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*5 \bar "||"
-    \time 3/2 R1.
+    \time 3/2 \tempoMarkup "[no tempo]" R1.
     r2 r4 c d d
     h2 c4 c2 a4
     r2 r r4 c
@@ -89,10 +89,10 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 5/4 \tempoMarkup "Allegro" \autoBeamOff
+    \key f \major \time 5/4 \autoBeamOff
       \once \omit Staff.TimeSignature
-    c\breve*1/8 d a' b a\fermata \bar "||"
-    \time 3/2 R1.
+    c\breve*1/8 d a' b a \bar "||"
+    \time 3/2 \tempoMarkup "[no tempo]" R1.
     r2 r r4 f
     g g e2 f
     r r4 g a a
@@ -110,10 +110,10 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key f \major \time 5/4 \tempoMarkup "Allegro"
+    \key f \major \time 5/4
       \once \omit Staff.TimeSignature
-    c\breve*1/8 d a' b a\fermata \bar "||"
-    \clef soprano \time 3/2 << {
+    c\breve*1/8 d a' b a \bar "||"
+    \clef soprano \time 3/2 \tempoMarkup "[no tempo]" << {
       r2 r c'
       d4 f2 e4 f
     } \\ {

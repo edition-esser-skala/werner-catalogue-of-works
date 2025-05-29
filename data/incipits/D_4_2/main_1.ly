@@ -3,10 +3,11 @@
 
 notes = \relative c {
   \clef bass
-  \key f \major \time 5/4 \tempoMarkup "Allegro" \autoBeamOff
+  \key f \major \time 5/4 \autoBeamOff
     \once \omit Staff.TimeSignature
-  c\breve*1/8^\partBc d a' b a\fermata \bar "||"
-  \clef alto \time 3/2 f'2^\partAc g4 b2*1/2 \clef soprano c2^\partSc
+  c\breve*1/8^\partBc d a' b a \bar "||"
+  \clef alto \time 3/2 \tempoMarkup "[no tempo]"
+    f'2^\partAc g4 b2*1/2 \clef soprano c2^\partSc
     d4 f2 e4 f8[ g f e]
 }
 
