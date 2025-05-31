@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef alto
-  \key c \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+  \key c \major \time 3/2 \tempoMarkup "Molto andante" \autoBeamOff
   r2^\partAc c2. d4
   e c d e f2~
   f4 e8[ d] e4 d c e

@@ -4,7 +4,7 @@
 ViolaI = {
   \relative c' {
     \clef soprano
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]"
+    \key f \major \time 3/2 \tempoMarkup "Molto andante"
       \set Staff.timeSignatureFraction = 3/2
     R1.*2
     r2 g'2. a4
@@ -16,7 +16,7 @@ ViolaI = {
 ViolaII = {
   \relative c' {
     \clef alto
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]"
+    \key f \major \time 3/2 \tempoMarkup "Molto andante"
       \set Staff.timeSignatureFraction = 3/2
     r2 c2. d4
     e c d e f2~
@@ -29,7 +29,7 @@ ViolaII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 3/2 \tempoMarkup "Molto andante" \autoBeamOff
       \set Staff.timeSignatureFraction = 3/2
     R1.*2
     r2 g'2. a4
@@ -59,7 +59,7 @@ SopranoLyricsC = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 3/2 \tempoMarkup "Molto andante" \autoBeamOff
       \set Staff.timeSignatureFraction = 3/2
     r2 c2. d4
     e c d e f2~
@@ -96,7 +96,7 @@ AltoLyricsC = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 3/2 \tempoMarkup "Molto andante" \autoBeamOff
       \set Staff.timeSignatureFraction = 3/2
     f,2. g4 a f
     g a b g a h
@@ -133,7 +133,7 @@ TenoreLyricsC = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 3/2 \tempoMarkup "Molto andante" \autoBeamOff
       \set Staff.timeSignatureFraction = 3/2
     R1.*2
     c2. d4 e c
@@ -163,7 +163,7 @@ BassoLyricsC = \lyricmode {
 Organo = {
   \relative c {
     \clef tenor
-    \key f \major \time 3/2 \tempoMarkup "[no tempo]"
+    \key f \major \time 3/2 \tempoMarkup "Molto andante"
       \set Staff.timeSignatureFraction = 3/2
     << {
       r2 c'2. d4
