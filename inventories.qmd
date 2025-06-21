@@ -32,7 +32,6 @@ Items in gray text have not yet been screened.
 
 ```{r}
 #| echo: false
-#| output: asis
 
 # read contents of the fonds Moder
 fonds_data <- 
@@ -44,26 +43,39 @@ fonds_cited <-
   read_rds("data_generated/works.rds") %>% 
   unnest(sources, names_sep = "_") %>%
   filter(str_starts(sources_source, "A-Wn F100")) %>%
-  left_join(
-    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
-    by = "group"
-  ) %>% 
   unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
-  select(number = sources_source, WerW, file) %>%
+  select(number = sources_source, WerW) %>%
   mutate(number = str_replace(number, "A-Wn F100.Moder.", ""))
 
 wrong_sources <- 
   fonds_data %>% 
   filter(!is.na(WerW)) %>%
-  anti_join(fonds_cited, by = join_by(number, WerW))
+  anti_join(fonds_cited, by = join_by(number, WerW)) %>% 
+  filter(check_link)
 
-if (nrow(wrong_sources) > 0)
+if (nrow(wrong_sources) > 0) {
   error("wrong WerW number in Fonds Moder ",
-        "{str_flatten_comma(wrong_sources$number)}")
+        "{str_flatten_comma(wrong_sources$number)}",
+        strict = TRUE)
+}
+
+# define links to the works
+work_links <- 
+  read_rds("data_generated/works.rds") %>% 
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
+  mutate(
+    link = str_glue('<a href="/groups/{file}.html#work-{WerW}">{WerW}</a>')
+  ) %>%
+  select(WerW, link) %>% 
+  add_row(WerW = "–", link = "–")
 
 # create the table output
 fonds_data %>% 
-  left_join(fonds_cited, by = join_by(number, WerW)) %>% 
+  left_join(work_links, by = "WerW") %>% 
   mutate(
     number =
       if_else(
@@ -73,21 +85,19 @@ fonds_data %>%
       ) %>%
       map(html),
     WerW = 
-      if_else(
-        is.na(WerW),
-        "",
-        str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")
-      )
-  ) %>% 
+      link %>% 
+      replace_na("") %>% 
+      map(html)
+  ) %>%
   select(number, folder, title, WerW, notes) %>% 
-  gt() %>% 
-  cols_align("left") %>% 
-  fmt_markdown(columns = WerW) %>% 
-  sub_missing(missing_text = "") %>% 
+  gt() %>%
+  cols_align("left") %>%
+  fmt_markdown(columns = notes) %>%
+  sub_missing(columns = c(folder, notes), missing_text = "") %>%
   tab_style(
     style = cell_text(color = "grey70"),
     locations = cells_body(rows = is.na(folder))
-  ) %>% 
+  ) %>%
   tab_options(
     column_labels.font.weight = "bold",
     table_body.hlines.style = "none"
