@@ -5,7 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key g \major \time 3/8 \tempoMarkup "Allegro"
-    g'8\f g' g
+    g'8 g' g
     g fis e
     d4 e16( cis)
     d4.
@@ -20,7 +20,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key g \major \time 3/8 \tempoMarkup "Allegro"
-    g'8\f g' g
+    g'8 g' g
     g fis e
     d4 e16( cis)
     d4.
@@ -35,7 +35,7 @@ Viola = {
   \relative c' {
     \clef alto
     \key g \major \time 3/8 \tempoMarkup "Allegro"
-    g8\f g' g
+    g8 g' g
     g fis e
     d4 e16( cis)
     d4.
@@ -50,7 +50,7 @@ Cembalo = {
   \relative c {
     \clef bass
     \key g \major \time 3/8 \tempoMarkup "Allegro"
-    g8\f g' g
+    g8 g' g
     g fis e
     d4 e16( cis)
     d8 d' d

@@ -5,7 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Larghetto"
-    g''2\f h8( g)
+    g''2 h8( g)
     d'2 h8( g)
     d2 h8( g)
     d2 fis8( a)
@@ -20,7 +20,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Larghetto"
-    g'2\f h8( g)
+    g'2 h8( g)
     d'2 h8( g)
     d2 h8( g)
     d'( d') a( fis) d( fis)
@@ -35,7 +35,7 @@ Viola = {
   \relative c' {
     \clef alto
     \key g \major \time 3/4 \tempoMarkup "Larghetto"
-    g'2\f h8( g)
+    g'2 h8( g)
     d'2 h8( g)
     d2 h8( g)
     d2 r4
@@ -50,7 +50,7 @@ Cembalo = {
   \relative c {
     \clef bass
     \key g \major \time 3/4 \tempoMarkup "Larghetto"
-    g'2\f h8( g)
+    g'2 h8( g)
     d'2 h8( g)
     d2 h8( g)
     d2.

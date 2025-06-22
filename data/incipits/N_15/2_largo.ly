@@ -23,8 +23,8 @@ ViolinoII = {
     e1 fis2
     e1 dis2
     e1 g2
+    fis1 fis2
     fis( d'!) cis
-    h1 ais2
     h1 ais2
   }
 }

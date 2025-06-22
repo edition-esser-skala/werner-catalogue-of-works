@@ -4,7 +4,7 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 3/8 \tempoMarkup "Passato"
+    \key d \major \time 3/8 \tempoMarkup "Allegro passato"
     d''4\f \tuplet 3/2 8 { d16 cis h }
     a4 \tuplet 3/2 8 { h16 a g }
     a8 fis e
@@ -17,7 +17,7 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 3/8 \tempoMarkup "Passato"
+    \key d \major \time 3/8 \tempoMarkup "Allegro passato"
     fis'4\f g8
     fis4 \tuplet 3/2 8 { g16 fis e }
     fis8 d cis
@@ -30,7 +30,7 @@ ViolinoII = {
 Viola = {
   \relative c' {
     \clef alto
-    \key d \major \time 3/8 \tempoMarkup "Passato"
+    \key d \major \time 3/8 \tempoMarkup "Allegro passato"
     a'4\f \tuplet 3/2 8 { h16 a g }
     a4 \tuplet 3/2 8 { g16 fis e }
     fis8 a a
@@ -43,7 +43,7 @@ Viola = {
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 3/8 \tempoMarkup "Passato"
+    \key d \major \time 3/8 \tempoMarkup "Allegro passato"
     d8 d d
     d d d
     d d' a
@@ -55,11 +55,11 @@ Organo = {
 
 BassFigures = \figuremode {
   r4 <6 4>8
-  <5 3>4 <6 4>8
-  <5 3>4.
+  <5 _+>4 <6 _+>8
+  <5 _+>4.
   r
-  r
-  r
+  r4 <_+>8
+  r4.
 }
 
 \score {
