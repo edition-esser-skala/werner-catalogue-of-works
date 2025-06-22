@@ -5,7 +5,7 @@ notes = \relative c' {
   \clef tenor
   \key d \minor \time 4/4 \autoBeamOff \tempoMarkup "Larghetto"
   d4.^\partTs d8 d[ cis] cis a
-  \clef soprano a'4. a8 a[ g] g d'
+  \clef soprano a'4.^\partSs a8 a[ g] g d'
   e e f f f4 e\trill
   f
 }
