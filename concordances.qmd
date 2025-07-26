@@ -160,7 +160,7 @@ print_concordance_catalogue("WinMa")
 
 
 
-## Inventories
+## Inventories (historic)
 
 ### @BrtniceInv
 
@@ -212,3 +212,89 @@ print_concordance_ref(
 ```
 
 
+### @Sauer1809
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Sauer1809",
+  patterns = c(
+    "fol. ",
+    fol. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+
+## Inventories (modern)
+
+### @Bardos1976
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1976",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @Bardos1980
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1980",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Bardos1984
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1984",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Rostetter2023
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Rostetter2023",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
