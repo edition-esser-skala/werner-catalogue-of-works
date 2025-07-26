@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId>ark:68748/gw1a12</altId>
+    <altId type="ark">ark:68748/gw1a12</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -56,6 +56,7 @@
           <eventList type="performances">
             <event>
               <date isodate="1748-04-12">1748-04-12</date>
+              <geogName role="venue"/>
               <geogName role="place">Eisenstadt</geogName>
             </event>
           </eventList>
@@ -1016,7 +1017,8 @@
                 </relationList>
               </expression>
               <expression n="17">
-                <title xml:lang="la">Aria sexta (Siciliana)</title>
+                <title xml:lang="la">Aria sexta</title>
+                <title xml:lang="la">Siciliana</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
