@@ -4,14 +4,16 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \key g \dorian \time 4/2
+    \key g \dorian \time 4/2 \tempoMarkup "Pars prima · [no tempo]"
       \set Staff.timeSignatureFraction = 2/2
     b'\breve~
-    b2 a4 g a1\fermata
+    b2 a4 g a1\fermata \bar "||"
     b\breve~
-    b2 a4 g a1\fermata
+    b2 a4 g a1\fermata \bar "||"
     r2 a2. h4 c2
     d1. d2
+    d c b!1~
+    b2 a r d
   }
 }
 
@@ -21,19 +23,23 @@ SopranoLyrics = \lyricmode {
   ec --
   _ _ ce
   quo -- mo -- do
-  mo -- "ri -"
+  mo -- ri --
+  tur __ _ iu --
+  stus, et
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key g \dorian \time 4/2
+    \key g \dorian \time 4/2 \tempoMarkup "Pars prima · [no tempo]"
     g'\breve~
-    g2 fis4 e fis1\fermata
+    g2 fis4 e \hA fis1\fermata \bar "||"
     f\breve
-    f\fermata
+    f\fermata \bar "||"
     r2 f2. f4 g2
     as1. as2
+    g1 g~
+    g2 fis r \hA fis
   }
 }
 
@@ -43,20 +49,24 @@ AltoLyrics = \lyricmode {
   ec --
   ce
   quo -- mo -- do
-  mo -- "ri -"
+  mo -- ri --
+  tur iu --
+  stus, et
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key g \dorian \time 4/2
+    \key g \dorian \time 4/2 \tempoMarkup "Pars prima · [no tempo]"
       \set Staff.timeSignatureFraction = 2/2
     d\breve
-    d\fermata
+    d\fermata \bar "||"
     d~
-    d2 c4 b c1\fermata
+    d2 c4 b c1\fermata \bar "||"
     r2 d2. d4 es2
     f1. f2
+    es1 e
+    d r2 a
   }
 }
 
@@ -66,20 +76,24 @@ TenoreLyrics = \lyricmode {
   ec --
   _ _ ce
   quo -- mo -- do
-  mo -- "ri -"
+  mo -- ri --
+  tur iu --
+  stus, et
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key g \dorian \time 4/2
+    \key g \dorian \time 4/2 \tempoMarkup "Pars prima · [no tempo]"
       \set Staff.timeSignatureFraction = 2/2
     g'\breve
-    d\fermata
+    d\fermata \bar "||"
     b'
-    f\fermata
+    f\fermata \bar "||"
     r2 d2. d4 c2
     h1. h2
+    c1 cis
+    d r2 d
   }
 }
 
@@ -89,7 +103,9 @@ BassoLyrics = \lyricmode {
   ec --
   ce
   quo -- mo -- do
-  mo -- "ri -"
+  mo -- ri --
+  tur iu --
+  stus, et
 }
 
 \score {
