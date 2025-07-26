@@ -699,12 +699,34 @@ format_work_description <- function(n) {
     paste("Notes\n:", notes)
 }
 
+# format movement/section title(s)
+# as “title_1”, “title_1 (title_2)”, or “title_1 (title_2; title_3; ...)”
+# s: <expression>
+format_movement_title <- function(s) {
+  title_indices <-
+    names(s) %>%
+    str_which("title")
+
+  main_title <- s[[title_indices[1]]][[1]]
+  other_titles <-
+    map_chr(
+      title_indices[-1],
+      \(i) s[[i]][[1]]
+    ) %>%
+    str_flatten("; ")
+  if (other_titles != "") {
+    other_titles <- paste0(" (", other_titles, ")")
+  }
+
+  paste0(main_title, other_titles)
+}
+
 # format a section of a movement
 # returns a table row with the number of bars (extent),
 # the section's pipe-separated scoring (scoring),
 # and the markdown-formatted section data (markdown)
 format_section <- function(s) {
-  title <- s$title[[1]]
+  title <- format_movement_title(s)
   info("      section {title}")
 
   number <- attr(s, "n", exact = TRUE)
@@ -739,7 +761,7 @@ format_section <- function(s) {
 # returns a table row with the movement's pipe-separated scoring (scoring)
 # and the markdown-formatted movement data (markdown)
 format_movement <- function(m, work_id) {
-  title <- m$title[[1]]
+  title <- format_movement_title(m)
   info("    movement {title}")
 
   number <- attr(m, "n", exact = TRUE)
