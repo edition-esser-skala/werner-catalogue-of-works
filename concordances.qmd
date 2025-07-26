@@ -5,6 +5,7 @@ editor_options:
 format:
   html:
     html-table-processing: none
+    toc-depth: 3
 ---
 
 # Concordances {.unnumbered}
@@ -17,7 +18,7 @@ library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
 
-print_concordance <- function (catalogue) {
+print_concordance_catalogue <- function(catalogue) {
   notes <-
     read_csv("data/catalogue_notes.csv") %>% 
     filter(catalogue == {{catalogue}}) %>% 
@@ -52,75 +53,162 @@ print_concordance <- function (catalogue) {
     sub_missing(columns = notes, missing_text = "") %>% 
     tab_options(
       column_labels.font.weight = "bold",
+      table.align = "left",
+      table_body.hlines.style = "none"
+    )
+}
+
+print_concordance_ref <- function(ref, patterns, ...) {
+  patterns <- c(
+    ".+\\[",
+    patterns,
+    "]"
+  )
+
+  read_rds("data_generated/works.rds") %>%
+    left_join(
+      read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+      by = "group"
+    ) %>%
+    unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
+    mutate(WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")) %>%
+    separate_longer_delim(literature, ", @") %>%
+    filter(str_detect(literature, ref)) %>%
+    select(literature, WerW) %>%
+    separate_wider_regex(
+      literature,
+      patterns = {{patterns}}
+    ) %>%
+    mutate(across(!WerW, parse_guess)) %>%
+    arrange(pick(!WerW)) %>%
+    gt() %>%
+    fmt_markdown(columns = WerW) %>%
+    tab_options(
+      column_labels.font.weight = "bold",
+      table.align = "left",
       table_body.hlines.style = "none"
     )
 }
 ```
 
 
-## Dopf
+## Catalogues
+
+### @Dopf1956 (Dopf)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("Dopf")
+print_concordance_catalogue("Dopf")
 ```
 
 
-## HarCa
+### @Harich1990 (HarCa)
 
 Generally, Hárich included works from the 1737/38 inventory as separate works in his catalogue, even if the work title is so generic that it may correspond to an extant work.
 
 ```{r}
 #| echo: false
 #| output: asis
-
-
-
-print_concordance("HarCa")
+print_concordance_catalogue("HarCa")
 ```
 
 
-## HarIn
+### @Harich1975 (HarIn)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("HarIn")
+print_concordance_catalogue("HarIn")
 ```
 
 
-## PetSi
+### @Petermayr2020 (PetSi)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("PetSi")
+print_concordance_catalogue("PetSi")
 ```
 
 
-## PetWe
+### @Petermayr2015 (PetWe)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("PetWe")
+print_concordance_catalogue("PetWe")
 ```
 
 
-## ReiMa
+### @Reichert1935 (ReiMa)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("ReiMa")
+print_concordance_catalogue("ReiMa")
 ```
 
 
-## WinMa
+### @WinklerKlement2020 (WinMa)
 
 ```{r}
 #| echo: false
 #| output: asis
-print_concordance("WinMa")
+print_concordance_catalogue("WinMa")
 ```
+
+
+
+## Inventories
+
+### @BrtniceInv
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "BrtniceInv",
+  c(
+    "p. ",
+    p. = "\\d+",
+    ", no. ",
+    no. = "\\d+"
+  ),
+)
+```
+
+
+### @EsterhazyInv1805
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "EsterhazyInv1805",
+  patterns = c(
+    "fol. ",
+    fol. = ".+",
+    ", no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @EsterhazyInv1812
+
+```{r}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "EsterhazyInv1812",
+  c(
+    genre = ".+",
+    " no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
