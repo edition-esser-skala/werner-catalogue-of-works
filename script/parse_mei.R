@@ -193,7 +193,7 @@ SUBTITLE_TEMPLATE <- "[{title}]{{.other-title}}"
 
 ## EES edition link ----
 
-EDITION_LINK_TEMPLATE <- "[![](../images/ees_link.svg)]({link})"
+EDITION_LINK_TEMPLATE <- "[![](../images/ees_link_light.svg){{.has-dark-version}}]({link})"
 
 
 ## ARK ----
@@ -316,7 +316,7 @@ format_meter <- function(m) {
   if (!file_exists(meter_svg))
     warn("No image available for meter {meter}")
 
-  str_glue("![](../{meter_svg})")
+  str_glue("![](../{meter_svg}){{.switches-dark-mode}}")
 }
 
 # format the key signature
@@ -434,7 +434,7 @@ format_incipits <- function(incipit_list, work_id) {
                '<a href="/{target_dir}/{full_incipit}" ',
                'class="lightbox">',
                '<img src="/{target_dir}/{main_incipit}.svg" ',
-               'class="incipit-main img-fluid"></a>|')
+               'class="incipit-main img-fluid switches-dark-mode"></a>|')
     }
   ) %>%
     str_flatten("\n")
@@ -791,7 +791,7 @@ format_movement <- function(m, work_id) {
     incipit <- "(incipit missing)"
   else {
     incipit <- str_glue(
-      "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit-full}}"
+      "![](/incipits/{work_id}/{incipit_file}.svg){{.incipit-full .switches-dark-mode}}"
     )
   }
 

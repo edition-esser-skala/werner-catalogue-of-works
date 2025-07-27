@@ -59,4 +59,7 @@ format:
     toc-depth: 2
     theme:
       light: [flatly, styling.scss]
-      dark: [darkly, styling.scss]
+      dark: [darkly, styling.scss, styling-dark.scss]
+include-after-body:
+  text: |
+    <script type="application/javascript" src="/light-dark.js"></script>

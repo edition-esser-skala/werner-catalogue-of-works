@@ -116,7 +116,7 @@ make_incipits <- function(group, subgroup, number) {
     html_images <-
       map_chr(
         main_incipits,
-        \(m) str_glue("![](/{target_dir}/{m}){{.incipit}}")
+        \(m) str_glue("![](/{target_dir}/{m}){{.incipit-main .switches-dark-mode}}")
       ) %>%
       str_flatten("\n\n")
   } else {
@@ -130,7 +130,7 @@ make_incipits <- function(group, subgroup, number) {
         \(m, f) str_glue('<a href="/{target_dir}/{f}" ',
                          'class="lightbox">',
                          '<img src="/{target_dir}/{m}" ',
-                         'class="incipit img-fluid"></a>')
+                         'class="incipit-main img-fluid switches-dark-mode"></a>')
 
       ) %>%
       str_flatten("\n\n")
