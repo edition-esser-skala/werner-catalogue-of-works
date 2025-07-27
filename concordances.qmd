@@ -10,7 +10,7 @@ format:
 
 # Concordances {.unnumbered}
 
-```{r}
+```{r packages and setup}
 #| include: false
 library(tidyverse)
 library(stringi)
@@ -96,7 +96,7 @@ print_concordance_ref <- function(ref, patterns, ...) {
 
 ### @Dopf1956 (Dopf)
 
-```{r}
+```{r Dopf}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("Dopf")
@@ -107,7 +107,7 @@ print_concordance_catalogue("Dopf")
 
 Generally, Hárich included works from the 1737/38 inventory as separate works in his catalogue, even if the work title is so generic that it may correspond to an extant work.
 
-```{r}
+```{r HarCa}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("HarCa")
@@ -116,7 +116,7 @@ print_concordance_catalogue("HarCa")
 
 ### @Harich1975 (HarIn)
 
-```{r}
+```{r HarIn}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("HarIn")
@@ -125,7 +125,7 @@ print_concordance_catalogue("HarIn")
 
 ### @Petermayr2020 (PetSi)
 
-```{r}
+```{r PetSi}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("PetSi")
@@ -134,7 +134,7 @@ print_concordance_catalogue("PetSi")
 
 ### @Petermayr2015 (PetWe)
 
-```{r}
+```{r PetWe}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("PetWe")
@@ -143,7 +143,7 @@ print_concordance_catalogue("PetWe")
 
 ### @Reichert1935 (ReiMa)
 
-```{r}
+```{r ReiMa}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("ReiMa")
@@ -152,7 +152,7 @@ print_concordance_catalogue("ReiMa")
 
 ### @WinklerKlement2020 (WinMa)
 
-```{r}
+```{r WinMa}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("WinMa")
@@ -164,7 +164,7 @@ print_concordance_catalogue("WinMa")
 
 ### @BrtniceInv
 
-```{r}
+```{r Brtnice inventory}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -181,7 +181,7 @@ print_concordance_ref(
 
 ### @EsterhazyInv1805
 
-```{r}
+```{r Esterhazy inventory 1805}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -198,7 +198,7 @@ print_concordance_ref(
 
 ### @EsterhazyInv1812
 
-```{r}
+```{r Esterhazy inventory 1812}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -214,7 +214,7 @@ print_concordance_ref(
 
 ### @Sauer1809
 
-```{r}
+```{r Sauer 1809}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -234,7 +234,7 @@ print_concordance_ref(
 
 ### @Bardos1976
 
-```{r}
+```{r Bardos 1976}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -251,7 +251,7 @@ print_concordance_ref(
 
 ### @Bardos1980
 
-```{r}
+```{r Bardos 1980}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -268,7 +268,7 @@ print_concordance_ref(
 
 ### @Bardos1984
 
-```{r}
+```{r Bardos 1984}
 #| echo: false
 #| output: asis
 print_concordance_ref(
@@ -285,7 +285,7 @@ print_concordance_ref(
 
 ### @Rostetter2023
 
-```{r}
+```{r Rostetter 2023}
 #| echo: false
 #| output: asis
 print_concordance_ref(

@@ -9,7 +9,7 @@ format:
 
 # Inventories {.unnumbered}
 
-```{r}
+```{r packages}
 #| include: false
 library(tidyverse)
 library(gt)
@@ -30,7 +30,7 @@ Items in gray text have not yet been screened.
 
 
 
-```{r}
+```{r fonds moder}
 #| echo: false
 
 # read contents of the fonds Moder
@@ -109,7 +109,7 @@ fonds_data %>%
 
 The following table reproduces the table of contents of the unfinished catalogue of Werner's works by @Harich1990. Here, we refer to entries in this catalogue by work groups and the (probably final) work numbers, which appear in broad red ink in the top left corner of each card.
 
-```{r}
+```{r harich catalogue}
 #| echo: false
 #| output: asis
 

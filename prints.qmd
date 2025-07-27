@@ -9,7 +9,7 @@ format:
 
 # Prints {.unnumbered}
 
-```{r}
+```{r packages}
 #| include: false
 library(tidyverse)
 library(bib2df)
@@ -20,7 +20,7 @@ options(readr.show_col_types = FALSE)
 
 The following table collects all known modern editions of Werner's works. These editions are also cited in each entry.
 
-```{r}
+```{r table of prints}
 #| echo: false
 #| output: asis
 #| warning: false
