@@ -1,12 +1,35 @@
 # Changelog {.unnumbered}
 
+## 0.16.0 – 2025-07-27
+
+### Added
+
+- incipits and metadata for WerW B.5/32/75, D.1.14, D.2.9, and O.7
+- sources: H-Bn Ms.mus.IV 2.166 (3–5)
+- reference: @Fukac1959
+- acknowledgements for A-El, CZ-Bm, D-As, D-Mbs, F-Pn, Brinzing, Gruber, Hilscher, Mikusi, and Weinhäusel
+- support for several movement/section titles in MEI metadata
+- concordances for historic [@BrtniceInv; @EsterhazyInv1805; @EsterhazyInv1812; @Sauer1809] and modern inventories [@Bardos1976; @Bardos1980; @Bardos1980; @Rostetter2023]
+- an instrument abbreviation “[?]” (unknown scoring, UNIMARC `mun`)
+- a genre `overture`
+- a siglum `US-Wc`
+
+### Changed
+
+- Chunks in QMD files are now named.
+
+### Fixed
+
+- All `<altId>` tags now comprise a `type` attribute.
+
+
 ## 0.15.0 – 2025-06-29
 
 ### Added
 
 - incipits and metadata for WerW B.8/67, D.2.8, D.4.3, D.5.1, E.3, F.33/34, G.4, H.1.1, H.2.10, I.1.3, I.2.3, I.3.2, I.4.2, I.5.2, N.1, O.6, and P.2
 - sources: A-Wn F100.Moder.9, 14, 139, and 156–162
-- work numbers in Reichert's catalogue of masses (reference Reichert 1935)
+- work numbers in Reichert's catalogue of masses [@Reichert1935]
 - instrument abbreviations *tr* and *vl princ*
 - a link to the poster presented at the IAML 2025 Conference
 - `util_make_events.R`: support for venue
@@ -21,7 +44,6 @@
 - table for Fonds Moder (previously, work links were messed up)
 
 
-
 ## 0.14.0 – 2025-05-25
 
 ### Added
@@ -33,7 +55,8 @@
   - A-Z: lost textbooks (assigned to sources)
   - F-Pn: MS-2232 (WerW I.4.16)
   - H-Bn: lost textbooks (assigned to sources)
-- references Harich1959 and editions Narkmun2024a–c, Paparozzi2021, and Warner1965a
+- references: @Harich1959
+- editions: @Narkmun2024a, @Narkmun2024b, @Narkmun2024c, @Paparozzi2021, and @Warner1965a
 - acknowledgements for H-Bn and Haydneum
 - WerW M.24: shelfmark for source in A-SEI
 - a siglum A-Wdtö for sources in the archive of the Denkmäler der Tonkunst in Österreich
@@ -80,7 +103,7 @@
   - A-Wst: A-14984
   - D-As: 4 Tonk 1513
   - H-Bn: Ms. mus. IV. 2.166
-- references: Dlabac1815, Neuhuber2020, Perutkova2022, Schindler1969, Tank1981, and Winkler2010
+- references: @Dlabac1815, @Neuhuber2020, @Perutkova2022, @Schindler1969, @Tank1981, and @Winkler2010
 - acknowledgements for A-Wst, CZ-Pak, H-Gk (updated), J-Tma, and Pernerstorfer
 - Archival Resource Keys for each catalogue entry and MEI file, including the `?info` inflection that links to Dublin Kernel metadata
 - citations of all known modern editions (`editions.bib`)
@@ -114,7 +137,7 @@
   - A-Wn: F100.Moder.7, 12, 21, 31, 32, 46–50, 56–65, 75, 85/1, 99, and 100
   - A-Z: I/174, I/175, I/187, and IV/38
   - F-Pn: MS-2231
-- references Czernin 2020b, Horvath 1971, Kim 1998, Maillard 1999, Neumayr 2018, Robbins Landon 1977, Sauer 1809, and Schreiner 2001
+- references: @Czernin2020b, @Horvath1971, @Kim1998, @KlosterneuburgInvC, @Maillard1999, @Neumayr2018, @RobbinsLandon1977, @Sauer1809, and @Schreiner2001
 - acknowledgements for A-Gdab, A-KR, A-Wdp, RUS-Mrg, SK-BRm, US-NYp, Armstrong, Grosch, Größinger, Narkmun, Perutková, and Stadler
 - a section describing works not yet catalogued 
 - methods now mention the number of works in RISM that have been included
@@ -128,7 +151,6 @@
 - WerW P.3: information on 3rd movement
 - appendix: more copies of foreign works
 - info on Moder's Teilnachlass at the University of Salzburg
-- Klosterneuburg inventory C
 
 ### Changed
 
@@ -156,7 +178,7 @@
   - D-B Mus.12727
   - H-VEs Hymnus 112/c (1–6)
 - remaining entries in HarCa
-- references Erdmann 2014 and Hochradner 2016
+- references: @Erdmann2014 and @Hochradner2016
 - a macro `\part` to the incipit header
 - support for text incipits and roles in movements
 - acknowledgements for A-SB, H-Gk, and H-VEs
@@ -189,7 +211,7 @@
 - the identifier *HarCa*, which is Hárich's unfinished catalogue of works in A-Wgm (currently only for masses)
 - support for prints and lost sources in metadata
 - support for a repository name instead of a RISM siglum in the source location
-- references: Armstrong 2004, Bardos 1976, 1980, 1984, Chase 2003, Esterházy inventories 1805 and 1812/13, Hansell 1968, Harman 1968, Herzogenburg inventories A and B, Klosterneuburg inventory B, Müller 1911, Narkmun 2024, Preisl 2022, Prominczel 2013, Radant 1982, Rheinfurth 1977, Rostetter 2023, and Weinmann 1978
+- references: @Armstrong2004, @Bardos1976, @Bardos1980, @Bardos1984, @Chase2003, @EsterhazyInv1805, @EsterhazyInv1812, @Hansell1968, @Harman1968, @HerzogenburgInvA, @HerzogenburgInvB, @KlosterneuburgInvB, @Müller1911, @Narkmun2024, @Preisl2022, @Prominczel2012, @Radant1982, @Rheinfurth1977, @Rostetter2023, and @Weinmann1978
 - a detailed description of previous efforts to create a thematic catalogue
 - metadata validation:
   - consistency between CSV and MEI (work title, references, identifiers, sources)
@@ -240,7 +262,7 @@
 - sources:
   - fonds Moder: 3–5 and 10 (checked); 19, 25, 28, 29/2, 49, 54, 85/5, 102, 158/6, 160, and 120 (from @WinklerKlement2013; still need to be verified)
   - A-SEI: E VIII 3 e and f, FXXI 6 a and b, F XXII 7 a and b
-- references: Baker 2013, Bogati 1936, Brtnice Inventory, Czernin 2018, Farkas 1994, Jones 1996, Lindner 2010, Moder 1985, Pausch 1975, Rempe 1991, Rovatkay 2005, Schlader 2019, Somfai 1963, Stein 1957, Strakova 1963, 1965, Walter 1976, and Warner 1965
+- references: @Baker2013, @Bogati1936, @BrtniceInv, @Czernin2018, @Farkas1994, @Jones1996, @Lindner2010, @Moder1985, @Pausch1975, @Rempe1991, @Rovatkay2005, @Schlader2019, @Somfai1963, @Stein1957, @Strakova1963, @Strakova1965, @Walter1976, and @Warner1965
 - acknowledgements for A-Sd, A-SEI, A-WIL, A-Wps, and H-P
 - support for (modern) editions in the bibliography of work details
 - a check for running catalogue of work numbers
@@ -300,9 +322,9 @@
 
 - manual incipits for WerW B.48, F.19/20/43, I.1.1, I.2.4, I.4.35, and Q.4.
 - additional MEI metadata: dating, bibliography, and notes
-- references: Kiesewetter 1847, Mayer 2020, Meyer 2020, Mitterschiffthaler 1997, Paczkowski 2019, Pernerstorfer 2020, Petermayr 2015, Petermayr 2022, Pohl 1875, Rovátkay 2020, Schlader 2020, Schubert 2007, Sherman 2001, Štefan 1985, Zelenka 1739, and Petermayr's draft catalogue of works 
+- references: @Kiesewetter1847, @Mayer2020, @Meyer2020, @Mitterschiffthaler1979, @Paczkowski2019, @Pernerstorfer2020, @Petermayr2015, @Petermayr2022, @Pohl1875, @Rovatkay2020, @Schlader2020, @Schubert2007, @Sherman2001, @Stefan1985, @Zelenka1739, and Petermayr's draft catalogue of works 
 - The catalogue now also comprises spurious and lost works (with incipits where known).
-- The catalogue now comprises four reference columns: HarIn (Hárich 1975), PetWe (Petermayr 2015), PetSi (Petermayr 2020), and WinMa (Winkler-Klement 2020). These are linked to the bibliography.
+- The catalogue now comprises four reference columns: HarIn [@Harich1975], PetWe [@Petermayr2015], PetSi [@Petermayr2020], and WinMa [@WinklerKlement2020]. These are linked to the bibliography.
 - The overview table now includes the number of total, ascertained, lost, and spurious works in each group.
 - A new chapter now describes the scope of work metadata. This chapter complements the more technical guidelines, which have thus been moved to the appendix.
 
@@ -370,7 +392,7 @@
 - group H.3 (magnificats)
 - work D.3.6
 - sitemap, which is indexed by Google
-- reference Harich 1932
+- reference @Harich1932
 - changelog as webpage
 
 ### Changed
@@ -426,7 +448,7 @@
 - guidelines for compiling metadata
 - catalogue abbreviation “WerW”
 - page with overview table
-- sources Riedel 1979 and Harich 1975
+- references: @Riedel1979 and @Harich1975
 - links to work detail pages
 - manual incipits for WerW B.46, D.2.9, G.22, O.2, Q.2, Q.3, and Q.4
 - MEI metadata for WerW B.46
