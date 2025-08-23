@@ -45,7 +45,7 @@ Organo = {
   \relative c {
     \clef bass
     \key e \minor \time 4/4 \tempoMarkup "Larghetto"
-    e8-\solo^\markup \remark "a 3" g a h e, g a h
+    e8-\solo^\aTre g a h e, g a h
     e, e, h' h' e, fis g g,
     d' d' a a, e'4 h
     e8 a d, e a, c d d,

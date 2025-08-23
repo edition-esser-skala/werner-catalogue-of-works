@@ -1,8 +1,6 @@
 \version "2.24.2"
 \include "header.ly"
 
-aTre = \markup \remark "a 3"
-
 CornoI = {
   \relative c' {
     \clef treble

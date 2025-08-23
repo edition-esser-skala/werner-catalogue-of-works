@@ -25,7 +25,7 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key e \major \time 3/2 \autoBeamOff \tempoMarkup "Tempo ordinario"
-    h'2.^\solo^\markup \remark "a 3" cis4 dis2
+    h'2.^\solo^\aTre cis4 dis2
     e e dis
     cis dis e
     e dis e
@@ -46,7 +46,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key e \major \time 3/2 \autoBeamOff \tempoMarkup "Tempo ordinario"
-    gis'1^\solo^\markup \remark "a 3" fis2
+    gis'1^\solo^\aTre fis2
     e4 fis gis a h2
     e, a gis
     fis h ais
@@ -67,7 +67,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key e \major \time 3/2 \autoBeamOff \tempoMarkup "Tempo ordinario"
-    e1^\solo^\markup \remark "a 3" h2
+    e1^\solo^\aTre h2
     cis cis gis
     a fis e
     h'1 cis2
@@ -103,7 +103,7 @@ Organo = {
   \relative c {
     \clef tenor
     \key e \major \time 3/2 \tempoMarkup "Tempo ordinario"
-    e'1-\solo-\markup \remark "a 3" h2
+    e'1-\solo-\aTre h2
     cis1 gis2
     a fis e
     h'1 cis2

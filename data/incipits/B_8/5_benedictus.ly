@@ -27,7 +27,7 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key cis \minor \time 4/4 \autoBeamOff \tempoMarkup "Tempo giusto"
-    gis'8^\solo^\markup \remark "a 3" cis4 his8 cis cis r4
+    gis'8^\solo^\aTre cis4 his8 cis cis r4
     r8 gis a16[ h] cis8 r fis, gis16[ a h8]~
     h a16 gis fis8. fis16 gis4 r
     gis8 h h gis16 gis fis8 fis r gis
@@ -45,7 +45,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key cis \minor \time 4/4 \autoBeamOff \tempoMarkup "Tempo giusto"
-    e8.[^\solo^\markup \remark "a 3" fis16] gis8 dis e e r4
+    e8.[^\solo^\aTre fis16] gis8 dis e e r4
     r8 e fis16[ gis] a8 r dis, e16[ fis] gis8
     fis e4 dis8 e4 r
     e8 gis fis e16 e dis8 dis r dis
@@ -63,7 +63,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key cis \minor \time 4/4 \autoBeamOff \tempoMarkup "Tempo giusto"
-    r8 cis,[^\solo^\markup \remark "a 3" e] gis cis cis, r4
+    r8 cis,[^\solo^\aTre e] gis cis cis, r4
     r8 cis' fis, fis r h e, e'16 e
     dis8 e16 e h8. h16 e,4 r
     e8 e' dis e16 e h8 h r his
@@ -93,7 +93,7 @@ Organo = {
   \relative c {
     \clef bass
     \key cis \minor \time 4/4 \tempoMarkup "Tempo giusto"
-    cis'8_\solo_\markup \remark "a 3" cis, e gis cis4 fis,8 gis
+    cis'8_\solo_\aTre cis, e gis cis4 fis,8 gis
     cis, cis' fis,4 h8 h, e e'
     dis e h4 e,8 e' a, h
     e, e' dis e h4 his

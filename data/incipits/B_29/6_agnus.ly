@@ -32,7 +32,7 @@ Soprano = {
     r8 d'4^\solo fis16[ a,] g8 e'4 g,8
     fis[ g] a h c4. h16[ a]
     g8 e c'4. a8 a g
-    g fis r h4^\markup \remark "a 3" d!8 c[ h]
+    g fis r h4^\aTre d!8 c[ h]
     c[ d] e2 d4
     d2\trill cis4 r
   }
@@ -52,7 +52,7 @@ Alto = {
     \clef alto
     \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
     R1*2
-    r8 g'4^\markup \remark "a 3" g8 fis4. e8
+    r8 g'4^\aTre g8 fis4. e8
     e dis r4 gis8[ h] a[ \hA gis]
     a[ h] c[ h] ais4 h~
     h8[ ais16 gis] h4\trill ais r
@@ -71,7 +71,7 @@ Tenore = {
     \clef tenor
     \key d \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
     R1*3
-    h4.^\markup \remark "a 3" h8 e,4 e'
+    h4.^\aTre h8 e,4 e'
     a,4. g!8 fis4 g
     eis2 fis4 r
   }
@@ -98,7 +98,7 @@ Organo = {
     d2~-\solo d~
     d dis
     e dis4 e
-    h \clef tenor h'^\markup \remark "a 3" e, e'
+    h \clef tenor h'^\aTre e, e'
     a,4. g!8 fis4 g
     eis8 eis eis eis fis4. e8
   }

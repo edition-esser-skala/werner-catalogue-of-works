@@ -92,7 +92,7 @@ Organo = {
     d2 c4
     b2.
     << { a'8[ g] } \\ { a,4 } >> f' e
-    d2 \clef tenor b'4~^\markup \remark "a 3"
+    d2 \clef tenor b'4~^\aTre
     b g e
   }
 }

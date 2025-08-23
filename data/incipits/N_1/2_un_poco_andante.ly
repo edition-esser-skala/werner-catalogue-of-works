@@ -58,7 +58,7 @@ Organo = {
     \clef bass
     \twofourtime \key d \minor \time 2/4 \tempoMarkup "Un poco andante"
     d4. a8
-    d,4 \clef soprano d''^\markup \remark "a 3"
+    d,4 \clef soprano d''^\aTre
     cis d
     a r
     \clef bass f4. c8
