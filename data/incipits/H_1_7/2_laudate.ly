@@ -6,9 +6,9 @@ ViolinoI = {
     \clef treble
     \key d \major \time 4/4 \tempoMarkup "[no tempo]"
     R1*2
-    r4 r8 e'\p cis16 d e cis a8 gis
+    r4 r8 e' cis16 d e cis a8 gis
     a h cis4 r2
-    r r4 a'8\f a
+    r r4 a'8 a
   }
 }
 
@@ -17,9 +17,9 @@ ViolinoII = {
     \clef treble
     \key d \major \time 4/4 \tempoMarkup "[no tempo]"
     R1*2
-    r4 r8 h'\p a e fis gis
+    r4 r8 h' a e fis gis
     a gis16 fis e4 r2
-    r r8 d'\f e e
+    r r8 d' e e
   }
 }
 
@@ -110,15 +110,15 @@ Organo = {
     a' a, h d e fis d e
     a, a' gis e fis cis d e
     fis gis a \hA gis fis e d cis
-    h h' e, fis h, h-\tutti cis a!
+    h h' e, fis h h,-\tutti cis a!
   }
 }
 
 BassFigures = \figuremode {
-  r4. <6>8 q q <9> <8>
-  <4> <_+> <9> <6> <_+>4 <6 5>8 <_+>
+  r4 r8 <6> q q <9> <8>
+  <4> <_+> <9> <6> <7 _+>4 <6 5>8 <_+>
   r1
-  <6>8 q2 <6\\ _!>4 <6\\>8
+  <6>8 <5>4 r <6\\ _!> <6\\>8
   r4 <6\\ 5>2 <6>4
 }
 

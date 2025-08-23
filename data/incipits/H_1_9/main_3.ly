@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef soprano
-  \key f \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
+  \key f \major \time 4/4 \tempoMarkup "Presto moderato" \autoBeamOff
   c'2^\partSc d4 h
   c8[ b] a[ g] f[ e] d4
   c r r2

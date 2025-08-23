@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef tenor
-  \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Passato"
+  \key f \major \time 4/4 \autoBeamOff \tempoMarkup "[no tempo]"
   f,4^\partTs g8. a16 b8 b8. b16 a8
   g c4 b8 a d4 c8
   b8. b16 a4 r2

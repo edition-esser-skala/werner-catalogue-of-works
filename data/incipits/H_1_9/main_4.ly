@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef soprano
-  \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro / Vivace"
+  \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
   c'2^\partSc c4 c,8 c'
   c4 c, r8 c' c c
   h4 c8 d e4. e8

@@ -4,7 +4,7 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key f \major \time 4/4 \tempoMarkup "Presto"
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato"
     c'2 d4 h
     c8 b a g f e d4
     c r r2
@@ -16,7 +16,7 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key f \major \time 4/4 \tempoMarkup "Presto"
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato"
     r4 f2 g4
     e f r2
     c d4 h
@@ -28,8 +28,8 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    c'2 d4 h
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato" \autoBeamOff
+    c'2^\tutti d4 h
     c8[ b] a[ g] f[ e] d4
     c r r2
     c' d4 h
@@ -48,8 +48,8 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    r4 f2 g4
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato" \autoBeamOff
+    r4 f2^\tutti g4
     e f r2
     c d4 h
     c2 r
@@ -68,7 +68,7 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato" \autoBeamOff
     R1
     c2^\tutti d4 h
     c a a d
@@ -87,7 +87,7 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato" \autoBeamOff
     R1
     r4 f2^\tutti g4
     e f d4. d8
@@ -106,17 +106,20 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef soprano
-    \key f \major \time 4/4 \tempoMarkup "Presto"
+    \key f \major \time 4/4 \tempoMarkup "Presto moderato"
     << {
       c''2 d4 h
-      <c e,>
+      c
     } \\ {
       r4 f,2 g4
       c,
+    } \\ {
+      s1
+      e4
     } >> \clef bass f,2 g4
     e f d2
     c8 b! a g f4 g
-    <e e'> f' b,! c
+    << { e' } \\ { e, } >> f' b,! c
   }
 }
 

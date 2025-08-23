@@ -22,10 +22,10 @@ Soprano = {
     \clef soprano
     \key d \dorian \time 4/4 \autoBeamOff \tempoMarkup "Andante"
     r2 r4 d'~^\solo
-    d8 cis16 h? cis[ h] cis8 d d r4
+    d8 cis16 h \hA cis[ h] \hA cis8 d d r4
     r r8 c4 b16 a g8 f
     f16[ e] e8 r4 r8 c'4 h8
-    c a g4 c, r
+    c a g4 f r
   }
 }
 
@@ -103,7 +103,7 @@ Organo = {
     g e a a, d f16 e d8 a
     b g c! c, f f' b,4
     c8 e f16 e d c h8 c g' g,
-    c d b c a b g a
+    c d b c a \hA b g a
   }
 }
 

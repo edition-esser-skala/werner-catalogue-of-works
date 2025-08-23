@@ -27,7 +27,7 @@ Soprano = {
     \key a \minor \time 4/4 \autoBeamOff \tempoMarkup "[no tempo]"
     R1
     r4 r8 e'^\solo e e16 e e8 e
-    e e, h' e e16[ c] h a \grace c8 h4
+    e e, h' e e16[ c] h a \grace c8 h4\trill
     a r r2
     R1
   }
@@ -92,17 +92,17 @@ Organo = {
   \relative c {
     \clef bass
     \key a \minor \time 4/4 \tempoMarkup "[no tempo]"
-    a'8-\solo c16 h a8 e a,4. e'8
+    a'4.-\solo e8 a,4. e'8
     a e c h16 a e'8 gis16 fis \hA gis8 e
     a16 c h a gis f? e d c8 f d e
     a, a' g e f d f a
-    g4 g,8 h' c g e c
+    g4. h8 c g e c
   }
 }
 
 BassFigures = \figuremode {
   r4. <_+>2 q8
-  r q4. q2
+  r q r4 <_+>2
   r2. <6 5>8 <_+>
   r4. <6\\>8 <6>4. <3>8
   <4> <3>2 <\t>4.

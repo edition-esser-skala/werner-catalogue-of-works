@@ -77,8 +77,8 @@ BassFigures = \figuremode {
   r1 <6>2
   q1.
   r
-  r
-  <6>
+  r1 <6>2
+  q1.
 }
 
 \score {

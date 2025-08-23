@@ -5,6 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     g''8. g16 g8 g e a
     g8. g16 g8 g e fis
     g4 r8 h h h
@@ -17,6 +18,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     h'8. c16 d8 h c a
     h8. c16 d8 h c a
     h h e4. d8
@@ -29,6 +31,7 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     h'8.^\tutti c16 d8 h c a
     h h16[ c] d8 h c a
     h h e4. d8
@@ -49,6 +52,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     g'8.^\tutti g16 g8 g e fis
     d g g g e fis
     g4 r8 g g g
@@ -69,6 +73,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     d8.^\tutti d16 d8 d c d
     d d d d c d
     d4 r8 h h h
@@ -89,6 +94,7 @@ Basso = {
   \relative c {
     \clef bass
     \key g \major \time 3/4 \autoBeamOff \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     g'8.^\tutti a16 h8 g a fis
     g g16[ a] h8 g a d,
     g4 r8 g g g
@@ -109,6 +115,7 @@ Organo = {
   \relative c {
     \clef bass
     \key g \major \time 3/4 \tempoMarkup "Moderato"
+      \once \override Staff.TimeSignature.style = #'single-digit
     g'8.-\tutti a16 h8 g a fis
     g g16 a h8 g a d,
     g g, r g' g g

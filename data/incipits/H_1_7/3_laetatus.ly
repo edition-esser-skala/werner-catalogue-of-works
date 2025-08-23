@@ -4,7 +4,7 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \tempoMarkup "[no tempo]"
     cis'4 cis, r cis' h e
     cis cis, r cis' h e
     cis cis fis2 r4 dis
@@ -18,7 +18,7 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \tempoMarkup "[no tempo]"
     a'4 a, r e'2 gis4
     a a, r e'2 gis4
     a2 r4 a fis2
@@ -32,7 +32,7 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "[no tempo]"
     r4 e'^\tutti e e e2
     r4 e e e e2
     r4 cis fis2 r4 dis
@@ -56,7 +56,7 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "[no tempo]"
     r2 r4 e^\tutti e e
     e2 r4 e e e
     e2 r4 a fis2
@@ -80,7 +80,7 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "[no tempo]"
     r2 r4 cis^\tutti h gis
     cis2 r4 cis h gis
     cis2 r4 cis dis2
@@ -104,7 +104,7 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \autoBeamOff \tempoMarkup "[no tempo]"
     r2 r4 a'^\tutti gis e
     a2 r4 a gis e
     a2 r4 fis h2
@@ -128,7 +128,7 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key a \major \time 3/2 \tempoMarkup "Vivace"
+    \key a \major \time 3/2 \tempoMarkup "[no tempo]"
     a2-\tutti r4 a' gis e
     a2 r4 a gis e
     a2 r4 fis h2

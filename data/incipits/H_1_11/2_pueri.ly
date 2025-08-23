@@ -8,7 +8,7 @@ ViolinoI = {
     R1
     r2 r4 r16 fis' dis h
     g'4 r16 h fis h g8.\trill a32 h c8 dis,
-    e g,\p a fis h g d! e
+    e g, a fis h g d! e
     fis4 r r2
   }
 }
@@ -74,7 +74,7 @@ Tenore = {
 }
 
 TenoreLyrics = \lyricmode {
-  Lau -- %2
+  Lau --
   da -- te no -- men Do -- mi --
   ni.
   ex hoc nunc et us -- que in
@@ -93,7 +93,7 @@ Basso = {
 }
 
 BassoLyrics = \lyricmode {
-  Lau -- %2
+  Lau --
   da -- te no -- men Do -- mi --
   ni.
   ex hoc nunc et "us -"
@@ -112,7 +112,7 @@ Organo = {
 }
 
 BassFigures = \figuremode {
-  r2. <6\\>4
+  r2. <6\\>8 <\t>
   <3>8 <6> <6\\> <3> <_+>4. q8
   r2. <6 5>8 <_+>
   r1

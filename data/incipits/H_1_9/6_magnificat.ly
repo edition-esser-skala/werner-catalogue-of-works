@@ -6,7 +6,7 @@ ViolinoI = {
     \clef treble
     \key d \major \time 4/4 \tempoMarkup "Andante"
     R1*3
-    r2 r8 a'\p d fis
+    r2 r8 a' d fis
     e8.\trill fis32 g a8 e16 cis a8 fis16 a d8 fis
   }
 }
@@ -16,7 +16,7 @@ ViolinoII = {
     \clef treble
     \key d \major \time 4/4 \tempoMarkup "Andante"
     R1*3
-    r2 r8 fis\p a fis
+    r2 r8 fis a fis
     e a cis e fis,4 r8 a16 fis
   }
 }

@@ -101,18 +101,18 @@ Organo = {
     \key g \major \time 4/4 \tempoMarkup "[no tempo]"
     g8-\solo g' fis d g16 f e d c8 c'~
     c h a g fis d g e
-    cis d a4 d8 fis g g,
+    cis d a4 d8 d g g,
     d' dis e g h h, g' e
     c a h a gis e' a g
   }
 }
 
 BassFigures = \figuremode {
-  r2. <3>4
-  <5 2>4. <6>8 r4 <9>
-  <6 5> <4>8 <_+> r2
-  <4>8 <_+> <9> <6> <4> <_+> <6>4
-  r <4>8 <4\+> <6>4. q8
+  r1
+  <5 2>4. <6> <9>4
+  <6 5>4 <4>8 <_+> r2
+  <4>8 <3> <9> <6> <4> <_+> <6>4
+  r2 r8 <_+>4 q8
 }
 
 \score {

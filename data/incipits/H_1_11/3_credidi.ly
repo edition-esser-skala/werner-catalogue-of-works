@@ -70,7 +70,7 @@ Organo = {
   \relative c {
     \clef bass
     \key h \minor \time 4/4 \tempoMarkup "Andante"
-    h4-\solo h' ais8 h gis ais
+    h4-\solo h' ais8 h gis \hA ais
     h4. a8 g2
     r4 a8 g fis2
     g8 fis e g a4 fis8 g
@@ -83,7 +83,7 @@ BassFigures = \figuremode {
   r2 q
   r q
   r1
-  <4>4 <3>2.
+  <4>4 <_+>2.
 }
 
 \score {

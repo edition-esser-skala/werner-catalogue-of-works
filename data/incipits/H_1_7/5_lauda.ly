@@ -5,7 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key c \major \time 3/4 \tempoMarkup "Moderato"
-    g''8\f e16 g c4 g
+    g''8 e16 g c4 g
     g8 e16 g c4 g~
     g g, g'~
     g8 a g f e g
@@ -18,7 +18,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key c \major \time 3/4 \tempoMarkup "Moderato"
-    e'8\f c16 e g4 e
+    e'8 c16 e g4 e
     e8 c16 e g4 e
     d8 e d c h d
     c4. d8 e4
