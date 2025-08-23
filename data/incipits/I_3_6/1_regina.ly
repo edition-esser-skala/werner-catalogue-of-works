@@ -6,7 +6,7 @@ Clarino = {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Andante"
     r4 r8 g' c16 d e f \tuplet 3/2 8 { \sbOn g a g f e d }
-    e8 c r g' a16 h \tuplet 3/2 8 { c h a } \grace g f8.\trill e16 \sbOff \gotoBar "6"
+    e8 c r g' a16 h \tuplet 3/2 8 { c h a } \appoggiatura g8 f8.\trill e16 \sbOff \gotoBar "6"
     e16 d c d d8.\trill c16 c4 r
     R1
     r8 c4 d e f8
