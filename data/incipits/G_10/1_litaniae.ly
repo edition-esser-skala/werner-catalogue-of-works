@@ -5,6 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key d \minor \time 3/4 \tempoMarkup "Larghetto"
+      \once \override Staff.TimeSignature.style = #'single-digit
     R2.*2
     r8 a'' g( f) e( d)
     b'4 a8( g) f( e)
@@ -18,6 +19,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key d \minor \time 3/4 \tempoMarkup "Larghetto"
+      \once \override Staff.TimeSignature.style = #'single-digit
     R2.*3
     r8 g'' f( e) d( cis)
     d a f4 r
@@ -30,11 +32,12 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key d \minor \time 3/4 \tempoMarkup "Larghetto" \autoBeamOff
+      \once \override Staff.TimeSignature.style = #'single-digit
     f'4.^\solo e8 d[ c!16 b]
     a8[ g] f4 e\trill
     d r r
     R2.
-    f'4. e16[ d] c!8[ b16 a]
+    f'4. e16[ d] c!8[ b16 a] %5
     g8[ f] b2\trill
     a4 r r
   }
@@ -45,8 +48,8 @@ SopranoLyrics = \lyricmode {
   e -- lei -- _
   son,
 
-  Chri -- ste e --
-  _ lei --
+  Chri -- _ ste __
+  e -- lei --
   son,
 }
 
@@ -54,11 +57,12 @@ Organo = {
   \relative c {
     \clef bass
     \key d \minor \time 3/4 \tempoMarkup "Larghetto"
+      \once \override Staff.TimeSignature.style = #'single-digit
     d4-\solo a' b
     f8 g a4 a,
-    d r b'
-    g r a
-    d, d' a
+    d d' b
+    g a a,
+    d d' a
     d, g c,!
     f, f'8 g a4
   }

@@ -7,7 +7,7 @@ ViolinoI = {
     \key b \major \time 4/4 \tempoMarkup "Andante"
     b''8\f f16. d32 b8 f d b r4
     r8 f''16. d32 b8 d g, g'16. es32 c8 es
-    a, a'16. f32 d8 f b, g'16. b,32 c8 a'16. a,32
+    a, a'16. f32 d8 f b, g'16. b,32 c8 a'16. c,32
     d8 b16. d32 f8 a16. f32 b8 b,16. d32 f8 b16. f32
     g8 es,16. g32 b8 d16. b32 es8 g16. es32 c'8 d,
     c a16. c32 f8 f, r a16.\p c32 f8 f,

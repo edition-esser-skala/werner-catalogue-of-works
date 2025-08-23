@@ -121,7 +121,7 @@
                   </incipText>
                   <graphic targettype="lowres" target="1_litaniae"/>
                 </incip>
-                <tempo>Andante passato</tempo>
+                <tempo>Andante [passato]</tempo>
                 <key pname="g" mode="minor"/>
                 <meter sym="common"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -160,7 +160,7 @@
                         <p xml:lang="en"/>
                       </incipText>
                     </incip>
-                    <tempo>Andante passato</tempo>
+                    <tempo>Andante [passato]</tempo>
                     <key pname="g" mode="minor"/>
                     <meter sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -185,7 +185,9 @@
                     </perfMedium>
                     <extent>29 bars</extent>
                     <notesStmt>
-                      <annot/>
+                      <annot>
+                        <p>inconsistent tempo indications</p>
+                      </annot>
                     </notesStmt>
                     <componentList/>
                     <relationList>
@@ -781,7 +783,7 @@
               <extent>10 parts</extent>
               <dimensions/>
               <handList>
-                <hand medium="black ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 staves (10 mm)</p>

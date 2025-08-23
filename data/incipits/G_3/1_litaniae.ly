@@ -8,7 +8,7 @@ ViolinoI = {
     g'16.\f g32 b16. g32 d'16. d32 f16. d32 g8 g, r16 b' g16. d32
     es8 c' r16 a f16. c32 d8 b' r16 g es16. b32
     c8 a' r16 fis d16. a32 b8 d b'( a)
-    g( f) es!( d) cis2
+    g( f) es!( d) cis2\trill
     d\fermata r
     g,16. g32 b16. g32 d'16. d32 f!16. d32 g8 g, r16 d' h16. g32
     es'8 c, r16 g'' es16. c32 a8 a' r16 b! f16. d32
@@ -34,7 +34,7 @@ Soprano = {
     \clef soprano
     \key g \minor \time 4/4 \tempoMarkup "Andante passato" \autoBeamOff
     R1*4
-    r2\fermata d'4. d8
+    r2\fermata d'4.^\tutti d8
     d4 r r d
     es2. d8 d
   }
@@ -51,7 +51,7 @@ Alto = {
     \clef alto
     \key g \minor \time 4/4 \tempoMarkup "Andante passato" \autoBeamOff
     R1*4
-    r2\fermata g'4. g8
+    r2\fermata g'4.^\tutti g8
     g4 r r g
     g2 f4 f
   }
@@ -68,7 +68,7 @@ Tenore = {
     \clef tenor
     \key g \minor \time 4/4 \tempoMarkup "Andante passato" \autoBeamOff
     R1*4
-    r2\fermata b4. b8
+    r2\fermata b4.^\tutti b8
     b4 r r d
     c2 c8 c b b
   }
@@ -85,7 +85,7 @@ Basso = {
     \clef bass
     \key g \minor \time 4/4 \tempoMarkup "Andante passato" \autoBeamOff
     R1*4
-    r2\fermata g'4. g8
+    r2\fermata g'4.^\tutti g8
     g4 r r h,
     c es8 es f4 b!
   }
@@ -117,7 +117,7 @@ BassFigures = \figuremode {
   <7>4 <_+>2.
   <7>2 <6\\>
   <_+>1
-  <_->4 <6 4> <6>2
+  r4 <6 4!> <6>2
   r4 <6> <7>2
 }
 
