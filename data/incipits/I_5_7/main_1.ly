@@ -3,23 +3,18 @@
 
 notes = \relative c' {
   \clef soprano
-  \key d \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
-  d1^\partSc
-  d
-  d2 d
-  d d
-  d fis
-  a a
+  \key d \major \time 4/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+    \set Staff.timeSignatureFraction = 2/2
+  d1^\partSc d
+  d2 d d d
+  d fis a a
   a1
 }
 
 text = \lyricmode {
-  Sub
-  tu --
-  um prae --
-  si -- di --
-  um con --
-  fu -- gi --
+  Sub tu --
+  um prae -- si -- di --
+  um con -- fu -- gi --
   mus,
 }
 

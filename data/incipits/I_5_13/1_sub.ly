@@ -33,7 +33,7 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key g \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    d'2^\tutti d
+    d'2 d
     d4 d d4. d8
     d4 d d4. d8
     d d c2 h4
@@ -57,7 +57,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key g \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    r2 r4 fis^\tutti
+    r2 r4 fis
     g fis r fis
     g8 g fis4 r fis
     g2. g4
@@ -81,7 +81,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key g \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    r2 r4 a^\tutti
+    r2 r4 a
     h a r a
     h8 h a4 r a
     h8 h c e d4. d8
@@ -105,7 +105,7 @@ Basso = {
   \relative c {
     \clef bass
     \key g \major \time 4/4 \tempoMarkup "Presto" \autoBeamOff
-    r2 r4 d^\tutti
+    r2 r4 d
     g d r d
     g8 g d4 r d
     g8 g e c g4. g8
@@ -129,7 +129,7 @@ Organo = {
   \relative c {
     \clef soprano
     \key g \major \time 4/4 \tempoMarkup "Presto"
-    d''2-!-\tutti d4-! \clef bass d,,
+    d''2 d4 \clef bass d,,
     g d r d
     g8 g d4 r d
     g8 g e c g2
@@ -140,8 +140,8 @@ Organo = {
 }
 
 BassFigures = \figuremode {
+  <1>2 q
   r1
-  r
   r
   r2 <4>4 <3>
   r2. <_+>4

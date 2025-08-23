@@ -7,7 +7,7 @@ ViolaI = {
     \key c \major \time 4/2 \tempoMarkup "Alla capella"
       \set Staff.timeSignatureFraction = 2/2
     g'1 a2. h4
-    c2 c c h
+    c2 c2. c4 h2
     a a1 gis2
     a c1 c2
     c e d2. d4
@@ -35,8 +35,8 @@ Soprano = {
     \key c \major \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
       \set Staff.timeSignatureFraction = 2/2
     g'1 a2. h4
-    c2 c c h
-    a a a gis
+    c2 c2. c4 h2
+    a a1 gis2
     a c1 c2
     c e d2. d4
     d2 h e a,4 a
@@ -44,9 +44,9 @@ Soprano = {
 }
 
 SopranoLyrics = \lyricmode {
-  Sub tu -- _
-  um prae -- si -- di --
-  um con -- fu -- gi --
+  Sub tu -- um
+  prae -- si -- di -- um
+  con -- fu -- gi --
   mus, San -- cta
   De -- i Ge -- ne --
   trix, no -- stras de -- "pre -"
@@ -72,7 +72,7 @@ AltoLyrics = \lyricmode {
   um con -- fu -- gi --
   mus, San -- cta
   De -- i Ge -- ne --
-  trix, ne _ "de -"
+  trix, ne, ne, ne
 }
 
 Tenore = {

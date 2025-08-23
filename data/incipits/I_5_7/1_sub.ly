@@ -4,84 +4,70 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \major \time 2/2 \tempoMarkup "Allabreve moderato"
-    fis8\pp d' g, d' a d h d
-    a d h d a d g, d'
-    fis, e d g fis a h cis
-    d fis h, d a d g, d'
-    fis, a d fis a a, fis' a,
-    e' a fis a e a d, a'
-    cis, a fis a e a d, a'
+    \key d \major \time 4/2 \tempoMarkup "Allabreve moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    fis8\pp d' g, d' a d h d a d h d a d g, d'
+    fis, e d g fis a h cis d fis h, d a d g, d'
+    fis, a d fis a a, fis' a, e' a fis a e a d, a'
+    cis, a fis a e a d, a' cis, a cis e a d g, d'
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key d \major \time 2/2 \tempoMarkup "Allabreve moderato"
-    fis8\pp d' g, d' a d h d
-    a d h d a d g, d'
-    fis, e d g fis a h cis
-    d fis h, d a d g, d'
-    fis, a d fis a a, fis' a,
-    e' a fis a e a d, a'
-    cis, a fis a e a d, a'
+    \key d \major \time 4/2 \tempoMarkup "Allabreve moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    fis8\pp d' g, d' a d h d a d h d a d g, d'
+    fis, e d g fis a h cis d fis h, d a d g, d'
+    fis, a d fis a a, fis' a, e' a fis a e a d, a'
+    cis, a fis a e a d, a' cis, a cis e a d g, d'
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key d \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
-    d1^\solo
-    d
-    d2 d
-    d d
-    d fis
-    a a
-    a1
+    \key d \major \time 4/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    d1 d
+    d2 d d d
+    d fis a a
+    a1 a2 a
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Sub
-  tu --
-  um prae --
-  si -- di --
-  um con --
-  fu -- gi --
-  mus,
+  Sub tu --
+  um prae -- si -- di --
+  um con -- fu -- gi --
+  mus, San -- cta
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key d \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
-    d1^\solo
-    d
-    d2 d
-    d d
-    d fis
-    a a
-    a1
+    \key d \major \time 4/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    d1 d
+    d2 d d d
+    d fis a a
+    a1 a2 a
   }
 }
 
 AltoLyrics = \lyricmode {
-  Sub
-  tu --
-  um prae --
-  si -- di --
-  um con --
-  fu -- gi --
-  mus,
+  Sub tu --
+  um prae -- si -- di --
+  um con -- fu -- gi --
+  mus, San -- cta
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
     \key d \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
-    R1*7
+    R\breve*4
   }
 }
 
@@ -89,32 +75,23 @@ Basso = {
   \relative c {
     \clef bass
     \key d \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
-    R1*7
+    R\breve*4
   }
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \key d \major \time 2/2 \tempoMarkup "Allabreve moderato"
-    \mvTr d4\p-\solo e fis g
-    fis g fis e
-    d h'a g
-    fis g fis e
-    d fis e d
-    cis d cis h
-    a << { d'^\markup \remark "vlne" cis h a } \\ { d,_\org cis h a } >>
+    \key d \major \time 4/2 \tempoMarkup "Allabreve moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    d4-\solo e fis g fis g fis e
+    d h'a g fis g fis e
+    d fis e d cis d cis h
+    a d cis h a g' fis e
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  r
-  r
-  r
-  r
-  r
-  r
 }
 
 \score {

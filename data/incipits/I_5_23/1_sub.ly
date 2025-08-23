@@ -4,8 +4,8 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \key a \minor \time 4/4 \tempoMarkup "Andante · a 4" \autoBeamOff
-    R1
+    \key a \minor \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    \after 4*0 ^\aQuattro R1
     r2 a'4^\solo c
     h a g8( a4) fis8
     e4 r r8 d' d c!16[ h]
@@ -23,8 +23,8 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key a \minor \time 4/4 \tempoMarkup "Andante · a 4" \autoBeamOff
-    e4^\solo f e d
+    \key a \minor \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    e4^\solo^\aQuattro f e d
     c8( d4) h8 a4 r
     R1
     r8 g' g f!16[ e] f4 r
@@ -43,8 +43,8 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key a \minor \time 4/4 \tempoMarkup "Andante · a 4" \autoBeamOff
-    r4 a^\solo c h8 h
+    \key a \minor \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    r4^\aQuattro a^\solo c h8 h
     a4. gis8 a4 r
     R1
     r8 e' e d!16[ cis] d4 r
@@ -63,8 +63,8 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key a \minor \time 4/4 \tempoMarkup "Andante · a 4" \autoBeamOff
-    R1
+    \key a \minor \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    \after 4*0 ^\aQuattro R1
     r2 r4 e^\solo
     g fis8 fis e4. dis8
     e4 r r8 f f e16[ d]
@@ -82,8 +82,8 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key a \minor \time 4/4 \tempoMarkup "Andante · a 4"
-    a8-\solo a' d, f a, a'4 gis8
+    \key a \minor \time 4/4 \tempoMarkup "Andante"
+    a8-\solo^\aQuattro a' d, f a, a'4 gis8
     a f d e c16 d c h a h c d
     e e, e'8~ e dis e c a h
     e, e' a a, d d, g! g'
