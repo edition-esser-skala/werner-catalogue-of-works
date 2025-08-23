@@ -47,7 +47,7 @@ Alto = {
     r2 r8 f^\solo a g
     f4 f8 e d4 c
     r8 d[ e] f d8. d16 c4
-    h8 c c[ h] c4 r
+    h8 c c[ \hA h] c4 r
     R1*2
   }
 }
@@ -85,7 +85,7 @@ Basso = {
     R1*3
     r2 c8.[^\solo d16] e8 c
     f c f a g4 c,
-    r8 a'4 f8 cis cis cis16[ d] e[ cis]
+    r8 a'4 f8 cis cis cis16[ d] e[ \hA cis]
   }
 }
 

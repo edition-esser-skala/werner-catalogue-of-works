@@ -5,7 +5,7 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key a \minor \time 4/4 \tempoMarkup "Tempo ordinario" \autoBeamOff
-    r8 e^\solo a gis c4. h8
+    r8^\aQuattro e^\solo a gis c4. h8
     r a4 g8 f4\trill e
     r8 d'4 c8 f8. f16 e4
     r8 d4 c h8 a4\trill
@@ -26,7 +26,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key a \minor \time 4/4 \tempoMarkup "Tempo ordinario" \autoBeamOff
-    r2 r8 e^\solo a gis
+    r2^\aQuattro r8 e^\solo a gis
     c4. h8 r d,4 c8
     a'4 g r8 a4 g8
     f8. f16 e4 d8 d d4
@@ -47,7 +47,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key a \minor \time 4/4 \tempoMarkup "Tempo ordinario" \autoBeamOff
-    R1*3
+    \after 4*0 ^\aQuattro R1*3
     r2 r8 g4^\solo fis8
     g16[ a] h[ c] d[ e] \tuplet 3/2 8 { fis[ e d] } g8 g, r4
     r8 g4 d'8 e8. e16 d8 c
@@ -64,7 +64,7 @@ Basso = {
   \relative c {
     \clef bass
     \key a \minor \time 4/4 \tempoMarkup "Tempo ordinario" \autoBeamOff
-    R1*4
+    \after 4*0 ^\aQuattro R1*4
     r2 r8 c4^\solo h8
     c16[ d] e[ f] g[ a] \tuplet 3/2 8 { h[ a g] } c8 c, r4
   }
@@ -79,7 +79,7 @@ Organo = {
   \relative c {
     \clef bass
     \key a \minor \time 4/4 \tempoMarkup "Tempo ordinario"
-    a4-\solo c8 e a,4 r8 e'
+    a4-\solo-\aQuattro c8 e a,4 r8 e'
     a4 e a,8 h c e
     f4 e d c
     << { a8^\markup \remark "vlne" h c a' fis g d d, } \\ { a'_\org h c a fis g d' d, } >>

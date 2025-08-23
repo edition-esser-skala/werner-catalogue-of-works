@@ -22,7 +22,7 @@ ViolinoII = {
     \key e \minor \time 3/8 \tempoMarkup "Ariose"
     r8 g' a
     r g a
-    \sbOn g16 fis \tuplet 3/2 8 { g fis e fis[ e dis] } \sbOff
+    \sbOn g16( fis) \tuplet 3/2 8 { g fis e fis[ e dis] } \sbOff
     e( fis) g8 r
     d!16( e) fis( g) \tuplet 3/2 8 { a[ h c]
     h[ a g] } g8 g~
