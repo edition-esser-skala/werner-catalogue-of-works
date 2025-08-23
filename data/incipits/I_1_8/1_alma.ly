@@ -4,9 +4,9 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \key c \major \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    \key c \major \time 4/4 \tempoMarkup "Largo" \autoBeamOff
     c'4.^\solo c8 h a g f
-    e4 fis g r
+    e4 fis\trill g r
     r8 c c c16 c h8 d g, d'
     e4 e, r e'
     e8[ c] h[ a] f'2
@@ -24,10 +24,10 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key c \major \time 4/4 \tempoMarkup "Andante" \autoBeamOff
+    \key c \major \time 4/4 \tempoMarkup "Largo" \autoBeamOff
     R1
     c'4.^\solo c8 h a g f
-    e4 fis g r
+    e4 fis\trill g r
     r8 a a a16 a gis8 h e, h'
     c a r a a[ f] e[ d]
   }
@@ -43,7 +43,7 @@ AltoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key c \major \time 4/4 \tempoMarkup "Andante"
+    \key c \major \time 4/4 \tempoMarkup "Largo"
     c4-\solo e8 c g'2
     a g4 h,
     c a g h
@@ -56,7 +56,7 @@ BassFigures = \figuremode {
   r1
   <5>4 <6\\>2.
   r4 <6\\>2.
-  <5>8 <6>4 <_+>8 q2
+  <5>8 <6>4 r8 <_+>2
   r1
 }
 
@@ -77,7 +77,7 @@ BassFigures = \figuremode {
     >>
     \new StaffGroup <<
       \new Staff {
-        \set Staff.instrumentName = \markup \center-column { "Organo" "e Bassi" }
+        \set Staff.instrumentName = \markup \center-column { "org" "b" }
         \Organo
       }
     >>

@@ -10,7 +10,7 @@ ViolaI = {
     d'1. c2
     b4 a b2 a a
     h cis d4 e f e
-    d cis d1 cis2
+    d cis d1 \hA cis2
     d1 r
   }
 }
@@ -38,16 +38,16 @@ Soprano = {
     d'1. c2
     b4 a b2 a a
     h cis d4 e f e
-    d cis d2 d cis
+    d cis d1 \hA cis2
     d1 r
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Al -- ma
-  Re -- _ dem -- pto -- ris
-  Ma -- ter, Re -- _ dem -- _
-  pto -- _ ris Ma -- _
+  Al -- ma %2
+  Ma -- _ _ ter, Re --
+  _ dem -- pto -- _ ris _
+  Ma -- _ _ _
   ter,
 }
 
@@ -60,7 +60,7 @@ Alto = {
     a2 g f4 e f e
     d2 e f4 g a2
     g e f4 g a2~
-    a g a1
+    a g a1 %5
     R\breve
   }
 }
@@ -89,11 +89,11 @@ Tenore = {
 
 TenoreLyrics = \lyricmode {
   Al -- ma
-  Re -- dem -- pto -- ris,
+  Ma -- _ _ ter,
   Re -- dem --
   pto -- _ _ ris Ma -- _
   _ _ _ _ ter, quae
-  per -- vi -- a coe -- _ li
+  per -- vi -- a coe -- _ li _
 }
 
 Basso = {
@@ -112,9 +112,9 @@ Basso = {
 
 BassoLyrics = \lyricmode {
   Al --
-  ma Re -- _ dem --
-  pto -- ris _ Ma -- _ _ _
-  _ ter,
+  ma Ma -- _ _
+  ter, Re -- dem -- pto -- _ ris _
+  Ma -- ter,
   quae per -- vi -- a
 }
 
@@ -123,7 +123,7 @@ Organo = {
     \clef tenor
     \key d \minor \time 2/1 \tempoMarkup "Moderato"
       \set Staff.timeSignatureFraction = 2/2
-    << { r1 a'' } \\ { d,1.-! c2 } >>
+    << { s1 a'' } \\ { d,1.^! c2 } >>
     b4 a b2 \clef bass a1~
     a2 g f4 e f2
     e a4 g f e d c!

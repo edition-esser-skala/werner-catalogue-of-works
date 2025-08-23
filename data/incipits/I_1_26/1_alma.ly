@@ -29,7 +29,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key g \major \time 4/4 \tempoMarkup "Largo" \autoBeamOff
-    g4~ g16[ h a g] d'8 a h fis
+    g4~^\solo g16[ h a g] d'8 a h fis
     g16[ fis] g8 g'4. fis16[ e] d[ a] h[ c]
     h[ a] g8 r h a h16 cis d8 fis,
     g16[ fis] g8 e'16[ cis] a[ g] g[ fis] fis8 r a
@@ -51,7 +51,7 @@ Organo = {
     \key g \major \time 4/4 \tempoMarkup "Largo"
     g4-\solo g' fis d
     e h c d
-    g, g' fis d
+    g, g' fis h,
     e cis d fis
     g a h fis
   }

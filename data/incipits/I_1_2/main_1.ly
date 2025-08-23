@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef tenor
-  \key d \minor \time 2/1 \tempoMarkup "Moderato" \autoBeamOff
+  \key d \minor \time 2/1 \tempoMarkup "Alla capella moderato" \autoBeamOff
     \set Staff.timeSignatureFraction = 2/2
   d1.^\partTc c2
   \clef soprano d'1.^\partSc c2
@@ -14,8 +14,8 @@ notes = \relative c' {
 text = \lyricmode {
   Al -- ma
   Al -- ma
-  Re -- _ dem -- pto -- ris
-  Ma -- ter, Re -- _ "dem -"
+  Ma -- _ _ ter, Re -- 
+  _ dem -- pto -- _ ris _
 }
 
 \score {

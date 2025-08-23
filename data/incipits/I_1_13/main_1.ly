@@ -1,22 +1,21 @@
 \version "2.24.2"
 \include "header.ly"
 
-notes = \relative c' {
+notes = \relative c {
   \clef bass
-  \key a \minor \time 2/2 \tempoMarkup "Alla capella" \autoBeamOff
-  a2.^\partBc a4
-  \clef tenor e'2.^\partTc e4
-  a,2 d
-  c1
-  h2 e
+  \key a \minor \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+  a'2.^\partBc a4 e2 g
+  f1 e4 a, a'2~
+  a g f1
+  c2
 }
 
 text = \lyricmode {
-  Al -- ma
-  Al -- ma %2
-  Re -- dem --
-  pto --
-  ris "Ma -"
+  Al -- ma Re -- dem --
+  pto -- ris _ Ma --
+  ter, Ma --
+  ter,
 }
 
 \score {
