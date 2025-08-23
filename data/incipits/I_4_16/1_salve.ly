@@ -127,10 +127,10 @@ Organo = {
   \relative c {
     \clef soprano
     \key b \major \time 3/2 \tempoMarkup "Vivace"
-    b''2. a4 b c
+    b''2.-! a4-! b-! c-!
     << { a f a b g a } \\ { f2. d4 es f } >>
     \clef tenor b,2. a4 b c
-    \clef bass f,2. d4 es f
+    \clef bass f,2. d4 es! f
     d b b' a g2
     f4. es8 d2 c
     b1 \clef soprano << {

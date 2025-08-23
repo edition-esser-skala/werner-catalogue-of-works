@@ -43,8 +43,8 @@ AltoLyrics = \lyricmode {
   Vi -- ta,
   vi -- ta dul --
   ce -- do et
-  spes _
-  no -- stra,
+  spes no -- 
+  stra, "no -"
 }
 
 Tenore = {

@@ -35,8 +35,8 @@ Alto = {
     c8[ h16 a] g8 f e16[ d] c8 r g'
     a16[ h c h] c8 g f16[ g a g] a8 e
     d16[ e f e] f8 e e d r d
-    e4 fis\trill g a
-    h c d8[ c16 h] a8 g
+    e4 fis\trill g a\trill
+    h c\trill d8[ c16 h] a8 g
   }
 }
 
@@ -53,7 +53,7 @@ Organo = {
   \relative c {
     \clef bass
     \key c \major \time 4/4 \tempoMarkup "Andante"
-    c'8 e d c h a g f
+    c'8-\solo e d c h a g f
     e4 h c8 d e c
     f4 r8 e d4 r8 c
     h4 r8 c g4 r
