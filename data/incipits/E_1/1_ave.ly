@@ -4,182 +4,132 @@
 ViolaI = {
   \relative c' {
     \clef soprano
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "Alla capella"
-    c'1
-    a2 a
-    h h
-    c1
-    c2 e
-    d1
-    c
-    h2 c~
-    c a
-    g g
+    \twotwotime \key c \major \time 4/2 \tempoMarkup "Alla capella"
+      \set Staff.timeSignatureFraction = 2/2
+    c'1 a2 a
+    h h c1
+    c2 e d1
+    c h2 c~
+    c a g g
   }
 }
 
 ViolaII = {
   \relative c' {
     \clef alto
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "Alla capella"
-    R1
-    c2 f~
-    f d
-    g4 a g f
-    e2 r
-    r g
-    g a~
-    a g~
-    g fis
-    g1
+    \twotwotime \key c \major \time 4/2 \tempoMarkup "Alla capella"
+      \set Staff.timeSignatureFraction = 2/2
+    r1 c2 f~
+    f d g4 a g f
+    e2 r r g
+    g a1 g2~
+    g fis g1
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key c \major \time 2/2 \tempoMarkup "Alla capella" \autoBeamOff
-    c'1
-    a2 a
-    h h
-    c1
-    c2 e
-    d1
-    c
-    h2 c~
-    c a
-    g g
+    \key c \major \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    c'1 a2 a
+    h h c1
+    c2 e d1
+    c h2 c~
+    c a g g
   }
 }
 
 SopranoLyrics = \lyricmode {
-  A --
-  ve Ma --
-  ri -- a
-  kla --
-  re, du
-  hel --
-  ler
-  Mor -- _
-  gen --
-  ſtern, du
+  A -- ve Ma --
+  ri -- a kla --
+  re, du hel --
+  ler Mor -- _
+  gen -- ſtern! du
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key c \major \time 2/2 \tempoMarkup "Alla capella" \autoBeamOff
-    R1
-    c2 \once \tieDashed f~
-    f d
-    g4 a g f
-    e2 r
-    r g
-    g a~
-    a \once \tieDashed g~
-    g fis
-    g1
+    \key c \major \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    r1 c2 f~
+    f d g4 a g f
+    e2 r r g
+    g a1 g2~
+    g fis g1
   }
 }
 
 AltoLyrics = \lyricmode {
   A -- ve __
-  Ma --
-  ri -- _ _ _
-  a,
-  du
-  hel -- ler __
-  Mor --
-  gen --
-  ſtern,
+  Ma -- ri -- _ _ _
+  a, du
+  hel -- ler Mor --
+  gen -- ſtern!
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key c \major \time 2/2 \tempoMarkup "Alla capella" \autoBeamOff
-    R1
-    r2 c
-    d h
-    g1
-    g2 r
-    r h
-    c d
-    d e~
-    e d
-    h1
+    \key c \major \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    r1 r2 c
+    d h g1
+    g2 r r h
+    c d d e~
+    e d h1
   }
 }
 
 TenoreLyrics = \lyricmode {
   A --
-  ve Ma --
-  ri --
-  a,
-  du
-  hel -- ler
-  Mor -- _
-  gen --
-  ſtern,
+  ve Ma -- ri --
+  a, du
+  hel -- ler Mor -- _
+  gen -- ſtern!
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key c \major \time 2/2 \tempoMarkup "Alla capella" \autoBeamOff
-    R1
-    f
-    d2 g
-    e4 f e d
-    c1
-    r2 g'
-    e fis
-    g e
-    c d
-    g,1
+    \key c \major \time 4/2 \tempoMarkup "Alla capella" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    r1 f
+    d2 g e4 f e d
+    c1 r2 g'
+    e fis g e
+    c d g,1 %5
   }
 }
 
 BassoLyrics = \lyricmode {
   A --
-  ve Ma --
-  ri -- _ _ _
-  a,
-  du
-  hel -- ler,
-  hel -- ler
-  Mor -- gen --
-  ſtern,
+  ve Ma -- ri -- _ _ _
+  a, du
+  hel -- ler, hel -- ler
+  Mor -- gen -- ſtern! %5
 }
 
 Organo = {
   \relative c {
     \clef soprano
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "Alla capella"
-    c''1-!
-    \clef bass f,,
-    d2 g
-    e4 f e d
-    c1
-    r2 g'
-    e fis
-    g e
-    c d
-    g,1
+    \twotwotime \key c \major \time 4/2 \tempoMarkup "Alla capella"
+      \set Staff.timeSignatureFraction = 2/2
+    c''1-! \clef bass f,,
+    d2 g e4 f e d
+    c1 r2 g'
+    e fis g e
+    c d g,1
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  r
+  r\breve
   <6>
   r
-  r
-  r
-  <6>2 <6 5>
-  r <6>
-  <6 5> <_+>
-  r1
+  <6>2 <6 5>1 <6>2
+  <6 5> <_+> r1
 }
 
 \score {

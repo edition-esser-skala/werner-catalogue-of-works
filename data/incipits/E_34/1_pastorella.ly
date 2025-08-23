@@ -35,11 +35,11 @@ Viola = {
   \relative c' {
     \clef alto
     \twotwotime \key c \major \time 2/2 \tempoMarkup "Vivace"
-    \partial 4 r4 r g' g g
-    g2 g4 e
+    \partial 4 r4 r g'2 g4
+    g2. e4
     a2 g
     g r
-    r4 g g a
+    r4 g2 a4
     g2 g
     g fis
     g r
@@ -63,7 +63,7 @@ Soprano = {
 
 SopranoLyrics = \lyricmode {
   Ehr ſey Gott
-  in den
+  in dem
   höch -- ſten
   Thron, wie
   auch ſein
@@ -89,7 +89,7 @@ Alto = {
 
 AltoLyrics = \lyricmode {
   Ehr ſey -- e
-  Gott in den
+  Gott in dem
   höch -- ſten
   Thron,
   wie auch ſein
@@ -115,7 +115,7 @@ Tenore = {
 
 TenoreLyrics = \lyricmode {
   Ehr ſey -- e
-  Gott in den
+  Gott in dem
   höch -- _ ſten
   Thron,
   wie auch ſein
@@ -130,8 +130,8 @@ Basso = {
     \key c \major \time 2/2 \tempoMarkup "Vivace" \autoBeamOff
     \partial 4 r4 r c'^\tutti h g
     c2 e,4 a
-    f d g2
-    c, r
+    g2 g,
+    c r
     r4 g' e fis
     g e h c
     d c d2
@@ -141,8 +141,8 @@ Basso = {
 
 BassoLyrics = \lyricmode {
   Ehr ſey -- e
-  Gott in den
-  höch -- _ ſten
+  Gott in dem
+  höch -- ſten
   Thron,
   wie auch ſein
   ein -- _ ge -- _

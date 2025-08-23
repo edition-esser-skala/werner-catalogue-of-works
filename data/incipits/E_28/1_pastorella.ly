@@ -85,7 +85,7 @@ Alto = {
   \relative c' {
     \clef alto
     \key g \major \time 3/4 \tempoMarkup "Andante" \autoBeamOff
-    r4 r g'^\tutti
+    r4 r g'
     g2 g4
     g2 fis4
     g r g
@@ -109,7 +109,7 @@ Tenore = {
   \relative c' {
     \clef tenor
     \key g \major \time 3/4 \tempoMarkup "Andante" \autoBeamOff
-    r4 r h^\tutti
+    r4 r h
     h8[ a] h4 c
     h8[ c] d4 d
     d r h
@@ -133,7 +133,7 @@ Basso = {
   \relative c {
     \clef bass
     \key g \major \time 3/4 \tempoMarkup "Andante" \autoBeamOff
-    r4 r g'^\tutti
+    r4 r g'
     g2 c,4
     g'2 d4
     g, r g'

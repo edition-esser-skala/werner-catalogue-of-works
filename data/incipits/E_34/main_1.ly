@@ -12,7 +12,7 @@ notes = \relative c' {
 
 text = \lyricmode {
   Ehr ſey Gott
-  in den
+  in dem
   höch -- ſten
   Thron,
 }
