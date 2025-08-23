@@ -1,14 +1,6 @@
 \version "2.24.2"
 \include "header.ly"
 
-SalmoeIeII = {
-  \relative c' {
-    \clef treble
-    \key c \major \time 4/4 \tempoMarkup "Allegro"
-    R1*5
-  }
-}
-
 ClarinoI = {
   \relative c' {
     \clef treble
@@ -171,14 +163,6 @@ BassFigures = \figuremode {
 
 \score {
   <<
-    \new StaffGroup <<
-      \new GrandStaff <<
-        \set GrandStaff.instrumentName = \markup \center-column { "chalumeau" "1, 2" }
-        \new Staff {
-          \SalmoeIeII
-        }
-      >>
-    >>
     \new StaffGroup <<
       \new Staff <<
         \set Staff.instrumentName = \markup \center-column { "clno" "1, 2" }
