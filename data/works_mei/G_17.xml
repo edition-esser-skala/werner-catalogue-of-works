@@ -429,82 +429,6 @@
       <manifestation>
         <identifier/>
         <titleStmt>
-          <title>Partly autograph manuscript</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1760-01-01">ca. 1760</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Partly autograph</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530001988</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="33" unit="cm">33 (height in cm)</height>
-                <width quantity="21" unit="cm">21 (height in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[wrapper 1, by Werner]">
-                <p>Litani&#xE6; | &#xE0; 4 | Canto, Alto, | Tenore, Ba&#x17F;so. | Violini 2 ad lib: | Tromboni 2 ad lib: | Con | Organo e Violone | Del Gregorio Werner [manu propria]</p>
-              </titlePage>
-              <titlePage label="[wrapper 2, by different hand]">
-                <p>Lytani&#xE6; D: B: V: | a 4 Voce | 2 Violini | Con | Organo e Violone | Del Sig: Werner | [incipit]</p>
-              </titlePage>
-              <extent>8 parts</extent>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
-              </handList>
-              <physMedium>
-                <p>hand-ruled paper, 10&#x2013;11 staves (11 mm)</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
-                <ptr target="https://copia.oszk.hu/kotta/lytaniae-d-b-v-in-am/" mimetype="" label="digitized version"/>
-                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705165" mimetype="" label="catalogue entry"/>
-              </repository>
-              <identifier>Ms.mus III.81</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>S solo and coro (3), A solo and coro (4), T solo and coro (4), B solo and coro (4), vl 1 (2), vl 2 (3), vlne (3), org (4)</p>
-                <p>S and A part by Werner, remaining parts by unidentified hand</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
           <title>Manuscript copy</title>
         </titleStmt>
         <pubStmt>
@@ -666,7 +590,7 @@
               <extent>12 p.</extent>
               <dimensions/>
               <handList>
-                <hand medium="black ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 14 staves (8 mm)</p>
@@ -684,6 +608,80 @@
             <notesStmt>
               <annot type="source_description">
                 <p>This signature comprises several works. The present work is written on fol. 84r&#x2013;89v.</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1760-01-01">ca. 1760</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Parts</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">530001988</identifier>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="33" unit="cm">33 (height in cm)</height>
+                <width quantity="21" unit="cm">21 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[wrapper 1, by Werner]">
+                <p>Litani&#xE6; | &#xE0; 4 | Canto, Alto, | Tenore, Ba&#x17F;so. | Violini 2 ad lib: | Tromboni 2 ad lib: | Con | Organo e Violone | Del Gregorio Werner [manu propria]</p>
+              </titlePage>
+              <titlePage label="[wrapper 2, by different hand]">
+                <p>Lytani&#xE6; D: B: V: | a 4 Voce | 2 Violini | Con | Organo e Violone | Del Sig: Werner | [incipit]</p>
+              </titlePage>
+              <extent>8 parts</extent>
+              <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper, 10&#x2013;11 staves (11 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/lytaniae-d-b-v-in-am/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705165" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>Ms.mus III.81</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>S solo and coro (3), A solo and coro (4), T solo and coro (4), B solo and coro (4), vl 1 (2), vl 2 (3), vlne (3), org (4)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
