@@ -4,7 +4,7 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Alla capella moderato"
     R1*4
     g'2 c
     a d
@@ -23,7 +23,7 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Alla capella moderato"
     r2 r4 e8[ c]
     a4 f' r f8[ d]
     h4 g' r g8[ e]
@@ -49,7 +49,7 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Alla capella moderato"
     r4 g2 c4~
     c a2 d4~
     d h2 e4~
@@ -75,13 +75,13 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Allabreve moderato"
+    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Alla capella moderato"
     r2 c
     f d
     g e
     a4. g8 f4 g8[ f]
     e[ f e d] c[ a a' g]
-    fis[ g fis e] d[ h h' a]
+    fis[ g \hA fis e] d[ h h' a]
     g[ a g fis] e[ d c h]
     a4 d g,2
   }
@@ -101,13 +101,13 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "Allabreve moderato"
+    \twotwotime \key c \major \time 2/2 \tempoMarkup "Alla capella moderato"
     << { r4 g'2 c4 } \\ { r2 c, } >>
     f d
     g e
     a4. g8 f4 g8 f
     e f e d c a a' g
-    fis g fis e d h h' a
+    fis g \hA fis e d h h' a
     g a g fis e d c h
     a4 d g,2
   }
@@ -121,7 +121,7 @@ BassFigures = \figuremode {
   <6> q
   q <6>
   <6>1
-  r4 <_+>2.
+  <7>4 <_+>2.
 }
 
 \score {

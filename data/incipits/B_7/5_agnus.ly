@@ -95,7 +95,7 @@ Organo = {
     \key c \major \time 2/1 \tempoMarkup "Moderato"
       \set Staff.timeSignatureFraction = 2/2
     c'2. h4 \clef bass f2. e4
-    d2 e a, \clef tenor f'^\aTre
+    d2 e a, \clef tenor f'
     c' cis d g,
     a4. g8 f2 e1
     r2 a4 a f'2 e4 dis

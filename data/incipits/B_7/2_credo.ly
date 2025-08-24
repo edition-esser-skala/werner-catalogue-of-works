@@ -31,7 +31,7 @@ Alto = {
     \key c \major \time 2/1 \autoBeamOff \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
     c1 d
-    e2 g g fis
+    e4 f g2 g fis
     g e a g~
     g4 f! g2 a1
     g2 g g1
@@ -42,7 +42,7 @@ Alto = {
 
 AltoLyrics = \lyricmode {
   Pa -- _
-  trem o -- mni -- po --
+  trem _ o -- mni -- po --
   ten -- tem, fa -- cto --
   _ rem coe --
   li et ter --
@@ -70,7 +70,7 @@ TenoreLyrics = \lyricmode {
   ten -- _ tem, _ cre -- do __
   fa -- cto -- rem
   coe -- li et
-  ter -- _ _ rae, __
+  ter -- rae, __ _ _
   et ter --
   rae,
 }

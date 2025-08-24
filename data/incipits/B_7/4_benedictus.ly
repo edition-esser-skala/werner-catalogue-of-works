@@ -28,7 +28,7 @@ Alto = {
     r2 r f~
     f4 e d2 c
     r4 c d8[ c] d4 e e
-    f2 e4 e fis g~
+    f2 e fis4 g~
     g fis g2 e
   }
 }
@@ -37,7 +37,7 @@ AltoLyrics = \lyricmode {
   Be --
   ne -- di -- ctus,
   qui ve -- _ nit, qui
-  ve -- nit, qui ve -- _
+  ve -- nit, ve -- _
   _ nit, "be -"
 }
 
@@ -83,7 +83,7 @@ Organo = {
   \relative c {
     \clef soprano
     \key c \major \time 3/2 \tempoMarkup "[no tempo]"
-    << { c''2. h4 a2 } \\ { r r f } >>
+    << { c''2._! h4_! a2 } \\ { s2 s f } >>
     \clef tenor c2. h4 \clef bass f2~
     f4 e d2 c
     r c2. h4
