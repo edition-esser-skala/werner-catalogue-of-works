@@ -10,8 +10,6 @@ ViolinoI = {
     ais4 h2 a4~
     a8 g16 fis g2 fis4
     r8 h e d cis4 d8 fis
-    e cis d2 cis4
-    d8\trill fis,\trill a\trill d\trill fis\trill d\trill fis\trill a\trill
   }
 }
 
@@ -24,8 +22,6 @@ ViolinoII = {
     fis4. g8 fis4~ fis16 e fis8
     h,4 e2 d4
     d8 g4 h8 e,4 fis
-    e8 a4 g16 fis e4. e8
-    fis\trill d\trill fis\trill a\trill d\trill fis,\trill a\trill d\trill
   }
 }
 
@@ -38,8 +34,6 @@ Soprano = {
     ais4 h2 a4~
     a8[ g16 fis] g2 fis4
     r8 h e d cis4 d
-    e8 cis d2 cis4
-    d r r2
   }
 }
 
@@ -49,8 +43,6 @@ SopranoLyrics = \lyricmode {
   san -- _ _
   _ ctus
   Do -- mi -- nus De -- us,
-  De -- us Sa -- ba --
-  oth.
 }
 
 Alto = {
@@ -62,8 +54,6 @@ Alto = {
     fis4. g8 fis4~ fis16[ e fis8]
     h,4 e2 d4
     d8 g4 h8 e,4 fis
-    e8 a4 g16[ fis] e4. e8
-    fis4 r r2
   }
 }
 
@@ -73,8 +63,6 @@ AltoLyrics = \lyricmode {
   san -- ctus, san --
   ctus, san -- ctus
   Do -- mi -- nus De -- us,
-  De -- _ us Sa -- ba --
-  oth.
 }
 
 Tenore = {
@@ -83,11 +71,9 @@ Tenore = {
     \key g \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     r4 g4.^\tutti a8[ h c]
     d4. c8 h4 a8[ h]
-    cis4 d cis4. dis8
+    cis4 d \hA cis4. dis8
     e e,4 fis16[ g] a!4. d8
     h4. h8 a4 a8 a
-    a4 a a4. a8
-    a4 r r2
   }
 }
 
@@ -97,8 +83,6 @@ TenoreLyrics = \lyricmode {
   san -- ctus, san -- _
   _ _ _ _ ctus,
   san -- ctus Do -- mi -- nus
-  De -- us Sa -- ba --
-  oth.
 }
 
 Basso = {
@@ -110,8 +94,6 @@ Basso = {
     fis![ e] d[ e] fis2
     e4. d8 cis4 d
     g,2 a8 a' fis d
-    cis[ a'] fis[ d] a4. a8
-    d4 r r2
   }
 }
 
@@ -121,8 +103,6 @@ BassoLyrics = \lyricmode {
   san -- ctus, san --
   _ ctus, san -- _
   _ ctus Do -- mi -- nus
-  De -- us Sa -- ba --
-  oth.
 }
 
 Organo = {
@@ -134,8 +114,6 @@ Organo = {
     fis'!8 e d e fis2
     e4. d8 cis4 d
     g,2 a8 a' fis d
-    cis a fis d a'2
-    d,4 r r2
   }
 }
 
@@ -145,8 +123,6 @@ BassFigures = \figuremode {
   <_+>4 <6>4 <5\+ 4> <\t _!>8 <6\\ \t>
   <4>4 <3> <6 5>2
   <5>4 <6> <_+>2
-  r <4>4 <_+>
-  r1
 }
 
 \score {

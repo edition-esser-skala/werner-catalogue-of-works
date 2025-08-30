@@ -77,7 +77,7 @@ Organo = {
     a'8-\solo cis gis e a gis16 fis e8 d
     cis fis h, e a, a'16 gis fis8 e16 d
     cis8 fis h, e a, a'4 gis8
-    fis e dis4 e8 dis cis gis'
+    fis e dis4 e8 \hA dis cis gis'
     a cis h h, e e' cis a
     gis cis fis, h e, e'16 d! cis8 d
   }

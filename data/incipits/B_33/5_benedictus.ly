@@ -4,11 +4,11 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key a \major \time 4/4 \tempoMarkup "Andante"
+    \key a \major \time 4/4 \tempoMarkup "Andante / Larghetto"
     r2 r8 h' e16( h) a( gis)
     fis4 r r2
-    r dis'16( fis) fis( h) gis( e) dis( cis)
-    dis( cis) dis8 r4 r2
+    r dis'16( fis) fis( h) gis( e) \hA dis( cis)
+    dis( cis) \hA dis8 r4 r2
     r8 e h8.\trill a32 gis fis16( e) fis8 r4
   }
 }
@@ -16,24 +16,24 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key a \major \time 4/4 \tempoMarkup "Andante"
+    \key a \major \time 4/4 \tempoMarkup "Andante / Larghetto"
     r2 r8 gis' h16( gis) fis( e)
     dis4 r r2
     r h'16( dis) dis( fis) h,( cis) h( ais)
     h( ais) h8 r4 r2
-    r8 h \sbOn fis16( h) \tuplet 3/2 8 { gis fis e } \sbOff dis( cis) dis8 r4
+    r8 h \sbOn fis16( h) \tuplet 3/2 8 { gis fis e } \sbOff dis( cis) \hA dis8 r4
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante / Larghetto"
     gis'16[^\solo h] h[ e] cis[ a] gis fis gis[ fis] gis8 r4
     r8 fis h8.[\trill cis32 dis] e2
     e16[ cis] dis[ e] cis8.\trill cis16 h4 r
     fis4. gis8 a![ h] cis h16[ a]
-    gis[ fis] gis8 r4 r8 fis \sbOn h16[ cis \tuplet 3/2 8 { dis cis dis] } \sbOff
+    gis[ fis] gis8 r4 r8 fis \sbOn h16[ cis \tuplet 3/2 8 { dis cis \hA dis] } \sbOff
   }
 }
 
@@ -48,8 +48,8 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante"
-    e16[^\solo gis] gis8 e16[ fis] e dis e[ dis] e8 r4
+    \key a \major \time 4/4 \autoBeamOff \tempoMarkup "Andante / Larghetto"
+    e16[^\solo gis] gis8 e16[ fis] e dis e[ \hA dis] e8 r4
     r2 r8 e gis8.[\trill ais32 h]
     cis8 h16[ ais] \appoggiatura h8 ais8. ais16 h4 r
     dis,4. e8 fis[ gis] a gis16[ fis]
@@ -68,11 +68,11 @@ AltoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key a \major \time 4/4 \tempoMarkup "Andante"
+    \key a \major \time 4/4 \tempoMarkup "Andante / Larghetto"
     e8-\solo e' a, h e, e' gis, a
     h a gis fis e gis16 fis e dis cis h
     ais8 h fis' fis, h h' e, fis
-    h, h' a! gis fis e16 dis cis8 dis
+    h, h' a! gis fis e16 dis cis8 \hA dis
     e gis dis e h h'16 a gis8 fis
   }
 }

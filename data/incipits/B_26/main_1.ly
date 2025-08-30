@@ -7,12 +7,14 @@ notes = \relative c' {
   r8^\partSc h'4 d g8
   fis4 r8 d4 d8
   h h d4~ d8.[\trill c32 d]
+  e8
 }
 
 text = \lyricmode {
   Ky -- _ ri --
   e e -- lei --
-  son, e -- "lei -"
+  son, e -- lei --
+  son,
 }
 
 \score {

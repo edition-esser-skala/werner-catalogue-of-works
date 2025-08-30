@@ -6,7 +6,7 @@ ViolinoI = {
     \clef treble
     \key a \major \time 4/4 \tempoMarkup "Largo"
     R1
-    r2 r8 e'\p e e
+    r2 r8 e' e e
     e4 r r8 e e e
     d4 r r2
     r r8 a' d g,
@@ -18,7 +18,7 @@ ViolinoII = {
     \clef treble
     \key a \major \time 4/4 \tempoMarkup "Largo"
     R1
-    r2 r8 cis'\p cis cis
+    r2 r8 cis' cis cis
     cis4 r r8 cis cis cis
     fis,4 r r2
     r a4. h16 cis
@@ -33,7 +33,7 @@ Soprano = {
     e[ h] gis e cis4 cis
     r8 cis' e cis ais4 ais
     h8 d d fis eis4 fis~
-    fis8[ eis16 dis?] eis4\trill fis r
+    fis8[ eis16 dis?] \hA eis4\trill fis r
   }
 }
 

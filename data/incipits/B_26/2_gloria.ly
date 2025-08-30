@@ -5,12 +5,12 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key g \major \time 4/4 \tempoMarkup "Vivace"
-    r16 h''\f d c h8 a r16 g h a g8 fis
-    r16 h, d c h8 a \tuplet 3/2 8 { \sbOn h16 a h d c d g fis g h a h \sbOff }
+    r16 h'' d c h8 a r16 g h a g8 fis
+    r16 h, d c h8 a \tuplet 3/2 8 { \sbOn h16\trill a h d\trill c d g\trill fis g h\trill a h \sbOff }
     a( d) cis( d) a( h) fis( g) a8 d, r4
     d8 e f e16 d e8 fis16 g a4~
-    a8 fis g e16 c h8 g' a, fis'
-    g16 d h' a g8 fis g4 r16d\p c h
+    a8 fis g e16 c h8 g' a, fis
+    g16 d h' a g8 fis g4 r16 d c h
   }
 }
 
@@ -18,12 +18,12 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key g \major \time 4/4 \tempoMarkup "Vivace"
-    r16 g''\f h a g8 fis r16 h, d c h8 a
-    r16 g h a g8 fis \tuplet 3/2 8 { g16 fis g } d'8 d \tuplet 3/2 8 { g16 fis g }
+    r16 g'' h a g8 fis r16 h, d c h8 a
+    r16 g h a g8 fis \tuplet 3/2 8 { g16 fis g } d'8~ d \tuplet 3/2 8 { g16 fis g }
     fis( d') cis( d) a( h) fis( g) a8 d, r4
     g,16 a h8 a16( c) d( h) g8 a16 h c4~
     c8 d h c h8.\trill a32 g a4\trill
-    g16 h d c h8 a h4 r16 h\p a g
+    g16 h d c h8 a h4 r16 h a g
   }
 }
 
@@ -77,8 +77,8 @@ Tenore = {
     \key g \major \time 4/4 \autoBeamOff \tempoMarkup "Vivace"
     h4^\tutti r8 a h h r a
     h h r d d d d d
-    d8. d16 d4 r2
-    d8 e f e16[ d] e8 d c e
+    d8. d,16 d4 r2
+    d'8 e f e16[ d] e8 d c e
     d4. e8 d2
     d4 r r2
   }
@@ -110,7 +110,7 @@ BassoLyrics = \lyricmode {
   Et in ter -- ra, in
   ter -- ra, in ter -- ra pax ho --
   mi -- ni -- bus
-  bo -- nae vo -- lun -- ta -- tis, __
+  bo -- nae vo -- lun -- ta -- tis,
   bo -- nae vo -- lun -- ta -- _
   tis.
 }
@@ -133,8 +133,7 @@ BassFigures = \figuremode {
   r
   r
   <6>8 q <6!> <6>2 q8
-  q2 <6 4>4 <5 3>
-  r1
+  q2 <6 4>4 <5 _+>
 }
 
 \score {

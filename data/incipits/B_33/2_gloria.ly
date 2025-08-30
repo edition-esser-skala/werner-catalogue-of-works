@@ -5,11 +5,10 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key a \major \time 4/4 \tempoMarkup "Vivace"
-    r32 e\f fis gis a h cis d e cis d e fis gis a h cis16-! a-! e-! a-! e-! cis-! a-! e-!
+    r32 e fis gis a h cis d e cis d e fis gis a h cis16-! a-! e-! a-! e-! cis-! a-! e-!
     cis32 a h cis d e fis gis a h cis d e fis gis a gis a h cis h a gis fis e fis gis a gis fis e d
     cis e, fis gis a h cis d e gis h a gis fis e d cis16-! e-! gis-! h-! a-! e-! cis-! a'-!
     gis32 a h cis h a gis fis e16-! h-! gis-! h-! e, e32 e e16 e e4
-    r2 r16 fis' gis( fis) r h, cis( h)
   }
 }
 
@@ -17,11 +16,10 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key a \major \time 4/4 \tempoMarkup "Vivace"
-    r32 cis\f d e fis gis a h cis a h cis d e fis gis a16-! e-! cis-! e-! cis-! a-! e-! cis-!
+    r32 cis d e fis gis a h cis a h cis d e fis gis a16-! e-! cis-! e-! cis-! a-! e-! cis-!
     r32 a h cis d e fis gis a h cis d e fis gis a gis a h a gis a gis fis e fis gis fis e fis e d
     cis e, fis gis a h cis d e gis h a gis fis e d cis16-! e-! gis-! h-! a-! e-! cis-! a'-!
     gis32 a h cis h a gis fis e16-! h-! gis-! h-! e,16 e32 e e16 e e4
-    r2 r16 a h( a) r gis a( gis)
   }
 }
 
@@ -33,7 +31,6 @@ Soprano = {
     cis8. cis16 cis4 h8 h e e
     cis cis h e16 e cis8 e a cis,
     h h r4 r2
-    cis8 cis cis cis his r h r
   }
 }
 
@@ -42,7 +39,6 @@ SopranoLyrics = \lyricmode {
   glo -- ri -- a in ex -- cel -- sis
   De -- o, glo -- ri -- a in ex -- cel -- sis
   De -- o.
-  Et in ter -- ra pax, pax,
 }
 
 Alto = {
@@ -53,7 +49,6 @@ Alto = {
     e8. e16 e4 e8 e h' gis
     e e e gis16 gis e8 gis e a
     gis gis r4 r2
-    eis8 eis eis eis fis r gis r
   }
 }
 
@@ -62,7 +57,6 @@ AltoLyrics = \lyricmode {
   glo -- ri -- a in ex -- cel -- sis
   De -- o, glo -- ri -- a in ex -- cel -- sis
   De -- o.
-  Et in ter -- ra pax, pax,
 }
 
 Tenore = {
@@ -73,7 +67,6 @@ Tenore = {
     a8. a16 a4 gis8 h e, h'
     a a h h16 h a8 h cis e
     e e r4 r2
-    gis,8 gis gis cis a r h! r
   }
 }
 
@@ -82,7 +75,6 @@ TenoreLyrics = \lyricmode {
   glo -- ri -- a in ex -- cel -- sis
   De -- o, glo -- ri -- a in ex -- cel -- sis
   De -- o.
-  Et in ter -- ra pax, pax,
 }
 
 Basso = {
@@ -93,7 +85,6 @@ Basso = {
     a'8. a,16 a4 e'8 e gis e
     a a gis e16 e a8 e cis a
     e' e r4 r2
-    cis8 cis cis cis d! r eis r
   }
 }
 
@@ -102,7 +93,6 @@ BassoLyrics = \lyricmode {
   glo -- ri -- a in ex -- cel -- sis
   De -- o, glo -- ri -- a in ex -- cel -- sis
   De -- o.
-  Et in ter -- ra pax, pax,
 }
 
 Organo = {
@@ -113,7 +103,6 @@ Organo = {
     a'8. a,16 a4 e8 e' gis e
     a, a' gis e a e cis a
     e' e, r4 r2
-    cis'8 cis cis cis d! r eis r
   }
 }
 
@@ -122,7 +111,6 @@ BassFigures = \figuremode {
   r
   r
   r
-  <_+>2 <6\\>4 <5!>
 }
 
 \score {

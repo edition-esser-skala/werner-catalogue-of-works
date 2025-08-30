@@ -10,7 +10,7 @@ ViolinoI = {
     a8 e cis e a4 e cis a
     e'8 fis16 gis a h cis d e8 h gis h e h gis h
     eis,2 r r
-    cis8 dis16 eis fis gis a h cis8 gis eis gis cis gis eis gis
+    cis8 dis16 eis fis gis a h cis8 gis \hA eis gis cis gis \hA eis gis
   }
 }
 
@@ -23,7 +23,7 @@ ViolinoII = {
     a8 e cis e a4 e cis a
     e'8 fis16 gis a h cis d e8 h gis h e h gis h
     eis,2 r r
-    cis8 dis16 eis fis gis a h cis8 gis eis gis cis gis eis gis
+    cis8 dis16 eis fis gis a h cis8 gis \hA eis gis cis gis \hA eis gis
   }
 }
 
@@ -57,7 +57,7 @@ Alto = {
     a[ gis] a2 cis4 h8[ a] h[ gis]
     a4 cis8[ h] a4 gis e a
     gis2 r r
-    eis4 eis fis eis fis fis
+    eis4 eis fis \hA eis fis fis
     eis4. eis8 eis2 r
   }
 }

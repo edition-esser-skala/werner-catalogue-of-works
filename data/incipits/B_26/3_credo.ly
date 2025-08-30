@@ -5,7 +5,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Vivace"
-    g''16\f d h g h'4 r
+    g''16 d h g h'4 r
     d16 a fis d d'4 r
     h16 g d h \sbOn \tuplet 3/2 8 { g fis g h a h d c d g fis g \sbOff }
     fis d a fis r4 d16 fis a d
@@ -18,7 +18,7 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key g \major \time 3/4 \tempoMarkup "Vivace"
-    r4 g''16\f d h g g'4
+    r4 g''16 d h g g'4
     r a16 fis d a fis'8 d~
     d h~ \sbOn \tuplet 3/2 8 { h16 a h d c d g fis g h a h } \sbOff
     a fis d a r4 d,16 fis a d
