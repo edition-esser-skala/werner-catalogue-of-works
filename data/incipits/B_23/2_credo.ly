@@ -4,115 +4,107 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-    R1*3
-    c'1
-    h2 g
-    a h
-    c e
+    \key c \major \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    R\breve
+    r1 c'
+    h2 g a h
+    c e d1
+    c2 c h1
   }
 }
 
 SopranoLyrics = \lyricmode {
   Pa --
-  trem o --
-  mni -- po --
-  ten -- tem,
+  trem o -- mni -- po --
+  ten -- tem, fa --
+  cto -- rem "coe -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-    R1*4
-    g'1
-    f2 d
-    e c'
+    \key c \major \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    R\breve*2
+    g'1 f2 d
+    e c'1 h2~
+    h a1 gis2
   }
 }
 
 AltoLyrics = \lyricmode {
-  Pa --
-  trem o --
-  mni -- "po -"
+  Pa -- trem o --
+  mni -- po -- ten --
+  tem, "fa -"
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-    r2 c
-    h g
-    a h
-    g4 e' d c
-    d1~
-    d
-    g,
+    \key c \major \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    r2 c h g
+    a h g4 e' d c
+    d\breve
+    g,1 r2 e'
+    e f1 e2~
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Pa --
-  trem o --
-  mni -- po --
-  ten -- _ _ _
+  Pa -- trem o --
+  mni -- po -- ten -- _ _ _
   _
-
-  tem,
+  tem, fa --
+  cto -- rem "coe -"
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-    c1
-    d2 e
-    f d
-    e a
-    g1
-    d
-    c
+    \key c \major \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+      \set Staff.timeSignatureFraction = 2/2
+    c1 d2 e
+    f d e a
+    g g d1
+    c r2 gis'
+    a f d e
   }
 }
 
 BassoLyrics = \lyricmode {
-  Pa --
-  trem o --
-  mni -- po --
-  ten --
-  tem, fa --
-  cto --
-  rem,
+  Pa -- trem o --
+  mni -- po -- ten -- _
+  tem, fa -- cto --
+  rem, fa --
+  cto -- rem coe \hy
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "[no tempo]"
+    \key c \major \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
     << {
-      r2 c'
-      h g
+      r2 c' h g
       a h
     } \\ {
-      c,1
-      d2 e
+      c,1 d2 e
       f d
-    } >>
-    e a
-    g1
-    d
-    c
+    } >> e a
+    g1 d
+    c g'2 gis
+    a f d e
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  r
-  r
-  <6 3>
-  r
-  <5>2 <6>
-  r1
+  r\breve
+  r1 <6 3>
+  r <5>2 <6>
+  r1 <5 4>2 <\t 3>
+  r1 <6 5>2 <_+>
 }
 
 \score {

@@ -3,10 +3,10 @@
 
 notes = \relative c' {
   \clef soprano
-  \key c \major \time 3/2 \tempoMarkup "[no tempo]" \autoBeamOff
+  \key c \major \time 3/2 \tempoMarkup "Alla capella" \autoBeamOff
   g'2.^\partSc e4 a2
   r4 fis h g c2
-  r4 a d4. c8 h4. a8
+  r4 a d4. c8 h4.\trill a8
   g2
 
 }

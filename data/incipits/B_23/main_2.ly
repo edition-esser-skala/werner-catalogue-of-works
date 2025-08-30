@@ -3,18 +3,17 @@
 
 notes = \relative c' {
   \clef tenor
-  \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-  r2 c^\partTc
-  h g
-  a h
-  g4 e' d c
+  \key c \major \time 4/2 \autoBeamOff \tempoMarkup "[no tempo]"
+    \set Staff.timeSignatureFraction = 2/2
+  r2^\partTc c h g
+  a h \clef soprano c'1^\partSc
+  h2 g a h
 }
 
 text = \lyricmode {
-  Pa --
-  trem o --
-  mni -- po --
-  ten -- _ _ \hy
+  Pa -- trem o --
+  mni -- po Pa --
+  trem o -- mni -- "po -"
 }
 
 \score {

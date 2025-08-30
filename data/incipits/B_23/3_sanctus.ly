@@ -4,117 +4,106 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Larghetto"
-    g'2 a
-    g4 c, c'2~
-    c b
-    a2. b?8[ a]
-    g2 c~
-    c b
-    a4 d, d'2~
+    \key c \major \time 4/2 \autoBeamOff \tempoMarkup "Larghetto"
+      \set Staff.timeSignatureFraction = 2/2
+    g'2 a g4 c, c'2~
+    c b a2.\trill \hA b8[ a]
+    g2 c1 b2
+    a4 d, d'1 c2
+    h!1\trill a2 c~
   }
 }
 
 SopranoLyrics = \lyricmode {
-  San -- _
+  San -- _ _ _ _
   _ _ _
-  _
-  _ _
-  ctus, san --
-  _
-  _ _ \hy
+  ctus, san -- _
+  _ _ _ ctus,
+  san -- ctus "Do -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Larghetto"
-    e2 f~
-    f e4 d
-    e f g2~
-    g f~
-    f es
-    d1~
-    d2. c4
+    \key c \major \time 4/2 \autoBeamOff \tempoMarkup "Larghetto"
+      \set Staff.timeSignatureFraction = 2/2
+    e2 f1 e4 d
+    e f g1 f2~
+    f es d1~
+    d2. c4 h!2 e
+    e1 e
   }
 }
 
 AltoLyrics = \lyricmode {
-  San -- _
-  ctus, _
-  san -- _ _
-  _
-  _
-  _
-  \hy
+  San -- _ ctus, _
+  san -- _ _ _
+  _ _
+  _ _ ctus,
+  san -- ctus
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Larghetto"
-    R1
-    c~
-    c
-    c2 c~
-    c g
-    fis g~
-    g f4 a
+    \key c \major \time 4/2 \autoBeamOff \tempoMarkup "Larghetto"
+      \set Staff.timeSignatureFraction = 2/2
+    r1 c~
+    c c2 c~
+    c g fis g~
+    g f4 a gis2 a~
+    a gis a1
   }
 }
 
 TenoreLyrics = \lyricmode {
   San --
-
   ctus, san --
-  ctus,
-  san -- _
-  ctus, _
+  ctus, san -- _
+  ctus, _ san -- _
+  _ ctus
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Larghetto"
-    c1~
-    c~
-    c~
+    \key c \major \time 4/2 \autoBeamOff \tempoMarkup "Larghetto"
+      \set Staff.timeSignatureFraction = 2/2
+    c\breve~
     c
-    c
-    d~
-    d
+    c1 d~
+    d e~
+    e a,
   }
 }
 
 BassoLyrics = \lyricmode {
   San --
 
-  ctus,
-  "san -"
+  ctus, san --
+  _
+  ctus
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \twotwotime \key c \major \time 2/2 \tempoMarkup "Larghetto"
-    c1~
-    c~
-    c~
-    c~
-    c
-    d~
-    d
+    \twotwotime \key c \major \time 4/2 \tempoMarkup "Larghetto"
+      \set Staff.timeSignatureFraction = 2/2
+    c1~ c~
+    c~ c~
+    c d~
+    d e~
+    e a,
   }
 }
 
 BassFigures = \figuremode {
-  <5 3>2 <6 4>
-  <5 \t> <8 3>4 <\t 2>
-  <8 3> <\t 4> <7- 5>2
-  <6 \t> <\t 4>
-  <5 \t> <8 _->
-  <7 _+> <6- 4>
-  <5 \t> <8 _!>
+  <5 3>2 <6 4> <5 \t> <8 3>4 <\t 2>
+  <8 3> <\t 4> <7- 5>2 <6 \t> <\t 4>
+  <5 \t> <8 _-> <7 _+> <6- 4>
+  <5 \t> <8 _!> <7 _+> <6 4>
+  <5 \t> <\t _+>1.
 }
 
 \score {

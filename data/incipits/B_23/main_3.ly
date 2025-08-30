@@ -3,20 +3,17 @@
 
 notes = \relative c' {
   \clef soprano
-  \twotwotime \key c \major \time 2/2 \autoBeamOff \tempoMarkup "Larghetto"
-  g'2^\partSc a
-  g4 c, c'2~
-  c b
-  a2. b?8[ a]
-  g2
+  \key c \major \time 4/2 \autoBeamOff \tempoMarkup "Larghetto"
+    \set Staff.timeSignatureFraction = 2/2
+  g'2^\partSc a g4 c, c'2~
+  c b a2.\trill \hA b8[ a]
+  g2 c1 b2
 }
 
 text = \lyricmode {
-  San -- _
+  San -- _ _ _ _
   _ _ _
-  _
-  _ _
-  ctus,
+  ctus, san \hy
 }
 
 \score {

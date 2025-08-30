@@ -4,102 +4,84 @@
 Soprano = {
   \relative c' {
     \clef soprano
-    \twotwotime \key a \minor \time 2/2 \autoBeamOff \tempoMarkup "Molto moderato"
-    a'1
-    a
-    h
-    a
-    R1*4 %8
+    \key a \minor \time 4/2 \autoBeamOff \tempoMarkup "Molto moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    a'1 a
+    h a
+    R\breve*2
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Be --
-  ne --
-  di --
-  ctus,
+  Be -- ne --
+  di -- ctus,
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \twotwotime \key a \minor \time 2/2 \autoBeamOff \tempoMarkup "Molto moderato"
-    a'1
-    a2 a~
-    a gis
-    a1
-    R1*4 %8
+    \key a \minor \time 4/2 \autoBeamOff \tempoMarkup "Molto moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    a'1 a2 a~
+    a gis a1
+    R\breve*2
   }
 }
 
 AltoLyrics = \lyricmode {
-  Be --
-  ne -- di --
-  _
-  ctus,
+  Be -- ne -- di --
+  _ ctus,
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \twotwotime \key a \minor \time 2/2 \autoBeamOff \tempoMarkup "Molto moderato"
-    R1*4
-    c1
-    c
-    d
-    c
+    \key a \minor \time 4/2 \autoBeamOff \tempoMarkup "Molto moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    R\breve*2
+    c1 c
+    d c
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Be --
-  ne --
-  di --
-  ctus,
+  Be -- ne --
+  di -- ctus,
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \twotwotime \key a \minor \time 2/2 \autoBeamOff \tempoMarkup "Molto moderato"
-    R1*4
-    c'1
-    c2 c~
-    c h
-    c1
+    \key a \minor \time 4/2 \autoBeamOff \tempoMarkup "Molto moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    R\breve*2
+    c'1 c2 c~
+    c h c1
   }
 }
 
 BassoLyrics = \lyricmode {
-  Be --
-  ne -- di --
+  Be -- ne -- di --
   _ ctus,
 }
 
 Organo = {
   \relative c {
     \clef bass
-    \twotwotime \key a \minor \time 2/2 \tempoMarkup "Molto moderato"
-    a'4 g f e
-    f e d c
-    d c8 h e4 d
-    c d c h
-    a a' g f
-    e c'8 h a4 g
-    f e8 d g4 f
-    e f e d
+    \twotwotime \key a \minor \time 4/2 \tempoMarkup "Molto moderato"
+      \set Staff.timeSignatureFraction = 2/2
+    a'4-\solo g f e f e d c
+    d c8 h e4 d c d c h
+    a a' g! f e c'8 h a4 g
+    f e8 d g4 f e f e d
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  r
-  <6 5>2 <_+>
-  <6>1
-  r
-  r
-  <6 5>
-  <6>
+  r\breve
+  <6 5>2 <_+> <6>1
+  r\breve
+  <6 5>1 <6>
 }
 
 \score {
