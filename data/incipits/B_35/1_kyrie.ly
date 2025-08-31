@@ -41,7 +41,7 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    \sbOn c16\f c' \tuplet 3/2 8 { c h c } c, c' \tuplet 3/2 8 { c h c } h8 d g, h
+    \sbOn c16 c' \tuplet 3/2 8 { c h c } c, c' \tuplet 3/2 8 { c h c } h8 d g, h
     c16 c' \tuplet 3/2 8 { c h c } c, c' \tuplet 3/2 8 { c h c } h8 h d h
     g(-. g-.) g-.( g-.) f32( g a g) f8 f32( g a g) f8
     a8(-. a-.) a(-. a-.) g32( a h a) g8 g32( a h a) g8
@@ -53,9 +53,9 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    r2 \sbOn g'16\f g' \tuplet 3/2 8 { g f g } g, g' \tuplet 3/2 8 { g f g }
+    r2 \sbOn g'16 g' \tuplet 3/2 8 { g f g } g, g' \tuplet 3/2 8 { g f g }
     e8 g c, e d16 g \tuplet 3/2 8 { g f g } g, d' \tuplet 3/2 8 { d c d } \sbOff
-    e8(-. e-.) c(-. c-.) c16( f) f( c) a32( b c b) a8
+    e8(-. e-.) c(-. c-.) c16( f) f( c) a32( b c \hA b) a8
     fis'8(-. fis-.) d(-. d-.) d16( g) g( d) h32( c d c) h8
     c16 g8 c16 h8 r c16 g8 c16 h8 d
   }
@@ -145,7 +145,7 @@ Organo = {
   \relative c {
     \clef bass
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    c8 c' e, c g g' h, g
+    c8-\tutti c' e, c g g' h, g
     c, c' e, c g' g' h g
     \sbOn c,16 c' \tuplet 3/2 8 { c h c } c, b' \tuplet 3/2 8 { b a b } \sbOff a f c a f' c a f
     \sbOn d' d' \tuplet 3/2 8 { d c d } d, c' \tuplet 3/2 8 { c h c } \sbOff h g d h g' d h g
@@ -156,9 +156,9 @@ Organo = {
 BassFigures = \figuremode {
   r1
   r
-  r2 <6>
-  <_+> <6>
-  r4 <3>2.
+  r4. <\t>8 <6>2
+  <_+>4. <\t>8 <6>2
+  r8 <\t> <3>4. <\t>8 <3>4
 }
 
 \score {

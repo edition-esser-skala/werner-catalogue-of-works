@@ -32,11 +32,11 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Largo"
-    r16 c'\f c16. e32 e16. g32 g16. c32 c4 r
+    r16 c' c16. e32 e16. g32 g16. c32 c4 r
     r16 f,, a16. c32 e16. g32 f16. e32 f4~ f16. f32 e16. d32
-    e8.\trill d32 e f16. c32 a16. f32 \sbOn d'16. f,32 \tuplet 3/2 8 { f16\trill e f } d'16. f,32 \tuplet 3/2 8 { f16\trill e f } \sbOff
+    e8.\trill d32( e) f16. c32 a16. f32 \sbOn d'16. f,32 \tuplet 3/2 8 { f16\trill e f } d'16. f,32 \tuplet 3/2 8 { f16\trill e f } \sbOff
     e( c') h( d) c( f) e( a) \sbOn g( c) c32( h) h( a) a( g) g( f) f( e) e( d) \sbOff
-    c16-! g'-! e-! c-! g-! c! g-! e-! r a'-! f-! c-! a-! c-! a-! f-!
+    c16-! g'-! e-! c-! g-! c-! g-! e-! r a'-! f-! c-! a-! c-! a-! f-!
   }
 }
 
@@ -46,7 +46,7 @@ ViolinoII = {
     \key c \major \time 4/4 \tempoMarkup "Largo"
     r2 r16 e e16. a32 a16. c32 c16. f32
     f4 r r16 d, f16. a32 b4~
-    b16. b32 a16. g32 a4 as8 as as as
+    b16. b32 a16. g32 a4( as8) as as as
     g16( e) d( f) e( a) g( f) \sbOn e( e') e32( d) d( c) c( h) h( a) a( g) g( f) \sbOff
     e16-! e'-! c-! g-! e-! g-! e-! c-! r c'-! a-! f-! c-! f-! c-! a-!
   }
@@ -140,7 +140,7 @@ Organo = {
     f e d2
     c4 f h,!2
     c2.-\tasto r4
-    c4. c8 f4 f,
+    c4.-\tutti c8 f4 f,
   }
 }
 

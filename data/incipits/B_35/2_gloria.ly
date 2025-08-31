@@ -20,7 +20,7 @@ ClarinoII = {
     c'8 c16 c c8 e c4 r8 g
     c g e g c4 r
     R1
-    r4 r8 d d fis g fis
+    r4 r8 d d fis g \hA fis
     g4 r r r8 e
   }
 }
@@ -41,11 +41,11 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    c16\f c c c e e e e g g g g c8 d
+    c16 c c c e e e e g g g g c8 d
     e16 e g g c c h h c g e g c, d e f
     g d h d g, a h g c h c d e d e fis
     g g d d h h d d g,8 d' g fis
-    g16 a h c h a g f e fis gis a gis fis e d
+    g16 a h c h a g f e fis gis a \hA gis \hA fis e d
   }
 }
 
@@ -53,11 +53,11 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    r4 c16\f c c c e e e e e8 g
+    r4 c16 c c c e e e e e8 g
     c16 c d d e e d d e g e g c, d e f
     g d h d g, a h g c h c d e d e fis
     g g d d h h d d g,8 d' g fis
-    g16 a h c h a g f e fis gis a gis fis e d
+    g16 a h c h a g f e fis gis a \hA gis \hA fis e d
   }
 }
 

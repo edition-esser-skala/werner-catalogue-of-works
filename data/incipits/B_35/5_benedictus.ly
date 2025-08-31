@@ -5,9 +5,9 @@ ViolinoSolo = {
   \relative c' {
     \clef treble
     \key a \minor \time 4/4 \tempoMarkup "Molto largo"
-    \sbOn a'16\f c' c64( h32.) h64( a32.) gis16( f!) f64( e32.) e64( d32.) \sbOff \tuplet 3/2 8 { c16 h a } a8 << {
-      c'4~
-      c16. c32 h16 a g4~ g16. g32 f16 e a4
+    \sbOn a'16(-\markup \remark "ariose" c') c64( h32.) h64( a32.) gis16( f!) f64( e32.) e64( d32.) \sbOff \tuplet 3/2 8 { c16 h a } a8 << {
+      c'4~ \slurNeutral
+      c16. c32 h16( a) g4~ g16. g32 f16( e) a4
     } \\ {
       r8 e
       d4~ d16. d32 c16 h e8 r r16 e d cis
@@ -49,9 +49,9 @@ Organo = {
 
 BassFigures = \figuremode {
   r4 <6\\>8 <6> r2
-  r4 <6> r4 <[6]>8 <_+>
+  r4 <6>2 r8 <_+>
   r1
-  <6>8 <\t> <7> <6\\> <8 4> <\t _+>4.
+  <6>4 <7>8 <6\\> <8 4> <\t _+>4.
   r4 <6 5> r <6>
 }
 

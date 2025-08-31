@@ -44,7 +44,7 @@
         <identifier label="Dopf">38</identifier>
         <identifier label="HarCa">I.B.13</identifier>
         <identifier label="WinMa">37</identifier>
-        <title xml:lang="la">Missa primitiva</title>
+        <title xml:lang="la">Missa primitiva in honorem Sancti Joannis Nepomuceni</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
@@ -441,7 +441,9 @@
                     </perfMedium>
                     <extent>34 bars</extent>
                     <notesStmt>
-                      <annot/>
+                      <annot>
+                        <p>a-trb (or vla) solo</p>
+                      </annot>
                     </notesStmt>
                     <componentList/>
                     <relationList>
@@ -752,7 +754,7 @@
                       <graphic targettype="hires"/>
                     </incip>
                     <tempo>Adagio</tempo>
-                    <key pname="f" mode="lydian"/>
+                    <key pname="f" mode="major"/>
                     <meter count="3" unit="4"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                       <perfResList>
@@ -1077,7 +1079,7 @@
                       <graphic targettype="lowres"/>
                       <graphic targettype="hires"/>
                     </incip>
-                    <tempo>Allegro</tempo>
+                    <tempo>Presto</tempo>
                     <key pname="c" mode="major"/>
                     <meter sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -1196,7 +1198,7 @@
                       <graphic targettype="lowres"/>
                       <graphic targettype="hires"/>
                     </incip>
-                    <tempo>Allegro</tempo>
+                    <tempo>Presto</tempo>
                     <key pname="c" mode="major"/>
                     <meter sym="common"/>
                     <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -1218,8 +1220,7 @@
                     <extent>20 bars</extent>
                     <notesStmt>
                       <annot>
-                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend>
-                                                </p>
+                        <p>da capo of the respective movement in <rend fontstyle="italic">Sanctus</rend></p>
                       </annot>
                     </notesStmt>
                     <componentList/>
@@ -1599,7 +1600,7 @@
               <extent>12 fol.</extent>
               <dimensions/>
               <handList>
-                <hand medium="brown ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 staves (10 mm)</p>

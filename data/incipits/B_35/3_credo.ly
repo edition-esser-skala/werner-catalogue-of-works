@@ -164,7 +164,7 @@ BassFigures = \figuremode {
   r
   r
   r1 <6>2
-  r1 <6>2
+  r q1
 }
 
 
