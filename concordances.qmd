@@ -59,7 +59,7 @@ print_concordance_catalogue <- function(catalogue) {
     )
 }
 
-print_concordance_ref <- function(ref, patterns, ...) {
+print_concordance_ref <- function(ref, patterns) {
   patterns <- c(
     ".+\\[",
     patterns,
@@ -170,12 +170,12 @@ print_concordance_catalogue("WinMa")
 #| output: asis
 print_concordance_ref(
   "BrtniceInv",
-  c(
+  patterns = c(
     "p. ",
     p. = "\\d+",
     ", no. ",
     no. = "\\d+"
-  ),
+  )
 )
 ```
 
@@ -204,7 +204,7 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "EsterhazyInv1812",
-  c(
+  patterns = c(
     genre = ".+",
     " no. ",
     no. = "\\d+"
@@ -279,6 +279,21 @@ print_concordance_ref(
     p. = ".+",
     ", no. ",
     no. = ".+"
+  )
+)
+```
+
+
+### @WinklerKlement2013
+
+```{r Winkler-Klement 2013}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "WinklerKlement2013",
+  patterns = c(
+    "pp?. ",
+    p. = ".+"
   )
 )
 ```
