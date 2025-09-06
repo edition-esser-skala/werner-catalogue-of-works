@@ -1,0 +1,83 @@
+---
+output: html_document
+editor_options:
+  chunk_output_type: console
+format:
+  html:
+    html-table-processing: none
+---
+
+# Indices {.unnumbered}
+
+```{r packages}
+#| include: false
+library(tidyverse)
+library(xml2)
+library(stringi)
+library(gt)
+source("script/utils.R")
+options(readr.show_col_types = FALSE)
+```
+
+
+## Scribes
+
+
+The following table collects all known modern editions of Werner's works. These editions are also cited in each entry.
+
+```{r index of copyists}
+#| echo: false
+#| output: asis
+#| warning: false
+
+get_scribe <- function(mei) {
+  read_xml(mei) %>% 
+    as_list() %>%
+    pluck("mei", "meiHead", "manifestationList") %>% 
+    map(\(m) { # for each manifestation …
+      map(
+        m$itemList,  # … and each item …
+        \(i) tibble(  # … get siglum, shelfmark, scribe(s)
+          siglum = pluck(i$physLoc$repository$identifier, 1),
+          shelfmark = i$physLoc$identifier[[1]],
+          scribe = map_chr(i$physDesc$handList, 1)
+        )
+      ) %>% 
+        list_rbind()
+    }) %>% 
+    list_rbind() %>% 
+    mutate(
+      id = path_file(mei) %>% path_ext_remove()
+    )
+}
+
+# get_scribe("data/works_mei/B_1.xml")
+scribes <-
+  dir_ls("data/works_mei") %>% 
+  map(get_scribe) %>% 
+  list_rbind()
+
+scribes %>% 
+  mutate(group = str_sub(id, 1, 1)) %>% 
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  mutate(
+    id = str_replace_all(id, "_", "."),
+    WerW = str_glue("[{id}](/groups/{file}.html#work-{id})")
+  ) %>% 
+  select(scribe, siglum, shelfmark, WerW) %>% 
+  arrange(
+    scribe,
+    siglum,
+    stri_rank(shelfmark, opts_collator = stri_opts_collator(numeric = TRUE))
+  ) %>% 
+  gt(groupname_col = "scribe") %>%
+  fmt_markdown(columns = WerW) %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
+```

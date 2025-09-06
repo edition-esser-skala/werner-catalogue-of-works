@@ -39,11 +39,14 @@ book:
     - bibliography.qmd
     - part: "Appendix"
       chapters:
-        - abbreviations.qmd
+        - foreign_copies.qmd
+        - concordances.qmd
         - inventories.qmd
         - prints.qmd
-        - concordances.qmd
-        - foreign_copies.qmd
+        - indices.qmd
+        - abbreviations.qmd
+    - part: "Technical documentation"
+      chapters:
         - guidelines.qmd
         - changelog.qmd
   page-navigation: false
