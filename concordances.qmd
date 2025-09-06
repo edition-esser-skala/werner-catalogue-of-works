@@ -36,6 +36,7 @@ print_concordance_catalogue <- function(catalogue) {
     ) %>%
     separate_longer_delim(number, delim = ", ") %>% 
     select(number, WerW) %>% 
+    mutate(number = str_remove(number, " \\(\\?\\)$")) %>% 
     bind_rows(notes) %>% 
     filter(!is.na(number)) %>%
     summarise(
