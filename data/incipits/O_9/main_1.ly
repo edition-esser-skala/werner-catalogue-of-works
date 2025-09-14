@@ -9,7 +9,6 @@ notes = \relative c' {
   \tuplet 3/2 8 { e,16[ fis e } a8]
   \tuplet 3/2 8 { e16[ fis e } cis'8]
   e,16[ d32 cis h16 d]
-  cis a r8
 }
 
 \score {
