@@ -200,10 +200,16 @@ EDITION_LINK_TEMPLATE <- "[![](../images/ees_link_light.svg){{.has-dark-version}
 
 ARK_TEMPLATE_SHORT <- "[{ark}](https://n2t.net/{ark})"
 
-ARK_TEMPLATE_FULL <- paste0(
+ARK_TEMPLATE_MEI <- paste0(
   ARK_TEMPLATE_SHORT,
   " (human-readable catalogue entry)<br/>",
   "[{ark}.mei](https://n2t.net/{ark}.mei) (metadata in MEI format)"
+)
+
+ARK_TEMPLATE_SCORE <- paste0(
+  ARK_TEMPLATE_MEI,
+  "<br/>",
+  "[{ark}.score](https://n2t.net/{ark}.score) (full score)"
 )
 
 
@@ -356,7 +362,8 @@ format_ark <- function(meihead,
     )
   )
 
-  # create record for '?info' inflection of catalogue entry
+  # create records for '?info' inflection:
+  ## (1) catalogue entry
   use_template(
     ERC_TEMPLATE,
     who = book$author,
@@ -370,8 +377,8 @@ format_ark <- function(meihead,
   ) %>%
     write_file(str_glue("data_generated/erc/{work_id}_entry.txt"))
 
-  # create record for '?info' inflection of MEI metadata only if available
-  if (template == "full")
+  ## (2) MEI metadata (only if available)
+  if (template == "full") {
     use_template(
       ERC_TEMPLATE,
       who = book$author,
@@ -384,11 +391,34 @@ format_ark <- function(meihead,
       support_what = params$persistence
     ) %>%
       write_file(str_glue("data_generated/erc/{work_id}_mei.txt"))
+  }
 
-  if (template == "full")
-    use_template(ARK_TEMPLATE_FULL, ark = ark)
-  else
+  ## (3) full score (only if available)
+  if (work_id %in% AVAILABLE_EDITIONS) {
+    use_template(
+      ERC_TEMPLATE,
+      who = book$author,
+      what = str_glue("Full score ",
+                      "for '{title} ({catalogue_prefix} ",
+                      "{str_replace_all(work_id, '_', '.')})' ",
+                      "described in: {book$title}. {book$subtitle}"),
+      when = lubridate::today(),
+      where = str_glue("https://n2t.net/{ark}.score"),
+      support_what = params$persistence
+    ) %>%
+      write_file(str_glue("data_generated/erc/{work_id}_score.txt"))
+  }
+
+  # return the properly formatted ARK
+  if (template == "full") {
+    if (work_id %in% AVAILABLE_EDITIONS) {
+      use_template(ARK_TEMPLATE_SCORE, ark = ark)
+    } else {
+      use_template(ARK_TEMPLATE_MEI, ark = ark)
+    }
+  } else {
     use_template(ARK_TEMPLATE_SHORT, ark = ark)
+  }
 }
 
 # formats titles
@@ -660,7 +690,7 @@ format_bibliography <- function(b, work_id) {
   ees_edition <- NULL
   if (work_id %in% AVAILABLE_EDITIONS) {
     link <- paste0(
-      params$edition$url,
+      params$edition$url_link,
       str_to_lower(work_id) %>% str_replace_all("_", "-")
     )
     ees_edition <- use_template(EDITION_LINK_TEMPLATE, link = link)

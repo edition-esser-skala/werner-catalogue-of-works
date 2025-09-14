@@ -165,8 +165,10 @@ ARKs are resolved by `https://ark.esser-skala.at` via a [minimal ARK resolver](h
 
 - The object variant `.mei` directly resolves to the metadata in MEI format.<br/>
 Example: [ark:68748/gw1b1.mei](https://n2t.net/ark:68748/gw1b1.mei)
+- The object variant `score` directly resolves to the full score.<br/>
+Example: [ark:68748/gw1b1.score](https://n2t.net/ark:68748/gw1b1.score)
 - The inflection `?info` yields a brief metadata record following the [Dublin Kernel](https://www.dublincore.org/groups/kernel/spec/) specification, including a persistence statement using the [NLM vocabulary](https://www.nlm.nih.gov/pubs/techbull/ma05/ma05_archive.html).<br/>
-Examples: [ark:68748/gw1b1?info](https://n2t.net/ark:68748/gw1b1?info) and [ark:68748/gw1b1.mei?info](https://n2t.net/ark:68748/gw1b1.mei?info)
+Examples: [ark:68748/gw1b1?info](https://n2t.net/ark:68748/gw1b1?info), [ark:68748/gw1b1.mei?info](https://n2t.net/ark:68748/gw1b1.mei?info), and [ark:68748/gw1b1.score?info](https://n2t.net/ark:68748/gw1b1.score?info)
 
 
 

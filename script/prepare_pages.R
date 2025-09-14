@@ -79,8 +79,10 @@ WORK_TEMPLATE_OVERVIEW <- '
 ARK_MAPPING_TEMPLATE <-
 "{blade},{siteurl}/groups/{file}.html#work-{work_id_dots}
 {blade}.mei,{siteurl}/metadata/mei/{work_id}.xml
+{blade}.score,{url_score}/{work_id}/full_score.pdf
 {blade}?info,{siteurl}/metadata/erc/{work_id}_entry.txt
-{blade}.mei?info,{siteurl}/metadata/erc/{work_id}_mei.txt\n\n"
+{blade}.mei?info,{siteurl}/metadata/erc/{work_id}_mei.txt
+{blade}.mei?score,{siteurl}/metadata/erc/{work_id}_score.txt\n\n"
 
 
 
@@ -212,6 +214,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
     work_id_dots = str_replace_all(work_id, "_", "."),
     blade = blade,
     siteurl = siteurl,
+    url_score = params$edition$url_score,
     file = file
   ) %>%
     write_file("data_generated/ark_mapping_table.csv", append = TRUE)
