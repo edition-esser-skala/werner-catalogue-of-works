@@ -82,7 +82,7 @@ ARK_MAPPING_TEMPLATE <-
 {blade}.score,{url_score}/{work_id}/full_score.pdf
 {blade}?info,{siteurl}/metadata/erc/{work_id}_entry.txt
 {blade}.mei?info,{siteurl}/metadata/erc/{work_id}_mei.txt
-{blade}.mei?score,{siteurl}/metadata/erc/{work_id}_score.txt\n\n"
+{blade}.score?info,{siteurl}/metadata/erc/{work_id}_score.txt\n\n"
 
 
 
