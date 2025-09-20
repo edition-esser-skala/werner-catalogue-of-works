@@ -1,5 +1,48 @@
 # Changelog {.unnumbered}
 
+## 0.17.0 – 2025-09-20
+
+### Added
+
+- works: WerW B.S12
+- incipits and metadata for WerW B.6/19/49/60/68, C.2, D.4.5, D.5.4/S2, E.4, F.1/35/36, G.8, H.1.17, H.2.2, I.1.5, I.2.5, I.3.23, I.4.47, I.5.3, J.4, K.1, M.14, N.3, O.8/9, and Q.1 
+- sources:
+  - A-Ee: KIR 197, 1957, 1960, 1968, 1970, 1972, 1975, and 1977 (comprising single parts that were once removed from H-Bn sources)
+  - A-Wn: F100.Moder.36
+  - H-Bn: Ms. Mus. 179 (to be added)
+- references: @Hoboken1957, @Kim2022, @Motnik2009, and @Skulj1992
+- acknowledgements for A-Ee
+- catalogue HarBu [@Harich1932]
+- scribes Eisenstadt 1, Heiligenkreuz 1, and Thonner A/B
+- a list of scribes, including writing samples for Eisenstadt 1, Heiligenkreuz 1, Istvánffy, Kraus, Thonner (A), Thonner (B), Sehling, and Werner
+- an instrument abbreviation *vla amabile*
+- ARKs for full scores
+- concordances for @Harich1932 and @WinklerKlement2013
+- incipit header: macros `\aDue`, `\aTre`, and `\aQuattro`
+
+
+### Changed
+
+- merged WerW D.5.4 to C.2
+- renumbered WerW I.4.53 to L1 and 54–56 to 53–55
+- revised metadata for WerW B.7/23/26/33/35/64, E.1/28/34, G.2/3/6/10/17, H.1.7/9/11, I.1.2/4/8/13/26, I.2.6/8/12, I.3.6/15/S1, I.4.9/15/16/35/41, I.4.2, I.5.7/10/13/23, J.3, and M.22
+- PetWe numbers now have prefixes “P” and “V” for pastorellas and vocal works, respectively.
+
+### Fixed
+
+- In dark mode, incipits, tables, inline code, time signatures, and ees links are now displayed correctly.
+- Source A-GÖ 652 has been correctly assigned to WerW B.11 (previously: B.12).
+- WerW M.17–22 and P.4–9: A-Wgm IX 8288 was previously classified as print, but is actually a manuscript copy. A source description has been added.
+- HarIn numbers for WerW E.16/L16–18/L20/L21/L24/L26/L27
+- Performances on A-HE sources are now correctly located in Neukloster.
+- In all MEI metadata, the language of titles “Kyrie/Christe [eleison]” is now Greek.
+- In all MEI metadata, ISO dates that only comprise are year now only contain this year (previously: 1st January of this year, e.g., *1750-01-01*).
+
+### Removed
+
+- several A-El sources (56808, 56809, 56810, 56814, 57477, and 57478) that are actually modern prints
+
+
 ## 0.16.0 – 2025-07-27
 
 ### Added
