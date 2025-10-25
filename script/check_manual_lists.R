@@ -9,7 +9,7 @@ new <-
   replace_na(list(subgroup = "0", rism_id = "x"))
 
 old <-
-  read_excel("~/Desktop/TODO/Werner/overview_werner.xlsx", col_types = "text") %>%
+  read_excel("~/Desktop/Quellen/Werner/overview_werner.xlsx", col_types = "text") %>%
   replace_na(list(S = "0", rism_id = "x"))
 
 new %>%
