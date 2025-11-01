@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId type="ark">ark:68748/gw1i47</altId>
+    <altId type="ark">ark:68748/gw1i444</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -40,9 +40,7 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">I.4.7</identifier>
-        <identifier label="HarBu">8.A.7</identifier>
-        <identifier label="HarCa">I.Md.60</identifier>
+        <identifier label="WerW">I.4.44</identifier>
         <title xml:lang="la">Salve Regina</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
@@ -76,15 +74,8 @@
               <geogName role=""/>
             </creation>
             <history/>
-            <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <perfMedium>
               <perfResList>
-                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli">
-                  <head xml:lang="en">soli</head>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
-                </perfResList>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
                   <head xml:lang="en">coro</head>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
@@ -114,18 +105,11 @@
                   </incipText>
                   <graphic targettype="lowres" target="1_salve"/>
                 </incip>
-                <tempo>Largo &#x2013; Adagio</tempo>
-                <key pname="g" mode="minor"/>
+                <tempo>[no tempo] &#x2013; Adagio</tempo>
+                <key pname="f" mode="major"/>
                 <meter count="3" unit="4"/>
-                <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <perfMedium>
                   <perfResList>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" n="perfResList_8a6d617d">
-                      <head xml:lang="en">soli</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_2774c9a4">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_c6792e13">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_69e60ddb">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_e2b673a1">B</perfRes>
-                    </perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
@@ -138,10 +122,10 @@
                     </perfResList>
                   </perfResList>
                 </perfMedium>
-                <extent>101 bars</extent>
+                <extent>92 bars</extent>
                 <notesStmt>
                   <annot>
-                    <p>last three bars (Adagio) in common time</p>
+                    <p>last two bars (Adagio) in common time</p>
                   </annot>
                 </notesStmt>
                 <componentList/>
@@ -194,8 +178,8 @@
               <extent>8 parts</extent>
               <dimensions/>
               <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Copyist Eisenstadt 1</hand>
+                <hand medium="brown ink" type="main">Carl Kraus</hand>
+                <hand medium="brown ink" type="main">Copyist Eisenstadt 1</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper, 10 or 12 staves (11 mm)</p>
@@ -208,88 +192,13 @@
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-Ed</identifier>
                 <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/492.html" mimetype="" label="digitized version"/>
               </repository>
-              <identifier>K 3 (1)</identifier>
+              <identifier>K 3 (2)</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
                 <p>S solo and coro (1), A solo and coro (1), T solo and coro (1), B solo and coro (1), vl 1 (1), vl 2 (1), vlne/org (1), org (2)</p>
-                <p>org part by Kraus, remaining parts by Copyist Eisenstadt 1</p>
-                <p>This manuscript comprises four <rend fontstyle="italic">Salve Regina</rend>: This work, WerW I.4.44, WerW I.4.17, and WerW I.4.15.</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1750">ca. 1750</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530002000</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Salve Regina [by different hand: Gm] | a | 4 vocibus | Violini 2<rend rend="underline(2)">bus</rend> | Con | Organo &#xE8; Violone | Del Gregorio Werner | [incipit]</p>
-              </titlePage>
-              <titlePage label="[wrapper, blue paper]">
-                <p>Salve Regina G moll | a 4:tro Voci Soli | 2e Violini | Violone e Organo | Auth: | Sig G: Werner</p>
-              </titlePage>
-              <extent>16 parts</extent>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Copyist Esterh&#xE1;zy 1</hand>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
-              </handList>
-              <physMedium>
-                <p>two sets of parts:<lb/>(1) 7 parts, manuscript copy, 21 x 16.5 cm, hand-ruled paper, 8 staves (11 mm)<lb/>(2) 9 parts, manuscript copy, 15 x 22 cm, hand-ruled paper, 5 staves (11 mm)</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
-                <ptr target="https://copia.oszk.hu/kotta/salve-regina-17/" mimetype="" label="digitized version"/>
-                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705504" mimetype="" label="catalogue entry"/>
-              </repository>
-              <identifier>Ms.mus III.107</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>first set (by Copyist Esterh&#xE1;zy 1): S solo and coro (2), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (2), vl 2 (2), vlne (2)</p>
-                <p>second set (by unidentified hand): S coro (2x; 4, 4), A coro (2x; 4, 4), T coro (4), B coro (4), vl 1 (4), vl 2 (4), org (3)</p>
-                <p>also contains a vlne part of WerW I.4.16</p>
+                <p>vlne/org part by Kraus, remaining parts by&#xA0;Copyist Eisenstadt 1</p>
+                <p>This manuscript comprises four <rend fontstyle="italic">Salve Regina</rend>: WerW I.4.7, this work, WerW I.4.17, and WerW I.4.15.</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>

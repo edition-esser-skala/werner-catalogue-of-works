@@ -2,19 +2,19 @@
 \include "header.ly"
 
 notes = \relative c' {
-  \clef tenor
-  \key d \major \time 2/4 \tempoMarkup "Allegro" \autoBeamOff
-  r8^\partTs a d cis
-  d d, d'4~
-  d8 cis16[ h] a[ g fis e]
-  fis8 d r4
+  \clef soprano
+  \key b \major \time 2/4 \autoBeamOff \tempoMarkup "Ariose"
+  b'4.^\partSs \tuplet 3/2 8 { c16[ b a] }
+  b4 \tuplet 3/2 8 { b16[ c d] c[ b a]
+  b[ c d] d[ es f] } \grace f8 es4\trill
+  d
 }
 
 text = \lyricmode {
-  Re -- gi -- na
-  sal -- ve, sal --
-  ve ma --
-  _ ter,
+  Sal -- _
+  _ _ _
+  ve Re -- gi --
+  na
 }
 
 \score {

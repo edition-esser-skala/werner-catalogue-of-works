@@ -41,8 +41,8 @@
     <workList>
       <work>
         <identifier label="WerW">I.4.35</identifier>
-        <identifier label="HarBu">8.A.35</identifier>
-        <identifier label="HarCa">I.Md.3</identifier>
+        <identifier label="HarBu">8.A.35, 8.A.36</identifier>
+        <identifier label="HarCa">I.Md.3, I.Md.37</identifier>
         <title xml:lang="la">Salve Regina</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
@@ -65,7 +65,7 @@
             <ptr mimetype=""/>
           </annot>
           <annot type="general_description">
-            <p>This work is equal to WerW I.4.36, but transposed one whole tone up.</p>
+            <p>The two sources in H-Bn contain the same work in different keys (C and B-flat major, respectively).</p>
           </annot>
         </notesStmt>
         <classification>
@@ -316,6 +316,78 @@
       <manifestation>
         <identifier/>
         <titleStmt>
+          <title>Autograph manuscript</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1750">ca. 1750</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Autograph</term>
+            <term>Parts</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier label="RISM">530002029</identifier>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="32" unit="cm">32 (height in cm)</height>
+                <width quantity="21" unit="cm">21 (width in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[wrapper]">
+                <p>Salve Regina | Alto Solo. | Violini 2 | Con | Organo. | Auth:|r|e Werner.</p>
+              </titlePage>
+              <extent>5 parts</extent>
+              <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Gregor Joseph Werner</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper, 10&#x2013;11 staves (11 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/salve-regina/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705700" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>Ms.mus III.136</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>A solo (3), vl 1 (2), vl 2 (2), vlne (2), org (3)</p>
+                <p>transposed to B-flat major</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
           <title>Manuscript copy</title>
         </titleStmt>
         <pubStmt>
@@ -407,7 +479,7 @@
             <identifier/>
             <physDesc>
               <handList>
-                <hand medium="black ink" type="main">Richard Moder</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Richard Moder</hand>
               </handList>
             </physDesc>
             <physLoc>
