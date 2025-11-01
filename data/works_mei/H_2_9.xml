@@ -41,23 +41,17 @@
     <workList>
       <work>
         <identifier label="WerW">H.2.9</identifier>
-        <title xml:lang="la">De profundis</title>
+        <identifier label="HarCa">I.Lb.2</identifier>
+        <title xml:lang="la">Miserere</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
         </contributor>
         <creation>
-          <date isodate="1750">ca. 1750</date>
+          <date isodate="1750">mid 18th century</date>
           <geogName role="">Eisenstadt (?)</geogName>
         </creation>
         <history/>
-        <biblList>
-          <head>Bibliography</head>
-          <bibl>
-            <genre>reference</genre>
-            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 118]</ref>
-          </bibl>
-        </biblList>
         <classification>
           <termList>
             <term>psalm</term>
@@ -76,16 +70,6 @@
             <history/>
             <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
               <perfResList>
-                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli">
-                  <head xml:lang="en">soli</head>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
-                </perfResList>
-                <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
-                <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
-                <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
                   <head xml:lang="en">coro</head>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
@@ -93,6 +77,8 @@
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
                 </perfResList>
+                <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
+                <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
               </perfResList>
             </perfMedium>
             <classification>
@@ -102,7 +88,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="en">De profundis</title>
+                <title xml:lang="la">Miserere</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -110,35 +96,29 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_de_profundis"/>
+                  <graphic targettype="lowres" target="1_miserere"/>
                 </incip>
-                <tempo>Larghetto &#x2013; Vivace</tempo>
-                <key pname="d" mode="minor"/>
-                <meter sym="common"/>
+                <tempo>[no tempo]</tempo>
+                <key pname="c" mode="major"/>
+                <meter sym="cut"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" n="perfResList_f3cefdd5">
-                      <head xml:lang="en">soli</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_69a537ee">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_ecf5e841">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_dc45d7c8">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_e8345086">B</perfRes>
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_2561d71c">
+                      <head xml:lang="en">coro</head>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_f8e6df85">S</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_92f54843">A</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_0958ba8e">T</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_1f4aa391">B</perfRes>
                     </perfResList>
-                    <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_22349c7d">
-                      <head xml:lang="en">coro</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_f9c30657">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_4a40bfd8">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_68afd99c">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_bf6254fd">B</perfRes>
-                    </perfResList>
                   </perfResList>
                 </perfMedium>
-                <extent>55 bars</extent>
+                <extent>214 bars</extent>
                 <notesStmt>
-                  <annot/>
+                  <annot>
+                    <p>four half notes per bar</p>
+                  </annot>
                 </notesStmt>
                 <componentList/>
                 <relationList>
@@ -176,25 +156,15 @@
           <item>
             <identifier/>
             <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="34" unit="cm">34 (height in cm)</height>
-                <width quantity="22.5" unit="cm">22.5 (width in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
               <titlePage label="[wrapper]">
-                <p>Psalmus: 129. | De profundis | &#xE0; | Canto, Alto | Tenore, Ba&#x17F;so | Violinis 2:bus | Con | Organo &#xE8; Violone | Del Gregorio Werner.</p>
+                <p>Miserere mei | pro hebdomada Sacra. | In Cantu Chorali et Figurali | a 4 voci | Canto, Alto | Tenore, Ba&#x17F;so | Con | Organo &#xE9; Violonge | Del Sige Gregorio Werner</p>
               </titlePage>
-              <extent>8 parts</extent>
-              <dimensions/>
+              <extent>6 parts</extent>
               <handList>
                 <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
               </handList>
               <physMedium>
-                <p>hand-ruled paper, 10 staves (11 mm)</p>
+                <p>hand-ruled paper, 11 staves (11 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -202,13 +172,13 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/923.html" mimetype="" label="digitized version"/>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/926.html" mimetype="" label="digitized version"/>
               </repository>
-              <identifier>G 91</identifier>
+              <identifier>G 95</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro (2), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (2), vl 2 (2), vlne (1), org (2)</p>
+                <p>S coro (6), A coro (6), T coro (6), B coro (6), vlne (4), org (5)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
