@@ -61,3 +61,10 @@ skips = #(define-music-function
   (parser location n)
   (number?)
   #{ \repeat unfold #n { \skip 8 } #})
+  
+\layout {
+  \context {
+    \Staff
+    \RemoveAllEmptyStaves
+  }
+}
