@@ -284,10 +284,20 @@ format_mei_text <- function(xml_data) {
       str_replace_all(c(
         "<p>" = "",
         "</p>" = "",
+
+        # newlines
         "<lb/>" = "<br/>",
+
+        # italics
         "<rend fontstyle=\"italic\">(.+?)</rend>" = "<i>\\1</i>",
-        "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>"
+
+        # underlines
+        "<rend rend=\"underline\\(2\\)\">(.+?)</rend>" = "<u>\\1</u>",
+
+        # superscripts (RISM notation)
+        "\\|(\\w)" = "^\\1^"
       )) %>%
+      str_replace_all("\\^\\^", "") %>%
       str_replace_all(pattern_work, link_work) %>%
       str_replace_all(pattern_rism, link_rism)
 
