@@ -200,3 +200,44 @@ Ave Regina coelorum, WerW I.2.4 (H-Gk AMC, W. 68.)
 
 Tradiderunt me, WerW D.2.8 (CZ-Pak 1345)
 :::
+
+
+## Works by library
+
+```{r index of works by library}
+#| echo: false
+#| output: asis
+#| warning: false
+
+read_rds("data_generated/works.rds") %>% 
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+  unnest(sources, names_sep = "_") %>% 
+  separate_wider_delim(
+    sources_source,
+    delim = " ",
+    names = c("siglum", "shelfmark"),
+    too_many = "merge"
+  ) %>%
+  select(id, siglum, shelfmark, file) %>%
+  mutate(
+    link = str_glue('<a href="/groups/{file}.html#work-{id}">{id}</a>')
+  ) %>% 
+  select(!c(file, id)) %>% 
+  summarise(
+    .by = c(siglum, shelfmark),
+    link = str_flatten(link, ", ")
+  ) %>% 
+  arrange(siglum, str_rank(shelfmark, numeric = TRUE)) %>%
+  gt(groupname_col = "siglum") %>%
+  cols_label(link = "WerW") %>% 
+  fmt_markdown(columns = link) %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
+```
