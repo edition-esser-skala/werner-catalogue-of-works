@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId type="ark">ark:68748/gw1o8</altId>
+    <altId type="ark">ark:68748/gw1o10</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -40,10 +40,10 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">O.8</identifier>
-        <identifier label="HarCa">II.A.3/8</identifier>
-        <identifier label="PetSi">Par 21</identifier>
-        <title xml:lang="de">L&#x2019;Ag&#xF2;sto, im Augustmonat</title>
+        <identifier label="WerW">O.10</identifier>
+        <identifier label="HarCa">II.A.3/10</identifier>
+        <identifier label="PetSi">Par 30</identifier>
+        <title xml:lang="de">L&#x2019;Ott&#xF2;bre, im Weinmonat</title>
         <title type="alternative" xml:lang="de">Neuer und sehr curios-musicalischer Instrumentalkalender</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
@@ -86,11 +86,15 @@
           </bibl>
           <bibl>
             <genre>reference</genre>
-            <ref targettype="pandoc-citation">@Walter1976 [p. 27, 29]</ref>
+            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 179]</ref>
           </bibl>
           <bibl>
-            <genre>reference</genre>
-            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 179]</ref>
+            <genre>edition</genre>
+            <ref targettype="pandoc-citation">@Fischer1938</ref>
+          </bibl>
+          <bibl>
+            <genre>edition</genre>
+            <ref targettype="pandoc-citation">@Paparozzi2021</ref>
           </bibl>
           <bibl>
             <genre>edition</genre>
@@ -99,10 +103,6 @@
           <bibl>
             <genre>edition</genre>
             <ref targettype="pandoc-citation">@Stein1958</ref>
-          </bibl>
-          <bibl>
-            <genre>edition</genre>
-            <ref targettype="pandoc-citation">@Paparozzi2021</ref>
           </bibl>
         </biblList>
         <classification>
@@ -138,8 +138,8 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="it">Il Villano Contento</title>
-                <title xml:lang="de">Der vergn&#xFC;gte Baur</title>
+                <title xml:lang="it">Che viva L&#x2019;Imperatore France&#x17F;co</title>
+                <title xml:lang="de">Es lebe Ihro Maj. der Kay&#x17F;er Franci&#x17F;cus</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -147,18 +147,18 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_spiccato"/>
+                  <graphic targettype="lowres" target="1_allegro"/>
                 </incip>
-                <tempo>Spiccato</tempo>
-                <key pname="f" mode="major"/>
-                <meter count="2" unit="8"/>
+                <tempo>Allegro</tempo>
+                <key pname="b" accid="f" mode="major"/>
+                <meter sym="common"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>160 bars</extent>
+                <extent>54 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
@@ -168,8 +168,8 @@
                 </relationList>
               </expression>
               <expression n="2">
-                <title xml:lang="it">Menuet il Giorno di 14. hore, la Notte di 10. hore</title>
-                <title xml:lang="de">Die Tags-L&#xE4;nge 14. Stund, die Nacht 10. Stund</title>
+                <title xml:lang="it">Il Bottaro</title>
+                <title xml:lang="de">Der Fa&#xDF;binder</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -177,18 +177,18 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="2_menuet"/>
+                  <graphic targettype="lowres" target="2_no_tempo"/>
                 </incip>
                 <tempo>[no tempo]</tempo>
-                <key pname="f" mode="major"/>
-                <meter count="3" unit="4"/>
+                <key pname="b" accid="f" mode="major"/>
+                <meter count="12" unit="16"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>48 bars</extent>
+                <extent>54 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
@@ -198,8 +198,8 @@
                 </relationList>
               </expression>
               <expression n="3">
-                <title xml:lang="it">Alla Po&#x17F;ta</title>
-                <title xml:lang="de">Das Post-Horn</title>
+                <title xml:lang="it">Menuet il Giorno di 11. hore, la Notte di 13. hore</title>
+                <title xml:lang="de">Die Tags-L&#xE4;nge 11. Stund, die Nacht 13. Stund</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -207,18 +207,18 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="3_allegro"/>
+                  <graphic targettype="lowres" target="3_menuet"/>
                 </incip>
-                <tempo>Allegro</tempo>
-                <key pname="f" mode="major"/>
-                <meter count="2" unit="4"/>
+                <tempo>[no tempo]</tempo>
+                <key pname="b" accid="f" mode="major"/>
+                <meter count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>92 bars</extent>
+                <extent>48 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
@@ -228,8 +228,8 @@
                 </relationList>
               </expression>
               <expression n="4">
-                <title xml:lang="it">Il Curriere Zoppo</title>
-                <title xml:lang="de">Der hinckende Bott</title>
+                <title xml:lang="it">La Caccia</title>
+                <title xml:lang="de">Die Jagd</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -237,18 +237,18 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="4_allegro"/>
+                  <graphic targettype="lowres" target="4_allegro_assai"/>
                 </incip>
-                <tempo>Allegro</tempo>
-                <key pname="f" mode="major"/>
-                <meter count="2" unit="4"/>
+                <tempo>Allegro assai</tempo>
+                <key pname="b" accid="f" mode="major"/>
+                <meter count="6" unit="8"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>72 bars</extent>
+                <extent>80 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
@@ -258,8 +258,8 @@
                 </relationList>
               </expression>
               <expression n="5">
-                <title xml:lang="it">Menuet il Giorno di 13. hore, la Notte di 11. hore</title>
-                <title xml:lang="de">Die Tags-L&#xE4;nge 13. Stund, die Nacht 11. Stund</title>
+                <title xml:lang="it">Che viva L&#x2019;Imperatrice There&#x17F;ia</title>
+                <title xml:lang="de">Es lebe Ihro Maj. die Kay&#x17F;erin There&#x17F;ia</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -267,18 +267,18 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="5_menuet"/>
+                  <graphic targettype="lowres" target="5_allegro_assai"/>
                 </incip>
-                <tempo>[no tempo]</tempo>
-                <key pname="f" mode="major"/>
-                <meter count="3" unit="4"/>
+                <tempo>Allegro assai</tempo>
+                <key pname="b" accid="f" mode="major"/>
+                <meter count="4" unit="8"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="mco" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">bc</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>48 bars</extent>
+                <extent>120 bars</extent>
                 <notesStmt>
                   <annot/>
                 </notesStmt>
@@ -326,7 +326,7 @@
         <notesStmt>
           <annot type="source_description">
             <p>vl 1 (32), vl 2 (32), b or cemb (30)</p>
-            <p>This partita is the 8th work in the collection <rend fontstyle="italic">Neuer und sehr curios-musicalischer Instrumentalkalender</rend>, which consists of twelve partitas in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 20&#x2013;22; vl 2, p. 20&#x2013;22; bc, p. 17&#x2013;19.</p>
+            <p>This partita is the 10th work in the collection <rend fontstyle="italic">Neuer und sehr curios-musicalischer Instrumentalkalender</rend>, which consists of twelve partitas in total. It is written on the following pages of the parts, whose total extent is given above: vl 1, p. 24&#x2013;27; vl 2, p. 25&#x2013;27; bc, p. 22&#x2013;24.</p>
             <p>The bc part consists of title page (fol. 1r); empty page (fol. 1v); dedication to Franz Graf Zichy-V&#xE1;sonyke&#x151; (1702&#x2013;1783), bishop of Gy&#x151;r, in Latin (fol. 2r&#x2013;v); preface, in German (fol. 3r); table of contents, giving Italian and German movement and section titles (fol. 3v); and music (fol. 4r&#x2013;18v).</p>
             <p>The vl 1 and 2 parts consist of title page (fol. 1r), empty page (fol. 1v), preface (fol. 2r), table of contents (fol. 2v), and music (fol. 3r&#x2013;18v).</p>
           </annot>
