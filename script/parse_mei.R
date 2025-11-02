@@ -68,6 +68,8 @@ Identification
 ARKs
 : {ark}
 
+{author}
+
 Scoring
 : {work_scoring}
 
@@ -616,6 +618,21 @@ format_scoring <- function(s) {
       c(music_instruments) %>%
       str_flatten_comma()
   )
+}
+
+# format author suprious works
+# c: <workList><work><contributor>
+format_author <- function(c) {
+  person_indices <-
+    names(c) %>%
+    str_which("persName")
+
+  # if there is only the main author, do not print it
+  if (length(person_indices) == 1 & c$persName[[1]] == params$main_author)
+    return("")
+
+  map_chr(person_indices, \(i) c[[i]][[1]]) %>%
+    str_flatten_comma()
 }
 
 # format genre(s)
@@ -1384,6 +1401,10 @@ get_work_details <- function(group,
     sep = "<br/>"
   )
 
+  author <- format_author(data_work$contributor)
+  if (author != "")
+    author <- paste0("Author(s)\n: ", author)
+
   work_scoring <- format_scoring(data_music$perfMedium$perfResList)
 
   roles <- format_roles(data_music$perfMedium$castList)
@@ -1437,6 +1458,7 @@ get_work_details <- function(group,
     sources_short = sources_short,
     identifiers = identifiers,
     ark = ark,
+    author = author,
     work_scoring = work_scoring$markdown,
     roles = roles,
     genre = genre,
