@@ -184,6 +184,11 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       str_sort() %>%
       str_flatten(" · ")
 
+    notes <-
+      metadata$notes %>%
+      str_replace_all(PATTERN_WORK, link_work) %>%
+      str_replace_all(PATTERN_RISM, link_rism)
+
     entry <- use_template(
       WORK_TEMPLATE_OVERVIEW,
       group = group,
@@ -195,7 +200,7 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       identification = identification,
       ark = ark,
       sources = sources,
-      notes = metadata$notes,
+      notes = notes,
       literature = str_sort(metadata$literature),
       editions = str_sort(metadata$editions)
     )

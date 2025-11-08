@@ -47,6 +47,12 @@ get_available_editions <- function() {
 AVAILABLE_EDITIONS <- get_available_editions()
 
 
+## Regex patterns ----
+
+PATTERN_WORK <- paste(catalogue_prefix, "([A-Z](?:\\.[\\dSL]+){1,2})")
+PATTERN_RISM <- "RISM (\\d+)"
+
+
 
 # Templates ---------------------------------------------------------------
 
@@ -230,6 +236,24 @@ support-what: {support_what}
 
 # Functions ---------------------------------------------------------------
 
+# replaces a string “WerW X” with a link to the respective work
+link_work <- function(s) {
+  ref <- str_match(s, PATTERN_WORK)[1,]
+  link_text <- ref[1]
+  blade <-
+    ref[2] %>%
+    str_replace_all("\\.", "") %>%
+    str_to_lower()
+
+  str_glue("[{link_text}](https://n2t.net/ark:{params$ark}{blade})")
+}
+
+# replaces a string “RISM X” with a link to the respective RISM entry
+link_rism <- function(s) {
+  ref <- str_match(s, PATTERN_RISM)[1,]
+  use_template(RISM_TEMPLATE, label = ref[1], rism_id = ref[2])
+}
+
 # get the value of <elem_name attr_name="attr_value">
 get_elem_value <- function(l, elem_name, attr_name, attr_value) {
   ids <- str_which(names(l), elem_name)
@@ -246,33 +270,6 @@ get_elem_value <- function(l, elem_name, attr_name, attr_value) {
 # of the MEI formatting nodes
 # add hyperlinks when referencing other works or RISM entries
 format_mei_text <- function(xml_data) {
-  pattern_work <- paste(catalogue_prefix, "([A-Z](?:\\.[\\dSL]+){1,2})")
-  pattern_rism <- "RISM (\\d+)"
-
-  link_work <- function(s) {
-    ref <- str_match(s, pattern_work)[1,]
-    link_text <- ref[1]
-    blade <-
-      ref[2] %>%
-      str_replace_all("\\.", "") %>%
-      str_to_lower()
-
-    str_glue("[{link_text}](https://n2t.net/ark:{params$ark}{blade})")
-  }
-
-  link_rism <- function(s) {
-    ref <- str_match(s, pattern_rism)[1,]
-    use_template(RISM_TEMPLATE, label = ref[1], rism_id = ref[2])
-  }
-
-  xpath <-
-    c(
-      "//d1:titlePage",
-      "//d1:physMedium",
-      "//d1:annot"
-    ) %>%
-    str_c(collapse = " | ")
-
   make_markdown <- function(n, as_list = FALSE) {
     if (as_list)
       sep <- "\n- "
@@ -300,8 +297,8 @@ format_mei_text <- function(xml_data) {
         "\\|(\\w)" = "^\\1^"
       )) %>%
       str_replace_all("\\^\\^", "") %>%
-      str_replace_all(pattern_work, link_work) %>%
-      str_replace_all(pattern_rism, link_rism)
+      str_replace_all(PATTERN_WORK, link_work) %>%
+      str_replace_all(PATTERN_RISM, link_rism)
 
     if (as_list)
       res <- paste0("- ", res)
@@ -309,13 +306,21 @@ format_mei_text <- function(xml_data) {
     res
   }
 
-  res <- map_chr(
-    xml_data %>% xml_find_all(xpath),
-    \(n) {
+  xpath <-
+    c(
+      "//d1:titlePage",
+      "//d1:physMedium",
+      "//d1:annot"
+    ) %>%
+    str_flatten(" | ")
+
+  res <-
+    xml_data %>%
+    xml_find_all(xpath) %>%
+    map_chr(\(n) {
       xml_set_attr(n, "markdown_text", make_markdown(n))
       xml_set_attr(n, "markdown_list", make_markdown(n, as_list = TRUE))
-    }
-  )
+    })
 
   # map() with invisible return instead of walk() to allow debugging
   invisible(res)
