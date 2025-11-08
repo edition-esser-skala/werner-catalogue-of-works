@@ -20,7 +20,7 @@ library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
 
-print_concordance_catalogue <- function(catalogue) {
+print_concordance <- function(catalogue) {
   notes <-
     read_csv("data/catalogue_notes.csv") %>% 
     filter(catalogue == {{catalogue}}) %>% 
@@ -68,7 +68,7 @@ print_concordance_catalogue <- function(catalogue) {
 ```{r Dopf}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("Dopf")
+print_concordance("Dopf")
 ```
 
 
@@ -77,7 +77,7 @@ print_concordance_catalogue("Dopf")
 ```{r HarBu}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("HarBu")
+print_concordance("HarBu")
 ```
 
 
@@ -114,7 +114,7 @@ Generally, Hárich included works from the 1737/38 inventory as separate works i
 ```{r HarCa entries}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("HarCa")
+print_concordance("HarCa")
 ```
 
 
@@ -123,7 +123,7 @@ print_concordance_catalogue("HarCa")
 ```{r HarIn}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("HarIn")
+print_concordance("HarIn")
 ```
 
 
@@ -132,7 +132,7 @@ print_concordance_catalogue("HarIn")
 ```{r PetSi}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("PetSi")
+print_concordance("PetSi")
 ```
 
 
@@ -141,7 +141,7 @@ print_concordance_catalogue("PetSi")
 ```{r PetWe}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("PetWe")
+print_concordance("PetWe")
 ```
 
 
@@ -150,7 +150,7 @@ print_concordance_catalogue("PetWe")
 ```{r ReiMa}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("ReiMa")
+print_concordance("ReiMa")
 ```
 
 
@@ -159,5 +159,5 @@ print_concordance_catalogue("ReiMa")
 ```{r WinMa}
 #| echo: false
 #| output: asis
-print_concordance_catalogue("WinMa")
+print_concordance("WinMa")
 ```

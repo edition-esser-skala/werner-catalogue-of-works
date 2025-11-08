@@ -19,30 +19,35 @@ options(readr.show_col_types = FALSE)
 
 params <- read_yaml("data/config.yml")
 
-print_concordance_ref <- function(ref, pattern, cols) {
-  read_rds("data_generated/works.rds") %>%
-    left_join(
-      read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
-      by = "group"
-    ) %>%
-    unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
-    mutate(id = str_glue("[{id}](/groups/{file}.html#work-{id})")) %>%
-    separate_longer_delim(inventories, ", @") %>%
-    filter(str_detect(inventories, ref)) %>%
-    rowwise() %>%
-    mutate(
-      entries =
-        str_match_all(inventories, pattern)[[1]] %>%
-        magrittr::set_colnames(c("match", cols)) %>%
-        as_tibble() %>%
-        select(!match) %>%
-        list()
-    ) %>%
-    unnest(entries) %>%
-    select(all_of(cols), id) %>% 
-    mutate(across(!id, parse_guess)) %>%
-    arrange(pick(!id)) %>%
-    gt() %>%
+print_inventory <- function(ref, pattern, cols, return_tibble = FALSE) {
+  tbl_inventory <- 
+    read_rds("data_generated/works.rds") %>%
+      left_join(
+        read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+        by = "group"
+      ) %>%
+      unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+      mutate(id = str_glue("[{id}](/groups/{file}.html#work-{id})")) %>%
+      separate_longer_delim(inventories, ", @") %>%
+      filter(str_detect(inventories, ref)) %>%
+      rowwise() %>%
+      mutate(
+        entries =
+          str_match_all(inventories, pattern)[[1]] %>%
+          magrittr::set_colnames(c("match", cols)) %>%
+          as_tibble() %>%
+          select(!match) %>%
+          list()
+      ) %>%
+      unnest(entries) %>%
+      select(all_of(cols), id) %>% 
+      mutate(across(!id, parse_guess)) %>%
+      arrange(pick(!id))
+  
+  if (return_tibble)
+    return(tbl_inventory)
+  
+  gt(tbl_inventory) %>%
     fmt_markdown(columns = id) %>%
     cols_label(id = params$catalogue_prefix) %>% 
     tab_options(
@@ -62,7 +67,7 @@ print_concordance_ref <- function(ref, pattern, cols) {
 ```{r Brtnice}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "BrtniceInv",
   pattern = "p. (\\w+), no. (\\w+)",
   cols = c("p.", "no.")
@@ -70,13 +75,14 @@ print_concordance_ref(
 ```
 
 
-### @EisenstadtInv1837
+### @EisenstadtInv
 
 The inventory of Eisenstadt was finalized in 1837. The table of sources is written on the verso pages, which are numbered (with odd numbers!). For selected entries, the recto pages contain annotations indicating new parts that should be created (column “notes” in the table below). Groups have been numbered with uppercase letters. Thereby, the combination of group letter and inventory number corresponds to the modern shelfmark used by A-Ed. The column “parts” (originally “Partes” and “Stück”) denotes the number of parts that existed when the inventory was assembled.
 
 ```{r Eisenstadt}
 #| echo: false
 
+# links from shelfmark to catalogue
 links <- 
   read_rds("data_generated/works.rds") %>% 
   left_join(
@@ -98,7 +104,9 @@ links <-
   ) %>% 
   select(!c(file, id))
 
-read_csv("data/inventory_eisenstadt.csv") %>% 
+# inventory table
+inv_eisenstadt <- 
+  read_csv("data/inventory_eisenstadt.csv") %>% 
   fill(group, page) %>% 
   separate_longer_delim(shelfmark, delim = ", ") %>% 
   left_join(links, by = "shelfmark") %>%
@@ -108,8 +116,38 @@ read_csv("data/inventory_eisenstadt.csv") %>%
     parts = first(parts),
     notes = first(notes),
     link = str_flatten_comma(link)
+  )
+
+# validation: is any inventory reference missing in the table of works?
+tbl_eisenstadt <-
+  print_inventory(
+    "EisenstadtInv",
+    pattern = "p. (\\w+), no. (\\w+)",
+    cols = c("p.", "no."),
+    return_tibble = TRUE
   ) %>% 
-  gt(groupname_col = "group") %>%
+  mutate(page = p., number = as.character(no.))
+
+stopifnot(
+  anti_join(
+    inv_eisenstadt,
+    tbl_eisenstadt,
+    by = c("page", "number")
+  ) %>% 
+    nrow() == 0L
+)
+
+stopifnot(
+  anti_join(
+    tbl_eisenstadt,
+    inv_eisenstadt,
+    by = c("page", "number")
+  ) %>% 
+    nrow == 0L
+)
+
+# output table
+gt(inv_eisenstadt, groupname_col = "group") %>%
   cols_align("right", columns = c(page, number, parts)) %>%
   cols_label(page = "p.", number = "no.", link = params$catalogue_prefix) %>% 
   fmt_markdown(columns = link) %>%
@@ -127,7 +165,7 @@ read_csv("data/inventory_eisenstadt.csv") %>%
 ```{r Esterhazy 1805}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "EsterhazyInv1805",
   pattern = "fol. (\\w+), no. (\\w+)",
   cols = c("fol.", "no.")
@@ -140,7 +178,7 @@ print_concordance_ref(
 ```{r Esterhazy 1812}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "EsterhazyInv1812",
   pattern = "([\\w\\s]+) no. ([\\w-]+)",
   cols = c("genre", "no.")
@@ -153,7 +191,7 @@ print_concordance_ref(
 ```{r Sauer}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Sauer1809",
   pattern = "fol. (\\w+), no. ([\\w-]+)",
   cols = c("fol.", "no.")
@@ -169,7 +207,7 @@ print_concordance_ref(
 ```{r Bardos 1976}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Bardos1976",
   pattern = "p. (\\w+), no. (\\w+)",
   cols = c("p.", "no.")
@@ -182,9 +220,9 @@ print_concordance_ref(
 ```{r Bardos 1980}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Bardos1980",
-  pattern = "p. (\\w+), no. (\\w+)",
+  pattern = "p. (\\w+), no. ([\\w/]+)",
   cols = c("p.", "no.")
 )
 ```
@@ -195,7 +233,7 @@ print_concordance_ref(
 ```{r Bardos 1984}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Bardos1984",
   pattern = "p. (\\w+), no. ([\\w/]+)",
   cols = c("p.", "no.")
@@ -208,7 +246,7 @@ print_concordance_ref(
 ```{r Riedel}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Riedel1979",
   pattern = "p. (\\w+), no. (\\w+)",
   cols = c("p.", "no.")
@@ -221,7 +259,7 @@ print_concordance_ref(
 ```{r Rostetter}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Rostetter2023",
   pattern = "p. (\\w+), no. ([\\w/]+)",
   cols = c("p.", "no.")
@@ -234,7 +272,7 @@ print_concordance_ref(
 ```{r Stefan}
 #| echo: false
 #| output: asis
-print_concordance_ref(
+print_inventory(
   "Stefan1985",
   pattern = "p. (\\w+), no. (\\w+)",
   cols = c("p.", "no.")
