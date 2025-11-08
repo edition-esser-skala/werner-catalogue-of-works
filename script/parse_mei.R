@@ -715,7 +715,8 @@ get_bibliography_entries <- function(bibllist, genre) {
 # as well as the raw entries for references and edition
 format_bibliography <- function(b, work_id) {
   b <- b %||% list()
-  entries_ref <- get_bibliography_entries(b, "reference")
+  entries_reference <- get_bibliography_entries(b, "reference")
+  entries_inventory <- get_bibliography_entries(b, "inventory")
   entries_edition <- get_bibliography_entries(b, "edition")
 
   # check whether there is an EES edition
@@ -732,8 +733,13 @@ format_bibliography <- function(b, work_id) {
   markdown <- str_flatten(
     c(
       if_else(
-        length(entries_ref) > 0,
-        paste("Bibliography\n:", str_flatten_comma(entries_ref)),
+        length(entries_reference) > 0,
+        paste("References\n:", str_flatten_comma(entries_reference)),
+        ""
+      ),
+      if_else(
+        length(entries_inventory) > 0,
+        paste("Inventories\n:", str_flatten_comma(entries_inventory)),
         ""
       ),
       if_else(
@@ -747,7 +753,8 @@ format_bibliography <- function(b, work_id) {
 
   list(
     markdown = markdown,
-    entries_ref = entries_ref,
+    entries_reference = entries_reference,
+    entries_inventory = entries_inventory,
     entries_edition = entries_edition
   )
 }
@@ -1285,6 +1292,7 @@ validate_metadata <- function(group,
                               number,
                               title,
                               references,
+                              inventories,
                               editions,
                               identifiers,
                               sources,
@@ -1302,14 +1310,25 @@ validate_metadata <- function(group,
     report()
 
   # references
-  if (is.na(table_metadata$literature))
+  if (is.na(table_metadata$references))
     table_references <- character(0)
   else
     table_references <-
-      table_metadata$literature %>%
+      table_metadata$references %>%
       str_split_1(", @") %>%
       str_remove("@")
   check_equal_list(str_remove(references, "@"), table_references) %>%
+    report()
+
+  # inventories
+  if (is.na(table_metadata$inventories))
+    table_editions <- character(0)
+  else
+    table_editions <-
+    table_metadata$inventories %>%
+    str_split_1(", @") %>%
+    str_remove("@")
+  check_equal_list(str_remove(inventories, "@"), table_editions) %>%
     report()
 
   # editions
@@ -1444,7 +1463,8 @@ get_work_details <- function(group,
     subgroup = subgroup,
     number = number,
     title = title$all,
-    references = bibliography$entries_ref,
+    references = bibliography$entries_reference,
+    inventories = bibliography$entries_inventory,
     editions = bibliography$entries_edition,
     identifiers = set_names(identifier_ids, identifier_catalogues),
     sources = data_sources,

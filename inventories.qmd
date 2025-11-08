@@ -9,19 +9,73 @@ format:
 
 # Inventories {.unnumbered}
 
-```{r packages}
+```{r packages and functions}
 #| include: false
 library(tidyverse)
 library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
+
+print_concordance_ref <- function(ref, patterns) {
+  patterns <- c(
+    ".+\\[",
+    patterns,
+    "]"
+  )
+
+  read_rds("data_generated/works.rds") %>%
+    left_join(
+      read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+      by = "group"
+    ) %>%
+    unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+    mutate(id = str_glue("[{id}](/groups/{file}.html#work-{id})")) %>%
+    separate_longer_delim(inventories, ", @") %>%
+    filter(str_detect(inventories, ref)) %>%
+    select(inventories, id) %>%
+    separate_wider_regex(
+      inventories,
+      patterns = {{patterns}}
+    ) %>%
+    mutate(across(!id, parse_guess)) %>%
+    arrange(pick(!id)) %>%
+    gt() %>%
+    fmt_markdown(columns = id) %>%
+    cols_label(id = "WerW") %>% 
+    tab_options(
+      column_labels.font.weight = "bold",
+      table.align = "left",
+      table_body.hlines.style = "none"
+    )
+}
 ```
 
-## Eisenstadt
 
-The inventory of Eisenstadt was finalized in 1837 [@EisenstadtInv1837]. The table of sources is written on the verso pages, which are numbered (with odd numbers!). For selected entries, the recto pages contain annotations indicating new parts that should be created (column “notes” in the table below). Groups have been numbered with uppercase letters. Thereby, the combination of group letter and inventory number corresponds to the modern shelfmark used by A-Ed. The column “parts” (originally “Partes” and “Stück”) denotes the number of parts that existed when the inventory was assembled.
 
-```{r eisenstadt}
+## Historic
+
+### @BrtniceInv
+
+```{r Brtnice}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "BrtniceInv",
+  patterns = c(
+    "p. ",
+    p. = "\\d+",
+    ", no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @EisenstadtInv1837
+
+The inventory of Eisenstadt was finalized in 1837. The table of sources is written on the verso pages, which are numbered (with odd numbers!). For selected entries, the recto pages contain annotations indicating new parts that should be created (column “notes” in the table below). Groups have been numbered with uppercase letters. Thereby, the combination of group letter and inventory number corresponds to the modern shelfmark used by A-Ed. The column “parts” (originally “Partes” and “Stück”) denotes the number of parts that existed when the inventory was assembled.
+
+```{r Eisenstadt}
 #| echo: false
 
 links <- 
@@ -69,8 +123,162 @@ read_csv("data/inventory_eisenstadt.csv") %>%
 ```
 
 
+### @EsterhazyInv1805
 
-## Fonds Moder
+```{r Esterhazy 1805}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "EsterhazyInv1805",
+  patterns = c(
+    "fol. ",
+    fol. = ".+",
+    ", no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @EsterhazyInv1812
+
+```{r Esterhazy 1812}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "EsterhazyInv1812",
+  patterns = c(
+    genre = ".+",
+    " no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @Sauer1809
+
+```{r Sauer}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Sauer1809",
+  patterns = c(
+    "fol. ",
+    fol. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+
+## Modern
+
+### @Bardos1976
+
+```{r Bardos 1976}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1976",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = "\\d+"
+  )
+)
+```
+
+
+### @Bardos1980
+
+```{r Bardos 1980}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1980",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Bardos1984
+
+```{r Bardos 1984}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Bardos1984",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Riedel1979
+
+```{r Riedel}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Riedel1979",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Rostetter2023
+
+```{r Rostetter}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Rostetter2023",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### @Stefan1985
+
+```{r Stefan}
+#| echo: false
+#| output: asis
+print_concordance_ref(
+  "Stefan1985",
+  patterns = c(
+    "p. ",
+    p. = ".+",
+    ", no. ",
+    no. = ".+"
+  )
+)
+```
+
+
+### Fonds Moder
 
 [Richard Moder](https://data.onb.ac.at/nlv_lex/perslex/M/Moder_Richard.html) (1901–1991) studied Gregor Joseph Werner's music intensively and published some of his works for the first time. His Nachlass concerning Werner is available in the Austrian National Library and includes around 190 inventory items. (Another partial Nachlass is archived by the University of Salzburg; however, it does not contain any items related to Werner.) For each item, the following table lists
 
@@ -153,35 +361,6 @@ fonds_data %>%
   ) %>%
   tab_options(
     column_labels.font.weight = "bold",
-    table_body.hlines.style = "none"
-  )
-```
-
-
-## Hárich's thematic catalogue
-
-The following table reproduces the table of contents of the unfinished catalogue of Werner's works by @Harich1990. Here, we refer to entries in this catalogue by work groups and the (probably final) work numbers, which appear in broad red ink in the top left corner of each card.
-
-```{r harich catalogue}
-#| echo: false
-#| output: asis
-
-read_csv("data/harich_catalogue.csv") %>% 
-  fill(super_number, super_title) %>% 
-  unite(super_number, super_title, col = "super", sep = ". ") %>% 
-  gt(groupname_col = "super") %>%
-  cols_label(number = "", sub = "") %>% 
-  sub_missing(missing_text = "") %>%
-  tab_style(
-    style = list(
-      cell_text(weight = "bold"),
-      cell_borders("top", color = "#d3d3d3", weight = "2px")
-    ),
-    locations = cells_body(rows = 34)
-  ) %>%
-  tab_options(
-    column_labels.font.weight = "bold",
-    row_group.background.color = "grey90",
     table_body.hlines.style = "none"
   )
 ```

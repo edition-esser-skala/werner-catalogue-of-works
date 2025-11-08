@@ -68,7 +68,8 @@ WORK_TEMPLATE_OVERVIEW <- '
 |*ARK*|{ark}|
 |*Sources*|{sources}|
 |*Notes*|{notes}|
-|*Literature*|{literature}|
+|*References*|{references}|
+|*Inventories*|{inventories}|
 |*Editions*|{editions}|
 
 : {{tbl-colwidths="[12,87]" .movement-details}}
@@ -201,7 +202,8 @@ make_work_entry <- function(group, subgroup, number, sources, file, ...) {
       ark = ark,
       sources = sources,
       notes = notes,
-      literature = str_sort(metadata$literature),
+      references = str_sort(metadata$references),
+      inventories = str_sort(metadata$inventories),
       editions = str_sort(metadata$editions)
     )
   }

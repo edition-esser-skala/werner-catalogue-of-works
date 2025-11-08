@@ -10,7 +10,9 @@ format:
 
 # Concordances {.unnumbered}
 
-```{r packages and setup}
+This appendix lists concordances between prior catalogues of Werner's works and WerW. For concordances of historic and modern inventories, see [Inventories](inventories.qmd).
+
+```{r packages and functions}
 #| include: false
 library(tidyverse)
 library(stringi)
@@ -58,44 +60,10 @@ print_concordance_catalogue <- function(catalogue) {
       table_body.hlines.style = "none"
     )
 }
-
-print_concordance_ref <- function(ref, patterns) {
-  patterns <- c(
-    ".+\\[",
-    patterns,
-    "]"
-  )
-
-  read_rds("data_generated/works.rds") %>%
-    left_join(
-      read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
-      by = "group"
-    ) %>%
-    unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
-    mutate(WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")) %>%
-    separate_longer_delim(literature, ", @") %>%
-    filter(str_detect(literature, ref)) %>%
-    select(literature, WerW) %>%
-    separate_wider_regex(
-      literature,
-      patterns = {{patterns}}
-    ) %>%
-    mutate(across(!WerW, parse_guess)) %>%
-    arrange(pick(!WerW)) %>%
-    gt() %>%
-    fmt_markdown(columns = WerW) %>%
-    tab_options(
-      column_labels.font.weight = "bold",
-      table.align = "left",
-      table_body.hlines.style = "none"
-    )
-}
 ```
 
 
-## Catalogues
-
-### @Dopf1956 (Dopf)
+## @Dopf1956 (Dopf)
 
 ```{r Dopf}
 #| echo: false
@@ -104,7 +72,7 @@ print_concordance_catalogue("Dopf")
 ```
 
 
-### @Harich1932 (HarBu)
+## @Harich1932 (HarBu)
 
 ```{r HarBu}
 #| echo: false
@@ -113,18 +81,44 @@ print_concordance_catalogue("HarBu")
 ```
 
 
-### @Harich1990 (HarCa)
+## @Harich1990 (HarCa)
+
+The following table reproduces the table of contents of the unfinished catalogue of Werner's works by @Harich1990. Here, we refer to entries in this catalogue by work groups and the (probably final) work numbers, which appear in broad red ink in the top left corner of each card.
+
+```{r HarCa overview}
+#| echo: false
+#| output: asis
+
+read_csv("data/harich_catalogue.csv") %>% 
+  fill(super_number, super_title) %>% 
+  unite(super_number, super_title, col = "super", sep = ". ") %>% 
+  gt(groupname_col = "super") %>%
+  cols_label(number = "", sub = "") %>% 
+  sub_missing(missing_text = "") %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold"),
+      cell_borders("top", color = "#d3d3d3", weight = "2px")
+    ),
+    locations = cells_body(rows = 34)
+  ) %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
+```
 
 Generally, Hárich included works from the 1737/38 inventory as separate works in his catalogue, even if the work title is so generic that it may correspond to an extant work.
 
-```{r HarCa}
+```{r HarCa entries}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("HarCa")
 ```
 
 
-### @Harich1975 (HarIn)
+## @Harich1975 (HarIn)
 
 ```{r HarIn}
 #| echo: false
@@ -133,7 +127,7 @@ print_concordance_catalogue("HarIn")
 ```
 
 
-### @Petermayr2020 (PetSi)
+## @Petermayr2020 (PetSi)
 
 ```{r PetSi}
 #| echo: false
@@ -142,7 +136,7 @@ print_concordance_catalogue("PetSi")
 ```
 
 
-### @Petermayr2015 (PetWe)
+## @Petermayr2015 (PetWe)
 
 ```{r PetWe}
 #| echo: false
@@ -151,7 +145,7 @@ print_concordance_catalogue("PetWe")
 ```
 
 
-### @Reichert1935 (ReiMa)
+## @Reichert1935 (ReiMa)
 
 ```{r ReiMa}
 #| echo: false
@@ -160,166 +154,10 @@ print_concordance_catalogue("ReiMa")
 ```
 
 
-### @WinklerKlement2020 (WinMa)
+## @WinklerKlement2020 (WinMa)
 
 ```{r WinMa}
 #| echo: false
 #| output: asis
 print_concordance_catalogue("WinMa")
-```
-
-
-
-## Inventories (historic)
-
-### @BrtniceInv
-
-```{r Brtnice inventory}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "BrtniceInv",
-  patterns = c(
-    "p. ",
-    p. = "\\d+",
-    ", no. ",
-    no. = "\\d+"
-  )
-)
-```
-
-
-### @EsterhazyInv1805
-
-```{r Esterhazy inventory 1805}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "EsterhazyInv1805",
-  patterns = c(
-    "fol. ",
-    fol. = ".+",
-    ", no. ",
-    no. = "\\d+"
-  )
-)
-```
-
-
-### @EsterhazyInv1812
-
-```{r Esterhazy inventory 1812}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "EsterhazyInv1812",
-  patterns = c(
-    genre = ".+",
-    " no. ",
-    no. = "\\d+"
-  )
-)
-```
-
-
-### @Sauer1809
-
-```{r Sauer 1809}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "Sauer1809",
-  patterns = c(
-    "fol. ",
-    fol. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
-)
-```
-
-
-
-## Inventories (modern)
-
-### @Bardos1976
-
-```{r Bardos 1976}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "Bardos1976",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = "\\d+"
-  )
-)
-```
-
-
-### @Bardos1980
-
-```{r Bardos 1980}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "Bardos1980",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
-)
-```
-
-
-### @Bardos1984
-
-```{r Bardos 1984}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "Bardos1984",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
-)
-```
-
-
-### @WinklerKlement2013
-
-```{r Winkler-Klement 2013}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "WinklerKlement2013",
-  patterns = c(
-    "pp?. ",
-    p. = ".+"
-  )
-)
-```
-
-
-### @Rostetter2023
-
-```{r Rostetter 2023}
-#| echo: false
-#| output: asis
-print_concordance_ref(
-  "Rostetter2023",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
-)
 ```

@@ -254,7 +254,9 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
 ## Bibliography
 
 - Add a single bibliography with default header “Bibliography”.
-- Manually add bibliographic references and modern editions as XML code. Each entry is represented by a `<bibl>` element that contains one `<genre>` and one `<ref>` tag. The latter tag points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html)).
+- Manually add bibliographic references and modern editions as XML code. Each entry is represented by a `<bibl>` element that contains two tags:
+  - `<genre>`: reference, inventory, or edition
+  - `<ref>`: points to a reference using [Pandoc Citations](https://pandoc.org/MANUAL.html#citation-syntax) format (also see [Quarto documentation](https://quarto.org/docs/authoring/citations.html)).
 
     ```xml
     <bibl>
@@ -268,6 +270,10 @@ In the XML file, manually remove the `m:` prefix and namespace declaration from 
     <bibl>
       <genre>reference</genre>
       <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 50]</ref>
+    </bibl>
+    <bibl>
+      <genre>inventory</genre>
+      <ref targettype="pandoc-citation">@EsterhazyInv1805 [fol. 2r, no. 22]</ref>
     </bibl>
     <bibl>
       <genre>edition</genre>
