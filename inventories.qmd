@@ -13,16 +13,13 @@ format:
 #| include: false
 library(tidyverse)
 library(gt)
+library(yaml)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
 
-print_concordance_ref <- function(ref, patterns) {
-  patterns <- c(
-    ".+\\[",
-    patterns,
-    "]"
-  )
+params <- read_yaml("data/config.yml")
 
+print_concordance_ref <- function(ref, pattern, cols) {
   read_rds("data_generated/works.rds") %>%
     left_join(
       read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
@@ -32,16 +29,22 @@ print_concordance_ref <- function(ref, patterns) {
     mutate(id = str_glue("[{id}](/groups/{file}.html#work-{id})")) %>%
     separate_longer_delim(inventories, ", @") %>%
     filter(str_detect(inventories, ref)) %>%
-    select(inventories, id) %>%
-    separate_wider_regex(
-      inventories,
-      patterns = {{patterns}}
+    rowwise() %>%
+    mutate(
+      entries =
+        str_match_all(inventories, pattern)[[1]] %>%
+        magrittr::set_colnames(c("match", cols)) %>%
+        as_tibble() %>%
+        select(!match) %>%
+        list()
     ) %>%
+    unnest(entries) %>%
+    select(all_of(cols), id) %>% 
     mutate(across(!id, parse_guess)) %>%
     arrange(pick(!id)) %>%
     gt() %>%
     fmt_markdown(columns = id) %>%
-    cols_label(id = "WerW") %>% 
+    cols_label(id = params$catalogue_prefix) %>% 
     tab_options(
       column_labels.font.weight = "bold",
       table.align = "left",
@@ -61,12 +64,8 @@ print_concordance_ref <- function(ref, patterns) {
 #| output: asis
 print_concordance_ref(
   "BrtniceInv",
-  patterns = c(
-    "p. ",
-    p. = "\\d+",
-    ", no. ",
-    no. = "\\d+"
-  )
+  pattern = "p. (\\w+), no. (\\w+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -112,7 +111,7 @@ read_csv("data/inventory_eisenstadt.csv") %>%
   ) %>% 
   gt(groupname_col = "group") %>%
   cols_align("right", columns = c(page, number, parts)) %>%
-  cols_label(page = "p.", number = "no.", link = "WerW") %>% 
+  cols_label(page = "p.", number = "no.", link = params$catalogue_prefix) %>% 
   fmt_markdown(columns = link) %>%
   sub_missing(columns = notes, missing_text = "") %>%
   tab_options(
@@ -130,12 +129,8 @@ read_csv("data/inventory_eisenstadt.csv") %>%
 #| output: asis
 print_concordance_ref(
   "EsterhazyInv1805",
-  patterns = c(
-    "fol. ",
-    fol. = ".+",
-    ", no. ",
-    no. = "\\d+"
-  )
+  pattern = "fol. (\\w+), no. (\\w+)",
+  cols = c("fol.", "no.")
 )
 ```
 
@@ -147,11 +142,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "EsterhazyInv1812",
-  patterns = c(
-    genre = ".+",
-    " no. ",
-    no. = "\\d+"
-  )
+  pattern = "([\\w\\s]+) no. ([\\w-]+)",
+  cols = c("genre", "no.")
 )
 ```
 
@@ -163,12 +155,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Sauer1809",
-  patterns = c(
-    "fol. ",
-    fol. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "fol. (\\w+), no. ([\\w-]+)",
+  cols = c("fol.", "no.")
 )
 ```
 
@@ -183,12 +171,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Bardos1976",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = "\\d+"
-  )
+  pattern = "p. (\\w+), no. (\\w+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -200,12 +184,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Bardos1980",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "p. (\\w+), no. (\\w+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -217,12 +197,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Bardos1984",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "p. (\\w+), no. ([\\w/]+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -234,12 +210,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Riedel1979",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "p. (\\w+), no. (\\w+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -251,12 +223,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Rostetter2023",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "p. (\\w+), no. ([\\w/]+)",
+  cols = c("p.", "no.")
 )
 ```
 
@@ -268,12 +236,8 @@ print_concordance_ref(
 #| output: asis
 print_concordance_ref(
   "Stefan1985",
-  patterns = c(
-    "p. ",
-    p. = ".+",
-    ", no. ",
-    no. = ".+"
-  )
+  pattern = "p. (\\w+), no. (\\w+)",
+  cols = c("p.", "no.")
 )
 ```
 
