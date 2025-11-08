@@ -17,6 +17,59 @@ source("script/utils.R")
 options(readr.show_col_types = FALSE)
 ```
 
+## Eisenstadt
+
+The inventory of Eisenstadt was finalized in 1837 [@EisenstadtInv1837]. The table of sources is written on the verso pages, which are numbered (with odd numbers!). For selected entries, the recto pages contain annotations indicating new parts that should be created (column “notes” in the table below). Groups have been numbered with uppercase letters. Thereby, the combination of group letter and inventory number corresponds to the modern shelfmark used by A-Ed. The column “parts” (originally “Partes” and “Stück”) denotes the number of parts that existed when the inventory was assembled.
+
+```{r eisenstadt}
+#| echo: false
+
+links <- 
+  read_rds("data_generated/works.rds") %>% 
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>% 
+  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+  unnest(sources, names_sep = "_") %>% 
+  separate_wider_delim(
+    sources_source,
+    delim = " ",
+    names = c("siglum", "shelfmark"),
+    too_many = "merge"
+  ) %>%
+  filter(siglum %in% c("A-Ed", "A-El")) %>% 
+  select(id, shelfmark, file) %>%
+  mutate(
+    link = str_glue('<a href="/groups/{file}.html#work-{id}">{id}</a>')
+  ) %>% 
+  select(!c(file, id))
+
+read_csv("data/inventory_eisenstadt.csv") %>% 
+  fill(group, page) %>% 
+  separate_longer_delim(shelfmark, delim = ", ") %>% 
+  left_join(links, by = "shelfmark") %>%
+  summarise(
+    .by = c(group, page, number),
+    title = first(title),
+    parts = first(parts),
+    notes = first(notes),
+    link = str_flatten_comma(link)
+  ) %>% 
+  gt(groupname_col = "group") %>%
+  cols_align("right", columns = c(page, number, parts)) %>%
+  cols_label(page = "p.", number = "no.", link = "WerW") %>% 
+  fmt_markdown(columns = link) %>%
+  sub_missing(columns = notes, missing_text = "") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
+```
+
+
+
 ## Fonds Moder
 
 [Richard Moder](https://data.onb.ac.at/nlv_lex/perslex/M/Moder_Richard.html) (1901–1991) studied Gregor Joseph Werner's music intensively and published some of his works for the first time. His Nachlass concerning Werner is available in the Austrian National Library and includes around 190 inventory items. (Another partial Nachlass is archived by the University of Salzburg; however, it does not contain any items related to Werner.) For each item, the following table lists
