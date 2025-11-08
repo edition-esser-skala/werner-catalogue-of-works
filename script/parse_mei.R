@@ -1271,8 +1271,8 @@ check_classification <- function(terms, source_title) {
 
 # stops the script if two strings are not equal
 check_equal_string <- function(a, b) {
-  if (a == b) return()
-  str_glue("These strings must be the same:\n(MEI) {a}\n(CSV) {b}")
+  if (a != b)
+    error("These strings must be the same:\n(MEI) {a}\n(CSV) {b}")
 }
 
 # stops the script if two string lists contain different elements
@@ -1281,7 +1281,7 @@ check_equal_list <- function(a, b) {
   a <- str_sort(a) %>% unique()
   b <- str_sort(b) %>% unique()
   if (length(a) == length(b) && all(a == b)) return()
-  str_glue("These lists must be the same:",
+  error("These lists must be the same:",
            "\n(MEI) {str_flatten_comma(a)}",
            "\n(CSV) {str_flatten_comma(b)}")
 }
@@ -1298,49 +1298,53 @@ validate_metadata <- function(group,
                               sources,
                               table_metadata,
                               table_sources) {
-  report <- function(msg) {
-    if (is.null(msg))
-      return()
-    error(msg)
-  }
+
 
   # work title
   title <- str_split_1(title, "<br/>")[1]
-  check_equal_string(title, table_metadata$title) %>%
-    report()
+  check_equal_string(title, table_metadata$title)
 
   # references
-  if (is.na(table_metadata$references))
+  if (is.na(table_metadata$references)) {
     table_references <- character(0)
-  else
+  } else {
     table_references <-
       table_metadata$references %>%
       str_split_1(", @") %>%
       str_remove("@")
-  check_equal_list(str_remove(references, "@"), table_references) %>%
-    report()
+  }
+  check_equal_list(
+    str_remove(references, "@"),
+    table_references
+  )
 
   # inventories
-  if (is.na(table_metadata$inventories))
+  if (is.na(table_metadata$inventories)) {
     table_editions <- character(0)
-  else
+  } else {
     table_editions <-
-    table_metadata$inventories %>%
-    str_split_1(", @") %>%
-    str_remove("@")
-  check_equal_list(str_remove(inventories, "@"), table_editions) %>%
-    report()
+      table_metadata$inventories %>%
+      str_split_1(", @") %>%
+      str_remove("@")
+  }
+  check_equal_list(
+    str_remove(inventories, "@"),
+    table_editions
+  )
 
   # editions
-  if (is.na(table_metadata$editions))
+  if (is.na(table_metadata$editions)) {
     table_editions <- character(0)
-  else
+  } else {
     table_editions <-
-    table_metadata$editions %>%
-    str_split_1(", @") %>%
-    str_remove("@")
-  check_equal_list(str_remove(editions, "@"), table_editions) %>%
-    report()
+      table_metadata$editions %>%
+      str_split_1(", @") %>%
+      str_remove("@")
+  }
+  check_equal_list(
+    str_remove(editions, "@"),
+    table_editions
+  )
 
   # identifiers
   table_metadata[[catalogue_prefix]] <-
@@ -1348,8 +1352,7 @@ validate_metadata <- function(group,
   check_equal_string(
     format_identifiers(identifiers, sep = " · ", add_links = FALSE),
     format_identifiers(table_metadata, sep = " · ", add_links = FALSE)
-  ) %>%
-    report()
+  )
 
   # sources
   mei_sources <-
@@ -1361,8 +1364,10 @@ validate_metadata <- function(group,
       .keep = "none"
     ) %>%
     pull(source)
-  check_equal_list(mei_sources, table_sources$source) %>%
-    report()
+  check_equal_list(
+    mei_sources,
+    table_sources$source
+  )
 }
 
 
@@ -1501,7 +1506,7 @@ get_work_details <- function(group,
 
 # Testing -----------------------------------------------------------------
 
-# data <- read_xml("data/works_mei/D_3_7.xml")
+# data <- read_xml("data/works_mei/C_2.xml")
 # format_mei_text(data)
 # data <- as_list(data) %>% pluck("mei", "meiHead")
 # data_work <- data$workList$work
