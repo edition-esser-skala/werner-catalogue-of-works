@@ -391,6 +391,83 @@
       <manifestation>
         <identifier/>
         <titleStmt>
+          <title>Autograph manuscript</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date notbefore="1730" notafter="1740">ca. 1730&#x2013;40</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Autograph</term>
+            <term>Score</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier/>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <height quantity="32" unit="cm">32 (height in cm)</height>
+                <width quantity="21.5" unit="cm">21.5 (height in cm)</width>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <titlePage label="[cover title, by Fuchs]">
+                <p>Originale | von | Joseph Gregor Werner | f&#xFC;r&#x17F;tl. E&#x17F;terhaczischer Kapellmei&#x17F;ter | in Eisenstadt. |&#xA0;Vorg&#xE4;nger von Joseph Haydn |&#xA0;Geb. 1691. Ge&#x17F;t: 1766. |&#xA0;AF. 1837</p>
+              </titlePage>
+              <titlePage label="[fol. 1r, by Werner]">
+                <p>Vesper&#xE6; Brevi&#x17F;s:|&#xE6; | e | Quatro Offertorii | per li Evangelii | nel festo del Corpus Domini&#xA0;| <rend rend="underline">Dal Werner</rend>.</p>
+              </titlePage>
+              <titlePage label="[fol. 1v, top, by Werner]">
+                <p>Vesper&#xE6; Brevi&#x17F;sim&#xE6;</p>
+              </titlePage>
+              <extent>18 p.</extent>
+              <dimensions/>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="title">Aloys Fuchs</hand>
+              </handList>
+              <physMedium>
+                <p>hand-ruled paper, 14 staves (10 mm)</p>
+              </physMedium>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2707932" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>Ms. Mus. 179 (1)</identifier>
+            </physLoc>
+            <notesStmt>
+              <annot type="source_description">
+                <p>This source comprises three works: The <rend fontstyle="italic">Vesperae</rend> WerW H.1.8 (fol. 1v&#x2013;10r), the <rend fontstyle="italic">4 Offertoria</rend> WerW D.2.12 (fol. 10v&#x2013;18r), and the <rend fontstyle="italic">Kyrie</rend> WerW B.78 (fol. 18v&#x2013;26r).</p>
+              </annot>
+              <annot type="links">
+                <ptr mimetype=""/>
+              </annot>
+            </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
           <title>Manuscript copy</title>
         </titleStmt>
         <pubStmt>
@@ -569,7 +646,7 @@
               <extent>15 parts</extent>
               <dimensions/>
               <handList>
-                <hand medium="ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper</p>

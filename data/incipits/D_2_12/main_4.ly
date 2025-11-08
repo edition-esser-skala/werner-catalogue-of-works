@@ -3,7 +3,7 @@
 
 notes = \relative c' {
   \clef soprano
-  \key d \dorian \time 4/2 \autoBeamOff
+  \key d \dorian \time 4/2 \autoBeamOff \tempoMarkup "[no tempo]"
     \set Staff.timeSignatureFraction = 2/2
   a'1.^\partSc a2
   a1 d,2 d'
