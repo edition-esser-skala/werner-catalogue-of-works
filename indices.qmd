@@ -12,17 +12,19 @@ format:
 ```{r packages}
 #| include: false
 library(tidyverse)
+library(yaml)
 library(xml2)
-library(stringi)
 library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
+
+params <- read_yaml("data/config.yml")
 ```
 
 
 ## Scribes
 
-```{r index of copyists}
+```{r index of scribes}
 #| echo: false
 #| output: asis
 #| warning: false
@@ -62,22 +64,24 @@ scribes %>%
   ) %>% 
   mutate(
     id = str_replace_all(id, "_", "."),
-    WerW = str_glue("[{id}](/groups/{file}.html#work-{id})")
+    id = str_glue("[{id}](/groups/{file}.html#work-{id})")
   ) %>% 
-  select(scribe, siglum, shelfmark, WerW) %>% 
+  select(scribe, siglum, shelfmark, id) %>% 
   arrange(
     scribe,
     siglum,
-    stri_rank(shelfmark, opts_collator = stri_opts_collator(numeric = TRUE))
+    str_rank(shelfmark, numeric = TRUE)
   ) %>% 
   gt(groupname_col = "scribe") %>%
-  fmt_markdown(columns = WerW) %>%
+  fmt_markdown(columns = id) %>%
+  cols_label(id = params$catalogue_prefix) %>% 
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90",
     table_body.hlines.style = "none"
   )
 ```
+
 
 ### Notes and writing samples
 
@@ -233,7 +237,7 @@ read_rds("data_generated/works.rds") %>%
   ) %>% 
   arrange(siglum, str_rank(shelfmark, numeric = TRUE)) %>%
   gt(groupname_col = "siglum") %>%
-  cols_label(link = "WerW") %>% 
+  cols_label(link = params$catalogue_prefix) %>% 
   fmt_markdown(columns = link) %>%
   tab_options(
     column_labels.font.weight = "bold",

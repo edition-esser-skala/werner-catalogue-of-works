@@ -15,7 +15,6 @@ This appendix lists concordances between prior catalogues of Werner's works and 
 ```{r packages and functions}
 #| include: false
 library(tidyverse)
-library(stringi)
 library(yaml)
 library(gt)
 source("script/utils.R")
@@ -50,9 +49,7 @@ print_concordance <- function(catalogue) {
       notes = str_flatten_comma(notes, na.rm = TRUE)
     ) %>%
     mutate(id = if_else(id == "", "–", id)) %>% 
-    arrange(
-      stri_rank(number, opts_collator = stri_opts_collator(numeric = TRUE))
-    ) %>% 
+    arrange(str_rank(number, numeric = TRUE)) %>% 
     gt() %>%
     cols_width(number ~ px(80), id ~ px(160)) %>%
     fmt_markdown(columns = id) %>% 
