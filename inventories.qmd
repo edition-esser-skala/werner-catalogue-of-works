@@ -47,7 +47,10 @@ print_inventory <- function(ref, pattern, cols, return_tibble = FALSE) {
   if (return_tibble)
     return(tbl_inventory)
   
-  gt(tbl_inventory) %>%
+  tbl_inventory %>% 
+    summarise(.by = all_of(cols), id = str_flatten_comma(id)) %>% 
+    arrange(across(all_of(cols), \(c) str_rank(c, numeric = TRUE))) %>% 
+    gt() %>%
     fmt_markdown(columns = id) %>%
     cols_label(id = params$catalogue_prefix) %>% 
     tab_options(
@@ -222,7 +225,7 @@ print_inventory(
 #| output: asis
 print_inventory(
   "Bardos1980",
-  pattern = "p. (\\w+), no. ([\\w/]+)",
+  pattern = "p. (\\w+), no. ([\\w/\\(\\)]+)",
   cols = c("p.", "no.")
 )
 ```
