@@ -16,9 +16,12 @@ This appendix lists concordances between prior catalogues of Werner's works and 
 #| include: false
 library(tidyverse)
 library(stringi)
+library(yaml)
 library(gt)
 source("script/utils.R")
 options(readr.show_col_types = FALSE)
+
+params <- read_yaml("data/config.yml")
 
 print_concordance <- function(catalogue) {
   notes <-
@@ -31,28 +34,29 @@ print_concordance <- function(catalogue) {
       read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
       by = "group"
     ) %>% 
-    unite(group:number, col = "WerW", sep = ".", na.rm = TRUE) %>%
+    unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
     mutate(
       number = .data[[catalogue]],
-      WerW = str_glue("[{WerW}](/groups/{file}.html#work-{WerW})")
+      id = str_glue("[{id}](/groups/{file}.html#work-{id})")
     ) %>%
     separate_longer_delim(number, delim = ", ") %>% 
-    select(number, WerW) %>% 
+    select(number, id) %>% 
     mutate(number = str_remove(number, " \\(\\?\\)$")) %>% 
     bind_rows(notes) %>% 
     filter(!is.na(number)) %>%
     summarise(
       .by = number,
-      WerW = str_flatten_comma(WerW, na.rm = TRUE),
+      id = str_flatten_comma(id, na.rm = TRUE),
       notes = str_flatten_comma(notes, na.rm = TRUE)
     ) %>%
-    mutate(WerW = if_else(WerW == "", "–", WerW)) %>% 
+    mutate(id = if_else(id == "", "–", id)) %>% 
     arrange(
       stri_rank(number, opts_collator = stri_opts_collator(numeric = TRUE))
     ) %>% 
     gt() %>%
-    cols_width(number ~ px(80), WerW ~ px(160)) %>%
-    fmt_markdown(columns = WerW) %>% 
+    cols_width(number ~ px(80), id ~ px(160)) %>%
+    fmt_markdown(columns = id) %>% 
+    cols_label(id = params$catalogue_prefix) %>% 
     sub_missing(columns = notes, missing_text = "") %>% 
     tab_options(
       column_labels.font.weight = "bold",
