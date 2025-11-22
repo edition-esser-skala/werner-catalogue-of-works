@@ -549,7 +549,7 @@
                   <graphic targettype="lowres" target="4_sanctus"/>
                 </incip>
                 <tempo>Andante</tempo>
-                <key/>
+                <key pname="d" mode="major"/>
                 <meter count="3" unit="4"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
@@ -926,7 +926,7 @@
             <identifier/>
             <physDesc>
               <handList>
-                <hand medium="" type="main">Hubert Dopf</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="" type="main">Hubert Dopf</hand>
               </handList>
             </physDesc>
             <physLoc>
@@ -953,7 +953,7 @@
       <manifestation>
         <identifier/>
         <titleStmt>
-          <title>Lost manuscript</title>
+          <title>Manuscript copy</title>
         </titleStmt>
         <pubStmt>
           <publisher/>
@@ -967,13 +967,23 @@
             <term>Copy</term>
             <term>Parts</term>
             <term>Fair copy</term>
-            <term>Lost</term>
+            <term>Complete</term>
           </termList>
         </classification>
         <itemList>
           <item>
             <identifier/>
-            <physDesc/>
+            <physDesc>
+              <dimensions>
+                <locusGrp>
+                  <locus/>
+                </locusGrp>
+                <term/>
+                <extent> lines</extent>
+              </dimensions>
+              <extent>10 parts</extent>
+              <dimensions/>
+            </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>

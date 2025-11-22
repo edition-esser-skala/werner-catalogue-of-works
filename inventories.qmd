@@ -85,75 +85,50 @@ The inventory of Eisenstadt was finalized in 1837. The table of sources is writt
 ```{r Eisenstadt}
 #| echo: false
 
-# links from shelfmark to catalogue
-links <- 
-  read_rds("data_generated/works.rds") %>% 
-  left_join(
-    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
-    by = "group"
-  ) %>% 
-  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
-  unnest(sources, names_sep = "_") %>% 
-  separate_wider_delim(
-    sources_source,
-    delim = " ",
-    names = c("siglum", "shelfmark"),
-    too_many = "merge"
-  ) %>%
-  filter(siglum %in% c("A-Ed", "A-El")) %>% 
-  select(id, shelfmark, file) %>%
-  mutate(
-    link = str_glue('<a href="/groups/{file}.html#work-{id}">{id}</a>')
-  ) %>% 
-  select(!c(file, id))
-
-# inventory table
-inv_eisenstadt <- 
-  read_csv("data/inventory_eisenstadt.csv") %>% 
-  fill(group, page) %>% 
-  separate_longer_delim(shelfmark, delim = ", ") %>% 
-  left_join(links, by = "shelfmark") %>%
-  summarise(
-    .by = c(group, page, number),
-    title = first(title),
-    parts = first(parts),
-    notes = first(notes),
-    link = str_flatten_comma(link)
-  )
-
-# validation: is any inventory reference missing in the table of works?
-tbl_eisenstadt <-
+inv <-
   print_inventory(
     "EisenstadtInv",
     pattern = "p. (\\w+), no. (\\w+)",
     cols = c("p.", "no."),
     return_tibble = TRUE
-  ) %>% 
-  mutate(page = p., number = as.character(no.))
+  ) %>%
+  summarise(
+    .by = c(p., no.),
+    id = str_flatten_comma(id)
+  )
 
+works_eisenstadt <-
+  read_csv("data/inventory_eisenstadt.csv") %>% 
+  fill(group, page)
+
+# all citations of inventory in work table are in inventory table and vice versa
 stopifnot(
   anti_join(
-    inv_eisenstadt,
-    tbl_eisenstadt,
-    by = c("page", "number")
-  ) %>% 
-    nrow() == 0L
-)
-
-stopifnot(
-  anti_join(
-    tbl_eisenstadt,
-    inv_eisenstadt,
-    by = c("page", "number")
-  ) %>% 
+    inv,
+    works_eisenstadt,
+    by = join_by(p. == page, no. == number)
+  ) %>%
     nrow == 0L
 )
 
-# output table
-gt(inv_eisenstadt, groupname_col = "group") %>%
+stopifnot(
+  anti_join(
+    works_eisenstadt,
+    inv,
+    by = join_by(page == p., number == no.)
+  ) %>%
+    nrow == 0L
+)
+
+works_eisenstadt %>%
+  left_join(
+    inv,
+    by = join_by(page == p., number == no.)
+  ) %>% 
+  gt(groupname_col = "group") %>%
   cols_align("right", columns = c(page, number, parts)) %>%
-  cols_label(page = "p.", number = "no.", link = params$catalogue_prefix) %>% 
-  fmt_markdown(columns = link) %>%
+  cols_label(page = "p.", number = "no.", id = params$catalogue_prefix) %>% 
+  fmt_markdown(columns = id) %>%
   sub_missing(columns = notes, missing_text = "") %>%
   tab_options(
     column_labels.font.weight = "bold",
