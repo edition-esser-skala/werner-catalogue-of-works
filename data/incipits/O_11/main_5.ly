@@ -3,13 +3,11 @@
 
 notes = \relative c' {
   \clef treble
-  \key a \minor \time 3/4 \tempoMarkup "Allegro assai"
-  e'4^\partVi e, r
-  f' f, r
-  gis' gis, r
-  a' a, r
-  g'! g,! r
-  f' f, r
+  \twofourtime \key a \minor \time 2/4 \tempoMarkup "Tempo passato"
+  r4 r8 f'~^\partVi
+  f16 e e,8 r e'~
+  e16 d d,8 r d'~
+  d16 c e,8 r4
 }
 
 \score {
