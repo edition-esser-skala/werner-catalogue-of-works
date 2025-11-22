@@ -189,6 +189,19 @@ print_inventory(
 ```
 
 
+### @HerzogenburgInvB
+
+```{r Herzogenburg B}
+#| echo: false
+#| output: asis
+print_inventory(
+  "HerzogenburgInvB",
+  pattern = "fol. (\\w+), no. ([\\w-]+)",
+  cols = c("fol.", "no.")
+)
+```
+
+
 ### @Sauer1809
 
 ```{r Sauer}
