@@ -1,5 +1,68 @@
 # Changelog {.unnumbered}
 
+## 0.18.0 – 2025-11-23
+
+### Added
+
+- works: WerW B.78, D.2.12/L7, D.4.L1–4, H.2.L1, I.2.L1, and Q.L7/L8
+- incipits and metadata for WerW B.50/78/S10, D.1.16, D.2.2/12, E.5–7/40, G.5/S2, H.1.10, H.2.3/4, I.1.6, I.2.7, I.3.13, I.4.47, I.5.4, J.5, M.15, N.20, O.10/11, and P.S1
+- sources:
+  - A-Ed: G 34
+  - A-Ee: N1636
+  - A-LEDstp: 42
+  - A-LIglisic: 39
+  - A-RAN: 70
+  - A-SB: 1079 and 1085
+  - A-Wn: F100.Moder.15, 23, 24, 67, 71, 76, and 85/2
+  - CZ-Bm: A 17559 (uncatalogued) and A 40961
+  - H-Bn: Ms. Mus. 179
+- references:
+  - general: @Brook1966, @Dreo1971, @Harich1930, @Hofer1947, @Pratl2017, @Sherman1993, @WienerDiarium17310124
+  - inventories: @BreitkopfCat1764, @EisenstadtInv
+  - editions: @EsserSkala2022, @EsserSkala2022b, @EsserSkala2025, @SteinerSchweissgut1995
+- acknowledgements: CZ-K, Herrmann-Schneider, Pratl, and Reicher
+- support for 12/16 time
+- support for |s|u|perscript text in titles (RISM convention)
+- support for scoring type “libretto” in manifestation metadata
+- support for arbitrary text in key signature, time signature, and extent (including validation)
+- indication of the license on the homepage
+- index of works by library
+- details on Eisenstadt inventory
+- RISM siglum A-LEDstp
+- a colophon with infos on R packages
+
+### Changed
+
+- revised information on spurious and lost works for which detailed metadata will not be created
+- merged WerW D.5.2/3 to D.2.12
+- reorganized subgroup H.2:
+  - merged 4 to H.1.10
+  - renumbered 5 to 4
+  - merged 6 and 9, renumbered this work to 5
+  - renumbered 7 to 6
+  - renumbered 8 to 7
+  - renumbered 10 to 8
+  - renumbered 11 to 9
+- merged WerW I.4.36 to 35; thus, renumbered 37–55 to 36–54
+- renamed scribes:
+  - Heiligenkreuz 1 → Copyist Neukloster 1
+  - Eisenstadt 1 → Copyist Eisenstadt 1
+  - Thonner (A) → Thonner
+  - Thonner (B) → Copyist Esterházy 1
+- In orchestral incipits, empty staves are now hidden by default.
+- Author(s) for multi-author and spurious works are now printed.
+- References are now classified as general references or inventories. Accordingly, the appendix “Concordances” now only describes prior catalogues of Werner's works, while all inventories are now in the appendix with the same name. Several inventory entries for a single work are now correctly represented.
+  
+### Fixed
+
+- shelfmark of source A-Ee KIR 1974 (previously 197)
+
+### Removed
+
+- source D-As 4 Cod mus 85 (corresponding RISM entry was removed)
+- unnecessary lost manuscripts
+
+
 ## 0.17.0 – 2025-09-20
 
 ### Added

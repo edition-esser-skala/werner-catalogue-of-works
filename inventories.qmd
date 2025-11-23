@@ -125,6 +125,7 @@ works_eisenstadt %>%
     inv,
     by = join_by(page == p., number == no.)
   ) %>% 
+  select(!shelfmark) %>%
   gt(groupname_col = "group") %>%
   cols_align("right", columns = c(page, number, parts)) %>%
   cols_label(page = "p.", number = "no.", id = params$catalogue_prefix) %>% 
