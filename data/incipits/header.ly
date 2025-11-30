@@ -61,7 +61,14 @@ skips = #(define-music-function
   (parser location n)
   (number?)
   #{ \repeat unfold #n { \skip 8 } #})
-  
+ 
+dotbf = #(define-scheme-function
+  (bf)
+  (number-or-string?)
+  (markup #:combine
+    #:figured-bass (if (number? bf) (number->string bf) bf)
+    #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
+
 \layout {
   \context {
     \Staff
