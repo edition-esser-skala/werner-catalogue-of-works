@@ -74,4 +74,9 @@ dotbf = #(define-scheme-function
     \Staff
     \RemoveAllEmptyStaves
   }
+  \context {
+    \Lyrics
+    \override StanzaNumber.font-series = #'medium
+    \override StanzaNumber.font-size = #-1
+  }
 }

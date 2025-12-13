@@ -1,14 +1,6 @@
 \version "2.24.2"
 \include "header.ly"
 
-\layout {
-  \context {
-    \Lyrics
-    \override StanzaNumber.font-series = #'medium
-    \override StanzaNumber.font-size = #-1
-  }
-}
-
 ViolinoI = {
   \relative c' {
     \clef treble
