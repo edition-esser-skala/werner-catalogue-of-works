@@ -3,20 +3,20 @@
 
 notes = \relative c {
   \clef bass
-  \key d \minor \time 4/4 \autoBeamOff \tempoMarkup "Allabreve"
-  d2.^\partBc d4
-  e a, a'2~
-  a4 g2 f4
-  e d2 cis4
-  d8[ e f g] a4 a,
+  \twotwotime \key d \minor \time 2/2 \autoBeamOff \tempoMarkup "Allabreve"
+  d2.^\partBc e4
+  \clef tenor a2.^\partTc b4
+  c1
+  b4 c d2~
+  d cis
 }
 
 text = \lyricmode {
-  Ky -- ri --
-  e __ _ e --
-  _ _
-  lei -- _ _
-  son, __ _ "e -"
+  San -- _
+  San -- _
+  ctus,
+  san -- _ _
+  \hy
 }
 
 \score {
