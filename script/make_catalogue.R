@@ -73,13 +73,7 @@ catalogue_other <-
 
 catalogue_all <-
   bind_rows(catalogue_siglum, catalogue_other) %>%
-  arrange(group, subgroup, number) %>%
-  separate_wider_regex(
-    shelfmark,
-    c(shelfmark = ".*", " \\[", rism_id = "\\d+", "\\]"),
-    too_few = "align_start",
-    cols_remove = TRUE
-  )
+  arrange(group, subgroup, number)
 
 
 
@@ -116,17 +110,10 @@ inner_join(
 ) %>%
   check_empty()
 
-info("- all catalogue entries with unique siglum are in the list of known works")
+info("- all catalogue entries are in the list of known works")
 catalogue_all %>%
-  filter(is.na(rism_id)) %>%
   anti_join(known_works, by = join_by(siglum, shelfmark)) %>%
   arrange(siglum, shelfmark) %>%
-  check_empty()
-
-info("- all catalogue entries with shared siglum are in RISM")
-catalogue_all %>%
-  filter(!is.na(rism_id)) %>%
-  anti_join(rism_entries, by = join_by(siglum, shelfmark, rism_id)) %>%
   check_empty()
 
 info("- all known works not in RISM are cited in the catalogue")
@@ -144,20 +131,10 @@ rism_entries %>%
 # Create catalogue with RISM IDs ------------------------------------------
 
 catalogue_all_with_rism <-
-  bind_rows(
-    catalogue_all %>%
-      filter(is.na(rism_id)) %>%
-      select(!rism_id) %>%
-      left_join(
-        rism_entries %>% select(!title),
-        by = join_by(siglum, shelfmark)
-      ),
-    catalogue_all %>%
-      filter(!is.na(rism_id)) %>%
-      left_join(
-        rism_entries %>% select(!title),
-        by = join_by(siglum, shelfmark, rism_id)
-      )
+  catalogue_all %>%
+  left_join(
+    rism_entries %>% select(!title),
+    by = join_by(siglum, shelfmark)
   ) %>%
   unite(siglum, shelfmark, col = "source", sep = " ")
 
