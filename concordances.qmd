@@ -22,11 +22,11 @@ options(readr.show_col_types = FALSE)
 
 params <- read_yaml("data/config.yml")
 
-print_concordance <- function(catalogue) {
-  notes <-
-    read_csv("data/catalogue_notes.csv") %>% 
-    filter(catalogue == {{catalogue}}) %>% 
-    select(number, notes)
+print_concordance <- function(catalogue, notes = NULL) {
+  if (!is.null(notes))
+    notes <- read_csv(notes)
+  else
+    notes <- tibble(number = "__none__", notes = "")
   
   read_rds("data_generated/works.rds") %>% 
     left_join(
@@ -42,7 +42,7 @@ print_concordance <- function(catalogue) {
     select(number, id) %>% 
     mutate(number = str_remove(number, " \\(\\?\\)$")) %>% 
     bind_rows(notes) %>% 
-    filter(!is.na(number)) %>%
+    filter(!is.na(number), number != "__none__") %>%
     summarise(
       .by = number,
       id = str_flatten_comma(id, na.rm = TRUE),
@@ -90,7 +90,7 @@ The following table reproduces the table of contents of the unfinished catalogue
 #| echo: false
 #| output: asis
 
-read_csv("data/harich_catalogue.csv") %>% 
+read_csv("data/HarCa_groups.csv") %>% 
   fill(super_number, super_title) %>% 
   unite(super_number, super_title, col = "super", sep = ". ") %>% 
   gt(groupname_col = "super") %>%
@@ -115,16 +115,7 @@ Generally, Hárich included works from the 1737/38 inventory as separate works i
 ```{r HarCa entries}
 #| echo: false
 #| output: asis
-print_concordance("HarCa")
-```
-
-
-## @Harich1975 (HarIn)
-
-```{r HarIn}
-#| echo: false
-#| output: asis
-print_concordance("HarIn")
+print_concordance("HarCa", notes = "data/HarCa_notes.csv")
 ```
 
 
