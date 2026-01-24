@@ -15,9 +15,6 @@ GLOBAL_sigla <- c()
 ## Config file ----
 
 params <- read_yaml("data/config.yml")
-cols_identifiers <-
-  params$catalogue_columns$identifiers %>%
-  list_simplify()
 catalogue_prefix <- params$catalogue_prefix
 
 instruments_unimarc <-
@@ -535,15 +532,32 @@ format_sources_short <- function(ss) {
   )
 }
 
-# format identifiers as links to bibliography
-# id_list: named vector (catalogue = id)
+# format catalogue identifiers as links to bibliography
+# catalogues: vector of identifiers named with catalogue abbreviation
 # sep: separator between identifiers
 # add_links: whether to add links if available
-format_identifiers <- function(id_list, sep, add_links = TRUE) {
+# check: whether to check whether identifiers correspond in CSV and MEI
+format_identifiers <- function(catalogues,
+                               sep,
+                               add_links = TRUE,
+                               check = FALSE) {
+  catalogue_refs <-
+    params$catalogue_columns$identifiers %>%
+    list_simplify()
+
+  if (check) {
+    unknown_catalogues <- setdiff(
+      names(catalogues),
+      names(catalogue_refs)
+    )
+    if (length(unknown_catalogues) > 0L)
+      error("  Unknown identifier in MEI: {unknown_catalogues}")
+  }
+
   imap_chr(
-    cols_identifiers,
+    catalogue_refs,
     \(ref, catalogue) {
-      id <- pluck(id_list, catalogue)
+      id <- pluck(catalogues, catalogue)
       if (is.null(id) || is.na(id))
         return(NA)
       if (ref == "" || !add_links) {
@@ -1447,7 +1461,8 @@ get_work_details <- function(group,
   )
   identifiers <- format_identifiers(
     set_names(identifier_ids, identifier_catalogues),
-    sep = "<br/>"
+    sep = "<br/>",
+    check = TRUE
   )
 
   author <- format_author(data_work$contributor)
