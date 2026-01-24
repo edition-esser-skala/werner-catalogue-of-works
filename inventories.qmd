@@ -139,6 +139,61 @@ works_eisenstadt %>%
 ```
 
 
+### @EsterhazyInv1740
+
+```{r Esterhazy 1740}
+#| echo: false
+#| output: asis
+
+inv <- print_inventory(
+  "EsterhazyInv1740",
+  pattern = "sec. (\\w+), no. (\\w+)",
+  cols = c("section", "no."),
+  return_tibble = TRUE
+)
+
+works_esterhazy <-
+  read_csv("data/inventory_esterhazy1740.csv") %>% 
+  fill(group) %>% 
+  separate_wider_regex(
+    group,
+    patterns = c(section = "\\w", ".*"),
+    cols_remove = FALSE
+  )
+
+# all citations of inventory in work table are in inventory table
+stopifnot(
+  anti_join(
+    inv,
+    works_esterhazy,
+    by = join_by(no. == number, section == section)
+  ) %>%
+    nrow == 0L
+)
+
+works_esterhazy %>%
+  left_join(
+    inv,
+    by = join_by(number == no., section == section)
+  ) %>% 
+  select(!section) %>%
+  summarise(
+    .by = c(group, number, title),
+    id = str_flatten_comma(id)
+  ) %>%
+  gt(groupname_col = "group") %>%
+  cols_align("right", columns = number) %>%
+  cols_label(number = "no.", id = params$catalogue_prefix) %>%
+  fmt_markdown(columns = id) %>%
+  sub_missing(columns = id, missing_text = "") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
+```
+
+
 ### @EsterhazyInv1805
 
 ```{r Esterhazy 1805}
@@ -188,6 +243,60 @@ print_inventory(
   pattern = "fol. (\\w+), no. ([\\w-]+)",
   cols = c("fol.", "no.")
 )
+```
+
+
+### @Werner1737
+
+```{r Werner1737}
+#| echo: false
+#| output: asis
+inv <- print_inventory(
+  "Werner1737",
+  pattern = "p. (\\w+), no. (\\w+)\\.(\\w+)",
+  cols = c("p.", "section", "no."),
+  return_tibble = TRUE
+)
+
+works_werner <-
+  read_csv("data/inventory_werner1737.csv") %>% 
+  fill(group, page) %>% 
+  separate_wider_regex(
+    group,
+    patterns = c("\\[", section = "\\w+", "\\].*"),
+    cols_remove = FALSE
+  )
+
+# all citations of inventory in work table are in inventory table
+stopifnot(
+  anti_join(
+    inv,
+    works_werner,
+    by = join_by(p. == page, no. == number, section == section)
+  ) %>%
+    nrow == 0L
+)
+
+works_werner %>%
+  left_join(
+    inv,
+    by = join_by(page == p., number == no., section == section)
+  ) %>% 
+  select(!section) %>%
+  summarise(
+    .by = c(group, page, number, title), 
+    id = str_flatten_comma(id)
+  ) %>% 
+  gt(groupname_col = "group") %>%
+  cols_align("right", columns = c(page, number)) %>%
+  cols_label(page = "p.", number = "no.", id = params$catalogue_prefix) %>%
+  fmt_markdown(columns = id) %>%
+  sub_missing(columns = id, missing_text = "") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table_body.hlines.style = "none"
+  )
 ```
 
 
