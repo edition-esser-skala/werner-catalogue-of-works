@@ -393,7 +393,7 @@ format_ark <- function(meihead,
   ## (1) catalogue entry
   use_template(
     ERC_TEMPLATE,
-    who = book$author,
+    who = book$author$name,
     what = str_glue("Catalogue entry ",
                     "for '{title} ({catalogue_prefix} ",
                     "{str_replace_all(work_id, '_', '.')})' ",
@@ -408,7 +408,7 @@ format_ark <- function(meihead,
   if (template == "full") {
     use_template(
       ERC_TEMPLATE,
-      who = book$author,
+      who = book$author$name,
       what = str_glue("Metadata in Music Encoding Initiative (MEI) format ",
                       "for '{title} ({catalogue_prefix} ",
                       "{str_replace_all(work_id, '_', '.')})' ",
@@ -424,7 +424,7 @@ format_ark <- function(meihead,
   if (work_id %in% AVAILABLE_EDITIONS) {
     use_template(
       ERC_TEMPLATE,
-      who = book$author,
+      who = book$author$name,
       what = str_glue("Full score ",
                       "for '{title} ({catalogue_prefix} ",
                       "{str_replace_all(work_id, '_', '.')})' ",
