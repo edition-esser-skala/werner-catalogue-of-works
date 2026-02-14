@@ -12,7 +12,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-p=`yq .catalogue_prefix ../../data/config.yml`
+p=`yq -r .catalogue_prefix ../../data/config.yml`
 s="${p}_$1.xml"
 t="$1.xml"
 
@@ -39,7 +39,7 @@ echo "Processing ..."
 xmlstarlet edit --inplace --delete '//@xml:id' $s
 
 # add an 'altId' element containing the ARK
-ark_prefix=`yq .ark ../../data/config.yml`
+ark_prefix=`yq -r .ark ../../data/config.yml`
 ark_suffix=`echo $1 | sed "s/_//g" | sed -E "s/(.*)/\L\1/g"`
 ark="ark:$ark_prefix$ark_suffix"
 xmlstarlet edit --inplace --insert '//_:fileDesc' -t elem -n altId -v $ark $s
