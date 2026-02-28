@@ -4,213 +4,197 @@
 ViolinoI = {
   \relative c' {
     \clef soprano
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]"
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
-    b'1 c2 d
-    es1 d2 b
-    c1 b
-    c2 a g1
-    c c~
-    c2 d b g
+    R\breve*2
+    r1 e'
+    d2 h c1
+    h2 e1 d2
+    e1 r2 h
   }
 }
 
 ViolinoII = {
   \relative c' {
     \clef alto
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]"
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
-    r1 f
-    g2 a b1
-    a d,2 g~
-    g fis g1
-    fis2 g a \hA fis
-    g a g1
+    R\breve*2
+    a'1 g2 e
+    f1 e2 a~
+    a g a1
+    r2 e d2. e4
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
       \set Staff.timeSignatureFraction = 2/2
-    b'1 c2 d
-    es1 d2 b
-    c1 b
-    c2 a g1
-    c c~
-    c2 d b g
+    R\breve*2
+    r1 e'
+    d2 h c1
+    h2 e1 d2
+    e1 r2 h
   }
 }
 
 SopranoLyricsA = \lyricmode {
-  Ve -- xil -- _
-  la re -- _
-  gis pro -- _
-  de -- unt
-  ful -- get __
-  cru -- _ cis __
+  Iam
+  sol re -- ce --
+  dit i -- gne --
+  us, tu
 }
 
 SopranoLyricsB = \lyricmode {
-  Quae vul -- _
-  ne -- ra -- _
-  ta lan -- _
-  ce -- ae
-  mu -- cro --
-  ne di -- \hy
+  Te
+  ma -- ne lau --
+  dum car -- mi --
+  ne, te
 }
 
 SopranoLyricsC = \lyricmode {
-  Te fons _
-  sa -- lu -- _
-  tis tri -- _
-  ni -- tas
-  col -- lau --
-  det o -- \hy
+  Pa --
+  tri si -- mul --
+  que Fi -- li --
+  o "ti -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
       \set Staff.timeSignatureFraction = 2/2
-    r1 f
-    g2 a b1
-    a d,2 g~
-    g fis g1
-    fis2 g a \hA fis
-    g a g1
+    R\breve*2
+    a'1 g2 e
+    f1 e2 a~
+    a g a1
+    r2 e d2. e4
   }
 }
 
 AltoLyricsA = \lyricmode {
-  Ve --
-  xil -- _ la
-  re -- gis pro --
-  de -- unt
-  ful -- get cru -- _
-  cis, ___  "ful -"
+  Iam sol re --
+  ce -- dit i --
+  gne -- us,
+  tu lux "per -"
 }
 
 AltoLyricsB = \lyricmode {
-  Quae
-  vul -- _ ne --
-  ra -- ta lan --
-  ce -- ae
-  mu -- _ cro -- _
-  ne __ _ "di -"
+  Te ma -- ne
+  lau -- dum car --
+  mi -- ne,
+  te de -- "pre -"
 }
 
 AltoLyricsC = \lyricmode {
-  Te
-  fons _ sa --
-  lu -- tis tri --
-  ni -- tas
-  col -- _ lau -- _
-  det __ _ "o -"
+  Pa -- tri si --
+  mul -- que Fi --
+  li -- o
+  ti -- bi -- que
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
       \set Staff.timeSignatureFraction = 2/2
-    R\breve
-    c1 b2 g
-    a1 g
-    es'2 d d1
-    r d
-    c2 a b1
+    e1 d2 h
+    c1 h2 e~
+    e d e1
+    a,2 d g, r
+    r h a2. h4
+    c1 h
   }
 }
 
 TenoreLyricsA = \lyricmode {
-  Ve -- xil -- la
-  re -- gis
-  pro -- de -- unt
-  ful --
-  get cru -- cis
+  Iam sol re --
+  ce -- dit i --
+  gne -- us,
+  i -- gne -- us,
+  tu lux per --
+  en -- nis,
 }
 
 TenoreLyricsB = \lyricmode {
-  Quae vul -- ne --
-  ra -- ta
-  lan -- ce -- ae
-  mu --
-  cro -- ne "di -"
+  Te ma -- ne
+  lau -- dum car --
+  mi -- ne,
+  car -- mi -- ne,
+  te de -- pre --
+  ce -- mur,
 }
 
 TenoreLyricsC = \lyricmode {
-  Te fons sa --
-  lu -- tis
-  tri -- ni -- tas
-  col --
-  lau -- det "o -"
+  Pa -- tri si --
+  mul -- que Fi --
+  li -- o,
+  Fi -- li -- o
+  ti -- bi -- que
+  San -- cte,
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]" \autoBeamOff
       \set Staff.timeSignatureFraction = 2/2
-    g'1 a2 f
-    c1 g'~
-    g2 fis g es
-    c d g, b'
-    a g fis d
-    e fis g es
+    R\breve
+    r2 a' g e
+    f1 e2 c
+    d2. d4 c2. d4
+    e2 e f2. f4
+    e2 c g'1
   }
 }
 
 BassoLyricsA = \lyricmode {
-  Ve -- xil -- la
-  re -- _
-  _ gis __ _
-  pro -- de -- unt ful --
-  get cru -- cis, __ _
-  cru -- _ cis __ _
+  Iam sol re --
+  ce -- dit i --
+  _ gne -- us, re --
+  ce -- dit i -- gne --
+  us, tu lux
 }
 
 BassoLyricsB = \lyricmode {
-  Quae vul -- ne --
-  ra -- _
-  _ ta __ _
-  lan -- ce -- ae mu --
-  cro -- ne di -- _
-  ro, __ _ di -- \hy
+  Te ma -- ne
+  lau -- dum car --
+  _ mi -- ne, __ _
+  lau -- dum car -- mi --
+  ne, te "de -"
 }
 
 BassoLyricsC = \lyricmode {
-  Te fons sa --
-  lu -- _
-  _ tis __ _
-  tri -- ni -- tas col --
-  lau -- det o -- _
-  mnis, __ _ o -- \hy
+  Pa -- tri si --
+  mul -- que Fi --
+  _ li -- o, si --
+  mul -- que Fi -- li --
+  o ti -- "bi -"
 }
 
 Organo = {
   \relative c {
-    \clef bass
-    \key g \minor \time 4/2 \tempoMarkup "[no tempo]"
+    \clef tenor
+    \key e \phrygian \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
-    g2 g' a f
-    c1 g'~
-    g2 fis g es
-    c d g, b'
-    a g fis d
-    e fis g es
+    e'1 d2 h
+    << { c1 h2 e } \\ { r2 a, g e } >>
+    \clef bass f1 e2 c
+    d1 c2. d4
+    e1 f
+    e2 c g'1
   }
 }
 
 BassFigures = \figuremode {
-  r1 <6>2 q
-  <5> <6>1.
-  <4 2>2 <6 5>1.
-  <6 5>2 <_+>1 <6>2
-  <6\\> <8 4> <3 5> <\t \t>
-  <6> q1.
+  r\breve
+  r
+  <3 7>2 <_ 6> <3 8>1
+  <5>2 <6> <8> <6>
+  <4> <3> <7 3> <6 \t>4 <\t 4>
+  <6>1 <#(dotbf 5)>2. <6>4
 }
 
 \score {
@@ -228,7 +212,7 @@ BassFigures = \figuremode {
         }
       >>
     >>
-    \new ChoirStaff \with { \setGroupDistance #15 #15 } <<
+    \new ChoirStaff \with { \setGroupDistance #16 #16 } <<
       \new Staff {
         \set Staff.instrumentName = "S"
         \new Voice = "Soprano" { \dynamicUp \Soprano }

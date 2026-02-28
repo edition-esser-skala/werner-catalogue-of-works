@@ -1,7 +1,7 @@
 \version "2.24.2"
 \include "header.ly"
 
-ViolaI = {
+ViolinoI = {
   \relative c' {
     \clef soprano
     \key f \major \time 3/2 \tempoMarkup "Molto andante"
@@ -13,7 +13,7 @@ ViolaI = {
   }
 }
 
-ViolaII = {
+ViolinoII = {
   \relative c' {
     \clef alto
     \key f \major \time 3/2 \tempoMarkup "Molto andante"
@@ -190,14 +190,14 @@ BassFigures = \figuremode {
   <<
     \new StaffGroup <<
       \new GrandStaff <<
-        \set GrandStaff.instrumentName = "vla"
+        \set GrandStaff.instrumentName = "vl"
         \new Staff {
           \set Staff.instrumentName = "1"
-          \ViolaI
+          \ViolinoI
         }
         \new Staff {
           \set Staff.instrumentName = "2"
-          \ViolaII
+          \ViolinoII
         }
       >>
     >>
