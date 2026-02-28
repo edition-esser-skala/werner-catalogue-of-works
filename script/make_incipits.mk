@@ -9,7 +9,7 @@ LILYPOND = lilypond \
   -dcrop
 
 # invocation of Verovio
-VEROVIO = verovio \
+VEROVIO = /home/wolfgang/Programme/verovio-6.0.1/build/verovio -r "/home/wolfgang/Programme/verovio-6.0.1/data" \
   --adjust-page-height \
   --adjust-page-width \
   --header "none" \
