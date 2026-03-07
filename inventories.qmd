@@ -453,11 +453,12 @@ fonds_data %>%
       replace_na("") %>% 
       map(html)
   ) %>%
-  select(number, folder, title, WerW, notes) %>% 
+  select(number, folder, title, WerW, classification, number_moder, notes) %>%
   gt() %>%
   cols_align("left") %>%
+  cols_label(number_moder = "number (Moder)") %>% 
   fmt_markdown(columns = notes) %>%
-  sub_missing(columns = c(folder, notes), missing_text = "") %>%
+  sub_missing(columns = c(folder, number_moder, notes), missing_text = "") %>%
   tab_style(
     style = cell_text(color = "grey70"),
     locations = cells_body(rows = is.na(folder))
