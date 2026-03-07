@@ -19,4 +19,4 @@ sed -i -r "s/width=\"[0-9]+pt\" height=\"[0-9]+pt\"/width=\"$w\" height=\"$h\"/"
 
 # add a white background to an SVG file, i.e.,
 # add a white-filled <rect> element before the first <defs> tag
-sed -i '0,/<defs/s/<defs/<rect width="100%" height="100%" fill="#ffffff" rx="5"\/>\n<defs/' $1
+sed -i '0,/<defs/s/<defs/<rect width="100%" height="100%" fill="#ffffff" rx="10" style="stroke:none"\/>\n<defs/' $1
