@@ -6,9 +6,9 @@ ViolinoI = {
     \clef treble
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
     R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      R\breve*6
   }
 }
 
@@ -17,9 +17,9 @@ ViolinoII = {
     \clef treble
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
     R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      R\breve*6
   }
 }
 
@@ -28,14 +28,14 @@ Soprano = {
     \clef soprano
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
     R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      R\breve*6
   }
 }
 
 SopranoLyrics = \lyricmode {
-  O -- san -- na
+  %tacet
 }
 
 Alto = {
@@ -46,11 +46,9 @@ Alto = {
     g4 g8[ f] g[ as]
     f4 f r
     r c2 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 a4 d cis f e
-    a g f f
-    e2 d
-    R1
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      R\breve*6
   }
 }
 
@@ -59,10 +57,6 @@ AltoLyrics = \lyricmode {
   di -- ctus, qui
   ve -- nit
   in
-  O --
-  san -- na in ex --
-  cel -- sis, in ex --
-  cel -- sis,
 }
 
 Tenore = {
@@ -73,10 +67,12 @@ Tenore = {
     r4 es4. es8
     es4 d8[ c] d[ \hA es]
     c4 c r \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*2
-    r2 r4 e,
-    a gis c h
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      R\breve*3
+    a\breve
+    d1 c
+    h2 c d1
   }
 }
 
@@ -84,8 +80,10 @@ TenoreLyrics = \lyricmode {
   Be -- ne --
   di -- ctus, qui
   ve -- nit,
+
   O --
-  san -- na in "ex -"
+  san -- na
+  in ex -- "cel -"
 }
 
 Basso = {
@@ -93,18 +91,24 @@ Basso = {
     \clef bass
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
     R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 r a d cis
-    f e e8[ a,] d4~
-    d cis d r
-    R1
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      d\breve
+    a'1 g
+    e2 f g1
+    d4 e f2. g4 a g
+    f d f g a e a2~
+    a4 g f e d c b2
   }
 }
 
 BassoLyrics = \lyricmode {
-  O -- san -- na
-  in ex -- cel -- _
-  _ sis,
+  O --
+  san -- na
+  in ex -- cel --
+  _ _ _ _ _ _
+  _ _ _ _ _ _ _
+  _ _ _ _ _ \hy
 }
 
 Organo = {
@@ -115,11 +119,20 @@ Organo = {
     es g \hA es
     b d \hA b
     f f' es \gotoBar "16"
-    \clef tenor \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 a4 d \clef bass a, d cis
-    f e~ e8 a, d4~
-    d cis d \clef tenor e
-    a gis c h
+    \time 4/2 \tempoMarkup "[no tempo]"
+      \set Staff.timeSignatureFraction = 2/2
+      d\breve
+    a'1 g
+    e2 f g1
+    << {
+      a\breve
+      d1 c
+      h2 c d1
+    } \\ {
+      d,4 e f2. g4 a g
+      f d f g a e a2~
+      a4 g f e d c b2
+    } >>
   }
 }
 
@@ -128,10 +141,12 @@ BassFigures = \figuremode {
   r
   <4>
   r
-  r4 r <10+> <10> q
-  q q <9>8 <6> <3>4
-  <2>1
-  r4 <6> q <6\\>
+  <1>\breve
+  q1 q
+  q2 q q1
+  r\breve
+  r %20
+  r
 }
 
 \score {

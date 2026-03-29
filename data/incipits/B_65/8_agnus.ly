@@ -4,22 +4,34 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    \key d \dorian \time 3/4 \tempoMarkup "[no tempo]"
+    a''2 a4
+    a a f
+    f f a
+    d, b f'~
+    f g c
+    a d, d
+    d2 d4
+    g2 c,4~
+    c c2
+    c r4
   }
 }
 
 ViolinoII = {
   \relative c' {
-    \clef treble
-    \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    \clef soprano
+    \key d \dorian \time 3/4 \tempoMarkup "[no tempo]"
+    d'2 d4
+    c c b
+    a a a
+    b2 a4~
+    a g2
+    fis r4
+    r b b
+    b2 a4~
+    a g2
+    a4 r r
   }
 }
 
@@ -27,111 +39,150 @@ Soprano = {
   \relative c' {
     \clef soprano
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*3
-    r4 e a gis
+    d'2 d4
+    c c b
+    a a a
+    b2 a4~
+    a g2
+    fis r4
+    r b b
+    b2 a4~
+    a g2
+    a4 c a
   }
 }
 
 SopranoLyrics = \lyricmode {
-  O -- san -- na
+  A -- gnus
+  De -- i, qui
+  tol -- lis pec --
+  ca -- ta __
+  mun --
+  di:
+  Mi -- se --
+  re -- re __
+  no --
+  bis. A -- gnus
 }
 
 Alto = {
   \relative c' {
     \clef alto
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    r4 f4. f8
-    g4 g8[ f] g[ as]
-    f4 f r
-    r c2 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 a4 d cis f e
-    a g f f
-    e2 d
-    R1
+    f2 f4
+    e e d8[ e]
+    f4 f d
+    d es2
+    d4 d c
+    d fis fis
+    g2.~
+    g2 f4~
+    f f e
+    f f f
   }
 }
 
 AltoLyrics = \lyricmode {
-  Be -- ne --
-  di -- ctus, qui
-  ve -- nit
-  in
-  O --
-  san -- na in ex --
-  cel -- sis, in ex --
-  cel -- sis,
+  A -- gnus
+  De -- i, qui
+  tol -- lis pec --
+  ca -- _
+  ta mun -- _
+  di: Mi -- se --
+  re --
+  re __
+  no -- _
+  bis. A -- gnus
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    R2.
-    r4 es4. es8
-    es4 d8[ c] d[ \hA es]
-    c4 c r \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 R1*2
-    r2 r4 e,
-    a gis c h
+    a2 a4
+    c c d
+    c c a
+    g2 a4~
+    a b c
+    a a a
+    b2 d4
+    c2.~
+    c
+    c4 a f
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Be -- ne --
-  di -- ctus, qui
-  ve -- nit,
-  O --
-  san -- na in "ex -"
+  A -- gnus
+  De -- i, qui
+  tol -- lis pec --
+  ca -- ta __
+  mun -- _
+  di: Mi -- se --
+  re -- re
+  no --
+
+  bis. A -- gnus
 }
 
 Basso = {
   \relative c {
     \clef bass
     \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
-    R2.*4 \gotoBar "16"
-    \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 r4 r a d cis
-    f e e8[ a,] d4~
-    d cis d r
-    R1
+    r4 d d
+    a' a b
+    f f fis
+    g2 f4~
+    f es2
+    d r4
+    g2 f4
+    e!2 f4~
+    f c2
+    f,4 r r
   }
 }
 
 BassoLyrics = \lyricmode {
-  O -- san -- na
-  in ex -- cel -- _
-  _ sis,
+  A -- gnus
+  De -- i, qui
+  tol -- lis pec --
+  ca -- ta __
+  mun --
+  di:
+  Mi -- se --
+  re -- re __
+  no --
+  bis.
 }
 
 Organo = {
   \relative c {
     \clef bass
     \key d \dorian \time 3/4 \tempoMarkup "[no tempo]"
-    b4-\solo^\aDue d \hA b
-    es g \hA es
-    b d \hA b
-    f f' es \gotoBar "16"
-    \clef tenor \time 4/4 \tempoMarkup "[no tempo]"
-      \partial 4 a4 d \clef bass a, d cis
-    f e~ e8 a, d4~
-    d cis d \clef tenor e
-    a gis c h
+    d2 d4
+    a'2 b4
+    f2 fis4
+    g2 f4~
+    f es2
+    d d4
+    g2 f4
+    e!2 f4~
+    f c2
+    f,4 \clef tenor a' f
   }
 }
 
 BassFigures = \figuremode {
   r2.
   r
-  <4>
-  r
-  r4 r <10+> <10> q
-  q q <9>8 <6> <3>4
-  <2>1
-  r4 <6> q <6\\>
+  r2 <6>4
+  <5 _-> <6- \t> <7>
+  <6> <7> <6>
+  <_+>2.
+  <_->
+  <6 5->
+  r4 <4> <3>
+  r <6>2
 }
 
 \score {
@@ -157,13 +208,13 @@ BassFigures = \figuremode {
       \new Lyrics \lyricsto Soprano \SopranoLyrics
 
       \new Staff {
-        \set Staff.instrumentName =  \markup \center-column { "A" "trb 1" }
+        \set Staff.instrumentName = "A"
         \new Voice = "Alto" { \dynamicUp \Alto }
       }
       \new Lyrics \lyricsto Alto \AltoLyrics
 
       \new Staff {
-        \set Staff.instrumentName =  \markup \center-column { "T" "trb 2" }
+        \set Staff.instrumentName = "T"
         \new Voice = "Tenore" { \dynamicUp \Tenore }
       }
       \new Lyrics \lyricsto Tenore \TenoreLyrics

@@ -2,17 +2,26 @@
 \include "header.ly"
 
 notes = \relative c' {
-  \clef tenor
-  \key d \dorian \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
-  r4^\partTs a8 d d4 cis8 cis
-  d a b4 b a8[ g]
-  f d d' h gis4 a8[ h]
+  \clef alto
+  \key d \dorian \time 3/4 \autoBeamOff \tempoMarkup "[no tempo]"
+  r4^\partAs f4. f8
+  g4 g8[ f] g[ as]
+  f4 f r \gotoBar "16"
+  \clef bass \time 4/2
+    \set Staff.timeSignatureFraction = 2/2
+    d,\breve^\partBc
+  a'1 g
+  e2 f g1
+
 }
 
 text = \lyricmode {
-  A -- gnus De -- i, qui
-  tol -- lis pec -- ca -- ta
-  mun -- di: Mi -- se -- re -- re
+  Be -- ne --
+  di -- ctus, qui
+  ve -- nit
+  O --
+  san -- na
+  in ex -- "cel -"
 }
 
 \score {
@@ -20,4 +29,5 @@ text = \lyricmode {
     \new Voice = "incipit" { \notes }
     \new Lyrics \lyricsto "incipit" { \text }
   >>
+  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/4) }
 }
