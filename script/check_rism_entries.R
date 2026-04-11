@@ -13,6 +13,7 @@ rism_entries_new <-
   mutate(rism_id = as.integer(rism_id))
 
 # alternatively, download CSV from rism.online search results
+# creator:werner, gregor
 rism_entries_new <-
   read_csv("data_generated/rism-online-search-results.csv") %>%
   mutate(rism_id = str_extract(url, "\\d+") %>% as.integer(), .keep = "none")
@@ -22,7 +23,9 @@ rism_entries_old <- read_csv("data/works_in_rism.csv", comment = "#")
 
 rism_entries_old %>%
   anti_join(rism_entries_new) %>%
-  filter(notes != "added manually")
+  filter(manual_intervention != "added")
 
 rism_entries_new %>%
   anti_join(rism_entries_old)
+
+# rism_entries_old %>% count(manual_intervention)
