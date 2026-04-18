@@ -4,7 +4,7 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key f \major \time 4/4 \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \tempoMarkup "Largo"
     c'1-\solo
     b2 a4 d
     g, fis8 g a2
@@ -16,7 +16,7 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key f \major \time 4/4 \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \tempoMarkup "Largo"
     a'1-\solo
     g4 e f8 a g f
     es4 c2 a4
@@ -28,7 +28,7 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     a'4.^\solo b16[ c] fis,4 fis16[ g] a8
     b4 a8 g f d r d'
     es2. d8 c
@@ -48,7 +48,7 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     R1*3
     r2 r4 g'~^\solo
     g8 c, f es d4. g8
@@ -63,7 +63,7 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     R1*4
     r4 c4.^\solo f,8 b4
   }
@@ -76,7 +76,7 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \autoBeamOff \tempoMarkup "Largo"
     R1*5
   }
 }
@@ -88,7 +88,7 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key f \major \time 4/4 \tempoMarkup "Adagio"
+    \key f \major \time 4/4 \tempoMarkup "Largo"
     f,4-\solo f'8 es d2
     cis d4 h
     c8 c' a g fis2
