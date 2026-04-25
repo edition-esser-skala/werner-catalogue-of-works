@@ -1,5 +1,35 @@
 # Changelog {.unnumbered}
 
+## 0.20.0 – 2026-04-25
+
+### Added
+
+- works: WerW D.5.S5
+- incipits and metadata for WerW A.19, B.30/38/43/57/65/69/71–73, D.5.S5, E.8–10, F.42/44–46, G.7, H.1.13, H.2.7, I.1.9/10, I.2.11, I.3.8, I.4.10/20/38, I.5.22, M.4, and N.4
+- sources:
+  - A-KN: 130
+  - A-Wn: F100.Moder.18, 19, 27, 28, 69, 70/1+2, 73/1+2, 78, 82/1, 84, 85/6–8, 86–89, 94/3–5, 98/4+5, 101, 102, 105, 117, 118, 128–133, 138, 155, and 175; details from online catalogue: 83, 84, 91, 113, 114, 122, 124, 127, 136–138, 144–153, 163–174, 177–190, and 192
+- references: @Lang1978, @Lashofer1983, @Page2024, and @Wotquenne1902
+- acknowledgements for Walterskirchen
+- WerW B.11: RISM entry of A-SEI source
+- writing samples for P. Maurus Brunnmayr
+- The table on fonds Moder now contains two additional columns for classification and Moder's own numbers.
+
+
+### Changed
+
+- updated `get_mermeid_xml.sh` to a new version of `yq`
+- merged WerW D.5.L2 to S2, F.61 to 42, and F.62 to 51
+
+
+### Fixed
+
+- WerW B.1: title of A-HE source
+- WerW B.11: tempo indication in incipit
+- links to EES editions on their new webpage
+- border of SVG incipits is hidden again
+
+
 ## 0.19.0 – 2026-01-25
 
 ### Added
