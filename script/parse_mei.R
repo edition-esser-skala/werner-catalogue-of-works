@@ -235,10 +235,10 @@ support-what: {support_what}
 
 # replaces a string “WerW X” with a link to the respective work
 link_work <- function(s) {
-  ref <- str_match(s, PATTERN_WORK)[1,]
-  link_text <- ref[1]
+  ref <- str_match(s, PATTERN_WORK)
+  link_text <- ref[,1]
   blade <-
-    ref[2] %>%
+    ref[,2] %>%
     str_replace_all("\\.", "") %>%
     str_to_lower()
 
@@ -247,8 +247,8 @@ link_work <- function(s) {
 
 # replaces a string “RISM X” with a link to the respective RISM entry
 link_rism <- function(s) {
-  ref <- str_match(s, PATTERN_RISM)[1,]
-  use_template(RISM_TEMPLATE, label = ref[1], rism_id = ref[2])
+  ref <- str_match(s, PATTERN_RISM)
+  use_template(RISM_TEMPLATE, label = ref[,1], rism_id = ref[,2])
 }
 
 # get the value of <elem_name attr_name="attr_value">
