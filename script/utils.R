@@ -2,6 +2,8 @@ library(tidyverse)
 library(openxlsx)
 library(fs)
 
+options(renv.config.pak.enabled = TRUE)
+
 
 
 # Logging -----------------------------------------------------------------
