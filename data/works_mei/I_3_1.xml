@@ -204,8 +204,7 @@
               <annot type="source_description">
                 <p>first set: S coro (2), A coro (2), T coro (2), B coro (2), vla 1 (2), vla 2 (2), vlne (2), org (2)</p>
                 <p>second set: S coro (2x; 4, 4), A coro (2x; 4, 4), T coro (4), B coro (4), vla 1 (3), vla 2 (3)</p>
-                <p>wrapper (fol. 1v&#x2013;2v) contains org part of an unidentified <rend fontstyle="italic">Regina c&#x153;li</rend>
-                                </p>
+                <p>wrapper (fol. 1v&#x2013;2v) contains org part of an unidentified <rend fontstyle="italic">Regina c&#x153;li</rend></p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -315,7 +314,7 @@
             <physDesc>
               <extent>1 part</extent>
               <handList>
-                <hand medium="ink" type="main">unidentified</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
               </handList>
               <physMedium>
                 <p>hand-ruled paper</p>
@@ -337,6 +336,51 @@
                 <ptr mimetype=""/>
               </annot>
             </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1950">ca. 1950</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Score</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier/>
+            <physDesc>
+              <handList>
+                <hand medium="black ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14308579" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>F100.Moder.90</identifier>
+            </physLoc>
             <componentList/>
           </item>
         </itemList>
