@@ -39,14 +39,16 @@ get_scribe <- function(mei) {
         \(i) tibble(  # … get siglum, shelfmark, scribe(s)
           siglum = pluck(i$physLoc$repository$identifier, 1),
           shelfmark = i$physLoc$identifier[[1]],
-          scribe = map_chr(i$physDesc$handList, 1)
+          scribe = map_chr(i$physDesc$handList, 1),
+          type = map_chr(i$physDesc$handList, \(h) attr(h, "type"))
         )
       ) %>% 
         list_rbind()
     }) %>% 
     list_rbind() %>% 
     mutate(
-      id = path_file(mei) %>% path_ext_remove()
+      id = path_file(mei) %>% path_ext_remove(),
+      type = replace_values(type, "main" ~ "")
     )
 }
 
@@ -66,7 +68,7 @@ scribes %>%
     id = str_replace_all(id, "_", "."),
     id = str_glue("[{id}](/groups/{file}.html#work-{id})")
   ) %>% 
-  select(scribe, siglum, shelfmark, id) %>% 
+  select(scribe, siglum, shelfmark, id, type) %>% 
   arrange(
     scribe,
     siglum,
