@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId type="ark">ark:68748/gw1f46</altId>
+    <altId type="ark">ark:68748/gw1f49</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -40,10 +40,10 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">F.46</identifier>
-        <identifier label="HarBu">9.15p</identifier>
-        <identifier label="HarCa">I.N.4</identifier>
-        <title xml:lang="la">Ut queant laxis</title>
+        <identifier label="WerW">F.49</identifier>
+        <identifier label="HarBu">9.15s</identifier>
+        <identifier label="HarCa">I.N.33</identifier>
+        <title xml:lang="la">Quicumque Christum quaeritis</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
@@ -56,12 +56,8 @@
         <biblList>
           <head>Bibliography</head>
           <bibl>
-            <genre>reference</genre>
-            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 154]</ref>
-          </bibl>
-          <bibl>
             <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@Bardos1980 [p. 541, no. 1516/16]</ref>
+            <ref targettype="pandoc-citation">@Bardos1980 [p. 542, no. 1516/19]</ref>
           </bibl>
           <bibl>
             <genre>inventory</genre>
@@ -69,15 +65,7 @@
           </bibl>
           <bibl>
             <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@Rostetter2023 [p. 1420, no. W/34/13]</ref>
-          </bibl>
-          <bibl>
-            <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@EsterhazyInv1812 [hymns no. 84]</ref>
-          </bibl>
-          <bibl>
-            <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@EisenstadtInv [p. 109, no. 14]</ref>
+            <ref targettype="pandoc-citation">@EsterhazyInv1812 [hymns no. 87]</ref>
           </bibl>
         </biblList>
         <classification>
@@ -117,7 +105,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="la">Ut queant laxis</title>
+                <title xml:lang="la">Quicumque Christum quaeritis</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -125,10 +113,10 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_ut"/>
+                  <graphic targettype="lowres" target="1_quicumque"/>
                 </incip>
-                <tempo>Presto</tempo>
-                <key pname="d" mode="major"/>
+                <tempo>[no tempo]</tempo>
+                <key pname="d" mode="dorian"/>
                 <meter sym="common"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
@@ -144,7 +132,7 @@
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
                   </perfResList>
                 </perfMedium>
-                <extent>23 bars</extent>
+                <extent>12 bars</extent>
                 <notesStmt>
                   <annot>
                     <p>three stanzas</p>
@@ -184,7 +172,7 @@
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">530004307</identifier>
+            <identifier label="RISM">530004310</identifier>
             <physDesc>
               <dimensions>
                 <locusGrp>
@@ -194,7 +182,7 @@
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[work title]">
-                <p>Hymnus 16 in festo S. Joannis Baptis:</p>
+                <p>Hymnus 19 in Transfiguratione Dom:</p>
               </titlePage>
               <dimensions/>
               <physMedium>
@@ -209,81 +197,11 @@
                 <ptr target="https://copia.oszk.hu/kotta/hymni-de-b-virgine-de-apostolis-et-aliis-festis-1mae-classis/" mimetype="" label="digitized version"/>
                 <ptr target="https://nektar.oszk.hu/hu/manifestation/2746580" mimetype="" label="catalogue entry"/>
               </repository>
-              <identifier>Ms.mus III.210:16</identifier>
+              <identifier>Ms.mus III.210:19</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>The present hymn (no. 16) is written on the following folios: (1) S, 11r&#x2013;v; (2) A, 11r&#x2013;v; (3) T, 11r&#x2013;v; (4) B, 10v&#x2013;11r; (5) vl 1, 8v; (6) vl 2, 8v; and (7) vlne, 8v.</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1760">mid 18th century</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">600038640</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="21.5" unit="cm">21.5 (height in cm)</height>
-                <width quantity="17" unit="cm">17 (width in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[wrapper]">
-                <p>Hymnus | De St: Joanne Baptist&#xE6; | &#xE2; | 4 Voc: | 2 Violettis | Con | Organo e Violone | Auth: Werner</p>
-              </titlePage>
-              <extent>8 parts</extent>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
-              </handList>
-              <physMedium>
-                <p>hand-ruled paper, 2&#x2013;6 staves (10 mm)</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/247.html" mimetype="" label="digitized version"/>
-              </repository>
-              <identifier>M 14</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>S coro (1), A coro (1), T coro (2), B coro (2), vl 1 (1), vl 2 (1), vlne (1), org (1)</p>
+                <p>The present hymn (no. 19) is written on the following folios: (1) S, 13v; (2) A, 13r; (3) T, 13r; (4) B, 12v; (5) vl 1, 10r; (6) vl 2, 10r; and (7) vlne, 10r.</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
@@ -319,7 +237,7 @@
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">601001041</identifier>
+            <identifier label="RISM">601001044</identifier>
             <physDesc>
               <dimensions>
                 <locusGrp>
@@ -329,7 +247,7 @@
                 <extent> lines</extent>
               </dimensions>
               <titlePage label="[work title, org part]">
-                <p>42 In festo St|i Joannis Paptist&#xE6;</p>
+                <p>45. In Transfiguratione Domini</p>
               </titlePage>
               <dimensions/>
               <physMedium>
@@ -343,128 +261,12 @@
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-KN</identifier>
                 <ptr target="https://db.klostermusiksammlungen.at/scores/350" mimetype="" label="catalogue entry"/>
               </repository>
-              <identifier>130:42</identifier>
+              <identifier>130:45</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>The present hymn (no. 42) is written on the following folios: (1) S, 24v; (2) A, 27r; (3) T, 26r&#x2013;v; (4) B, 22v&#x2013;23r; (5) vl 1, 13v; (6) vlne, 13r; and (7) org, 16r.</p>
+                <p>The present hymn (no. 45) is written on the following folios: (1) S, 26v (=r!); (2) A, 28v&#x2013;29r; (3) T, 28r; (4) B, 24v; (5) vl 1, 14v; (6) vlne, 13v; and (7) org, 17v.</p>
               </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1950">2nd half 20th century</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Score and parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier/>
-            <physDesc>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="blue ink" type="main">Richard Moder</hand>
-              </handList>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wn</identifier>
-                <ptr target="https://data.onb.ac.at/rec/AC14308529" mimetype="" label="catalogue entry"/>
-              </repository>
-              <identifier>F100.Moder.18</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1800">ca. 1800</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Score</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">452519574</identifier>
-            <physDesc>
-              <extent>1 fol.</extent>
-              <titlePage label="[caption title]">
-                <p>Hymnus de S|t|o Joanne Baptista. Del. Sig: Werner.</p>
-              </titlePage>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <height quantity="22" unit="cm">22 (height in cm)</height>
-                <width quantity="28.5" unit="cm">28.5 (height in cm)</width>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="ink" type="main">unidentified</hand>
-              </handList>
-              <physMedium>
-                <p>hand-ruled paper</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">D-B</identifier>
-              </repository>
-              <identifier>Mus.ms. 23013/2:1</identifier>
-            </physLoc>
-            <notesStmt>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
@@ -499,10 +301,10 @@
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">530012362</identifier>
+            <identifier label="RISM">530012365</identifier>
             <physDesc>
               <titlePage label="[work title, org part]">
-                <p>Hymnus 16. in Festo S: Joannis Paptista.</p>
+                <p>Hymnus 19. in transfiguratione Domini</p>
               </titlePage>
               <physMedium>
                 <p>see WerW F.31 for details</p>
@@ -514,73 +316,11 @@
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">H-Gk</identifier>
               </repository>
-              <identifier>AMC, W. 75.:16</identifier>
+              <identifier>AMC, W. 75.:19</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>The present hymn (no. 16) is written on the following folios: (1) S, 10r; (2) A, 10r; (3) T, 10r&#x2013;v; (4) B, 10v&#x2013;11r; (5) vla 1, 7r&#x2013;v; (6) vla 2, 7r; (7) vlne, 7r; and (8) org, 9r.</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Manuscript copy</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1840">1840</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Copy</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Incomplete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530003857</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[work title, hymnus 112/a]">
-                <p>Ut queant laxis resonare fibris</p>
-              </titlePage>
-              <physMedium>
-                <p>see WerW F.2 for details</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-VEs</identifier>
-              </repository>
-              <identifier>Hymnus 112 a-b:14</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>The present hymn is no. 14.</p>
+                <p>The present hymn (no. 19) is written on the following folios: (1) S, 12r; (2) A, 11v; (3) T, 12r; (4) B, 12v; (5) vla 1, 8v; (6) vla 2, 8r; (7) vlne, 8r; and (8) org, 10v.</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
