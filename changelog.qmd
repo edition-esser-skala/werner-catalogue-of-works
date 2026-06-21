@@ -1,5 +1,40 @@
 # Changelog {.unnumbered}
 
+## 0.21.0 – 2026-06-21
+
+### Added
+
+- work: WerW G.L3
+- incipits and metadata for WerW B.2/4/42/52/61/70, C.3, E.11–14, F.48–51/58, G.21, and H.1.3
+- sources:
+  - A-Wn: F100.Moder.74/1+2, 79/1+2, 82/2, 90–93, 95–97, 103, 104, 106, 108–110, 115, 116, 119, 120, 125, 126, 134, 135 and 176
+  - D-Mbs: Mus.ms.2994
+  - SK-BRj: HJ 40, HJ 57, and HJ 376
+- details on sources:
+  - A-Ed: Zagitz and oblong convolute
+  - A-Wgm: III 17703
+- acknowledgements for Das Lehotská, Maňas, Mikulas, and Vojtěšková
+- reference @Caldara1732, @Catalogo1780, @Metz2006, @Vojteskova1991, and @ZinkovyInv
+- library sigla A-ST and SK-BRj
+- location numbers of A-Wgm sources where available
+- WerW B.S2: details on possible authorships
+- WerW D.5.L1: details on possible identity with ZWV 206
+- table of scribes: a column “type” that indicate the contents written by a scribe
+- RISM IDs for A-SEI E VIII 3 e, f, and F XXII 7 b
+
+
+### Changed
+
+- Guidelines now clarify how to calculate the extent of a work.
+- The formatting function for work and RISM links has been updated (since `stringr::str_replace_all()` was changed in v1.6.0)
+
+
+### Fixed
+
+- links to EES editions on their new webpage (this time for real!)
+
+
+
 ## 0.20.0 – 2026-04-25
 
 ### Added
