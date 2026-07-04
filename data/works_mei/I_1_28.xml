@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
   <meiHead>
-    <altId type="ark">ark:68748/gw1i26</altId>
+    <altId type="ark">ark:68748/gw1i128</altId>
     <fileDesc>
       <titleStmt>
         <title/>
@@ -40,32 +40,32 @@
     </encodingDesc>
     <workList>
       <work>
-        <identifier label="WerW">I.2.6</identifier>
-        <identifier label="HarBu">8.B.4</identifier>
-        <identifier label="HarCa">I.Mb.14, I.Mb.15</identifier>
-        <title xml:lang="la">Ave Regina coelorum</title>
+        <identifier label="WerW">I.1.28</identifier>
+        <identifier label="HarBu">8.C.28</identifier>
+        <identifier label="HarCa">I.Ma.24, I.Ma.32</identifier>
+        <title xml:lang="la">Alma Redemptoris mater</title>
         <contributor>
           <persName role="composer" auth="GND" auth.uri="http://d-nb.info/gnd" codedval="11863142X">Gregor Joseph Werner</persName>
           <corpName role=""/>
         </contributor>
         <creation>
-          <date isodate="1750">ca. 1750</date>
+          <date isodate="1730">ca. 1730</date>
           <geogName role="">Eisenstadt (?)</geogName>
         </creation>
         <history/>
         <biblList>
           <head>Bibliography</head>
           <bibl>
-            <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@Bardos1980 [p. 539, no. 1511]</ref>
-          </bibl>
-          <bibl>
             <genre>reference</genre>
-            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 130]</ref>
+            <ref targettype="pandoc-citation">@WinklerKlement2013 [p. 128]</ref>
           </bibl>
           <bibl>
             <genre>inventory</genre>
-            <ref targettype="pandoc-citation">@EisenstadtInv [p. 93, no. 5]</ref>
+            <ref targettype="pandoc-citation">@EisenstadtInv [p. 89, no. 14]</ref>
+          </bibl>
+          <bibl>
+            <genre>inventory</genre>
+            <ref targettype="pandoc-citation">@Werner1737 [p. 4, no. VI.14?]</ref>
           </bibl>
         </biblList>
         <classification>
@@ -88,21 +88,11 @@
               <perfResList>
                 <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli">
                   <head xml:lang="en">soli</head>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
                   <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
                 </perfResList>
                 <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                 <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                 <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
-                <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro">
-                  <head xml:lang="en">coro</head>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en">S</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en">A</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en">T</perfRes>
-                  <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en">B</perfRes>
-                </perfResList>
               </perfResList>
             </perfMedium>
             <classification>
@@ -112,7 +102,7 @@
             </classification>
             <componentList>
               <expression n="1">
-                <title xml:lang="la">Ave Regina coelorum</title>
+                <title xml:lang="la">Alma Redemptoris mater</title>
                 <contributor>
                   <persName role=""/>
                 </contributor>
@@ -120,35 +110,27 @@
                   <incipText>
                     <p xml:lang="en"/>
                   </incipText>
-                  <graphic targettype="lowres" target="1_ave"/>
+                  <graphic targettype="lowres" target="1_alma"/>
                 </incip>
-                <tempo>[no tempo]</tempo>
-                <key pname="d" mode="minor"/>
-                <meter sym="common"/>
+                <tempo>[no tempo] &#x2013; Adagio</tempo>
+                <key pname="f" mode="major"/>
+                <meter sym="cut"/>
                 <perfMedium xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
                   <perfResList>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" n="perfResList_bfc7416d">
+                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cve" label="soli" n="perfResList_895d37fe">
                       <head xml:lang="en">soli</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_1040247a">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_7d5d131b">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_ff5a9dac">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_3c3049d2">B</perfRes>
+                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_e73d0938">B</perfRes>
                     </perfResList>
                     <perfRes codedval="svl" count="2" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vl</perfRes>
                     <perfRes codedval="sve" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">vlne</perfRes>
                     <perfRes codedval="kor" count="1" solo="false" auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/">org</perfRes>
-                    <perfResList auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="cmi" label="coro" n="perfResList_5e930426">
-                      <head xml:lang="en">coro</head>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vso" xml:lang="en" n="perfRes_11ca1ea5">S</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="val" xml:lang="en" n="perfRes_1423fef3">A</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vte" xml:lang="en" n="perfRes_f5424faf">T</perfRes>
-                      <perfRes auth="UNIMARC" auth.uri="http://iflastandards.info/ns/unimarc/terms/mop/" codedval="vbs" xml:lang="en" n="perfRes_672c95b0">B</perfRes>
-                    </perfResList>
                   </perfResList>
                 </perfMedium>
-                <extent>40 bars</extent>
+                <extent>72 bars</extent>
                 <notesStmt>
-                  <annot/>
+                  <annot>
+                    <p>four half notes per bar; final bar (Adagio) in common time</p>
+                  </annot>
                 </notesStmt>
                 <componentList/>
                 <relationList>
@@ -162,81 +144,6 @@
       </work>
     </workList>
     <manifestationList>
-      <manifestation>
-        <identifier/>
-        <titleStmt>
-          <title>Partly autograph manuscript</title>
-        </titleStmt>
-        <pubStmt>
-          <publisher/>
-          <pubPlace/>
-          <date isodate="1750">ca. 1750</date>
-        </pubStmt>
-        <classification>
-          <termList>
-            <term>Notated music</term>
-            <term>Manuscript</term>
-            <term>Partly autograph</term>
-            <term>Parts</term>
-            <term>Fair copy</term>
-            <term>Complete</term>
-          </termList>
-        </classification>
-        <itemList>
-          <item>
-            <identifier label="RISM">530002043</identifier>
-            <physDesc>
-              <dimensions>
-                <locusGrp>
-                  <locus/>
-                </locusGrp>
-                <term/>
-                <extent> lines</extent>
-              </dimensions>
-              <titlePage label="[wrapper, by Werner]">
-                <p>Ave Regina | &#xE0; 4 | Canto, Alto, Tenore, Ba&#x17F;so. | Violini 2 | Con | Organo &#xF4; Basso | Del Werner [manu propria]</p>
-              </titlePage>
-              <titlePage label="[newer wrapper]">
-                <p>Ave Regina in D moll | a 4 Voci Soli | due Violini | Organo e Violone. | comp | del Sig Werner</p>
-              </titlePage>
-              <extent>17 parts</extent>
-              <dimensions/>
-              <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Gregor Joseph Werner</hand>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">unidentified</hand>
-              </handList>
-              <physMedium>
-                <p>two sets of parts:<lb/>(1) 6 parts, autograph manuscript, 22 x 17 cm, hand-ruled paper, 7 staves (11 mm)<lb/>(2) 11 parts, manuscript copy, 15 x 22 and 21 x 17 cm, hand-ruled paper, 5 staves (10 mm)</p>
-              </physMedium>
-            </physDesc>
-            <physLoc>
-              <repository>
-                <corpName role=""/>
-                <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
-                <ptr target="https://copia.oszk.hu/kotta/ave-regina-in-d-moll/" mimetype="" label="digitized version"/>
-                <ptr target="https://nektar.oszk.hu/hu/manifestation/2705727" mimetype="" label="catalogue entry"/>
-              </repository>
-              <identifier>Ms.mus III.150</identifier>
-            </physLoc>
-            <notesStmt>
-              <annot type="source_description">
-                <p>first set: S solo and coro (2), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (2), vl 2 (2)</p>
-                <p>second set: S coro (2x; 3, 3), A coro (2x; 3, 3), T coro (3), B coro (3), vl 1 (3), vl 2 (3), vlne (3), org (2x; 2, 2)</p>
-                <p>the T coro part of the second set of parts is wrongly archived under Ms.mus. III.111 (WerW I.4.11)</p>
-              </annot>
-              <annot type="links">
-                <ptr mimetype=""/>
-              </annot>
-            </notesStmt>
-            <componentList/>
-          </item>
-        </itemList>
-        <componentList/>
-        <relationList>
-          <relation rel="isEmbodimentOf"/>
-        </relationList>
-      </manifestation>
       <manifestation>
         <identifier/>
         <titleStmt>
@@ -259,27 +166,28 @@
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">600038506</identifier>
+            <identifier label="RISM">600038483</identifier>
             <physDesc>
-              <extent>8 parts</extent>
+              <extent>5 parts</extent>
               <titlePage label="[wrapper]">
-                <p>Ave Regina | &#xE0; | Canto Alto | Tenore Ba&#x17F;so | Violinis 2. | Con | Organo e Violone | Del Sig: Werner Compositore | de Son Alte&#x17F;se Monsieugneur | de Prince Esterhaszy</p>
+                <p>Alma Redemptoris. | Ba&#x17F;so Solo. | Violini Conc|t|i|: 2. | Con | Organo [by Kraus: &#xE8; Violone] | Authore Sigre Gregorio Werner.</p>
               </titlePage>
               <dimensions>
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="21" unit="cm">21 (height in cm)</height>
-                <width quantity="17.5" unit="cm">17.5 (height in cm)</width>
+                <height quantity="17" unit="cm">17 (height in cm)</height>
+                <width quantity="24" unit="cm">24 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
               <dimensions/>
               <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Copyist Eisenstadt 1</hand>
                 <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Carl Kraus</hand>
               </handList>
               <physMedium>
-                <p>hand-ruled paper, 6 staves (11 mm)</p>
+                <p>hand-ruled paper, 5 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
@@ -287,18 +195,64 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-Ed</identifier>
-                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/431.html" mimetype="" label="digitized version"/>
+                <ptr target="https://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/377.html" mimetype="" label="digitized version"/>
               </repository>
-              <identifier>I 5</identifier>
+              <identifier>H 14</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro (2), A solo and coro (2), T solo and coro (2), B coro (2), vl 1 (2), vl 2 (2), vlne (2), org (2)</p>
+                <p>B solo (2), vl 1 (2), vl 2 (2), vlne (2), org (2)</p>
+                <p>vlne part by Kraus, remaining parts by Copyist Eisenstadt 1</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>
               </annot>
             </notesStmt>
+            <componentList/>
+          </item>
+        </itemList>
+        <componentList/>
+        <relationList>
+          <relation rel="isEmbodimentOf"/>
+        </relationList>
+      </manifestation>
+      <manifestation>
+        <identifier/>
+        <titleStmt>
+          <title>Manuscript copy</title>
+        </titleStmt>
+        <pubStmt>
+          <publisher/>
+          <pubPlace/>
+          <date isodate="1950">ca. 1950</date>
+        </pubStmt>
+        <classification>
+          <termList>
+            <term>Notated music</term>
+            <term>Manuscript</term>
+            <term>Copy</term>
+            <term>Score</term>
+            <term>Fair copy</term>
+            <term>Complete</term>
+          </termList>
+        </classification>
+        <itemList>
+          <item>
+            <identifier/>
+            <physDesc>
+              <handList>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="blue ink" type="main">Richard Moder</hand>
+              </handList>
+            </physDesc>
+            <physLoc>
+              <repository>
+                <corpName role=""/>
+                <geogName role=""/>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wn</identifier>
+                <ptr target="https://data.onb.ac.at/rec/AC14308495" mimetype="" label="catalogue entry"/>
+              </repository>
+              <identifier>F100.Moder.33:1</identifier>
+            </physLoc>
             <componentList/>
           </item>
         </itemList>
@@ -340,9 +294,9 @@
                 <corpName role=""/>
                 <geogName role=""/>
                 <identifier auth="RISM" auth.uri="http://www.rism.info">A-Wn</identifier>
-                <ptr target="https://data.onb.ac.at/rec/AC14308506" mimetype="" label="catalogue entry"/>
+                <ptr target="https://data.onb.ac.at/rec/AC14308484" mimetype="" label="catalogue entry"/>
               </repository>
-              <identifier>F100.Moder.94/3</identifier>
+              <identifier>F100.Moder.106</identifier>
             </physLoc>
             <componentList/>
           </item>
@@ -360,7 +314,7 @@
         <pubStmt>
           <publisher/>
           <pubPlace/>
-          <date isodate="1750">18th century</date>
+          <date isodate="1730">ca. 1730</date>
         </pubStmt>
         <classification>
           <termList>
@@ -374,39 +328,42 @@
         </classification>
         <itemList>
           <item>
-            <identifier label="RISM">530012311</identifier>
+            <identifier label="RISM">530002077</identifier>
             <physDesc>
+              <extent>5 parts</extent>
+              <titlePage label="[wrapper = org part, fol. 1r]">
+                <p>Alma Redemptoris | Ba&#x17F;so Solo | Violini Conc:|t|i 2 | Con | Organo. | Del Gregorio Werner [manu propria]</p>
+              </titlePage>
               <dimensions>
                 <locusGrp>
                   <locus/>
                 </locusGrp>
-                <height quantity="21.5" unit="cm">21.5 (height in cm)</height>
-                <width quantity="17" unit="cm">17 (height in cm)</width>
+                <height quantity="32" unit="cm">32 (height in cm)</height>
+                <width quantity="21" unit="cm">21 (height in cm)</width>
                 <term/>
                 <extent> lines</extent>
               </dimensions>
-              <extent>7 parts</extent>
-              <titlePage label="[wrapper]">
-                <p>Ave Regina | a | 4 Voci | Soprano, Alto, Tenore, Basso | Violino Primo | Violino Secondo | Con | Organo | Del Sigre Gregorio Werner. | [in different hand:] Der Kirche geh&#xF6;rig!</p>
-              </titlePage>
+              <dimensions/>
               <handList>
-                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="black ink" type="main">Benedek Istv&#xE1;nffy</hand>
+                <hand xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" medium="brown ink" type="main">Copyist Esterh&#xE1;zy 1</hand>
               </handList>
               <physMedium>
-                <p>hand-ruled paper, 6 staves (10 mm)</p>
+                <p>hand-ruled paper, 10 staves (10 mm)</p>
               </physMedium>
             </physDesc>
             <physLoc>
               <repository>
                 <corpName role=""/>
                 <geogName role=""/>
-                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Gk</identifier>
+                <identifier auth="RISM" auth.uri="http://www.rism.info">H-Bn</identifier>
+                <ptr target="https://copia.oszk.hu/kotta/alma-redemptoris-in-f-3/" mimetype="" label="digitized version"/>
+                <ptr target="https://nektar.oszk.hu/hu/manifestation/2706000" mimetype="" label="catalogue entry"/>
               </repository>
-              <identifier>AMC, W. 71.</identifier>
+              <identifier>Ms.mus III.188</identifier>
             </physLoc>
             <notesStmt>
               <annot type="source_description">
-                <p>S solo and coro (2), A solo and coro (2), T solo and coro (2), B solo and coro (2), vl 1 (2), vl 2 (2), org (2)</p>
+                <p>B solo (2), vl 1 (2), vl 2 (2), vlne (1), org (2)</p>
               </annot>
               <annot type="links">
                 <ptr mimetype=""/>

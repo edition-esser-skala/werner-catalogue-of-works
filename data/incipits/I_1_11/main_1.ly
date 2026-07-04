@@ -3,18 +3,18 @@
 
 notes = \relative c' {
   \clef soprano
-  \key d \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-  r2^\partSc d'
-  cis d~
-  d4 fis h,4. h8
-  ais4 ais h8[ \hA ais h cis]
+  \twofourtime \key f \major \time 2/4 \tempoMarkup "Allegretto passato" \autoBeamOff
+  f8.[^\partSs g16] a[ b a b]
+  c8[ a] f4
+  f'4. f8
+  f[ c] a[ f]
 }
 
 text = \lyricmode {
-  Sub
-  tu -- um __
-  prae -- si -- di --
-  um con -- "fu -"
+  Al -- _
+  _ ma
+  Re -- dem --
+  pto -- ris
 }
 
 \score {
