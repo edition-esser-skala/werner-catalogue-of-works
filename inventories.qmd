@@ -253,8 +253,8 @@ print_inventory(
 #| output: asis
 inv <- print_inventory(
   "Werner1737",
-  pattern = "p. (\\w+), no. (\\w+)\\.(\\w+)",
-  cols = c("p.", "section", "no."),
+  pattern = "p. (\\w+), no. (\\w+)\\.(\\w+)(\\??)",
+  cols = c("p.", "section", "no.", "putative"),
   return_tibble = TRUE
 )
 
@@ -283,6 +283,7 @@ works_werner %>%
     by = join_by(page == p., number == no., section == section)
   ) %>% 
   select(!section) %>%
+  unite(id, putative, col = "id", sep = "", na.rm = TRUE) %>% 
   summarise(
     .by = c(group, page, number, title), 
     id = str_flatten_comma(id)
