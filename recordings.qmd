@@ -1,0 +1,76 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+format:
+  html:
+    html-table-processing: none
+---
+
+# Recordings {.unnumbered}
+
+```{r packages and functions}
+#| include: false
+library(tidyverse)
+library(gt)
+library(yaml)
+source("script/utils.R")
+options(readr.show_col_types = FALSE)
+
+params <- read_yaml("data/config.yml")
+```
+
+
+The following table lists recent recordings of Werner's works that are easily accessible via streaming platforms. See @Czernin2020c for a list of older recordings.
+
+```{r recordings}
+#| echo: false
+#| output: asis
+work_links <-
+  read_rds("data_generated/works.rds") %>%
+  left_join(
+    read_csv("data/catalogue_overview.csv") %>% distinct(group, file),
+    by = "group"
+  ) %>%
+  unite(group:number, col = "id", sep = ".", na.rm = TRUE) %>%
+  mutate(
+    link = str_glue('<a href="/groups/{file}.html#work-{id}">{id}</a>')
+  ) %>%
+  select(id, link) %>%
+  add_row(id = "O.1–12", link = '<a href="/groups/partitas.html#work-O.1">O.1</a>')
+
+read_csv("data/recordings.csv", col_types = "c") %>%
+  fill(title:year) %>%
+  separate_wider_delim(
+    id,
+    delim = "/",
+    names = c("id", "id_sub"),
+    too_few = "align_start"
+  ) %>% 
+  mutate(
+    recording = str_glue(
+      "**{title}**<br/>", 
+      "{ensemble}, *{conductor}*<br/>",
+      "{label}, {label_number} ({year})"
+    ),
+    id = recode_values(
+      id, 
+      from = work_links$id, 
+      to = work_links$link, 
+      unmatched = "error"
+    )
+  ) %>%
+  unite(id, id_sub, col = "id", sep = "/", na.rm = TRUE) %>% 
+  select(recording, track, track_title, id) %>%
+  gt(groupname_col = "recording", process_md = TRUE) %>%
+  fmt_markdown(columns = id) %>%
+  cols_label(id = params$catalogue_prefix, track_title = "title") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.background.color = "grey90",
+    table.align = "left",
+    table_body.hlines.style = "none"
+  )
+
+```
+
