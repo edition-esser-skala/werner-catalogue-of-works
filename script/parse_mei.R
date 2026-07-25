@@ -507,7 +507,6 @@ format_sources_short <- function(ss) {
   sources <-
     map(ss, \(s) get_source_locations(s, pluck(s$identifier, 1))) %>%
     list_rbind() %>%
-    arrange(type, siglum, shelfmark) %>%
     summarise(
       .by = type,
       sources = str_flatten(source, " · "),
