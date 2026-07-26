@@ -264,3 +264,85 @@ read_rds("data_generated/works.rds") %>%
     table_body.hlines.style = "none"
   )
 ```
+
+
+
+## Compound sources
+
+### A-Ed oblong convolute
+
+```{r compound source A-Ed oblong convolute}
+#| echo: false
+#| output: asis
+
+print_compound_source <- function(file, spanner_cols = NULL) {
+  read_csv(file) %>% 
+  gt() %>% 
+  tab_spanner(label = "fol. in part", columns = {{spanner_cols}}) %>% 
+  sub_missing(missing_text = "") %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    table_body.hlines.style = "none"
+  )
+}
+
+print_compound_source("data/compound_source_oblong.csv")
+```
+
+
+### A-Ed Zagitz convolute
+
+```{r compound source A-Ed Zagitz convolute}
+#| echo: false
+#| output: asis
+
+print_compound_source("data/compound_source_zagitz.csv")
+```
+
+
+### A-KN 130
+
+```{r compound source A-KN 130}
+#| echo: false
+#| output: asis
+
+print_compound_source("data/compound_source_hymns_klosterneuburg.csv",
+                      spanner_cols = S:sheets)
+  
+```
+
+
+### H-Bn Ms.mus III.210
+
+```{r compound source H-Bn 210}
+#| echo: false
+#| output: asis
+
+print_compound_source("data/compound_source_hymns_oszk_210.csv",
+                      spanner_cols = S:vlne)
+  
+```
+
+
+### H-Gk AMC, W. 74.
+
+```{r compound source H-Gk AMC W 74}
+#| echo: false
+#| output: asis
+
+print_compound_source("data/compound_source_hymns_gyor_w74.csv",
+                      spanner_cols = S:`vl 2 (newer)`)
+  
+```
+
+
+### H-Gk AMC, W. 75.
+
+```{r compound source H-Gk AMC W 75}
+#| echo: false
+#| output: asis
+
+print_compound_source("data/compound_source_hymns_gyor_w75.csv",
+                      spanner_cols = S:org)
+  
+```
