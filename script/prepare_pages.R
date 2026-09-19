@@ -383,12 +383,22 @@ overview_table <-
     ),
     label = if_else(is.na(Metadata), "summary", "details"),
     Description = str_glue("[{label}](/groups/{file}.html#work-{id})"),
-    Metadata = replace_na(Metadata, "")
+    Metadata = replace_na(Metadata, ""),
+    Score = if_else(
+      id %in% str_replace_all(AVAILABLE_EDITIONS, "_", "."),
+      paste0(
+        "[PDF](https://n2t.net/ark:",
+        params$edition$ark,
+        id %>% str_to_lower() %>% str_replace_all("\\.", ""),
+        ")"
+      ),
+      ""
+    )
   ) %>%
-  select(group_name, id, Title = title, Description, Metadata) %>%
+  select(group_name, id, Title = title, Description, Metadata, Score) %>%
   gt(groupname_col = "group_name", process_md = TRUE) %>%
   cols_label(id = catalogue_prefix) %>%
-  fmt_markdown(columns = c("id", "Description", "Metadata")) %>%
+  fmt_markdown(columns = c("id", "Description", "Metadata", "Score")) %>%
   tab_options(
     column_labels.font.weight = "bold",
     row_group.background.color = "grey90"
