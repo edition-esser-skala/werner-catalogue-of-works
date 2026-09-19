@@ -728,7 +728,9 @@ get_bibliography_entries <- function(bibllist, genre) {
       targettype <- attr(bibl$ref, "targettype") %||% "(missing)"
       citation <- bibl$ref[[1]]
       if (targettype != "pandoc-citation")
-        warn("citation {citation} has wrong targettype '{targettype}'")
+        warn("  citation {citation} has wrong targettype '{targettype}'")
+      if (str_sub(citation, 1, 1) != "@")
+        error("  invalid citation: {citation}")
       citation
     }) %>%
     str_sort()
