@@ -192,7 +192,7 @@ BassFigures = \figuremode {
       \new Lyrics \lyricsto Tenore \TenoreLyrics
 
       \new Staff {
-        \set Staff.instrumentName = "b"
+        \set Staff.instrumentName = "B"
         \new Voice = "Basso" { \dynamicUp \Basso }
       }
       \new Lyrics \lyricsto Basso \BassoLyrics
