@@ -55,5 +55,6 @@ hy = \markup { \override #'(thickness . 1.25) \raise #.52 \draw-line #'(.5 . 0) 
   \context {
     \Staff
     \RemoveAllEmptyStaves
+    \accidentalStyle modern
   }
 }
