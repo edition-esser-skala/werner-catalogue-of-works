@@ -1,10 +1,13 @@
 \version "2.24.2"
 \include "header.ly"
 
-notes = \relative c' {
-  \clef soprano
-  \key f \major \time 2/2 \autoBeamOff \tempoMarkup "[no tempo]"
-  c'1^\partSc
+notes = \relative c {
+  \clef bass
+  \key f \major \time 6/4 \autoBeamOff
+    \once \omit Staff.TimeSignature
+  c\breve*1/8^\partBc d d a' b a \bar "||"
+  \clef soprano \time 2/2 \tempoMarkup "[no tempo]"
+    c'1^\partSc
   a2 a
   d2. c4
   b g a b
@@ -12,6 +15,7 @@ notes = \relative c' {
 }
 
 text = \lyricmode {
+  Ro -- _ ra -- _ _ te.
   Ro --
   ra -- te
   coe -- li
