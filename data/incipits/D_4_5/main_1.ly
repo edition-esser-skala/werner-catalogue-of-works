@@ -5,7 +5,7 @@ notes = \relative c {
   \clef bass
   \key f \major \time 6/4 \autoBeamOff
     \once \omit Staff.TimeSignature
-  c\breve*1/8^\partBc d d a' b a\fermata \bar "||"
+  c\breve*1/8^\partBc d d a' b a \bar "||"
   \time 2/2 \tempoMarkup "Allabreve" a2. g4
   f e \clef soprano d''2~^\partSc
   d4 c b a

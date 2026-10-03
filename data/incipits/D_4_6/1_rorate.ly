@@ -4,10 +4,10 @@
 ViolinoI = {
   \relative c' {
     \clef treble
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 6/4
       \once \omit Staff.TimeSignature
     s4*6 \bar "||"
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       c'1 a2 d~
     d4 c f1 e2
@@ -20,10 +20,10 @@ ViolinoI = {
 ViolinoII = {
   \relative c' {
     \clef treble
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]"
+    \key f \major \time 6/4
       \once \omit Staff.TimeSignature
     s4*6 \bar "||"
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       r1 f
     a2. g8 f g2. g4
@@ -36,10 +36,10 @@ ViolinoII = {
 Soprano = {
   \relative c' {
     \clef soprano
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 6/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*6 \bar "||"
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       c'1 a2 d~
     d4 c f1 e2
@@ -60,10 +60,10 @@ SopranoLyrics = \lyricmode {
 Alto = {
   \relative c' {
     \clef alto
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 6/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*6 \bar "||"
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       r1 f
     a2. g8[ f] g2. g4
@@ -84,10 +84,10 @@ AltoLyrics = \lyricmode {
 Tenore = {
   \relative c' {
     \clef tenor
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 6/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     s4*6 \bar "||"
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       R\breve
     r1 c
@@ -107,11 +107,11 @@ TenoreLyrics = \lyricmode {
 Basso = {
   \relative c {
     \clef bass
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]" \autoBeamOff
+    \key f \major \time 6/4 \autoBeamOff
       \once \omit Staff.TimeSignature
     c\breve*1/8 d d a' b a\fermata \bar "||"
       \set Staff.timeSignatureFraction = 2/2
-    \time 4/2
+    \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
       R\breve*2
     f1 a
@@ -131,10 +131,10 @@ BassoLyrics = \lyricmode {
 Organo = {
   \relative c {
     \clef bass
-    \key f \major \time 6/4 \tempoMarkup "[no tempo]"
+    \key f \major \time 6/4
       \once \omit Staff.TimeSignature
     c\breve*1/8 d d a' b a\fermata \bar "||"
-    \clef soprano \time 4/2
+    \clef soprano \time 4/2 \tempoMarkup "[no tempo]"
       \set Staff.timeSignatureFraction = 2/2
     << {
       c'1 a2 d~
