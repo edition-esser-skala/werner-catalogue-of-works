@@ -5,10 +5,10 @@ ViolinoI = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    r16 c' e16. f32 g16. a32 h16 a32 g c16. c32 h16. a32 g16. f32 e16. d32
-    e16. g32 c8~ c16. g32 e16. c32 a16. f32 a'8~ a16. f32 d16. h32
-    g16. e32 g'8~ g16. e32 c16. a32 f16. d32 f'8~ f16. d32 h16. g32
-    e16. c32 e16. f32 g16. g32 a16. h32 c16. a32 c16. d32 e16. e32 f16. g32
+    c16 e g c g h d g c, e g c h g d h
+    g c e c a d f d h e g e c f a f
+    d g h g c g e c' h g d h g4
+    R1*2
   }
 }
 
@@ -16,101 +16,111 @@ ViolinoII = {
   \relative c' {
     \clef treble
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    r16 c' e16. f32 g16. a32 h16 a32 g c16. c32 h16. a32 g16. f32 e16. d32
-    e16. g32 c8~ c16. g32 e16. c32 a16. f32 a'8~ a16. f32 d16. h32
-    g16. e32 g'8~ g16. e32 c16. a32 f16. d32 f'8~ f16. d32 h16. g32
-    e16. c32 e16. f32 g16. g32 a16. h32 c16. a32 c16. d32 e16. e32 f16. g32
+    c16 e g c g h d g c, e g c h g d h
+    g c e c a d f d h e g e c f a f
+    d g h g c g e c' h g d h g4
+    R1*2
   }
 }
 
 Soprano = {
   \relative c' {
     \clef soprano
-    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    e'4^\tutti g c,8 d16 e d8 d16 d
-    e8 e r c4 a8 r h~
-    h g r a4 f8 r g
-    g g r g c c r c
+    \key c \major \time 4/4 \tempoMarkup "Allegro" \autoBeamOff
+    r4 g'8[^\tutti h] c e d d
+    c8.[\trill h32 c] d8.[\trill c32 d] e8.[\trill d32 e] f8 f
+    d d e4 d8 d^\solo d e
+    f d e[ c16 d] e4. d8
+    e h c d16 d e8 c4 c8
   }
 }
 
 SopranoLyrics = \lyricmode {
-  Di -- xit Do -- mi -- nus Do -- mi -- no
-  me -- o: Se -- de, se --
-  de, se -- de a
-  dex -- tris, a dex -- tris, a
+  Se -- de a dex -- tris
+  me -- _ _ is, a
+  dex -- tris me -- is, Vir -- gam vir --
+  tu -- tis tu -- _ _
+  ae ex u -- te -- ro an -- te "lu -"
 }
 
 Alto = {
   \relative c' {
     \clef alto
-    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    g'4.^\tutti g8 a a16 a d,8 g16 g
-    g8 g r4 r8 f4 d8
-    r e4 c8 r d4 h8
-    r c g' g r e g g
+    \key c \major \time 4/4 \tempoMarkup "Allegro" \autoBeamOff
+    r8 g'4^\tutti g8 g4 g
+    g8 e a f h g16 g c8 a
+    g4 g8 g g g r4
+    r g8^\solo g c c16 h a8. a16
+    gis8 gis a h c8.[ h16] a8 g
   }
 }
 
 AltoLyrics = \lyricmode {
-  Di -- xit Do -- mi -- nus Do -- mi -- no
-  me -- o: Se -- de,
-  se -- de, se -- de
-  a dex -- tris, a dex -- tris,
+  do -- nec po -- nam
+  in -- i -- mi -- cos tu -- os, sca -- bel -- lum
+  pe -- dum tu -- o -- rum.
+  Do -- mi -- na -- re in me -- di --
+  o in -- i -- mi -- co -- rum "tu -"
 }
 
 Tenore = {
   \relative c' {
     \clef tenor
-    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    c4^\tutti d e8 d16 c h8 d16 d
-    c8 c g4 a d
-    g, c f, g
-    e r8 d' e e r e
+    \key c \major \time 4/4 \tempoMarkup "Allegro" \autoBeamOff
+    e8^\tutti e d d16 d c8 c16 c h4\trill
+    c a8[ d] h e c4
+    d c h r
+    r2 r8 e^\solo a, f'
+    h,8. h16 e8 d c16 d e8 e e
   }
 }
 
 TenoreLyrics = \lyricmode {
-  Di -- xit Do -- mi -- nus Do -- mi -- no
-  me -- o: Se -- de a
-  dex -- tris me -- _
-  is, a dex -- tris, a
+  Di -- xit Do -- mi -- nus Do -- mi -- no me --
+  o: Se -- de a dex -- tris
+  me -- is,
+  Te -- cum prin --
+  ci -- pi -- um in di -- e vir -- tu -- tis
 }
 
 Basso = {
   \relative c {
     \clef bass
-    \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Allegro"
-    c'4^\tutti h a8 a16 a h8 h16 h
-    c8 c, e4 f d
-    e c d h
-    c r8 h' a a r g
+    \key c \major \time 4/4 \tempoMarkup "Allegro" \autoBeamOff
+    c8^\tutti c' h g16 g e8 c16 c g'4
+    e8 c[ f] d g[ e] a f
+    h[ g] e[ c'] g g r g^\solo
+    a h c8. h16 a8 g f4
+    e c8 h a4 c
   }
 }
 
 BassoLyrics = \lyricmode {
-  Di -- xit Do -- mi -- nus Do -- mi -- no
-  me -- o: Se -- de a
-  dex -- tris me -- _
-  is, a dex -- tris, a
+  Di -- xit Do -- mi -- nus Do -- mi -- no me --
+  o: Se -- de, se -- de a
+  dex -- tris me -- is, e --
+  mit -- tet Do -- mi -- nus ex Si --
+  on: in splen -- do -- "ri -"
 }
 
 Organo = {
   \relative c {
     \clef bass
     \key c \major \time 4/4 \tempoMarkup "Allegro"
-    c8-\tutti c' h h, a4 h
-    c e f d
-    e c d h
-    c8 c' h4 a g
+    c8-\tutti c' h g e c g' g,
+    e' c f d g e a f
+    h g e c' g g, r g-\solo
+    a h c c'16 h a8 g f4
+    e8. d16 c8 h a4 c
   }
 }
 
 BassFigures = \figuremode {
-  r1
-  r2. <5>8 <6>
-  <5> <6> <5> <6> <5> <6> <5> <6>
-  r2. <6 4>4
+  r2. <3>4
+  r <6> q q
+  q1
+  <6>2. <7>8 <6>
+  <_+>4 r2 <6>8 <5>
 }
 
 \score {
@@ -161,5 +171,4 @@ BassFigures = \figuremode {
     >>
     \new FiguredBass { \BassFigures }
   >>
-  \layout { \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16) }
 }
