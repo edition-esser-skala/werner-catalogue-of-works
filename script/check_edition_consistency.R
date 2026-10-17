@@ -44,7 +44,11 @@ meta_edition <-
   mutate(
     rism_id = as.character(rism_id),
     across(everything(), ~replace_na(.x, "NA")),
-    subtitle = str_replace_all(subtitle, "\\\\\\\\", " ")
+    title = str_replace_all(title, c("æ" = "ae", "œ" = "oe", "ſ" = "s")),
+    subtitle = str_replace_all(
+      subtitle,
+      c("\\\\\\\\" = " ", "æ" = "ae", "œ" = "oe", "ſ" = "s")
+    )
   )
 
 
@@ -173,10 +177,7 @@ full_join(
   meta_catalogue %>%
     distinct(id, title),
   meta_edition %>%
-    distinct(id, title) %>%
-    mutate(
-      title = str_replace_all(title, c("æ" = "ae", "œ" = "oe", "ſ" = "s"))
-    ),
+    distinct(id, title),
   by = "id"
 ) %>%
   mutate(equal = title.x == title.y) %>%
