@@ -226,7 +226,7 @@ anti_join(
 
 ## Manuscript type ----
 
-# remaining: 3 (B.75, M.24, and O.1–12)
+# remaining: 5 (B.75, L.1, L.2, M.24, and O.1–12)
 meta_edition %>%
   mutate(
     type =
@@ -253,7 +253,7 @@ meta_edition %>%
 
 ## URL ----
 
-# remaining: 3 (B.75, M.24, and O.1–12)
+# remaining: 5 (B.75, L.1, L.2, M.24, and O.1–12)
 meta_edition %>%
   anti_join(
     meta_mei,
@@ -264,7 +264,7 @@ meta_edition %>%
 ## Date ----
 
 # all dates included in an edition are correct
-# remaining: 2 (M. 24 and O.1–12)
+# remaining: 4 (L.1, L.2, M.24 and O.1–12)
 meta_edition %>%
   anti_join(
     meta_mei,
