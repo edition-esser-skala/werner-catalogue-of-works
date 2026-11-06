@@ -5,7 +5,7 @@ Soli = {
   \relative c {
     \clef bass
     \key c \major \time 4/4 \autoBeamOff \tempoMarkup "Recitativo"
-    r4 r8 g' c r16 g e8 r16 g
+    r4^\part "Barthlme" r8 g' c r16 g e8 r16 g
     c,8 r16 e e8 a g16 g g a b8 b16 a
     f8 r16 f a8 f e r16 gis h8 e,
     c r c e g g16 g e8 c
@@ -41,7 +41,7 @@ BassFigures = \figuremode {
   <<
     \new ChoirStaff <<
       \new Staff {
-        \set Staff.instrumentName = "Barthlme"
+        \set Staff.instrumentName = "solo"
         \new Voice = "Soli" { \dynamicUp \Soli }
       }
       \new Lyrics \lyricsto Soli \SoliLyrics
